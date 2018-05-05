@@ -1,5 +1,6 @@
 package it.univaq.disim.mobile.unievent.business.impl;
 
+import it.univaq.disim.mobile.unievent.business.domain.Event;
 import it.univaq.disim.mobile.unievent.business.domain.User;
 import it.univaq.disim.mobile.unievent.business.domain.Session;
 import it.univaq.disim.mobile.unievent.business.domain.UserPreference;
@@ -15,6 +16,10 @@ import javax.persistence.EntityManager;
 @Transactional
 public class UniEventServiceImpl implements UniEventService {
 
+
+    /*
+     *  REPOSITORY
+     */
     @Autowired
     private UserRepository userRepository;
 
@@ -26,6 +31,15 @@ public class UniEventServiceImpl implements UniEventService {
 
     @Autowired
     private EntityManager entityManager;
+
+    @Autowired
+    private EventRepository eventRepository;
+
+    /*
+     * END REPOSITORY
+     */
+
+
 
     @Override
     public void createUser(User user) {
@@ -48,6 +62,19 @@ public class UniEventServiceImpl implements UniEventService {
         return userPreferenceRepository.findByName(name);
 
     }
+
+
+
+
+    @Override
+    public void createEvent(Event event){
+        this.eventRepository.save(event);
+    }
+
+
+
+
+
 
     public void save(User user){
 
