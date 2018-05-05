@@ -32,10 +32,6 @@ public class Event implements java.io.Serializable {
     @Column(name = "address", nullable = true )
     private String address;
 
-
-
-
-
     @Column(name = "date", nullable = true )
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
@@ -45,9 +41,8 @@ public class Event implements java.io.Serializable {
     private Date dateCreation;
 
 
-
-
-
+    @Column(name="views", nullable = true)
+    private Long views;
 
 
     @Override
@@ -152,13 +147,23 @@ public class Event implements java.io.Serializable {
         this.dateCreation = dateCreation;
     }
 
-
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Timestamp date) {
         this.date = date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Long getViews() {
+        return views;
+    }
+
+    public void setViews(Long views) {
+        this.views = views;
     }
 }
