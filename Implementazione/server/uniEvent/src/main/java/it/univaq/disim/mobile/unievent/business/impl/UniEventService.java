@@ -5,6 +5,9 @@ import it.univaq.disim.mobile.unievent.business.domain.Session;
 import it.univaq.disim.mobile.unievent.business.domain.User;
 import it.univaq.disim.mobile.unievent.business.domain.UserPreference;
 
+import java.util.List;
+import java.util.Set;
+
 /**
  * @author uniEvent
  */
@@ -29,6 +32,10 @@ public interface UniEventService {
 
     //Event
     void createEvent(Event event);
+
+    List<Event> findHotEvent();
+
+    List<Event> findAllEvents();
 
     //End Event
 

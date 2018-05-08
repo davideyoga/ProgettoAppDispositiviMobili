@@ -41,7 +41,7 @@ public class Event implements java.io.Serializable {
     private Date dateCreation;
 
 
-    @Column(name="views", nullable = true)
+    @Column(name="views", nullable = false)
     private Long views;
 
 

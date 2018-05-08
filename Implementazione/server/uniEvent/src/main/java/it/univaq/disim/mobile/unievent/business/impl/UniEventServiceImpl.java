@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author uniEvent
@@ -71,9 +73,16 @@ public class UniEventServiceImpl implements UniEventService {
         this.eventRepository.save(event);
     }
 
+    @Override
+    public List<Event> findHotEvent() {
+        return null;
 
+    }
 
-
+    @Override
+    public List <Event> findAllEvents() {
+        return eventRepository.findAll();
+    }
 
 
     public void save(User user){
