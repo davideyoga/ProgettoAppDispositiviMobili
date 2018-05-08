@@ -75,12 +75,13 @@ public class UniEventServiceImpl implements UniEventService {
 
     @Override
     public List<Event> findHotEvent() {
-        return null;
+        return eventRepository.findTop10ByOrderByViewsDesc();
 
     }
 
     @Override
     public List <Event> findAllEvents() {
+
         return eventRepository.findAll();
     }
 

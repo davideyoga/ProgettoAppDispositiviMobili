@@ -18,8 +18,9 @@ public class EventController {
     @Autowired
     private UniEventService service;
 
-    @PostMapping("/event/create")
-    public Response createEvent(@RequestBody Event event) {
+    @RequestMapping(value = "/event/create", produces = "application/json", method = RequestMethod.POST)
+    public @ResponseBody
+    Response createEvent(@RequestBody Event event) {
 
         this.service.createEvent(event);
 
