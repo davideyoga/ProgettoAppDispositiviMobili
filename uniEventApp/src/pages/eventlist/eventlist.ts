@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   selector: 'eventlist',
   templateUrl: 'eventlist.html'
 })
-export class eventlist {constructor() }
+export class eventlist { }
