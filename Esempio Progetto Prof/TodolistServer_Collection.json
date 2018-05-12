@@ -1,0 +1,239 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Todolist",
+		"_postman_id": "c75b0fa5-9f23-d343-803f-a412db60ab6c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"description": "",
+			"item": [
+				{
+					"name": "Tasks Create",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/tasks/6514279048043361181",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\": \"bla bla\", \"completed\": false, \"position\": 1}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/tasks/6514279048043361181",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "Sono un task",
+									"type": "text"
+								},
+								{
+									"key": "completed",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "index",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Task Get",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/tasks/3740206776588709822/1",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "Sono un task",
+									"type": "text"
+								},
+								{
+									"key": "completed",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "index",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Task Edit",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/tasks/1415442161573067878/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\": \"bla bla_new\", \"completed\": true, \"position\": 10}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Task Delete",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/tasks/3740206776588709822/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Tasks Order",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/tasks/3740206776588709822/order/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{ \"id\": 1, \"position\": 3 }, { \"id\": 2, \"position\": 4 }]"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "Users Create",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"amletodisalle\", \"password\": \"pippo123\", \"firstname\": \"Amleto\", \"lastname\": \"Di Salle\", \"email\": \"amleto.disalle@univaq.it\"}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"amletodisalle\", \"password\": \"pippo123\"}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/logout/3740206776588709822",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Users Update",
+					"request": {
+						"url": "http://localhost:8080/todolist/api/users/3740206776588709822",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstname\": \"Amleto_new\", \"lastname\": \"Di Salle_new\", \"email\": \"new_amleto.disalle@univaq.it\"}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api test",
+			"request": {
+				"url": "http://localhost:8080/todolist/api",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
