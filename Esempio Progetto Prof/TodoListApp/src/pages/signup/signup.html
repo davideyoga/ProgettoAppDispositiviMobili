@@ -1,0 +1,35 @@
+
+<ion-header no-border>
+    <ion-navbar color="secondary">
+        <ion-title>
+            {{ 'SIGNUP' | dictionary }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="flex-container full-height">
+        <div class="flex-item my-form">
+
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-input type="text" placeholder="{{ 'USERNAME' | dictionary }}" [(ngModel)]="user.username"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-input type="email" placeholder="{{ 'EMAIL' | dictionary }}" [(ngModel)]="user.email"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input type="password" placeholder="{{ 'PASSWORD' | dictionary }}" [(ngModel)]="user.password"></ion-input>
+                </ion-item>
+            </ion-list>
+
+            <div class="buttons-container">
+                <button ion-button block round color="dark" (click)="signup()">{{ 'BTN_SIGNUP' | dictionary }}</button>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

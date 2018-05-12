@@ -1,0 +1,48 @@
+{
+    "APP_NAME": "Todo List",
+    
+    "OK": "ok",
+    "SI": "si",
+    "NO": "no",
+    
+    "HOME": "Home",
+    "PROFILE": "Profilo",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "EMAIL": "Email",
+    "FIRSTNAME": "Nome",
+    "LASTNAME": "Cognome",
+    "LANGUAGE": "Lingua",
+    
+    "DELETE": "Elimina",
+    "EDIT": "Modifica",
+    "CANCEL": "Annulla",
+    "ADD": "Aggiungi",
+    "SAVE": "Salva",
+    
+    "TASKS": "Tasks",
+    "TASKS_COMPLETED": "Tasks Completati",
+    "NEW_TASK": "Nuovo Task",
+    "EDIT_TASK": "Modifica Task",
+    
+    "LOGIN": "Login",
+    "SIGNUP": "Registrazione",
+    "BTN_SIGNUP": "Registrati",
+    
+    
+    "LOADING_WAITING": "Attendere...",
+    
+    "CONFIRM_LOGUOT": "Sei sicuro di voler effettuare il logout?",
+    
+    "TEXT_NEW_ACCOUNT": "Registra un nuovo account.",
+    "TEXT_SIGNUP_SUCCESS": "Registrazione avvenuta con successo, ora effettua il login.",
+    
+    "WARNING_LOGIN_USERNAME_EMPTY": "Inserisci l'username del tuo account TodoList.",
+    "WARNING_LOGIN_PASSWORD_EMPTY": "Inserisci la password.",
+    "WARNING_SIGNUP_USERNAME_EMPTY": "Inserisci l'username.",
+    "WARNING_SIGNUP_EMAIL_EMPTY": "Inserisci l'email.",
+    "WARNING_SIGNUP_PASSWORD_EMPTY": "Inserisci la password.",
+    
+    "ERROR_LOGIN_USERNAME_PASSWORD": "Username o password errati.",
+    "ERROR_PROFILE_SAVE": "Non è stato possibile salvare il tuo profilo."
+} 

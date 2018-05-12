@@ -1,0 +1,29 @@
+
+<ion-content padding>
+    
+    <div class="flex-container full-height">
+        <div class="flex-item my-form">
+            
+            <div class="logo-container">
+                <img src="assets/images/icon.png" alt=""/>
+            </div>
+            
+            <ion-list no-lines> 
+                <ion-item>
+                    <ion-input type="text" placeholder="{{ 'USERNAME' | dictionary }}" [(ngModel)]="username"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input type="password" placeholder="{{ 'PASSWORD' | dictionary }}" [(ngModel)]="password"></ion-input>
+                </ion-item>
+            </ion-list>
+            
+            <div class="buttons-container">
+                <button ion-button block round color="dark" (click)="login()">{{ 'LOGIN' | dictionary }}</button>
+                
+                <button ion-button block clear (click)="goSignup()">{{ 'TEXT_NEW_ACCOUNT' | dictionary }}</button>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

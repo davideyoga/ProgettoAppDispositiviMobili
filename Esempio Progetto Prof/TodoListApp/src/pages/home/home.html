@@ -1,0 +1,70 @@
+<ion-header>
+    
+    <ion-navbar color="secondary">
+        <ion-title>{{ 'APP_NAME' | dictionary }}</ion-title>
+        
+        <ion-buttons right>
+            <button ion-button clear icon-only (click)="addTask()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    
+</ion-header>
+
+<ion-content [ngClass]="{'activeAnimate': bAnimate}">
+    
+    <!--task list-->
+    <ion-list>
+        
+        <ion-list-header>{{ 'TASKS' | dictionary }}</ion-list-header>
+        
+        <ion-item-group reorder="true" (ionItemReorder)="reorderTasks($event)">
+            <ion-item-sliding #sliding *ngFor="let task of tasks" 
+                class="animate-task-bottom"
+                [hidden]="task.completed" 
+                >
+                <ion-item>
+                    <button ion-button clear item-left (click)="toggleStateTask(task)">
+                        <ion-icon name="radio-button-off"></ion-icon>
+                    </button>
+                    <span> {{task.text}} </span>
+                </ion-item>
+
+                <ion-item-options side="right">
+                    <button ion-button color="danger" (click)="deleteTask(task, sliding)">{{ 'DELETE' | dictionary }}</button>
+                    <button ion-button (click)="editTask(task, sliding)">{{ 'EDIT' | dictionary }}</button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-item-group>
+        
+    </ion-list>
+    <!--end task list-->
+    
+    <!--task completed list-->
+    <ion-list class='list-completed'>
+        <ion-list-header>
+            {{ 'TASKS_COMPLETED' | dictionary }}
+        </ion-list-header>
+        
+        <ion-item-sliding #sliding *ngFor="let task of tasks" 
+            class="animate-task-top"
+            [hidden]="!task.completed" 
+            >
+            <ion-item>
+                <button ion-button clear item-left (click)="toggleStateTask(task)">
+                    <ion-icon name="ios-checkmark-circle"></ion-icon>
+                </button>
+                <span> {{task.text}} </span>
+            </ion-item>
+
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="deleteTask(task, sliding)">{{ 'DELETE' | dictionary }}</button>
+                <button ion-button (click)="editTask(task, sliding)">{{ 'DELETE' | dictionary }}</button>
+            </ion-item-options>
+        </ion-item-sliding>
+        
+    </ion-list>
+    <!--end task completed list-->
+    
+</ion-content>

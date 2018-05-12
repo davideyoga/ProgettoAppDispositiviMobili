@@ -1,0 +1,16 @@
+page-login {
+    
+    ion-content {
+        background-color: map-get($colors, secondary) !important;
+    }
+    
+    .logo-container {
+        text-align: center;
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+    }
+    
+}

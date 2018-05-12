@@ -1,0 +1,48 @@
+{
+    "APP_NAME": "Todo List",
+    
+    "OK": "ok",
+    "SI": "yes",
+    "NO": "no",
+    
+    "HOME": "Home",
+    "PROFILE": "Profile",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "EMAIL": "Email",
+    "FIRSTNAME": "Firstname",
+    "LASTNAME": "Lastname",
+    "LANGUAGE": "Language",
+    
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "CANCEL": "Cancel",
+    "ADD": "Add",
+    "SAVE": "Save",
+    
+    "TASKS": "Tasks",
+    "TASKS_COMPLETED": "Tasks Completed",
+    "NEW_TASK": "New Task",
+    "EDIT_TASK": "Edit Task",
+    
+    "LOGIN": "Login",
+    "SIGNUP": "Signup",
+    "BTN_SIGNUP": "Signup",
+    
+    
+    "LOADING_WAITING": "Wait a moment...",
+    
+    "CONFIRM_LOGUOT": "Are you sure you want to log out?",
+    
+    "TEXT_NEW_ACCOUNT": "Register a new account.",
+    "TEXT_SIGNUP_SUCCESS": "Signup successfully, login now.",
+    
+    "WARNING_LOGIN_USERNAME_EMPTY": "Enter the username of your TodoList account.",
+    "WARNING_LOGIN_PASSWORD_EMPTY": "Enter the password.",
+    "WARNING_SIGNUP_USERNAME_EMPTY": "Enter the username.",
+    "WARNING_SIGNUP_EMAIL_EMPTY": "Enter the email.",
+    "WARNING_SIGNUP_PASSWORD_EMPTY": "Enter the password.",
+    
+    "ERROR_LOGIN_USERNAME_PASSWORD": "Incorrect username or passord",
+    "ERROR_PROFILE_SAVE": "You could not save your profile."
+} 

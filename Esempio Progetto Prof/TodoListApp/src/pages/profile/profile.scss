@@ -1,0 +1,19 @@
+page-profile { 
+    
+    ion-item {
+        &:last-child {
+            border-bottom: 1px solid #dedede !important;
+            box-shadow: inset 0 -1px 0 0 #dedede !important;
+            .item-inner {
+                border-bottom: none !important;
+                box-shadow: none !important;
+            }
+        }
+        
+        .item-inner {
+            border-bottom: 1px solid #dedede !important;
+            box-shadow: inset 0 -1px 0 0 #dedede !important;
+        }
+    }
+    
+}

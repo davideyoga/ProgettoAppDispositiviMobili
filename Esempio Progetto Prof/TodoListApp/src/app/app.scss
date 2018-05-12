@@ -1,0 +1,111 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.text-center {
+    text-align: center;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.flex-container {
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    contain: strict;
+    .flex-item {
+        width: 100%;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        contain: content;
+    }
+}
+
+
+/*La mia form stilizzata*/
+.my-form {
+    ion-list { 
+        margin-bottom: 0px !important;
+        ion-item {
+            border-radius: 20px;
+            margin-bottom: 15px !important;
+            ion-input {
+
+            }
+        }
+    }
+    
+    .buttons-container {
+        button[round] {
+            height: 45px !important;
+            font-size: 16px !important;
+            margin-bottom: 15px;
+        }
+        
+        button[clear] {
+            font-size: 16px !important;
+            color: white !important;
+            text-transform: none;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+/*animazione dei task*/
+
+$delta-task-animation: 60px;
+$duration-task-animation: .2s;
+
+.animated {
+    animation-duration: $duration-task-animation;
+}
+.animate-task-bottom {
+    animation-name: pushFromBottom;
+    
+}
+.animate-task-top {
+    animation-name: pushFromTop;
+}
+
+@keyframes pushFromBottom {
+    from {
+        opacity: 0;
+        transform: translate(0, $delta-task-animation) translateZ(0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0) translateZ(0);
+    }
+}
+@keyframes pushFromTop {
+    from {
+        opacity: 0;
+        transform: translate(0, - $delta-task-animation) translateZ(0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0) translateZ(0);
+    }
+}

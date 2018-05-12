@@ -1,0 +1,42 @@
+page-home {
+
+    ion-list-header {
+        border-top: none !important;
+    }
+    
+    ion-item {
+        padding-left: 0 !important;
+        min-height: 60px !important;
+        
+        
+        button {
+            margin: 0 !important;
+            height: 100% !important;
+            padding: 15px !important;
+            
+            ion-icon {
+                font-size: 30px;
+            }
+        }
+        
+        ion-label {
+            white-space: initial !important;
+        }
+    } 
+    
+    .list-completed {
+        ion-label {
+            span {
+                color: map-get($colors, gray);
+                text-decoration: line-through;
+            }
+        }
+    }
+    
+    .activeAnimate {
+        .animate-task-bottom,
+        .animate-task-top {
+            animation-duration: $duration-task-animation;
+        }
+    }
+}
