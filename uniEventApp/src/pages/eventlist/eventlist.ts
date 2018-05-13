@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
 import {RestProvider} from '../../providers/rest/rest'
+
 /**
  * Generated class for the EventListPage page.
  *
@@ -14,16 +15,20 @@ import {RestProvider} from '../../providers/rest/rest'
   templateUrl: 'eventlist.html',
 })
 export class eventlist {
-  user = { name: '', username: '', email: '', phone: '', website: '', address: { street: '', suite: '', city: '', zipcode: '', geo: { lat: '', lng: '' } }, company: { name: '', bs: '', catchPhrase: '' }};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+
+  constructor(public navCtrl: NavController, public restProvider: RestProvider) {
+    this.getUsers();
   }
 
-  saveUser() {
-    this.restapiService.saveUser(this.user).then((result) => {
-      console.log(result);
-    }, (err) => {
-      console.log(err);
+  users: any;
+
+
+  getUsers() {
+    this.restProvider.getUsers()
+    .then(data => {
+      this.users = data;
+      console.log(this.users);
     });
   }
 
