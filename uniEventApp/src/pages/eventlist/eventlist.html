@@ -1,165 +1,61 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Lista Eventi</ion-title>
-  </ion-navbar>
-</ion-header>
-
-  
-  <ion-content class="cards-bg">
-  
-    <ion-card>
-  
-      <img src="assets/img/nin-live.png"/>
-  
-      <ion-card-content>
-        <ion-card-title>
-          Nine Inch Nails Live
-        </ion-card-title>
-        <p>
-          The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-        </p>
-      </ion-card-content>
-  
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorite
-          </button>
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='musical-notes'></ion-icon>
-            Listen
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-  
-    </ion-card>
-  
-    <ion-card>
-  
-      <div>
-        <img src="assets/img/badu-live.png"/>
-      </div>
-  
-      <ion-card-content>
-        <ion-card-title>
-          Erykah Badu
-        </ion-card-title>
-        <p>
-        American singer-songwriter, record producer, activist, and actress, Badu's style is a prime example of neo-soul.
-        </p>
-      </ion-card-content>
-  
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorite
-          </button>
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='musical-notes'></ion-icon>
-            Listen
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-  
-    </ion-card>
-  
-    <ion-card>
-  
-      <div>
-        <img src="assets/img/queen-live.png"/>
-      </div>
-  
-      <ion-card-content>
-        <ion-card-title>
-          Queen
-        </ion-card-title>
-        <p>
-          The British rock band formed in London in 1970, and is considered one of the biggest stadium rock bands in the world.
-        </p>
-      </ion-card-content>
-  
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorite
-          </button>
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='musical-notes'></ion-icon>
-            Listen
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-  
-    </ion-card>
-  
-    <ion-card>
-  
-      <div>
-        <img src="assets/img/rundmc-live.png"/>
-      </div>
-  
-      <ion-card-content>
-        <ion-card-title>
-          Run-D.M.C.
-        </ion-card-title>
-        <p>
-          The American hip hop group widely acknowledged as one of the most influential acts in the history of hip hop.
-        </p>
-      </ion-card-content>
-  
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorite
-          </button>
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='musical-notes'></ion-icon>
-            Listen
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-  
-    </ion-card>
-  
-  
-  
-  </ion-content>
+<ion-content padding>
+  <h2>Add User</h2>
+  <form (ngSubmit)="saveUser()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone</ion-label>
+      <ion-input type="text" [(ngModel)]="user.phone" name="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Website</ion-label>
+      <ion-input type="url" [(ngModel)]="user.website" name="website"></ion-input>
+    </ion-item>
+    <ion-item-divider color="light">Address</ion-item-divider>
+    <ion-item>
+      <ion-label>Street</ion-label>
+      <ion-input type="text" [(ngModel)]="user.address.street" name="street"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Suite</ion-label>
+      <ion-input type="text" [(ngModel)]="user.address.suite" name="suite"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input type="text" [(ngModel)]="user.address.city" name="city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Zip Code</ion-label>
+      <ion-input type="text" [(ngModel)]="user.address.zipcode" name="zipcode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Geo</ion-label>
+      <ion-input type="text" [(ngModel)]="user.address.geo.lat" name="lat" placeholder="Latitude"></ion-input>
+      <ion-input type="text" [(ngModel)]="user.address.geo.lng" name="lng" placeholder="Longitude"></ion-input>
+    </ion-item>
+    <ion-item-divider color="light">Company</ion-item-divider>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.company.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Business</ion-label>
+      <ion-input type="text" [(ngModel)]="user.company.bs" name="bs"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Catch Phrase</ion-label>
+      <ion-input type="text" [(ngModel)]="user.company.catchPhrase" name="catchPhrase"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Add User</button>
+  </form>
+</ion-content>
