@@ -28,24 +28,49 @@ public class EventController {
     }
 
 
+//    @GetMapping("/event/hot")
+//    public Response getHotEvent() {
+//
+//        System.out.println("Chiamato metodo getHotEvent");
+//
+//        Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
+//
+//        result.setData(this.service.findHotEvent());
+//
+//        return result;
+//    }
+
     @GetMapping("/event/hot")
-    public Response getHotEvent() {
+    public List<Event> getHotEvent() {
 
-        Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
+        System.out.println("Chiamato metodo getHotEvent");
 
-        result.setData(this.service.findHotEvent());
+        //Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
 
-        return result;
+        //result.setData(this.service.findHotEvent());
+
+        return this.service.findHotEvent();
     }
 
+//    @GetMapping("/event/all")
+//    public Response getAllEvents(){
+//
+//        Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
+//
+//        result.setData(this.service.findAllEvents());
+//
+//        return result;
+//
+//    }
+
     @GetMapping("/event/all")
-    public Response getAllEvents(){
+    public List<Event> getAllEvents(){
 
-        Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
+        //Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
 
-        result.setData(this.service.findAllEvents());
+        //result.setData(this.service.findAllEvents());
 
-        return result;
+        return this.service.findAllEvents();
 
     }
 

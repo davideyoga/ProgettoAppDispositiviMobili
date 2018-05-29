@@ -40,9 +40,10 @@ public class Event implements java.io.Serializable {
     @CreationTimestamp
     private Date dateCreation;
 
-
     @Column(name="views", nullable = false)
     private Long views;
+
+
 
 
     @Override
