@@ -118,4 +118,11 @@ public class UniEventServiceImpl implements UniEventService {
             return null;
         }
     }
+
+    public User findUserBySurname(String surname){
+
+        return null;
+
+    }
+
 }

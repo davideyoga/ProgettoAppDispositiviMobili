@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @author Davide Micarelli
@@ -42,6 +43,21 @@ public class Event implements java.io.Serializable {
 
     @Column(name="views", nullable = false)
     private Long views;
+
+
+
+    @OneToMany
+    private List<Participate> participation;
+
+
+    
+
+
+
+
+
+
+
 
 
 
@@ -167,4 +183,16 @@ public class Event implements java.io.Serializable {
     public void setViews(Long views) {
         this.views = views;
     }
+
+    public List <Participate> getParticipation() {
+        return participation;
+    }
+
+    public void setParticipation(List <Participate> participation) {
+        this.participation = participation;
+    }
+
+
+
+
 }

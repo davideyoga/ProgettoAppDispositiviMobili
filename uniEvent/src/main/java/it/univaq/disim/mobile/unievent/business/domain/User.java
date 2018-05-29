@@ -37,8 +37,19 @@ public class User implements java.io.Serializable {
     @Column(name = "telephoneNumber", nullable = true)
     private Integer telephoneNumber;
 
+    @OneToMany
+    private List<Participate> participation;
+
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<UserPreference> userPreferences = new ArrayList<>();
+
+    @OneToMany
+    private List<Event> eventsCreated = new ArrayList<>();
+
+    @ManyToMany
+    private List<Event> preferredEvents = new ArrayList<>();
+
 
     /*
         GETTER AND SETTER
@@ -112,7 +123,33 @@ public class User implements java.io.Serializable {
         return userPreferences;
     }
 
+    public void setUserPreferences(List <UserPreference> userPreferences) {
+        this.userPreferences = userPreferences;
+    }
 
+    public List <Event> getEventsCreated() {
+        return eventsCreated;
+    }
+
+    public void setEventsCreated(List <Event> eventsCreated) {
+        this.eventsCreated = eventsCreated;
+    }
+
+    public List <Event> getPreferredEvents() {
+        return preferredEvents;
+    }
+
+    public void setPreferredEvents(List <Event> preferredEvents) {
+        this.preferredEvents = preferredEvents;
+    }
+
+    public List <Participate> getParticipation() {
+        return participation;
+    }
+
+    public void setParticipation(List <Participate> participation) {
+        this.participation = participation;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -158,4 +195,6 @@ public class User implements java.io.Serializable {
                 ", telephoneNumber=" + telephoneNumber +
                 '}';
     }
+
+
 }

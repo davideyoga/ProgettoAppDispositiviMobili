@@ -1,30 +1,25 @@
 package it.univaq.disim.mobile.unievent.business.common.spring.security;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import it.univaq.disim.mobile.unievent.business.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import it.univaq.disim.mobile.myunivaq.domain.Docente;
-import it.univaq.disim.mobile.myunivaq.domain.Studente;
-import it.univaq.disim.mobile.myunivaq.domain.Utente;
+import java.util.Collection;
 
 @SuppressWarnings("serial")
 public class UserDetailsImpl implements UserDetails {
 
-	private Utente utente;
+	private User utente;
 
-	public UserDetailsImpl(Utente utente) {
+	public UserDetailsImpl(User utente) {
 		this.utente = utente;
 	}
 
 	@Override
 	public String getUsername() {
-		return utente.getUsername();
+		return utente.getSurname();
 	}
 
 	@JsonIgnore
@@ -53,18 +48,8 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> result = new ArrayList<>();
 
-		if (utente instanceof Docente) {
-			GrantedAuthorityImpl authorityImpl = new GrantedAuthorityImpl("docente");
-			result.add(authorityImpl);
-		} else {
-			if (utente instanceof Studente) {
-				GrantedAuthorityImpl authorityImpl = new GrantedAuthorityImpl("studente");
-				result.add(authorityImpl);
-			}
-		}
-		return result;
+		return null;
 	}
 
 	@Override
@@ -72,7 +57,7 @@ public class UserDetailsImpl implements UserDetails {
 		return true;
 	}
 
-	public Utente getUtente() {
+	public User getUtente() {
 		return utente;
 	}
 
