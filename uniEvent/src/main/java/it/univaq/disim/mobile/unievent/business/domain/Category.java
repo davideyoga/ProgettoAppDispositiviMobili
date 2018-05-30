@@ -22,8 +22,10 @@ public class Category implements java.io.Serializable {
     private String description;
 
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "services")
     private List<Event> events;
+
+
 
     public Long getId() {
         return id;

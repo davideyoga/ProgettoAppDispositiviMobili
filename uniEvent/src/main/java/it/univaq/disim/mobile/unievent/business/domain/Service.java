@@ -23,9 +23,6 @@ public class Service implements java.io.Serializable {
 
 
 
-
-
-
     public Long getId() {
         return id;
     }
@@ -50,5 +47,5 @@ public class Service implements java.io.Serializable {
         this.description = description;
     }
 
-    
+
 }

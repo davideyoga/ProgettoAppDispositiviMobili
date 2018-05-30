@@ -37,7 +37,7 @@ public class Event implements java.io.Serializable {
     private String city;
 
     @Column(name = "civicAddress", nullable = true )
-    private Integer civicAddress;
+    private String civicAddress;
 
     @Column(name = "date", nullable = true )
     @Temporal(TemporalType.TIMESTAMP)
@@ -52,11 +52,11 @@ public class Event implements java.io.Serializable {
 
 
 
-    @OneToMany
-    private List<Participate> participation;
-
     @ManyToOne
     private User creator;
+
+    @OneToMany
+    private List<Participate> participation;
 
     @ManyToMany
     private List<Category> categories;
@@ -66,7 +66,6 @@ public class Event implements java.io.Serializable {
 
 
     public Long getId() {
-
         return id;
     }
 
@@ -122,11 +121,11 @@ public class Event implements java.io.Serializable {
         this.city = city;
     }
 
-    public Integer getCivicAddress() {
+    public String getCivicAddress() {
         return civicAddress;
     }
 
-    public void setCivicAddress(Integer civicAddress) {
+    public void setCivicAddress(String civicAddress) {
         this.civicAddress = civicAddress;
     }
 
@@ -154,6 +153,14 @@ public class Event implements java.io.Serializable {
         this.views = views;
     }
 
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
     public List <Participate> getParticipation() {
         return participation;
     }
@@ -162,22 +169,20 @@ public class Event implements java.io.Serializable {
         this.participation = participation;
     }
 
-    @Override
-    public String toString() {
-        return "Event{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", image='" + image + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", civicAddress=" + civicAddress +
-                ", date=" + date +
-                ", dateCreation=" + dateCreation +
-                ", views=" + views +
-                ", participation=" + participation +
-                '}';
+    public List <Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List <Category> categories) {
+        this.categories = categories;
+    }
+
+    public List <Service> getServices() {
+        return services;
+    }
+
+    public void setServices(List <Service> services) {
+        this.services = services;
     }
 
     @Override
@@ -201,7 +206,12 @@ public class Event implements java.io.Serializable {
         if (getDateCreation() != null ? !getDateCreation().equals(event.getDateCreation()) : event.getDateCreation() != null)
             return false;
         if (getViews() != null ? !getViews().equals(event.getViews()) : event.getViews() != null) return false;
-        return getParticipation() != null ? getParticipation().equals(event.getParticipation()) : event.getParticipation() == null;
+        if (getCreator() != null ? !getCreator().equals(event.getCreator()) : event.getCreator() != null) return false;
+        if (getParticipation() != null ? !getParticipation().equals(event.getParticipation()) : event.getParticipation() != null)
+            return false;
+        if (getCategories() != null ? !getCategories().equals(event.getCategories()) : event.getCategories() != null)
+            return false;
+        return getServices() != null ? getServices().equals(event.getServices()) : event.getServices() == null;
     }
 
     @Override
@@ -217,32 +227,31 @@ public class Event implements java.io.Serializable {
         result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
         result = 31 * result + (getDateCreation() != null ? getDateCreation().hashCode() : 0);
         result = 31 * result + (getViews() != null ? getViews().hashCode() : 0);
+        result = 31 * result + (getCreator() != null ? getCreator().hashCode() : 0);
         result = 31 * result + (getParticipation() != null ? getParticipation().hashCode() : 0);
+        result = 31 * result + (getCategories() != null ? getCategories().hashCode() : 0);
+        result = 31 * result + (getServices() != null ? getServices().hashCode() : 0);
         return result;
     }
 
-
-    public User getCreator() {
-        return creator;
-    }
-
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
-
-    public List <Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List <Category> categories) {
-        this.categories = categories;
-    }
-
-    public List <Service> getServices() {
-        return services;
-    }
-
-    public void setServices(List <Service> services) {
-        this.services = services;
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", civicAddress='" + civicAddress + '\'' +
+                ", date=" + date +
+                ", dateCreation=" + dateCreation +
+                ", views=" + views +
+                ", creator=" + creator +
+                ", participation=" + participation +
+                ", categories=" + categories +
+                ", services=" + services +
+                '}';
     }
 }

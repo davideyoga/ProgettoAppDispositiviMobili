@@ -39,11 +39,12 @@ public class User implements java.io.Serializable {
 
 
 
-    @OneToMany
-    private List<Participate> participation;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<UserPreference> userPreferences = new ArrayList<>();
+
+    @OneToMany
+    private List<Participate> participation;
 
     @OneToMany
     private List<Event> eventsCreated = new ArrayList<>();
