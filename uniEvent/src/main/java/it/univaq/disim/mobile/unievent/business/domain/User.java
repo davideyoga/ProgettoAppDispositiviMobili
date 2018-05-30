@@ -14,7 +14,7 @@ public class User implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", nullable = true )
     private String name;
@@ -37,9 +37,10 @@ public class User implements java.io.Serializable {
     @Column(name = "telephoneNumber", nullable = true)
     private Integer telephoneNumber;
 
+
+
     @OneToMany
     private List<Participate> participation;
-
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<UserPreference> userPreferences = new ArrayList<>();
@@ -55,11 +56,11 @@ public class User implements java.io.Serializable {
         GETTER AND SETTER
      */
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -195,6 +196,8 @@ public class User implements java.io.Serializable {
                 ", telephoneNumber=" + telephoneNumber +
                 '}';
     }
+
+
 
 
 }

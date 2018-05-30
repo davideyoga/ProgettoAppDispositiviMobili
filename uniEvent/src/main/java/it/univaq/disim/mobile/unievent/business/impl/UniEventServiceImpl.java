@@ -1,14 +1,14 @@
 package it.univaq.disim.mobile.unievent.business.impl;
 
-import it.univaq.disim.mobile.unievent.business.domain.Event;
-import it.univaq.disim.mobile.unievent.business.domain.User;
-import it.univaq.disim.mobile.unievent.business.domain.Session;
-import it.univaq.disim.mobile.unievent.business.domain.UserPreference;
+import it.univaq.disim.mobile.unievent.business.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
+import java.sql.SQLSyntaxErrorException;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author uniEvent
@@ -35,6 +35,9 @@ public class UniEventServiceImpl implements UniEventService {
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     /*
      * END REPOSITORY
@@ -82,6 +85,19 @@ public class UniEventServiceImpl implements UniEventService {
     public List <Event> findAllEvents() {
 
         return eventRepository.findAll();
+    }
+
+    @Override
+    public List<String> getCities() {
+
+        List<String> cities = this.eventRepository.findDistinctCity();
+
+        return cities;
+    }
+
+    @Override
+    public List<Category> getCategories() {
+        return categoryRepository.findAll();
     }
 
 

@@ -26,6 +26,13 @@ public class Participate implements java.io.Serializable {
     private String descriptionReview;
 
 
+    @OneToOne
+    private User user;
+
+    @OneToOne
+    private Event event;
+
+
     /*
      * GETTER AND SETTER
      */
@@ -93,5 +100,22 @@ public class Participate implements java.io.Serializable {
         result = 31 * result + (getVoteReview() != null ? getVoteReview().hashCode() : 0);
         result = 31 * result + (getDescriptionReview() != null ? getDescriptionReview().hashCode() : 0);
         return result;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 }

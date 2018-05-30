@@ -12,13 +12,17 @@ public class UserPreference implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", nullable = false )
     private String name;
 
     @Column(name = "description", nullable = true )
     private String description;
+
+
+
+
 
     public UserPreference() {
         this.name = null;
@@ -30,11 +34,11 @@ public class UserPreference implements java.io.Serializable {
         this.description = description;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,4 +86,7 @@ public class UserPreference implements java.io.Serializable {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+
+
 }

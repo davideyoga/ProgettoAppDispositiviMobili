@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+
 	@Autowired
 	private UniEventService service;
 

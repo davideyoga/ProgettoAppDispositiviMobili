@@ -1,1 +1,8 @@
-Aggiornare il datamodel
+- Aggiornare il datamodel
+
+- Nella form della home:
+	- where cerca solo tra le citta', dal server vengono mandate tutte le citta' disponibili da tutti gli eventi, espressione regolare mentre l'utente scrive. FATTO
+	- when calendario
+	- what cerca tra tutte le categorie mandate date dal server
+
+- Address di evento viene diviso in citta', via e numero civico
