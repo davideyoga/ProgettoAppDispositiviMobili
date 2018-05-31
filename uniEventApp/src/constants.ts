@@ -11,3 +11,5 @@ export const URL = {
 
     }
 }
+
+export const LINGUA = 'lingua';
