@@ -12,6 +12,7 @@ import { LinguaService } from '../services/lingua.service';
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   rootPage:any = HomePage;
   //utente: User;
@@ -58,7 +59,7 @@ export class MyApp {
         this.linguaService.updateLingua(linguaPreferita);
       }
     });
-    
+
     //Bisognerebbe settarlo anche quando si cambia la lingua
     /*
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {

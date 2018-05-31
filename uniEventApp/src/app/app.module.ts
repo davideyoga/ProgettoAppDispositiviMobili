@@ -49,6 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
 
   ],
   bootstrap: [IonicApp],
+
   entryComponents: [
     MyApp,
     HomePage

@@ -38,17 +38,14 @@ export class HomePage {
     this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
       this.eventi = data;
     });
-    console.log('eventi: ' + this.eventi);
 
     this.eventService.listCities().subscribe((data: Array<String>) => {
       this.citta = data;
     });
-    console.log('citta: ' + this.citta);
 
     this.categoryService.categories().subscribe((data: Array<Category>) => {
       this.categorie = data;
     });
-    console.log('categorie: ' + this.categorie);
 
   }
 

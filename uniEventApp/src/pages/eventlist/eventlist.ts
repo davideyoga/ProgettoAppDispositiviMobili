@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 
-import {EventProvider} from '../../providers/rest/event.provider'
-
 import {Event} from '../../models/event.model';
 import { BaseSearchForm, EventService } from '../../services/event.service';
 
@@ -23,6 +21,7 @@ import { BaseSearchForm, EventService } from '../../services/event.service';
 
 export class eventlist {
 
+  eventi: Array<Event>;
   baseForm: BaseSearchForm = {what: null, when: "", where: ""};
 
   events: Array<Event> = [];
@@ -50,9 +49,8 @@ export class eventlist {
     });
   }
 
-  onBaseSearch(b: BaseSearchForm){
-    console.log('onBaseSearch HomePage');
-
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Eventi Page');
     this.eventService.events().subscribe((data: Array<Event>) => {
       this.events = data;
     });
