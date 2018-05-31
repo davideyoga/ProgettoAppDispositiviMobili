@@ -10,44 +10,44 @@ import java.util.List;
  * @author Davide Micarelli
  */
 @Entity
-@Table(name="event")
+@Table(name="EVENT")
 public class Event implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "title", nullable = false )
+    @Column(name = "TITLE", nullable = false )
     private String title;
 
-    @Column(name = "image", nullable = true)
+    @Column(name = "IMAGE", nullable = true)
     private String image;
 
-    @Column(name = "description", nullable = true )
+    @Column(name = "DESCRIPTION", nullable = true )
     private String description;
 
-    @Column(name = "price", nullable = true )
+    @Column(name = "PRICE", nullable = true )
     private Float price;
 
-    @Column(name = "address", nullable = true )
+    @Column(name = "ADDRESS", nullable = true )
     private String address;
 
-    @Column(name = "city", nullable = true )
+    @Column(name = "CITY", nullable = true )
     private String city;
 
-    @Column(name = "civicAddress", nullable = true )
+    @Column(name = "CIVIC_ADDRESS", nullable = true )
     private String civicAddress;
 
-    @Column(name = "date", nullable = true )
+    @Column(name = "DATE", nullable = true )
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column(name = "date_creation")
+    @Column(name = "DATE_CREATION")
     @CreationTimestamp
     private Date dateCreation;
 
-    @Column(name="views", nullable = false)
+    @Column(name="VIEWS", nullable = false)
     private Long views;
 
 
@@ -232,26 +232,5 @@ public class Event implements java.io.Serializable {
         result = 31 * result + (getCategories() != null ? getCategories().hashCode() : 0);
         result = 31 * result + (getServices() != null ? getServices().hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Event{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", image='" + image + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", civicAddress='" + civicAddress + '\'' +
-                ", date=" + date +
-                ", dateCreation=" + dateCreation +
-                ", views=" + views +
-                ", creator=" + creator +
-                ", participation=" + participation +
-                ", categories=" + categories +
-                ", services=" + services +
-                '}';
     }
 }

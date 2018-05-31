@@ -8,21 +8,21 @@ import java.util.List;
  * @author Davide Micarelli
  */
 @Entity
-@Table(name = "participate")
+@Table(name = "PARTICIPATE")
 public class Participate implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_participate", nullable = false)
+    @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "data_prenotation", nullable = false)
+    @Column(name = "DATA_PRENOTATION", nullable = false)
     private Date dataPrenotation;
 
-    @Column(name = "vote_review", nullable = true)
+    @Column(name = "VOTE_REVIEW", nullable = true)
     private Integer voteReview;
 
-    @Column(name = "description_review", nullable = true)
+    @Column(name = "DESCRIPTION_REVIEW", nullable = true)
     private String descriptionReview;
 
 

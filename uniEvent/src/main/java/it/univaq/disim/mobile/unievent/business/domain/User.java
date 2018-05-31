@@ -8,33 +8,33 @@ import java.util.List;
  * @author uniEvent
  */
 @Entity
-@Table(name = "user")
+@Table(name = "USER")
 public class User implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "name", nullable = true )
+    @Column(name = "NAME", nullable = true )
     private String name;
 
-    @Column(name = "surname", nullable = true)
+    @Column(name = "SURNAME", nullable = true)
     private String surname;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "PASSWORD", nullable = false)
     private String password;
 
-    @Column(name = "age", nullable = true)
+    @Column(name = "AGE", nullable = true)
     private Integer age;
 
-    @Column(name = "address", nullable = true)
+    @Column(name = "ADDRESS", nullable = true)
     private String address;
 
-    @Column(name = "telephoneNumber", nullable = true)
+    @Column(name = "TELEPHONE_NUMBER", nullable = true)
     private Integer telephoneNumber;
 
 

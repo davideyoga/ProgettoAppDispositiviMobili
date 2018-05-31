@@ -10,19 +10,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "sessions")
+@Table(name = "SESSION")
 public class Session implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "session_id")
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "token", nullable = false, length = 255)
+    @Column(name = "TOKEN", nullable = false, length = 255)
     private String token;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
     public Long getId() {

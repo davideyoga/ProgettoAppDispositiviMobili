@@ -6,18 +6,18 @@ import javax.persistence.*;
  * @author Davide Micarelli
  */
 @Entity
-@Table(name = "userPreference")
+@Table(name = "USER_PREFERENCE")
 public class UserPreference implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "name", nullable = false )
+    @Column(name = "NAME", nullable = false )
     private String name;
 
-    @Column(name = "description", nullable = true )
+    @Column(name = "DESCRIPTION", nullable = true )
     private String description;
 
 

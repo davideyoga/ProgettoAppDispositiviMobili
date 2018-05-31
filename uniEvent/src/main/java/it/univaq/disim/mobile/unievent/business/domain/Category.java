@@ -7,22 +7,22 @@ import java.util.List;
  * @author Davide Micarelli
  */
 @Entity
-@Table(name = "category")
+@Table(name = "CATEGORY")
 public class Category implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "name", nullable = true )
+    @Column(name = "NAME", nullable = true )
     private String name;
 
-    @Column(name = "description", nullable = true)
+    @Column(name = "DESCRIPTION", nullable = true)
     private String description;
 
 
-    @ManyToMany(mappedBy = "services")
+    @ManyToMany(mappedBy = "categories")
     private List<Event> events;
 
 
