@@ -52,6 +52,7 @@ public class Event implements java.io.Serializable {
 
 
 
+
     @ManyToOne
     private User creator;
 
