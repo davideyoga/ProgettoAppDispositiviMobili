@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController} from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
-import {Event} from '../../models/event.model';
+import { Event } from '../../models/event.model';
+import { EventProvider } from '../../providers/rest/event.provider';
 import { BaseSearchForm, EventService } from '../../services/event.service';
 
 
@@ -45,13 +46,6 @@ export class eventlist {
     console.log('ionViewDidLoad HomePage');
     
     this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
-      this.events = data;
-    });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Eventi Page');
-    this.eventService.events().subscribe((data: Array<Event>) => {
       this.events = data;
     });
   }

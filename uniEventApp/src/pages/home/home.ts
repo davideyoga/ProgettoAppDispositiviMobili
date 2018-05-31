@@ -33,6 +33,7 @@ export class HomePage {
 
   //tutto cio' che succede all'avvio della pagina 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad HomePage');
     
     this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
