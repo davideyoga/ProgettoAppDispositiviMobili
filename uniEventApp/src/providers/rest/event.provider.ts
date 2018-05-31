@@ -1,23 +1,19 @@
-import {Injectable} from '@angular/core';
-import {reorderArray} from 'ionic-angular';
-import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import {ReorderIndexes} from '../../types';
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { URL, URL_BASE } from '../../constants';
+import { Event } from '../../models/event.model';
+import { ResponseServer } from '../../types';
 
 //Providers
 // import {AccountProvider} from './account.provider';
 
 //Models
-import {Event} from '../../models/event.model';
-
 //Constants
-import {URL_BASE, URL} from '../../constants';
-
 //Types
-import {ResponseServer, OrderTask} from '../../types';
-
 @Injectable()
 export class EventProvider {
 
@@ -38,7 +34,7 @@ export class EventProvider {
             if (this._events === null) {
                 this._events = [];
 
-                this._http.get(URL_BASE + URL.EVENTS.GETALL).toPromise()
+                this._http.get(URL_BASE + URL.HOT_EVENT).toPromise()
                     .then((res: Response) => {
                         const json = res.json() as ResponseServer;
 

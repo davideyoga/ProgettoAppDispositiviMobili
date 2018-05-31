@@ -4,8 +4,8 @@ import { IonicPage, NavController} from 'ionic-angular';
 import {EventProvider} from '../../providers/rest/event.provider'
 
 import {Event} from '../../models/event.model';
+import { BaseSearchForm, EventService } from '../../services/event.service';
 
-import { EventService, BaseSearchForm } from '../../service/evento.service';
 
 /**
  * Generated class for the EventListPage page.
@@ -29,7 +29,8 @@ export class eventlist {
 
   constructor(
     public navCtrl: NavController,
-    public sEvents: EventProvider
+    public sEvents: EventProvider,
+    public eventService: EventService
   )
     {
       this.sEvents.getEvents()
@@ -39,15 +40,21 @@ export class eventlist {
       });
     }
 
+
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EventListPage');
+    console.log('ionViewDidLoad HomePage');
+    
+    this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
+      this.events = data;
+    });
   }
 
   onBaseSearch(b: BaseSearchForm){
     console.log('onBaseSearch HomePage');
 
     this.eventService.events().subscribe((data: Array<Event>) => {
-      this.eventi = data;
+      this.events = data;
     });
   }
 

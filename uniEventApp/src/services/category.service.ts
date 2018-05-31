@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { URL } from '../constants';
-
-import{Event} from '../models/event.model';
+import { Category } from '../models/category.model';
 
 export interface BaseSearchForm {
     where: string;
@@ -13,34 +12,16 @@ export interface BaseSearchForm {
 }
 
 @Injectable() 
-export class EventService {
+export class CategoryService {
 
     constructor(private http: HttpClient) {
 
     }
 
-    listHotEvent(): Observable<Array<Event>> {
-        console.log("lanciato metodo listHotEvent");
-        return this.http.get<Array<Event>>(URL.HOT_EVENT);
+
+    categories(): Observable<Array<Category>> {
+        return this.http.get<Array<Category>>(URL.CATEGORIES);
     }
-
-    //getAllEvents
-
-    events(): Observable<Array<Event>> {
-        console.log("lanciato metodo events");
-        return this.http.get<Array<Event>>(URL.EVENTS);
-    }
-
-    listCities(): Observable<Array<String>> {
-
-        console.log("lanciato metodo listCities");
-        return this.http.get<Array<String>>(URL.CITIES);
-    }
-
-
-    // list(): Observable<Array<Notizia>> {
-    //     return this.http.get<Array<Notizia>>(URL.NOTIZIE);
-    // }
 
     // getLinguaAttuale(): Observable<string> {
     //     return fromPromise(this.storage.get(LINGUA));

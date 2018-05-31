@@ -27,6 +27,12 @@ public class EventController {
     @GetMapping("/hot")
     public List<Event> getHotEvent() {
 
+        System.out.println("\n");
+        System.out.println("\n");
+        System.out.println(this.service.findHotEvent());
+        System.out.println("\n");
+        System.out.println("\n");
+
         return this.service.findHotEvent();
     }
 

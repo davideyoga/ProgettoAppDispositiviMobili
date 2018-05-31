@@ -11,7 +11,10 @@ export const URL = {
     // APPELLI: URL_BASE + "/appelli"
 
     HOT_EVENT: URL_BASE + "/event/hot",
-    EVENTS: URL_BASE + "/event/all"
+    EVENTS: URL_BASE + "/event/all",
+    CITIES: URL_BASE + "/event/city",
+    CATEGORIES: URL_BASE + "/category/all",
+
 }
 
 export const LINGUA = 'lingua';
