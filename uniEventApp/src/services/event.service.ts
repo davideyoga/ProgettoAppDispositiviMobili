@@ -12,7 +12,7 @@ export interface BaseSearchForm {
     what: Date;
 }
 
-@Injectable() 
+@Injectable()
 export class EventService {
 
     constructor(private http: HttpClient) {

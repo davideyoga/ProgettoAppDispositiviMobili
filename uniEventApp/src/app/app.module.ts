@@ -13,7 +13,6 @@ import { eventlist } from '../pages/eventlist/eventlist';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { EventProvider } from '../providers/rest/event.provider';
 
 
 @NgModule({
@@ -40,8 +39,7 @@ import { EventProvider } from '../providers/rest/event.provider';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    EventProvider
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule { }

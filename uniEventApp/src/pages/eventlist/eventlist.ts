@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 
-import {EventProvider} from '../../providers/rest/event.provider'
-
 import {Event} from '../../models/event.model';
 
-import { EventService, BaseSearchForm } from '../../service/evento.service';
+import {EventService, BaseSearchForm} from '../../services/event.service';
 
 /**
  * Generated class for the EventListPage page.
@@ -23,29 +21,15 @@ import { EventService, BaseSearchForm } from '../../service/evento.service';
 
 export class eventlist {
 
+  eventi: Array<Event>;
   baseForm: BaseSearchForm = {what: null, when: "", where: ""};
 
   events: Array<Event> = [];
 
-  constructor(
-    public navCtrl: NavController,
-    public sEvents: EventProvider
-  )
-    {
-      this.sEvents.getEvents()
-      .then(events => {
-          this.events = events;
-          console.log(this.events);
-      });
-    }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EventListPage');
+  constructor(public navCtrl: NavController, private eventService: EventService){
   }
 
-  onBaseSearch(b: BaseSearchForm){
-    console.log('onBaseSearch HomePage');
-
+  ionViewDidLoad() {
     this.eventService.events().subscribe((data: Array<Event>) => {
       this.eventi = data;
     });
