@@ -13,10 +13,10 @@ import { LinguaService } from '../services/lingua.service';
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
   rootPage = HelloIonicPage;
   pages: Array<{title: string, component: any}>;
 
@@ -69,7 +69,7 @@ export class MyApp {
         this.linguaService.updateLingua(linguaPreferita);
       }
     });
-    
+
     //Bisognerebbe settarlo anche quando si cambia la lingua
     /*
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {

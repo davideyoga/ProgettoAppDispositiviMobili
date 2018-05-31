@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 
 import {Event} from '../../models/event.model';
-
 import {EventService, BaseSearchForm} from '../../services/event.service';
 
 /**
@@ -24,12 +23,11 @@ export class eventlist {
   eventi: Array<Event>;
   baseForm: BaseSearchForm = {what: null, when: "", where: ""};
 
-  events: Array<Event> = [];
-
   constructor(public navCtrl: NavController, private eventService: EventService){
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad InsegnamentiPage');
     this.eventService.events().subscribe((data: Array<Event>) => {
       this.eventi = data;
     });
