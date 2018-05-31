@@ -27,7 +27,7 @@ export class eventlist {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InsegnamentiPage');
+    console.log('ionViewDidLoad Eventi Page');
     this.eventService.events().subscribe((data: Array<Event>) => {
       this.eventi = data;
     });
