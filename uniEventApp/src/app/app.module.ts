@@ -20,6 +20,7 @@ import { ListPage } from '../pages/list/list';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -34,6 +35,8 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
