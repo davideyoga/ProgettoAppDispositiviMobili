@@ -5,6 +5,8 @@ import {EventProvider} from '../../providers/rest/event.provider'
 
 import {Event} from '../../models/event.model';
 
+import { EventService, BaseSearchForm } from '../../service/evento.service';
+
 /**
  * Generated class for the EventListPage page.
  *
@@ -20,6 +22,8 @@ import {Event} from '../../models/event.model';
 
 
 export class eventlist {
+
+  baseForm: BaseSearchForm = {what: null, when: "", where: ""};
 
   events: Array<Event> = [];
 
@@ -37,6 +41,14 @@ export class eventlist {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventListPage');
+  }
+
+  onBaseSearch(b: BaseSearchForm){
+    console.log('onBaseSearch HomePage');
+
+    this.eventService.events().subscribe((data: Array<Event>) => {
+      this.eventi = data;
+    });
   }
 
 }

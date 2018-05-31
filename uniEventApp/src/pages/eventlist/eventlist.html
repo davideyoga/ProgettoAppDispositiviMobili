@@ -8,11 +8,48 @@
 </ion-header>
 
 
-
 <ion-content>
-  <ion-list inset>
-    <ion-item *ngFor="let event of events">
-      <h2>{{event.title}}</h2>
-    </ion-item>
-  </ion-list>
+
+  <form #baseSearchForm="ngForm">
+      <ion-list no-lines>
+        
+          <ion-item>
+              <ion-label stacked color="primary">Where</ion-label>
+              <ion-input [(ngModel)]="baseForm.where" name="where" 
+                         #where="ngModel" [maxlength]="255" required>
+              </ion-input>
+            </ion-item>
+        
+        <ion-item>
+          <ion-label stacked color="primary">When</ion-label>
+          <ion-input [(ngModel)]="baseForm.when" name="when" 
+                     #when="ngModel" [maxlength]="255" required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked color="primary">What</ion-label>
+            <ion-input [(ngModel)]="baseForm.what" name="what" 
+                       #when="ngModel" [maxlength]="255" required>
+            </ion-input>
+        </ion-item>
+
+      </ion-list>
+      <ion-row responsive-sm>
+        <ion-col>
+          <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit" block>search</button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-list inset>
+      <ion-item *ngFor="let event of events">
+        <h2>{{event.title}}</h2>
+      </ion-item>
+    </ion-list>
+
 </ion-content>
+
+
+
+
