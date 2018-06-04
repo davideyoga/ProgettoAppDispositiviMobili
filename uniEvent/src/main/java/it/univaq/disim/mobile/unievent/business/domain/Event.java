@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="EVENT")
-public class Event implements java.io.Serializable {
+public class Event implements java.io.Serializable, Comparable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -40,7 +40,7 @@ public class Event implements java.io.Serializable {
     private String civicAddress;
 
     @Column(name = "DATE", nullable = true )
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     @Column(name = "DATE_CREATION")
@@ -59,7 +59,7 @@ public class Event implements java.io.Serializable {
     @OneToMany
     private List<Participate> participation;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Category> categories;
 
     @ManyToMany
@@ -233,5 +233,14 @@ public class Event implements java.io.Serializable {
         result = 31 * result + (getCategories() != null ? getCategories().hashCode() : 0);
         result = 31 * result + (getServices() != null ? getServices().hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Event){
+
+            return (int) (this.getId() - ((Event) o).getId());
+
+        }else return 0;
     }
 }

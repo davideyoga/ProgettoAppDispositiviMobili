@@ -22,10 +22,6 @@ public class Category implements java.io.Serializable {
     private String description;
 
 
-    @ManyToMany(mappedBy = "categories")
-    private List<Event> events;
-
-
 
     public Long getId() {
         return id;
@@ -51,21 +47,12 @@ public class Category implements java.io.Serializable {
         this.description = description;
     }
 
-    public List <Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List <Event> events) {
-        this.events = events;
-    }
-
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", events=" + events +
                 '}';
     }
 
@@ -78,9 +65,7 @@ public class Category implements java.io.Serializable {
 
         if (getId() != null ? !getId().equals(category.getId()) : category.getId() != null) return false;
         if (getName() != null ? !getName().equals(category.getName()) : category.getName() != null) return false;
-        if (getDescription() != null ? !getDescription().equals(category.getDescription()) : category.getDescription() != null)
-            return false;
-        return getEvents() != null ? getEvents().equals(category.getEvents()) : category.getEvents() == null;
+        return getDescription() != null ? getDescription().equals(category.getDescription()) : category.getDescription() == null;
     }
 
     @Override
@@ -88,9 +73,6 @@ public class Category implements java.io.Serializable {
         int result = getId() != null ? getId().hashCode() : 0;
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
-        result = 31 * result + (getEvents() != null ? getEvents().hashCode() : 0);
         return result;
     }
-
-
 }

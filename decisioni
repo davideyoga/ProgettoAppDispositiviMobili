@@ -4,3 +4,9 @@ Nella form della home:
 	- what cerca tra tutte le categorie mandate date dal server 
 
 Address di evento viene diviso in citta', via e numero civico
+
+Come fare la ricerca lato server per la form della home:
+	- scrivere i metodi separatemente ci sono 7 possibilita'
+	- estrarre tutti gli eventi e listarli con java eliminandoi i parametri che nn metchano
+	- se un parametro non nullo eseguire la query con quel parametro, se presenti piu' parametri aggiungo le liste e ciclo con java 
+																	: fare intesezione insiemistica con java: lista1.retainAll(lista2)

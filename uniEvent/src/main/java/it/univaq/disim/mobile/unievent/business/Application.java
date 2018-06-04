@@ -9,6 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class Application {
 
@@ -33,16 +36,54 @@ public class Application {
             Event event = new Event();
             event.setTitle("PartyHard1");
             event.setViews(new Long(100));
-            eventRepository.save(event);
+            event.setCity("Roma");
+
 
             Event event2 = new Event();
             event2.setTitle("PartyHard2");
-            eventRepository.save(event2);
+            event2.setCity("Roma");
+
+
+
+            Event event3 = new Event();
+            event3.setTitle("Ape col morto");
+            event3.setCity("Milano");
+
+            Event event4 = new Event();
+            event4.setTitle("Ape col morto 2");
+            event4.setCity("Milano");
+
+
 
             Category category = new Category();
             category.setName("FesteInPiscina");
             category.setDescription("La festa dove ci sta la gnuna");
             categoryRepository.save(category);
+
+            Category category2 = new Category();
+            category2.setName("Aperitivi snob");
+            category2.setDescription("Ape per le persone con le cravatte");
+            categoryRepository.save(category2);
+
+
+            List<Category> categories1 = new ArrayList <>();
+            categories1.add(category);
+
+            event.setCategories(categories1);
+            eventRepository.save(event);
+            event3.setCategories(categories1);
+            eventRepository.save(event3);
+
+
+            List<Category> categories2 = new ArrayList <>();
+            categories2.add(category2);
+
+            event2.setCategories(categories2);
+            eventRepository.save(event2);
+            event4.setCategories(categories2);
+            eventRepository.save(event4);
+
+
 
         };
     }

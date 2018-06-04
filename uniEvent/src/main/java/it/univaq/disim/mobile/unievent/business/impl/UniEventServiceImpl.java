@@ -4,11 +4,10 @@ import it.univaq.disim.mobile.unievent.business.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.EntityManager;
-import java.sql.SQLSyntaxErrorException;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * @author uniEvent
@@ -96,6 +95,26 @@ public class UniEventServiceImpl implements UniEventService {
     }
 
     @Override
+    public List<Event> findEventsByCity(String city) {
+        return this.eventRepository.findEventsByCity(city);
+    }
+
+    @Override
+    public List <Event> findEventsByDate(Date date) {
+        return this.eventRepository.findEventsByDate(date);
+    }
+
+    @Override
+    public List <Event> findEventsByCategory(Category category) {
+        return this.eventRepository.findEventsByCategories(category);
+    }
+
+    @Override
+    public Category findCategoryByName(String name) {
+        return this.categoryRepository.findByName(name);
+    }
+
+    @Override
     public List<Category> getCategories() {
         return categoryRepository.findAll();
     }
@@ -104,12 +123,12 @@ public class UniEventServiceImpl implements UniEventService {
     public void save(User user){
 
 
-        //userRepository.save(user);
+        userRepository.save(user);
 
-        entityManager.persist(user);
-        entityManager.flush();
-
-        entityManager.unwrap(Session.class);
+//        entityManager.persist(user);
+//        entityManager.flush();
+//
+//        entityManager.unwrap(Session.class);
 
     }
 

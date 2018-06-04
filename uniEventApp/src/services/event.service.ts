@@ -25,7 +25,6 @@ export class EventService {
     }
 
     //getAllEvents
-
     events(): Observable<Array<Event>> {
         console.log("lanciato metodo events");
         return this.http.get<Array<Event>>(URL.EVENTS);
@@ -35,6 +34,14 @@ export class EventService {
 
         console.log("lanciato metodo listCities");
         return this.http.get<Array<String>>(URL.CITIES);
+    }
+
+
+    baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
+
+        let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.when}/${b.where}`;
+    
+        return this.http.get<Array<Event>>(baseSearchFormUrl);
     }
 
 

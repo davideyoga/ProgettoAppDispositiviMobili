@@ -1,12 +1,17 @@
 package it.univaq.disim.mobile.unievent.business.web;
 
+import it.univaq.disim.mobile.unievent.business.domain.Category;
 import it.univaq.disim.mobile.unievent.business.domain.Event;
 import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author Davide Micarelli
@@ -27,12 +32,6 @@ public class EventController {
     @GetMapping("/hot")
     public List<Event> getHotEvent() {
 
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println(this.service.findHotEvent());
-        System.out.println("\n");
-        System.out.println("\n");
-
         return this.service.findHotEvent();
     }
 
@@ -49,32 +48,89 @@ public class EventController {
         return this.service.getCities();
     }
 
+    @GetMapping("/eventByCity/{city}")
+    public List<Event> getEventsByCity(@PathVariable String city){
 
-//    @GetMapping("/event/hot")
-//    public Response getHotEvent() {
-//
-//        System.out.println("Chiamato metodo getHotEvent");
-//
-//        Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
-//
-//        result.setData(this.service.findHotEvent());
-//
-//        return result;
-//    }
+        return this.service.findEventsByCity(city);
+    }
+
+    @GetMapping("/eventByCategory/{categoryName}")
+    public List<Event> getEventsByCategory(@PathVariable String categoryName){
+
+        Category category = this.service.findCategoryByName(categoryName);
+
+        System.out.println(category);
+
+        return this.service.findEventsByCategory(category);
+    }
+
+    @GetMapping("/baseSearch/{nameCategory}/{city}")
+    public Set<Event> getEventsByWhenWhereWhat(@PathVariable String nameCategory,
+                                               @PathVariable String city,
+                                               @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
+
+        List<Event> eventsByCategory = null;
+        List<Event> eventsByDate = null;
+        List<Event> eventsByCity = null;
+        Set<Event> eventsTotal = new TreeSet <>();
+
+
+        /*
+            RACCOLTA DATI
+         */
+        if (nameCategory!=null && nameCategory.length() != 0) {
+
+            Category category = this.service.findCategoryByName(nameCategory);
+
+            eventsByCategory = this.service.findEventsByCategory( category );
+
+            eventsTotal.addAll(eventsByCategory);
+        }
+
+        if (date!=null){
+
+            eventsByDate = this.service.findEventsByDate(date);
+
+            eventsTotal.addAll(eventsByDate);
+        }
+
+        if (city != null){
+
+            eventsByCity = this.service.findEventsByCity(city);
+
+            eventsTotal.addAll(eventsByCity);
+        }
+        /*
+            FINE RACCOLTA DATI
+         */
 
 
 
-//    @GetMapping("/event/all")
-//    public Response getAllEvents(){
-//
-//        Response <List <Event>> result = new Response <>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
-//
-//        result.setData(this.service.findAllEvents());
-//
-//        return result;
-//
-//    }
 
+        if (eventsTotal.size()>0){
+
+            if (eventsByCategory != null) {
+                eventsTotal.retainAll(eventsByCategory);
+            }
+
+            if (eventsByDate != null) {
+                eventsTotal.retainAll(eventsByDate);
+            }
+
+            if (eventsByCity != null) {
+                eventsTotal.retainAll(eventsByCity);
+            }
+
+            return eventsTotal;
+
+        }else{
+            return null;
+        }
+
+
+
+
+    }
 
 
 }

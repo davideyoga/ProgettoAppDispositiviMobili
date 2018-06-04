@@ -2,8 +2,8 @@ package it.univaq.disim.mobile.unievent.business.impl;
 
 import it.univaq.disim.mobile.unievent.business.domain.*;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author uniEvent
@@ -38,10 +38,19 @@ public interface UniEventService {
 
     List<String> getCities();
 
+    List<Event> findEventsByCity(String city);
+
+    List<Event> findEventsByDate(Date date);
+
+    List<Event> findEventsByCategory(Category category );
+
+
     //End Event
 
 
     //Category
+
+    Category findCategoryByName(String name);
 
     List<Category> getCategories();
 

@@ -53,6 +53,7 @@ export class HomePage {
 
 
 
+  //metodo che risponde alla form di ricerca della home
   onBaseSearch(b: BaseSearchForm){
     console.log('onBaseSearch HomePage');
 

@@ -14,6 +14,7 @@ export const URL = {
     EVENTS: URL_BASE + "/event/all",
     CITIES: URL_BASE + "/event/city",
     CATEGORIES: URL_BASE + "/category/all",
+    BASE_SEARCH: URL_BASE + "/event/baseSearch",
 
 }
 
