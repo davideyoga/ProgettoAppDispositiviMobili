@@ -1,25 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'LISTA EVENTI' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+
 <ion-content>
 
   <form #baseSearchForm="ngForm">
       <ion-list no-lines>
-        
+
           <ion-item>
               <ion-label stacked color="primary">{{'WHERE' | translate}}</ion-label>
-              <ion-input [(ngModel)]="baseForm.where" name="where" 
+              <ion-input [(ngModel)]="baseForm.where" name="where"
                          #where="ngModel" [maxlength]="255" required>
               </ion-input>
             </ion-item>
-        
+
         <ion-item>
           <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
-          <ion-input [(ngModel)]="baseForm.when" name="when" 
+          <ion-input [(ngModel)]="baseForm.when" name="when"
                      #when="ngModel" [maxlength]="255" required>
           </ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
-            <ion-input [(ngModel)]="baseForm.what" name="what" 
+            <ion-input [(ngModel)]="baseForm.what" name="what"
                        #what="ngModel" [maxlength]="255" required>
             </ion-input>
         </ion-item>

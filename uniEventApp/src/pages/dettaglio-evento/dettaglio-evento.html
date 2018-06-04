@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+  <ion-title>{{'DETTAGLIO_EVENTO_TITOLO' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="evento">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+            {{evento.title}}
+        </ion-card-title>
+        <p></p>
+        <p></p>
+        <p></p>
+      </ion-card-content>
+    </ion-card>
+    <h1></h1>
+  </div>
+</ion-content>

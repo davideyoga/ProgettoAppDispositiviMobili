@@ -1,5 +1,8 @@
 {
   "WHERE": "Where",
   "WHEN": "When",
-  "WHAT": "What"
+  "WHAT": "What",
+  "LISTA EVENTI": "Event List",
+  "DETTAGLIO_EVENTO_TITOLO": "Event Detail"
 }
+

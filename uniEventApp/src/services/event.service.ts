@@ -35,7 +35,7 @@ export class EventService {
     baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
 
         let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.where}`;
-    
+
         return this.http.get<Array<Event>>(baseSearchFormUrl);
     }
 
@@ -60,4 +60,9 @@ export class EventService {
     //     this.storage.set(LINGUA, nuovaLingua);
     // }
 
+
+    findById(eventId: number): Observable<Event> {
+      let apiURL = `${URL.EVENTS}/${eventId}`;
+      return this.http.get<Event>(apiURL);
+  }
 }

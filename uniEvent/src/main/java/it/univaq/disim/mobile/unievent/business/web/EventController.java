@@ -29,6 +29,11 @@ public class EventController {
         this.service.createEvent(event);
     }
 
+    @GetMapping("/{id}")
+    public Event findById(@PathVariable Long id) {
+		return service.findEventoById(id);
+	}
+        
     @GetMapping("/hot")
     public List<Event> getHotEvent() {
 

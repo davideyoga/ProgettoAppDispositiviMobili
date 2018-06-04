@@ -14,10 +14,10 @@ import { NgForm } from '@angular/forms';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
+
   baseForm: BaseSearchForm = { what: "", when: null, where: "" };
-  
-  //lista di eventi visualizzabili nella home 
+
+  //lista di eventi visualizzabili nella home
   eventi: Array<Event>
 
   //lista citta' salvate nel db
@@ -33,7 +33,7 @@ export class HomePage {
   }
 
 
-  //tutto cio' che succede all'avvio della pagina 
+  //tutto cio' che succede all'avvio della pagina
   ionViewDidLoad() {
 
     console.log('ionViewDidLoad HomePage');
@@ -41,7 +41,7 @@ export class HomePage {
     if(this.navParams.get('baseForm') != null){
 
       this.baseForm = this.navParams.get('baseForm')
-    }    
+    }
 
     if( this.baseForm.what != "" || this.baseForm.when != null || this.baseForm.where!="" ){
 
@@ -60,7 +60,7 @@ export class HomePage {
         this.eventi = data;
       });
     }
-    
+
     this.eventService.listCities().subscribe((data: Array<String>) => {
       this.citta = data;
     });
@@ -80,12 +80,12 @@ export class HomePage {
       console.log('onBaseSearch HomePage');
 
       this.navCtrl.push(HomePage, { "baseForm": this.baseForm });
-    
+
   }
 
 
   event(e: Event) {
-    this.navCtrl.push('DettaglioEvento',{ eventoId: e.id});
+    this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
   }
 
   bottone(){

@@ -44,6 +44,7 @@ public interface UniEventService {
 
     List<Event> findEventsByCategory(Category category );
 
+    Event findEventoById(Long id);
 
     //End Event
 
@@ -55,5 +56,7 @@ public interface UniEventService {
     List<Category> getCategories();
 
     //End Category
+
+    
 
 }

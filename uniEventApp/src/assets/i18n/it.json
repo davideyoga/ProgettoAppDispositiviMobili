@@ -1,6 +1,7 @@
 {
   "WHERE": "Dove",
   "WHEN": "Quando",
-  "WHAT": "Cosa"
-
+  "WHAT": "Cosa",
+  "LISTA EVENTI": "Lista eventi",
+  "DETTAGLIO_EVENTO_TITOLO": "Dettaglio Evento"
 }

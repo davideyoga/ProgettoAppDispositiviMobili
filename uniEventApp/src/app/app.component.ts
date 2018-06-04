@@ -36,15 +36,15 @@ export class MyApp {
   initTranslate() {
     //torna la stringa 'italiano'
     let linguaPreferita = this.linguaService.getLinguaPreferita();
-    
+
     //setta 'italiano'
     this.translate.setDefaultLang(linguaPreferita);
 
-    // this.linguaService.getLinguaAttuale() torna un Observable, 
-    // tale oggetto osserva l'avvenire di un evento, in questo 
-    // caso l'osservatore osserva il ritorno del dato dallo storage, 
+    // this.linguaService.getLinguaAttuale() torna un Observable,
+    // tale oggetto osserva l'avvenire di un evento, in questo
+    // caso l'osservatore osserva il ritorno del dato dallo storage,
     // che in questo caso e' la stringa che identifica la lingua scelta dall'utente
-    // mi sottoscrivo con subscrive a tale observable, quando torna il dato lingua di tipo stringa: 
+    // mi sottoscrivo con subscrive a tale observable, quando torna il dato lingua di tipo stringa:
     this.linguaService.getLinguaAttuale().subscribe((lingua: string) => {
 
       //se la lingua e' presente nello storage si usa quella

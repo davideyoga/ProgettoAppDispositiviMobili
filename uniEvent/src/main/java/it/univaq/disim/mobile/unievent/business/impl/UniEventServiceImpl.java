@@ -1,13 +1,13 @@
 package it.univaq.disim.mobile.unievent.business.impl;
 
 import it.univaq.disim.mobile.unievent.business.domain.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author uniEvent
@@ -67,7 +67,11 @@ public class UniEventServiceImpl implements UniEventService {
     }
 
 
-
+    @Override
+    public Event findEventoById(Long id) {
+     
+        return eventRepository.findById(id).get(); //LE CAZZO DI DIPENDENZE PER LE OPERAZIONI CRUD
+    }
 
     @Override
     public void createEvent(Event event){
@@ -120,6 +124,7 @@ public class UniEventServiceImpl implements UniEventService {
     }
 
 
+    @Override
     public void save(User user){
 
 
@@ -160,4 +165,6 @@ public class UniEventServiceImpl implements UniEventService {
 
     }
 
-}
+ 
+    }
+
