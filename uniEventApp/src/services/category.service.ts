@@ -20,6 +20,9 @@ export class CategoryService {
 
 
     categories(): Observable<Array<Category>> {
+
+        console.log("lanciato metodo categories");
+
         return this.http.get<Array<Category>>(URL.CATEGORIES);
     }
 

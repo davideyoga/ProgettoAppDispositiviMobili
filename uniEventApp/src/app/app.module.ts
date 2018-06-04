@@ -13,6 +13,7 @@ import { EventService } from '../services/event.service';
 import { LinguaService } from '../services/lingua.service';
 import { MyApp } from './app.component';
 import { CategoryService } from '../services/category.service';
+import { UserService } from '../services/user.service';
 
 //gli dico dove prendere la traduzione
 export function createTranslateLoader(http: HttpClient) {
@@ -60,6 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
     LinguaService,
     EventService,
     CategoryService,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

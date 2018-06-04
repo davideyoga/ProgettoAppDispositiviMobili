@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Event } from '../../models/event.model';
-import { BaseSearchForm, EventService } from '../../services/event.service';
-import { CategoryService } from '../../services/category.service';
+import { BaseSearchForm } from '../../models/base.sear.form.model';
 import { Category } from '../../models/category.model';
+import { Event } from '../../models/event.model';
+import { CategoryService } from '../../services/category.service';
+import { EventService } from '../../services/event.service';
+import { NgForm } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -13,7 +15,7 @@ import { Category } from '../../models/category.model';
 })
 export class HomePage {
   
-  baseForm: BaseSearchForm = {what: null, when: "", where: ""};
+  baseForm: BaseSearchForm = { what: "", when: null, where: "" };
   
   //lista di eventi visualizzabili nella home 
   eventi: Array<Event>
@@ -35,11 +37,30 @@ export class HomePage {
   ionViewDidLoad() {
 
     console.log('ionViewDidLoad HomePage');
-    
-    this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
-      this.eventi = data;
-    });
 
+    if(this.navParams.get('baseForm') != null){
+
+      this.baseForm = this.navParams.get('baseForm')
+    }    
+
+    if( this.baseForm.what != "" || this.baseForm.when != null || this.baseForm.where!="" ){
+
+      console.log('ho trovato parametro di ricerca base');
+
+      this.eventService.baseSearch(this.baseForm).subscribe((data: Array<Event>) => {
+        this.eventi = data;
+      });
+
+
+    }else{
+
+      console.log('non ho trovato nessun parametro di ricerca base');
+
+      this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
+        this.eventi = data;
+      });
+    }
+    
     this.eventService.listCities().subscribe((data: Array<String>) => {
       this.citta = data;
     });
@@ -54,12 +75,12 @@ export class HomePage {
 
 
   //metodo che risponde alla form di ricerca della home
-  onBaseSearch(b: BaseSearchForm){
-    console.log('onBaseSearch HomePage');
+  onBaseSearch(baseSearchForm: NgForm){
 
-    this.eventService.events().subscribe((data: Array<Event>) => {
-      this.eventi = data;
-    });
+      console.log('onBaseSearch HomePage');
+
+      this.navCtrl.push(HomePage, { "baseForm": this.baseForm });
+    
   }
 
 

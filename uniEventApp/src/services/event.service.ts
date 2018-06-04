@@ -3,14 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { URL } from '../constants';
+import { Event } from '../models/event.model';
+import { BaseSearchForm } from '../models/base.sear.form.model';
 
-import{Event} from '../models/event.model';
-
-export interface BaseSearchForm {
-    where: string;
-    when: string;
-    what: Date;
-}
 
 @Injectable()
 export class EventService {
@@ -39,7 +34,7 @@ export class EventService {
 
     baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
 
-        let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.when}/${b.where}`;
+        let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.where}`;
     
         return this.http.get<Array<Event>>(baseSearchFormUrl);
     }

@@ -3,7 +3,9 @@ import { IonicPage, NavController } from 'ionic-angular';
 
 import { Event } from '../../models/event.model';
 import { EventProvider } from '../../providers/rest/event.provider';
-import { BaseSearchForm, EventService } from '../../services/event.service';
+import { EventService } from '../../services/event.service';
+import { HomePage } from '../home/home';
+import { BaseSearchForm } from '../../models/base.sear.form.model';
 
 
 /**
@@ -23,7 +25,7 @@ import { BaseSearchForm, EventService } from '../../services/event.service';
 export class eventlist {
 
   eventi: Array<Event>;
-  baseForm: BaseSearchForm = {what: null, when: "", where: ""};
+  baseForm: BaseSearchForm;
 
   events: Array<Event> = [];
 
@@ -49,6 +51,15 @@ export class eventlist {
       this.events = data;
     });
   }
+
+//metodo che risponde alla form di ricerca della home
+onBaseSearch(baseSearchForm: BaseSearchForm){
+
+  console.log('onBaseSearch HomePage');
+
+  this.navCtrl.push(HomePage, { "baseForm": baseSearchForm });
+
+}
 
 }
 

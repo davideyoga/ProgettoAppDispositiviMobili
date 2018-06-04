@@ -46,11 +46,11 @@ public class Application {
 
 
             Event event3 = new Event();
-            event3.setTitle("Ape col morto");
+            event3.setTitle("Apecolmorto");
             event3.setCity("Milano");
 
             Event event4 = new Event();
-            event4.setTitle("Ape col morto 2");
+            event4.setTitle("Apecolmorto 2");
             event4.setCity("Milano");
 
 
