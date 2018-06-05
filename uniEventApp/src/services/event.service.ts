@@ -62,7 +62,7 @@ export class EventService {
 
 
     findById(eventId: number): Observable<Event> {
-      let apiURL = `${URL.EVENTS}/${eventId}`;
+      let apiURL = `${URL.EVENT}/${eventId}`;
       return this.http.get<Event>(apiURL);
   }
 }
