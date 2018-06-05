@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author Davide Micarelli
  */
 public interface EventRepository extends JpaRepository<Event, Long> {
 
+    Event findEventsById(Long id);
 
     List<Event> findTop10ByOrderByViewsDesc();
 
@@ -25,6 +25,4 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findEventsByDate(Date date);
 
     List<Event> findEventsByCategories(Category category);
-
-
 }

@@ -8,7 +8,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -30,8 +29,8 @@ public class EventController {
     }
 
     @GetMapping("/{id}")
-    public Event findById(@PathVariable Long id) {
-		return service.findEventoById(id);
+    public Event findEventById(@PathVariable Long id) {
+		return service.findEventById(id);
 	}
         
     @GetMapping("/hot")

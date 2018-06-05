@@ -50,7 +50,7 @@ public class Application {
             event3.setCity("Milano");
 
             Event event4 = new Event();
-            event4.setTitle("Apecolmorto 2");
+            event4.setTitle("Apecolmorto2");
             event4.setCity("Milano");
 
 

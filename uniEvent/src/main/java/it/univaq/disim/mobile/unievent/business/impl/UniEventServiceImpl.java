@@ -68,9 +68,9 @@ public class UniEventServiceImpl implements UniEventService {
 
 
     @Override
-    public Event findEventoById(Long id) {
+    public Event findEventById(Long id) {
      
-        return eventRepository.findById(id).get(); //LE CAZZO DI DIPENDENZE PER LE OPERAZIONI CRUD
+        return eventRepository.findEventsById(id); //LE CAZZO DI DIPENDENZE PER LE OPERAZIONI CRUD
     }
 
     @Override
