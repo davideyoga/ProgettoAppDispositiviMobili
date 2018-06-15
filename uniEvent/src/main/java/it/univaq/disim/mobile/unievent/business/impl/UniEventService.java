@@ -20,6 +20,8 @@ public interface UniEventService {
     void save(User user);
 
     User findUserByIdEvent(Long id);
+
+    User findUserById(Long idUser);
     //End User
 
 

@@ -143,6 +143,11 @@ public class UniEventServiceImpl implements UniEventService {
     }
 
     @Override
+    public User findUserById(Long idUser) {
+        return this.userRepository.findById(idUser);
+    }
+
+    @Override
     public Session login(String email, String password) {
 
         User user = userRepository.findByEmail(email);

@@ -143,4 +143,12 @@ public class EventController {
     }
 
 
+    @GetMapping("EventCreatedByUser/{idUser}")
+    public List<Event> getEventCreatedByUser(@PathVariable Long idUser){
+
+        return service.findUserById(idUser).getEventsCreated();
+
+    }
+
+
 }

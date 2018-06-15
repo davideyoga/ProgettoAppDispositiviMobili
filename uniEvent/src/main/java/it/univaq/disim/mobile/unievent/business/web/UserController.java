@@ -79,7 +79,7 @@ public class UserController {
 
 
 
-    @GetMapping("/byIdEvent/{idEvent}")
+    @GetMapping("/userCreatedEvent/{idEvent}")
     public User getUserByEventId(@PathVariable Long idEvent){
 
         Event event = this.service.findEventById(idEvent);
