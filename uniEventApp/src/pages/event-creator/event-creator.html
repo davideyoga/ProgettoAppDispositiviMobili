@@ -1,0 +1,28 @@
+<ion-header>
+  
+</ion-header>
+  
+  <ion-content padding>
+  
+    <div *ngIf="user">
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+              {{user.email}}
+          </ion-card-title>
+          <p></p>
+          <p></p>
+          <p></p>
+        </ion-card-content>
+      </ion-card>
+      <h1></h1>
+    </div>
+
+    <ion-list>
+        <button ion-item *ngFor="let e of listEvent" (click)="eventSelected(e)">
+          {{ e.title }}
+        </button>  
+      </ion-list>
+  
+  </ion-content>
+  

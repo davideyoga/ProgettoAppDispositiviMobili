@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { URL } from '../constants';
-import { Event } from '../models/event.model';
 import { BaseSearchForm } from '../models/base.sear.form.model';
+import { Event } from '../models/event.model';
 
 
 @Injectable()
@@ -64,5 +64,11 @@ export class EventService {
     findById(eventId: number): Observable<Event> {
       let apiURL = `${URL.EVENT}/${eventId}`;
       return this.http.get<Event>(apiURL);
-  }
+    }
+
+    getEventByUserCreator(idUser: number): Observable<Array<Event>> {
+        let apiURL = `${URL.GET_EVENT_CREATED_BY_USER}/${idUser}`;
+        return this.http.get<Array<Event>>(apiURL);
+      }
+
 }
