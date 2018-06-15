@@ -18,6 +18,8 @@ public interface UniEventService {
     Session login(String email, String password);
 
     void save(User user);
+
+    User findUserByIdEvent(Long id);
     //End User
 
 

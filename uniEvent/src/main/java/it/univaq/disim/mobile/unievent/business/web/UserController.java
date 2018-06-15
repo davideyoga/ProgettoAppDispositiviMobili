@@ -1,8 +1,8 @@
 package it.univaq.disim.mobile.unievent.business.web;
 
-import it.univaq.disim.mobile.unievent.business.domain.User;
+import it.univaq.disim.mobile.unievent.business.domain.Event;
 import it.univaq.disim.mobile.unievent.business.domain.Session;
-
+import it.univaq.disim.mobile.unievent.business.domain.User;
 import it.univaq.disim.mobile.unievent.business.domain.UserPreference;
 import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
  * @author uniEvent
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
     private UniEventService service;
 
-    @PostMapping("/user/create")
+    @PostMapping("/create")
     public Response createUser(@RequestParam String email, @RequestParam String password) {
 
         User user = new User();
@@ -30,7 +30,7 @@ public class UserController {
         return Response.DEFAULT_RESPONSE_OK;
     }
 
-    @PostMapping("/user/addUserPreference")
+    @PostMapping("/addUserPreference")
     public Response addUserPreference(@RequestParam String emailUser, @RequestParam String namePreference) {
 
         User user = service.findUserByEmail(emailUser);
@@ -76,5 +76,18 @@ public class UserController {
             return Response.DEFAULT_RESPONSE_KO;
         }
     }//FINE METODO LOGIN
+
+
+
+    @GetMapping("/byIdEvent/{idEvent}")
+    public User getUserByEventId(@PathVariable Long idEvent){
+
+        Event event = this.service.findEventById(idEvent);
+
+        return event.getCreator();
+
+        //return this.service.findUserByIdEvent(idEvent);
+
+    }
 
 }//FINE CLASSE

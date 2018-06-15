@@ -27,7 +27,6 @@ export class HomePage {
   categorie: Array<Category>
 
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService,
                 private categoryService: CategoryService) {
   }

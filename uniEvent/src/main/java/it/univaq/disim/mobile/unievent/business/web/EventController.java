@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -68,10 +68,10 @@ public class EventController {
         return this.service.findEventsByCategory(category);
     }
 
-    @GetMapping("/baseSearch/{nameCategory}/{city}")
+    @GetMapping("/baseSearch/{nameCategory}/{city}/{date}")
     public Set<Event> getEventsByWhenWhereWhat(@PathVariable String nameCategory,
                                                @PathVariable String city,
-                                               @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
+                                               @PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
 
         List<Event> eventsByCategory = null;
         List<Event> eventsByDate = null;
@@ -88,6 +88,8 @@ public class EventController {
 
             eventsByCategory = this.service.findEventsByCategory( category );
 
+            System.out.println("eventsByCategory: " + eventsByCategory);
+
             eventsTotal.addAll(eventsByCategory);
         }
 
@@ -95,12 +97,16 @@ public class EventController {
 
             eventsByDate = this.service.findEventsByDate(date);
 
+            System.out.println("eventsByDate: " + eventsByDate);
+
             eventsTotal.addAll(eventsByDate);
         }
 
         if (city != null){
 
             eventsByCity = this.service.findEventsByCity(city);
+
+            System.out.println("eventsByCity: " + eventsByCity);
 
             eventsTotal.addAll(eventsByCity);
         }

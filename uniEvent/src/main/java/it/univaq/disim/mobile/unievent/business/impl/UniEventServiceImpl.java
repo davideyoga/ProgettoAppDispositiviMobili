@@ -70,7 +70,7 @@ public class UniEventServiceImpl implements UniEventService {
     @Override
     public Event findEventById(Long id) {
      
-        return eventRepository.findEventsById(id); //LE CAZZO DI DIPENDENZE PER LE OPERAZIONI CRUD
+        return eventRepository.findEventsById(id);
     }
 
     @Override
@@ -135,6 +135,11 @@ public class UniEventServiceImpl implements UniEventService {
 //
 //        entityManager.unwrap(Session.class);
 
+    }
+
+    @Override
+    public User findUserByIdEvent(Long id) {
+        return null;
     }
 
     @Override

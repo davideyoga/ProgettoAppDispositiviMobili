@@ -1,6 +1,8 @@
 package it.univaq.disim.mobile.unievent.business.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -40,7 +42,8 @@ public class Event implements java.io.Serializable, Comparable {
     private String civicAddress;
 
     @Column(name = "DATE", nullable = true )
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date date;
 
     @Column(name = "DATE_CREATION")
@@ -54,7 +57,10 @@ public class Event implements java.io.Serializable, Comparable {
 
 
     @ManyToOne
+    @JsonIgnore
     private User creator;
+
+
 
     @OneToMany
     private List<Participate> participation;
@@ -154,6 +160,7 @@ public class Event implements java.io.Serializable, Comparable {
         this.views = views;
     }
 
+    @ManyToOne(cascade=CascadeType.ALL)
     public User getCreator() {
         return creator;
     }

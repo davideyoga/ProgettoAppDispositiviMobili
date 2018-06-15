@@ -11,7 +11,7 @@ import { EventService } from '../../services/event.service';
 })
 export class DettaglioEventoPage {
 
-  event:Event;
+  evento:Event;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public eventService: EventService) {
@@ -19,8 +19,8 @@ export class DettaglioEventoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DettaglioNotiziaPage');
-    this.eventService.findById(this.navParams.data.eventId).subscribe((data: Event) => {
-      this.event = data;
+    this.eventService.findById(this.navParams.data.eventoId).subscribe((data: Event) => {
+      this.evento = data;
     });
   }
 

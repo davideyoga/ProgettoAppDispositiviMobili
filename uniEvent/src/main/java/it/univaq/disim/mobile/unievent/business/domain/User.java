@@ -1,5 +1,7 @@
 package it.univaq.disim.mobile.unievent.business.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,14 +42,19 @@ public class User implements java.io.Serializable {
 
 
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<UserPreference> userPreferences = new ArrayList<>();
 
     @OneToMany
     private List<Participate> participation;
 
-    @OneToMany
+
+
+    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true,  fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Event> eventsCreated = new ArrayList<>();
+
+
 
     @ManyToMany
     private List<Event> preferredEvents = new ArrayList<>();
@@ -129,6 +136,7 @@ public class User implements java.io.Serializable {
         this.userPreferences = userPreferences;
     }
 
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="employer")
     public List <Event> getEventsCreated() {
         return eventsCreated;
     }

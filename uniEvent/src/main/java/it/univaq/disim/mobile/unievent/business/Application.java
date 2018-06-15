@@ -2,8 +2,10 @@ package it.univaq.disim.mobile.unievent.business;
 
 import it.univaq.disim.mobile.unievent.business.domain.Category;
 import it.univaq.disim.mobile.unievent.business.domain.Event;
+import it.univaq.disim.mobile.unievent.business.domain.User;
 import it.univaq.disim.mobile.unievent.business.impl.CategoryRepository;
 import it.univaq.disim.mobile.unievent.business.impl.EventRepository;
+import it.univaq.disim.mobile.unievent.business.impl.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,8 +33,27 @@ public class Application {
 
 
     @Bean
-    public CommandLineRunner loadData(EventRepository eventRepository, CategoryRepository categoryRepository) {
+    public CommandLineRunner loadData(EventRepository eventRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
         return (args) -> {
+
+            /*
+            CREAZIONE UTENTI
+             */
+            User user = new User();
+            user.setEmail("d.micarelli7@gmail.com");
+            user.setPassword("d.micarelli");
+
+            User user2 = new User();
+            user2.setEmail("d.micarelli27@gmail.com");
+            user2.setPassword("d.micarelli2");
+
+
+            userRepository.save(user);
+            userRepository.save(user2);
+
+            /*
+            CREAZIONE EVENTI
+             */
             Event event = new Event();
             event.setTitle("PartyHard1");
             event.setViews(new Long(100));
@@ -70,6 +91,7 @@ public class Application {
             categories1.add(category);
 
             event.setCategories(categories1);
+            event.setCreator(user);
             eventRepository.save(event);
             event3.setCategories(categories1);
             eventRepository.save(event3);
@@ -79,6 +101,7 @@ public class Application {
             categories2.add(category2);
 
             event2.setCategories(categories2);
+            event2.setCreator(user2);
             eventRepository.save(event2);
             event4.setCategories(categories2);
             eventRepository.save(event4);
