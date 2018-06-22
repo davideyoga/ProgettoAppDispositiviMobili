@@ -15,12 +15,22 @@
   <form #baseSearchForm="ngForm">
       <ion-list no-lines>
 
+
           <ion-item>
               <ion-label stacked color="primary">{{'WHERE' | translate}}</ion-label>
-              <ion-input [(ngModel)]="baseForm.where" name="where"
-                         #where="ngModel" [maxlength]="255" required>
-              </ion-input>
+              
+              <ion-select [(ngModel)]="baseForm.where" name=c>
+
+                <div *ngFor="let c of citta; let i = index">
+
+                  <ion-option value="{{c}}"> {{c}}</ion-option>
+                </div>
+
+              </ion-select>
+            
             </ion-item>
+
+            
 
         <!-- <ion-item>
           <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
@@ -29,12 +39,27 @@
           </ion-input>
         </ion-item> -->
 
+
         <ion-item>
+            <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
+            
+            <ion-select [(ngModel)]="baseForm.what" name=ca>
+
+              <div *ngFor="let ca of categorie; let i = index">
+
+                <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
+              </div>
+
+            </ion-select>
+          
+          </ion-item>
+
+        <!-- <ion-item>
             <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
             <ion-input [(ngModel)]="baseForm.what" name="what"
                        #what="ngModel" [maxlength]="255" required>
             </ion-input>
-        </ion-item>
+        </ion-item> -->
 
         <ion-item>
           <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
