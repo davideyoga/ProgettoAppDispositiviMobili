@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { AlertController } from "ionic-angular";
 
 import { URL } from '../constants';
 import { BaseSearchForm } from '../models/base.sear.form.model';
@@ -10,12 +11,19 @@ import { Event } from '../models/event.model';
 @Injectable()
 export class EventService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private alertCtrl: AlertController) {
 
     }
 
     listHotEvent(): Observable<Array<Event>> {
         console.log("lanciato metodo listHotEvent");
+
+        this.alertCtrl.create({
+            title: 'Low battery',
+    subTitle: URL.HOT_EVENT,
+    buttons: ['Dismiss']
+        }).present()
+
         return this.http.get<Array<Event>>(URL.HOT_EVENT);
     }
 
@@ -32,33 +40,18 @@ export class EventService {
     }
 
 
-    baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
 
-        let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.where}`;
+
+    baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
+        
+       
+
+        let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.where}/${b.when}`;
 
         return this.http.get<Array<Event>>(baseSearchFormUrl);
     }
 
 
-    // list(): Observable<Array<Notizia>> {
-    //     return this.http.get<Array<Notizia>>(URL.NOTIZIE);
-    // }
-
-    // getLinguaAttuale(): Observable<string> {
-    //     return fromPromise(this.storage.get(LINGUA));
-    // }
-
-    // getLinguaPreferita(): string {
-    //     return this.italiano.valore;
-    // }
-
-    // getLingue(): Array<Lingua> {
-    //     return this.lingue;
-    // }
-
-    // updateLingua(nuovaLingua: string) {
-    //     this.storage.set(LINGUA, nuovaLingua);
-    // }
 
 
     findById(eventId: number): Observable<Event> {
@@ -69,6 +62,13 @@ export class EventService {
     getEventByUserCreator(idUser: number): Observable<Array<Event>> {
         let apiURL = `${URL.GET_EVENT_CREATED_BY_USER}/${idUser}`;
         return this.http.get<Array<Event>>(apiURL);
-      }
+    }
+
+    getEventImage(idEvent: number): Observable<File>{
+
+        let apiURL = `${URL.IMAGE}/${idEvent}`;
+        return this.http.get<File>(apiURL);
+
+    }
 
 }

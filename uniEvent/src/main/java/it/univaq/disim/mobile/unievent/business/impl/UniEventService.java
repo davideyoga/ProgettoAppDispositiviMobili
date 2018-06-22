@@ -46,6 +46,8 @@ public interface UniEventService {
 
     List<Event> findEventsByDate(Date date);
 
+    List<Event> findEventsByDateBeforeBetween(Date start, Date end);
+
     List<Event> findEventsByCategory(Category category );
 
     Event findEventById(Long id);

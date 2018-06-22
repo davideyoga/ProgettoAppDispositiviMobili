@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -36,6 +37,8 @@ public class EventController {
     @GetMapping("/hot")
     public List<Event> getHotEvent() {
 
+        System.out.println("\nGianni\n");
+
         return this.service.findHotEvent();
     }
 
@@ -63,15 +66,17 @@ public class EventController {
 
         Category category = this.service.findCategoryByName(categoryName);
 
-        System.out.println(category);
-
         return this.service.findEventsByCategory(category);
     }
 
     @GetMapping("/baseSearch/{nameCategory}/{city}/{date}")
-    public Set<Event> getEventsByWhenWhereWhat(@PathVariable String nameCategory,
-                                               @PathVariable String city,
-                                               @PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
+    public Set<Event> getEventsByWhenWhereWhat(@PathVariable(required=false) String nameCategory,
+                                               @PathVariable(required=false) String city,
+                                               @PathVariable(required=false) @DateTimeFormat(pattern="yyyy-MM-dd") Date date){
+
+        System.out.println("\n");
+        System.out.println("date: " + date);
+
 
         List<Event> eventsByCategory = null;
         List<Event> eventsByDate = null;
@@ -86,29 +91,41 @@ public class EventController {
 
             Category category = this.service.findCategoryByName(nameCategory);
 
+            System.out.println("category: " + category);
+
             eventsByCategory = this.service.findEventsByCategory( category );
 
             System.out.println("eventsByCategory: " + eventsByCategory);
 
             eventsTotal.addAll(eventsByCategory);
+
+            System.out.println("eventsTotal1: " + eventsTotal);
         }
 
         if (date!=null){
 
-            eventsByDate = this.service.findEventsByDate(date);
+            //setto il giorno successivo meno un millisecondo
+            Date endDay = new Date(date.getTime()+ 86400000-1);
+
+            System.out.println("andDay: " + endDay);
+
+            eventsByDate = this.service.findEventsByDateBeforeBetween(date, endDay);
 
             System.out.println("eventsByDate: " + eventsByDate);
+            System.out.println("\n");
 
             eventsTotal.addAll(eventsByDate);
+
+            System.out.println("eventsTotal2: " + eventsTotal);
         }
 
         if (city != null){
 
             eventsByCity = this.service.findEventsByCity(city);
 
-            System.out.println("eventsByCity: " + eventsByCity);
-
             eventsTotal.addAll(eventsByCity);
+
+            System.out.println("eventsTotal3: " + eventsTotal);
         }
         /*
             FINE RACCOLTA DATI
@@ -143,11 +160,31 @@ public class EventController {
     }
 
 
-    @GetMapping("EventCreatedByUser/{idUser}")
+    @GetMapping("/EventCreatedByUser/{idUser}")
     public List<Event> getEventCreatedByUser(@PathVariable Long idUser){
 
         return service.findUserById(idUser).getEventsCreated();
 
+    }
+
+
+
+    @GetMapping("/image/{id}")
+    public File getImageByEvent( @PathVariable Long id){
+
+        System.out.println("\n");
+        System.out.println("Arrivata chiamata a getimageByEvent");
+        System.out.println("\n");
+
+        Event event = this.service.findEventById(id);
+
+        String route = event.getImage();
+
+        File in = new File(route);
+
+        System.out.println("Space in: " + in.getTotalSpace());
+
+        return in;
     }
 
 

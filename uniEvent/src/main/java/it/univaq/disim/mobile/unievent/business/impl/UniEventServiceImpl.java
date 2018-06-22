@@ -103,10 +103,18 @@ public class UniEventServiceImpl implements UniEventService {
         return this.eventRepository.findEventsByCity(city);
     }
 
+
+
     @Override
     public List <Event> findEventsByDate(Date date) {
         return this.eventRepository.findEventsByDate(date);
     }
+
+    @Override
+    public List <Event> findEventsByDateBeforeBetween(Date start, Date end) {
+        return this.eventRepository.findEventsByDateAfterAndDateBefore(start, end);
+    }
+
 
     @Override
     public List <Event> findEventsByCategory(Category category) {
@@ -115,7 +123,7 @@ public class UniEventServiceImpl implements UniEventService {
 
     @Override
     public Category findCategoryByName(String name) {
-        return this.categoryRepository.findByName(name);
+        return this.categoryRepository.findCategoryByName(name);
     }
 
     @Override

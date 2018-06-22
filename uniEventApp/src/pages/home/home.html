@@ -22,18 +22,26 @@
               </ion-input>
             </ion-item>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
           <ion-input [(ngModel)]="baseForm.when" name="when"
                      #when="ngModel" [maxlength]="255" required>
           </ion-input>
-        </ion-item>
+        </ion-item> -->
 
         <ion-item>
             <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
             <ion-input [(ngModel)]="baseForm.what" name="what"
                        #what="ngModel" [maxlength]="255" required>
             </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when" 
+              name="when" #when="ngModel">
+
+          </ion-datetime>
         </ion-item>
 
       </ion-list>

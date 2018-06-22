@@ -1,2 +1,6 @@
 - Aggiornare il datamodel
 
+- capire perche quando restituisce un evento, le date sono sfasate di -2 ore (solo le ore)
+
+- nella home quando viene chiamato pulsante di ricerca, trovare un altro modo invece di fare push di 
+    un altra home (creando altra pagina)

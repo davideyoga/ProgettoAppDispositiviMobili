@@ -15,7 +15,7 @@ import { NgForm } from '@angular/forms';
 })
 export class HomePage {
 
-  baseForm: BaseSearchForm = { what: "", when: null, where: "" };
+  baseForm: BaseSearchForm = { what: "", when: "", where: "" };
 
   //lista di eventi visualizzabili nella home
   eventi: Array<Event>
@@ -42,9 +42,13 @@ export class HomePage {
       this.baseForm = this.navParams.get('baseForm')
     }
 
-    if( this.baseForm.what != "" || this.baseForm.when != null || this.baseForm.where!="" ){
+    if( this.baseForm.what != "" || this.baseForm.when != "" || this.baseForm.where!="" ){
 
       console.log('ho trovato parametro di ricerca base');
+
+      console.log('this.baseForm.what: '+this.baseForm.what);
+      console.log('this.baseForm.when: '+this.baseForm.when);
+      console.log('this.baseForm.where: '+this.baseForm.where);
 
       this.eventService.baseSearch(this.baseForm).subscribe((data: Array<Event>) => {
         this.eventi = data;

@@ -40,6 +40,13 @@
       <button ion-button (click)="infoUser()">
         creatore.email
       </button>
+  </div>
+
+    <div *ngIf="image">
+      <img [src]="image.data.url" />
     </div>
+    <img src="" alt="Cute Pug">
+    
+
 
 </ion-content>

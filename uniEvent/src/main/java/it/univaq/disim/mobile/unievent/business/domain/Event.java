@@ -42,8 +42,7 @@ public class Event implements java.io.Serializable, Comparable {
     private String civicAddress;
 
     @Column(name = "DATE", nullable = true )
-    //@Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd'T'hh:mm:ss")
     private Date date;
 
     @Column(name = "DATE_CREATION")
@@ -249,5 +248,27 @@ public class Event implements java.io.Serializable, Comparable {
             return (int) (this.getId() - ((Event) o).getId());
 
         }else return 0;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", civicAddress='" + civicAddress + '\'' +
+                ", date=" + date +
+                ", dateCreation=" + dateCreation +
+                ", views=" + views +
+                ", creator=" + creator +
+                ", participation=" + participation +
+                ", categories=" + categories +
+                ", services=" + services +
+                '}';
     }
 }

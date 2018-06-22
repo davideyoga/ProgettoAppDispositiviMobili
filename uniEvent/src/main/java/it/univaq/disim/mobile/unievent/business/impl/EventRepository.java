@@ -4,7 +4,9 @@ import it.univaq.disim.mobile.unievent.business.domain.Category;
 import it.univaq.disim.mobile.unievent.business.domain.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.Temporal;
 
+import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.List;
 
@@ -25,4 +27,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findEventsByDate(Date date);
 
     List<Event> findEventsByCategories(Category category);
+
+    List<Event> findEventsByDateAfterAndDateBefore(Date after, Date before);
 }
