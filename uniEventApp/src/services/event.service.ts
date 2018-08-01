@@ -18,11 +18,11 @@ export class EventService {
     listHotEvent(): Observable<Array<Event>> {
         console.log("lanciato metodo listHotEvent");
 
-        this.alertCtrl.create({
+       /* this.alertCtrl.create({
             title: 'Low battery',
     subTitle: URL.HOT_EVENT,
     buttons: ['Dismiss']
-        }).present()
+        }).present() */
 
         return this.http.get<Array<Event>>(URL.HOT_EVENT);
     }
@@ -43,8 +43,8 @@ export class EventService {
 
 
     baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
-        
-       
+
+
 
         let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.where}/${b.when}`;
 

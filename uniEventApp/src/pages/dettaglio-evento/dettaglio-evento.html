@@ -1,13 +1,15 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
   <ion-title>{{'DETTAGLIO_EVENTO_TITOLO' | translate}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content padding>
 
+<ion-content>
   <div *ngIf="evento">
     <ion-card>
       <ion-card-content>
@@ -46,7 +48,7 @@
       <img [src]="image.data.url" />
     </div>
     <img src="" alt="Cute Pug">
-    
+
 
 
 </ion-content>

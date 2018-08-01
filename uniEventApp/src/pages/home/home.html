@@ -18,19 +18,19 @@
 
           <ion-item>
               <ion-label stacked color="primary">{{'WHERE' | translate}}</ion-label>
-              
-              <ion-select [(ngModel)]="baseForm.where" name=c>
 
+              <ion-select [(ngModel)]="baseForm.where" name=c>
+                <ion-option value=""> </ion-option>
                 <div *ngFor="let c of citta; let i = index">
 
                   <ion-option value="{{c}}"> {{c}}</ion-option>
                 </div>
 
               </ion-select>
-            
+
             </ion-item>
 
-            
+
 
         <!-- <ion-item>
           <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
@@ -42,16 +42,16 @@
 
         <ion-item>
             <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
-            
-            <ion-select [(ngModel)]="baseForm.what" name=ca>
 
+            <ion-select [(ngModel)]="baseForm.what" name=ca>
+              <ion-option value=""> </ion-option>
               <div *ngFor="let ca of categorie; let i = index">
 
                 <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
               </div>
 
             </ion-select>
-          
+
           </ion-item>
 
         <!-- <ion-item>
@@ -63,7 +63,7 @@
 
         <ion-item>
           <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when" 
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when"
               name="when" #when="ngModel">
 
           </ion-datetime>

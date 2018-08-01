@@ -19,7 +19,7 @@ export const URL = {
     GET_USER_CREATED_EVENT: URL_BASE + "/user/userCreatedEvent",
     GET_EVENT_CREATED_BY_USER: URL_BASE + "/event/EventCreatedByUser",
     IMAGE: URL_BASE + '/event/image'
-    
+
 
 }
 
@@ -28,3 +28,7 @@ export const LINGUA = 'lingua';
 export const EVENTO = 'evento';
 
 export const X_AUTH = "X-Auth";
+
+export const AUTH_TOKEN = "auth-token";
+
+export const UTENTE_STORAGE = "utente";

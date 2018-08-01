@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Platform } from 'ionic-angular';
+
+import { AlertController, Events, MenuController, Nav, Platform } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { LinguaService } from '../services/lingua.service';
-
+import { EVENTI_PAGE } from '../pages/pages';
 
 
 @Component({
@@ -14,11 +15,20 @@ import { LinguaService } from '../services/lingua.service';
 })
 
 export class MyApp {
-  rootPage:any = HomePage;
-  //utente: User;
+  rootPage:any=HomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+
+  @ViewChild(Nav) nav:Nav;
+
+  menu1: any[] = [
+    { title: 'Lista Eventi', component: EVENTI_PAGE, icon: 'school' }
+  ];
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
   private linguaService: LinguaService, private translate: TranslateService) {
+
+
+    console.log("constructor MyApp");
 
     //chiama metodo initTranslate
     this.initTranslate();
@@ -53,7 +63,7 @@ export class MyApp {
 
         //altrimenti
       } else {
-        // se nn e' presente si usa la linguaPreferita che e' impostata di default in ita
+        // se non e' presente si usa la linguaPreferita che e' impostata di default in ita
         this.translate.use(linguaPreferita);
         // si salva la lingua nello storage
         this.linguaService.updateLingua(linguaPreferita);
@@ -67,5 +77,12 @@ export class MyApp {
     });
     */
   }
+
+
+
+  openPage(page){
+    this.nav.push(page.component);
+  }
+
 }
 
