@@ -22,6 +22,9 @@ public interface UniEventService {
     User findUserByIdEvent(Long id);
 
     User findUserById(Long idUser);
+
+    void logout(String token);
+
     //End User
 
 

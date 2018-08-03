@@ -156,6 +156,13 @@ public class UniEventServiceImpl implements UniEventService {
     }
 
     @Override
+    public void logout(String token) {
+
+        sessionRepository.deleteByToken(token);
+
+    }
+
+    @Override
     public Session login(String email, String password) {
 
         User user = userRepository.findByEmail(email);

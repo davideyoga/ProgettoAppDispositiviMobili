@@ -64,6 +64,8 @@ public class UserController {
             login.setToken(session.getToken());
             login.setEmail(session.getUser().getEmail());
 
+            System.out.println(login);
+
             return login;
 
         }else {
@@ -71,6 +73,24 @@ public class UserController {
         }
     }//FINE METODO LOGIN
 
+
+    /**
+     * @param token: token dell'utente da sloggare
+     * @return risposta
+     */
+    @PostMapping("/logout")
+    public Boolean logout(@RequestBody String token){
+
+        //creo la sessione
+        service.logout(token);
+
+        return true;
+
+    }//FINE METODO LOGOUT
+
+    /*
+    {             "password": "d.micarelli", "email": "d.micarelli7@gmail.com"  }
+     */
 
 
     @GetMapping("/userCreatedEvent/{idEvent}")

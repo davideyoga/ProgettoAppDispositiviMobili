@@ -7,6 +7,8 @@ import { AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH } from '../constants';
 import { Login } from '../models/login.model';
 import { User } from '../models/user.model';
 
+import 'rxjs/Rx';
+
 @Injectable()
 export class UserService {
 
@@ -34,7 +36,7 @@ export class UserService {
     }
 
     login(user: User): Observable<Login> {
-        return this.http.post<Login>(URL.LOGIN, user, { observe: 'response'})
+        return this.http.post<Login>(URL.LOGIN, user, { observe: 'response' })
             .map((resp: HttpResponse<Login>) => {
                 const token = resp.headers.get(X_AUTH);
                 this.storage.set(AUTH_TOKEN, token);
@@ -45,6 +47,5 @@ export class UserService {
                 return resp.body;
             });        
     }
-
 
 }
