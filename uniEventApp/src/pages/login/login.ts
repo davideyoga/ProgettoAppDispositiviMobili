@@ -16,7 +16,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  login:Login ={email:"d.micarelli7@gmail.com", token:""};
+  login:Login = {email:"d.micarelli7@gmail.com", token:""};
   loginTitle: string;
   loginSubTitle: string;
   

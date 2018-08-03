@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+    <ion-title>{{'LOGIN_TITLE'| translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,9 +17,10 @@
 				<ion-input [(ngModel)]="login.email" name="username" type="text" #username="ngModel"
 						   [maxlength]="16" required>
 				</ion-input>
-			
+			</ion-item>
+			<ion-item>
 				<ion-label stacked color="primary">{{ 'PASSWORD' | translate }}</ion-label>
-				<ion-input [(ngModel)]="password" name="password" type="password"
+				<ion-input [(ngModel)]="login.token" name="password" type="password"
 				           #password="ngModel" [maxlength]="255" required>
 				</ion-input>
 			</ion-item>
