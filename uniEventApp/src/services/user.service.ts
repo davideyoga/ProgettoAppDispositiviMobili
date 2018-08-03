@@ -1,19 +1,23 @@
-import { Injectable } from "@angular/core";
-import { URL } from '../constants';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import { User } from "../models/user.model";
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { AUTH_TOKEN, URL, X_AUTH, UTENTE_STORAGE } from '../constants';
+import { User } from '../models/user.model';
+import { Login } from '../models/login.model';
 
 @Injectable()
 export class UserService {
 
-    constructor(private http: HttpClient) {
-
-    }
-
-    //token dell'utente crhe va settato durante il login
+    //token dell'utente che va settato durante il login
     private tokenUtente: string;
 
+    constructor(private http: HttpClient, private storage: Storage) {
+        this.storage.get(AUTH_TOKEN).then((token) => {
+            this.tokenUtente = token;
+        });
+    }
+    
     getUtenteToken(): string {
         return this.tokenUtente;
     } 
@@ -27,5 +31,19 @@ export class UserService {
         return this.http.get<User>(getUserCreatedEventURL);
 
     }
+
+    login(user: User): Observable<Login> {
+        return this.http.post<Login>(URL.LOGIN, user, { observe: 'response' })
+            .map((resp: HttpResponse<Login>) => {
+                const token = resp.headers.get(X_AUTH);
+                this.storage.set(AUTH_TOKEN, token);
+                this.tokenUtente = token;
+                //Utente memorizzato nello storage in modo tale che se si vuole cambiare il
+                //profilo dell'utente stesso non si fa una chiamata REST. 
+                this.storage.set(UTENTE_STORAGE, resp.body);
+                return resp.body;
+            });        
+    }
+
 
 }
