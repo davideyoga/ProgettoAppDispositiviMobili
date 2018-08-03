@@ -1,10 +1,11 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs/Observable';
 
-import { AUTH_TOKEN, URL, X_AUTH, UTENTE_STORAGE } from '../constants';
-import { User } from '../models/user.model';
+import { AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH } from '../constants';
 import { Login } from '../models/login.model';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class UserService {
