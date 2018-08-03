@@ -7,7 +7,7 @@ import { AlertController, Events, MenuController, Nav, Platform } from 'ionic-an
 
 import { HomePage } from '../pages/home/home';
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE } from '../pages/pages';
 
 
 @Component({
@@ -21,7 +21,8 @@ export class MyApp {
   @ViewChild(Nav) nav:Nav;
 
   menu1: any[] = [
-    { title: 'Lista Eventi', component: EVENTI_PAGE, icon: 'school' }
+    { title: 'Lista Eventi', component: EVENTI_PAGE, icon: 'school' },
+    {title: 'Login', component: LOGIN_PAGE, icon:''}
   ];
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
