@@ -51,7 +51,7 @@ public class UserController {
      * @return risposta
      */
     @PostMapping("/login")
-    public Response login(@RequestBody User user){
+    public Login login(@RequestBody User user){
 
         //creo la sessione
         Session session = service.login(user.getEmail(), user.getPassword());
@@ -59,21 +59,15 @@ public class UserController {
         //controllo se la sessione non e' diversa da null
         if(session!=null){
 
-
-            Response<Login> result = new Response<>(true, Response.DEFAULT_RESPONSE_OK.getMessage());
-
             //setto l'oggetto login che va inserito nella risposta
             Login login = new Login();
             login.setToken(session.getToken());
             login.setEmail(session.getUser().getEmail());
 
-            //inserisco il login nella risposta
-            result.setData(login);
-
-            return result;
+            return login;
 
         }else {
-            return Response.DEFAULT_RESPONSE_KO;
+            return null;
         }
     }//FINE METODO LOGIN
 
