@@ -8,6 +8,7 @@ import { Login } from '../models/login.model';
 import { User } from '../models/user.model';
 
 import 'rxjs/Rx';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 @Injectable()
 export class UserService {
@@ -46,6 +47,15 @@ export class UserService {
                 this.storage.set(UTENTE_STORAGE, resp.body);
                 return resp.body;
             });        
+    }
+
+    logout(){
+        
+        this.tokenUtente = "";
+        this.storage.remove(AUTH_TOKEN);
+        this.storage.remove(UTENTE_STORAGE);
+        //Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
+        //Per gestirlo si dovrebbe fare lato server una blacklist.
     }
 
 }

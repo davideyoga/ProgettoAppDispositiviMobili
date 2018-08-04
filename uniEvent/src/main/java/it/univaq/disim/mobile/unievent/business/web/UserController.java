@@ -79,7 +79,7 @@ public class UserController {
      * @return risposta
      */
     @PostMapping("/logout")
-    public Boolean logout(@RequestBody String token){
+    public Boolean logout(@RequestParam  String token){
 
         //creo la sessione
         service.logout(token);
@@ -88,10 +88,6 @@ public class UserController {
 
     }//FINE METODO LOGOUT
 
-    /*
-    {             "password": "d.micarelli", "email": "d.micarelli7@gmail.com"  }
-     */
-
 
     @GetMapping("/userCreatedEvent/{idEvent}")
     public User getUserByEventId(@PathVariable Long idEvent){
@@ -99,8 +95,6 @@ public class UserController {
         Event event = this.service.findEventById(idEvent);
 
         return event.getCreator();
-
-        //return this.service.findUserByIdEvent(idEvent);
 
     }
 

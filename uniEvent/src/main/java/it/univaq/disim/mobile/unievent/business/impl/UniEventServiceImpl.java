@@ -158,6 +158,8 @@ public class UniEventServiceImpl implements UniEventService {
     @Override
     public void logout(String token) {
 
+        System.out.println("token: " + token);
+
         sessionRepository.deleteByToken(token);
 
     }

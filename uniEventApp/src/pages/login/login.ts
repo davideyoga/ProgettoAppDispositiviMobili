@@ -56,8 +56,8 @@ export class LoginPage {
     this.user.email = this.navParams.get('user.email');
     this.user.password = this.navParams.get('user.password');
 
-    console.log("password: " + this.user.password);
     console.log("email: " + this.user.email);
+    console.log("password: " + this.user.password); 
 
     this.userService.login(this.user);
 
