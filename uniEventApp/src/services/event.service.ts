@@ -6,6 +6,7 @@ import { AlertController } from "ionic-angular";
 import { URL } from '../constants';
 import { BaseSearchForm } from '../models/base.sear.form.model';
 import { Event } from '../models/event.model';
+import { User } from '../models/user.model';
 
 
 @Injectable()

@@ -66,6 +66,6 @@ public interface UniEventService {
 
     //End Category
 
-    
+    double getReviewValueUser(Long idUser);
 
 }

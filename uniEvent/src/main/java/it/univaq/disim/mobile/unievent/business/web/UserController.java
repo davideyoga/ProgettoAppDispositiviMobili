@@ -98,4 +98,13 @@ public class UserController {
 
     }
 
+    @GetMapping("/reviewUser/{idUser}")
+    public double getReviewValueUser(@PathVariable Long idUser){
+
+        System.out.println("idUser: " + idUser);
+
+        return this.service.getReviewValueUser(idUser);
+
+    }
+
 }//FINE CLASSE
