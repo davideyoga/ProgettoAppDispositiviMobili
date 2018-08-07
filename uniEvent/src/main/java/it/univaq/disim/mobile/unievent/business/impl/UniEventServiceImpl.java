@@ -1,13 +1,13 @@
 package it.univaq.disim.mobile.unievent.business.impl;
 
 import it.univaq.disim.mobile.unievent.business.domain.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author uniEvent
@@ -37,9 +37,6 @@ public class UniEventServiceImpl implements UniEventService {
 
     @Autowired
     private CategoryRepository categoryRepository;
-
-    @Autowired
-    private ParticipateRepository participateRepository;
 
     /*
      * END REPOSITORY
@@ -132,48 +129,6 @@ public class UniEventServiceImpl implements UniEventService {
     @Override
     public List<Category> getCategories() {
         return categoryRepository.findAll();
-    }
-
-    @Override
-    public double getReviewValueUser(Long idUser) {
-
-        //estraggo l'utente di cui voglio le recensioni dei suoi eventi
-        User user = this.userRepository.findById(idUser);
-
-        //estraggo tutti gli eventi dell'utente
-        List<Event> listaEventiDellUtente = user.getEventsCreated();
-
-        List<Participate> listaPartecipazioniEvento = this.participateRepository.getParticipateByUser(user);
-
-        //estraggo le partecipazioni all'evento e faccio la media delle recensioni
-        for (Event event : listaEventiDellUtente){
-
-            List<Participate> partecipazioni = event.getParticipation();
-
-            listaPartecipazioniEvento.addAll(partecipazioni);
-
-        }
-
-        //List<Participate> listaPartecipazioniEvento = this.participateRepository.getParticipateByUser(user);
-
-        System.out.println("listaPartecipazioniEvento: " + listaPartecipazioniEvento);
-
-        double totValue = 0;
-        int count = 0;
-
-        for (Participate participate : listaPartecipazioniEvento){
-
-            if(participate.isExistReview() || participate.getVoteReview() > 0) {
-                totValue = totValue + participate.getVoteReview();
-                count++;
-            }
-        }
-
-        System.out.println("count: " + count);
-
-        System.out.println("ValoreDiritorno: " + totValue / count);
-
-        return totValue / count;
     }
 
 

@@ -17,6 +17,8 @@ import { UserService } from '../services/user.service';
 import { MyApp } from './app.component';
 import { httpInterceptorProviders } from '../interceptors';
 
+import { PopoverComponent} from "../components/popover/popover";
+
 //gli dico dove prendere la traduzione
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,7 +27,8 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    PopoverComponent
   ],
 
   imports: [
@@ -61,7 +64,8 @@ export function createTranslateLoader(http: HttpClient) {
 
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    PopoverComponent
   ],
   providers: [
     StatusBar,

@@ -11,49 +11,20 @@
 
 <ion-content>
   <div *ngIf="evento">
-    
-      
-      
-
-        
-            
-          <p>FOTO</p>
-            <p>{{evento.title}}</p>            
-        
-        
-        
-      
-        
-        <p>
-          {{evento.date}}
-        </p> 
-        
-
-
-        <div *ngIf="creatore">
-          <button ion-button color="detail" clear (click)="infoUser()">
-              {{creatore.name}} {{creatore.surname}}
-          </button>
-        </div>
-
-        <div>
-
-          MediaRecensioniUtente: {{reviewValueUser}}
-
-        </div>
-        
-        
-        <p>
-            {{evento.description}}
-        </p>  
-        
-        <p>
-            Prezzo: {{evento.price}}
-        </p> 
-      
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+            {{evento.title}}
+        </ion-card-title>
+        <p></p>
+        <p></p>
+        <p></p>
+      </ion-card-content>
+    </ion-card>
+    <h1></h1>
   </div>
 
-  <!-- <div *ngIf="creatore">
+  <div *ngIf="creatore">
     <ion-card>
       <ion-card-content>
         <ion-card-title>
@@ -65,12 +36,19 @@
       </ion-card-content>
     </ion-card>
     <h1></h1>
-  </div> -->
+  </div>
+
+  <div *ngIf="creatore">
+      <button ion-button (click)="infoUser()">
+        creatore.email
+      </button>
+  </div>
 
     <div *ngIf="image">
       <img [src]="image.data.url" />
     </div>
     <img src="" alt="Cute Pug">
+
 
 
 </ion-content>

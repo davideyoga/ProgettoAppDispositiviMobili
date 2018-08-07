@@ -3,7 +3,17 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{'LISTA EVENTI' | translate}}</ion-title>
+    <ion-title *ngIf="!isSearchBarOpened">{{'LISTA EVENTI' | translate}}</ion-title>
+    <ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true">
+        <ion-icon name="search"></ion-icon>
+      </button>
+        <button ion-button icon-only (click)="presentPopover($event)">
+          <ion-icon name="more"></ion-icon>
+        </button>
+
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -12,78 +22,90 @@
 
 <ion-content>
 
-  <form #baseSearchForm="ngForm">
-      <ion-list no-lines>
+  <!--<form #baseSearchForm="ngForm">-->
+    <!--<ion-list no-lines>-->
 
 
-          <ion-item>
-              <ion-label stacked color="primary">{{'WHERE' | translate}}</ion-label>
+      <!--<ion-item>-->
+        <!--<ion-label stacked color="primary">{{'WHERE' | translate}}</ion-label>-->
 
-              <ion-select [(ngModel)]="baseForm.where" name=c>
-                <ion-option value=""> </ion-option>
-                <div *ngFor="let c of citta; let i = index">
+        <!--<ion-select [(ngModel)]="baseForm.where" name=c>-->
+          <!--<ion-option value=""> </ion-option>-->
+          <!--<div *ngFor="let c of citta; let i = index">-->
 
-                  <ion-option value="{{c}}"> {{c}}</ion-option>
-                </div>
+            <!--<ion-option value="{{c}}"> {{c}}</ion-option>-->
+          <!--</div>-->
 
-              </ion-select>
+        <!--</ion-select>-->
 
-            </ion-item>
-
-
-
-        <!-- <ion-item>
-          <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
-          <ion-input [(ngModel)]="baseForm.when" name="when"
-                     #when="ngModel" [maxlength]="255" required>
-          </ion-input>
-        </ion-item> -->
+      <!--</ion-item>-->
 
 
-        <ion-item>
-            <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
 
-            <ion-select [(ngModel)]="baseForm.what" name=ca>
-              <ion-option value=""> </ion-option>
-              <div *ngFor="let ca of categorie; let i = index">
+      <!--&lt;!&ndash; <ion-item>-->
+        <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
+        <!--<ion-input [(ngModel)]="baseForm.when" name="when"-->
+                   <!--#when="ngModel" [maxlength]="255" required>-->
+        <!--</ion-input>-->
+      <!--</ion-item> &ndash;&gt;-->
 
-                <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
-              </div>
 
-            </ion-select>
+      <!--<ion-item>-->
+        <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
 
-          </ion-item>
+        <!--<ion-select [(ngModel)]="baseForm.what" name=ca>-->
+          <!--<ion-option value=""> </ion-option>-->
+          <!--<div *ngFor="let ca of categorie; let i = index">-->
 
-        <!-- <ion-item>
-            <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
-            <ion-input [(ngModel)]="baseForm.what" name="what"
-                       #what="ngModel" [maxlength]="255" required>
-            </ion-input>
-        </ion-item> -->
+            <!--<ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>-->
+          <!--</div>-->
 
-        <ion-item>
-          <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when"
-              name="when" #when="ngModel">
+        <!--</ion-select>-->
 
-          </ion-datetime>
-        </ion-item>
+      <!--</ion-item>-->
+      <!--&lt;!&ndash; <ion-item>-->
+           <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
+           <!--<ion-input [(ngModel)]="baseForm.what" name="what"-->
+                      <!--#what="ngModel" [maxlength]="255" required>-->
+           <!--</ion-input>-->
+       <!--</ion-item> &ndash;&gt;-->
 
-      </ion-list>
-      <ion-row responsive-sm>
-        <ion-col>
-          <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit" block>search</button>
-        </ion-col>
-      </ion-row>
-    </form>
+      <!--<ion-item>-->
+        <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
+        <!--<ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when"-->
+                      <!--name="when" #when="ngModel">-->
 
-<ion-list>
-  <button ion-item *ngFor="let e of eventi" (click)="event(e)">
-    <ion-icon name="{{e.title}}" item-left></ion-icon>
-    {{e.title}}
-    <div class="item-note" item-right>
-    </div>
-  </button>
-</ion-list>
+        <!--</ion-datetime>-->
+      <!--</ion-item>-->
+
+    <!--</ion-list>-->
+    <!--<ion-row responsive-sm>-->
+      <!--<ion-col>-->
+        <!--<button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit" block>search</button>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  <!--</form>-->
+
+  <!--<ion-list>-->
+    <!--<button ion-item *ngFor="let e of eventi" (click)="event(e)">-->
+      <!--<ion-icon name="{{e.title}}" item-left></ion-icon>-->
+      <!--{{e.title}}-->
+      <!--<div class="item-note" item-right>-->
+      <!--</div>-->
+    <!--</button>-->
+  <!--</ion-list>-->
+
+  <ion-card *ngFor="let e of evento">
+    <img src="../../assets/imgs/logo.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{e.desc}}
+      </ion-card-title>
+      <p>
+        {{e.indirizzo}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button (click)="presentPopover($event)"> giancazzi </button>
 </ion-content>
-
