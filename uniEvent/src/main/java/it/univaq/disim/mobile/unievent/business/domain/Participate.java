@@ -22,9 +22,6 @@ public class Participate implements java.io.Serializable {
     @Column(name = "VOTE_REVIEW", nullable = true)
     private Integer voteReview;
 
-    @Column(name = "EXIST_REVIEW", nullable = true)
-    private boolean existReview;
-
     @Column(name = "DESCRIPTION_REVIEW", nullable = true)
     private String descriptionReview;
 
@@ -71,18 +68,6 @@ public class Participate implements java.io.Serializable {
         this.descriptionReview = descriptionReview;
     }
 
-    public boolean isExistReview() {
-        return existReview;
-    }
-
-    public boolean getExistReview() {
-        return existReview;
-    }
-
-    public void setExistReview(boolean existReview) {
-        this.existReview = existReview;
-    }
-
     @Override
     public String toString() {
         return "Participate{" +
@@ -93,7 +78,6 @@ public class Participate implements java.io.Serializable {
                 '}';
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,16 +85,12 @@ public class Participate implements java.io.Serializable {
 
         Participate that = (Participate) o;
 
-        if (isExistReview() != that.isExistReview()) return false;
         if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
         if (getDataPrenotation() != null ? !getDataPrenotation().equals(that.getDataPrenotation()) : that.getDataPrenotation() != null)
             return false;
         if (getVoteReview() != null ? !getVoteReview().equals(that.getVoteReview()) : that.getVoteReview() != null)
             return false;
-        if (getDescriptionReview() != null ? !getDescriptionReview().equals(that.getDescriptionReview()) : that.getDescriptionReview() != null)
-            return false;
-        if (getUser() != null ? !getUser().equals(that.getUser()) : that.getUser() != null) return false;
-        return getEvent() != null ? getEvent().equals(that.getEvent()) : that.getEvent() == null;
+        return getDescriptionReview() != null ? getDescriptionReview().equals(that.getDescriptionReview()) : that.getDescriptionReview() == null;
     }
 
     @Override
@@ -118,12 +98,10 @@ public class Participate implements java.io.Serializable {
         int result = getId() != null ? getId().hashCode() : 0;
         result = 31 * result + (getDataPrenotation() != null ? getDataPrenotation().hashCode() : 0);
         result = 31 * result + (getVoteReview() != null ? getVoteReview().hashCode() : 0);
-        result = 31 * result + (isExistReview() ? 1 : 0);
         result = 31 * result + (getDescriptionReview() != null ? getDescriptionReview().hashCode() : 0);
-        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
-        result = 31 * result + (getEvent() != null ? getEvent().hashCode() : 0);
         return result;
     }
+
 
     public User getUser() {
         return user;
