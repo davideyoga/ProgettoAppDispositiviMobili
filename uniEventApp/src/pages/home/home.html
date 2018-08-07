@@ -7,83 +7,100 @@
   </ion-navbar>
 </ion-header>
 
-
-
-
 <ion-content>
 
-  <form #baseSearchForm="ngForm">
-      <ion-list no-lines>
+    <ion-card>
+      <img src="../../assets/imgs/logo.png"/>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+        </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+  <button ion-button (click)="alert()" type="submit" block>search</button>
 
 
-          <ion-item>
-              <ion-label stacked color="primary">{{'WHERE' | translate}}</ion-label>
-              
-              <ion-select [(ngModel)]="baseForm.where" name=c>
-
-                <div *ngFor="let c of citta; let i = index">
-
-                  <ion-option value="{{c}}"> {{c}}</ion-option>
-                </div>
-
-              </ion-select>
-            
-            </ion-item>
-
-            
-
-        <!-- <ion-item>
-          <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
-          <ion-input [(ngModel)]="baseForm.when" name="when"
-                     #when="ngModel" [maxlength]="255" required>
-          </ion-input>
-        </ion-item> -->
-
-
-        <ion-item>
-            <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
-            
-            <ion-select [(ngModel)]="baseForm.what" name=ca>
-
-              <div *ngFor="let ca of categorie; let i = index">
-
-                <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
-              </div>
-
-            </ion-select>
-          
-          </ion-item>
-
-        <!-- <ion-item>
-            <ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>
-            <ion-input [(ngModel)]="baseForm.what" name="what"
-                       #what="ngModel" [maxlength]="255" required>
-            </ion-input>
-        </ion-item> -->
-
-        <ion-item>
-          <ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when" 
-              name="when" #when="ngModel">
-
-          </ion-datetime>
-        </ion-item>
-
-      </ion-list>
-      <ion-row responsive-sm>
-        <ion-col>
-          <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit" block>search</button>
-        </ion-col>
-      </ion-row>
-    </form>
-
-<ion-list>
-  <button ion-item *ngFor="let e of eventi" (click)="event(e)">
-    <ion-icon name="{{e.title}}" item-left></ion-icon>
-    {{e.title}}
-    <div class="item-note" item-right>
-    </div>
-  </button>
-</ion-list>
 </ion-content>
+
+<!--<ion-content>-->
+
+  <!--<form #baseSearchForm="ngForm">-->
+      <!--<ion-list no-lines>-->
+
+
+          <!--<ion-item>-->
+              <!--<ion-label stacked color="primary">{{'WHERE' | translate}}</ion-label>-->
+              <!---->
+              <!--<ion-select [(ngModel)]="baseForm.where" name=c>-->
+
+                <!--<div *ngFor="let c of citta; let i = index">-->
+
+                  <!--<ion-option value="{{c}}"> {{c}}</ion-option>-->
+                <!--</div>-->
+
+              <!--</ion-select>-->
+            <!---->
+            <!--</ion-item>-->
+
+            <!---->
+
+        <!--&lt;!&ndash; <ion-item>-->
+          <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
+          <!--<ion-input [(ngModel)]="baseForm.when" name="when"-->
+                     <!--#when="ngModel" [maxlength]="255" required>-->
+          <!--</ion-input>-->
+        <!--</ion-item> &ndash;&gt;-->
+
+
+        <!--<ion-item>-->
+            <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
+            <!---->
+            <!--<ion-select [(ngModel)]="baseForm.what" name=ca>-->
+
+              <!--<div *ngFor="let ca of categorie; let i = index">-->
+
+                <!--<ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>-->
+              <!--</div>-->
+
+            <!--</ion-select>-->
+          <!---->
+          <!--</ion-item>-->
+
+        <!--&lt;!&ndash; <ion-item>-->
+            <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
+            <!--<ion-input [(ngModel)]="baseForm.what" name="what"-->
+                       <!--#what="ngModel" [maxlength]="255" required>-->
+            <!--</ion-input>-->
+        <!--</ion-item> &ndash;&gt;-->
+
+        <!--<ion-item>-->
+          <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
+          <!--<ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when" -->
+              <!--name="when" #when="ngModel">-->
+
+          <!--</ion-datetime>-->
+        <!--</ion-item>-->
+
+      <!--</ion-list>-->
+      <!--<ion-row responsive-sm>-->
+        <!--<ion-col>-->
+          <!--<button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit" block>search</button>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+    <!--</form>-->
+
+<!--<ion-list>-->
+  <!--<button ion-item *ngFor="let e of eventi" (click)="event(e)">-->
+    <!--<ion-icon name="{{e.title}}" item-left></ion-icon>-->
+    <!--{{e.title}}-->
+    <!--<div class="item-note" item-right>-->
+    <!--</div>-->
+  <!--</button>-->
+<!--</ion-list>-->
+<!--</ion-content>-->
 
