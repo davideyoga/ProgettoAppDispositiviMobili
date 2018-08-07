@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, AlertController } from 'ionic-angular';
 
-import { User } from '../../models/user.model';
+import { User,Account } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { Login } from '../../models/login.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 /**
  * Generated class for the LoginPage page.
@@ -21,21 +22,23 @@ import { Login } from '../../models/login.model';
 })
 export class LoginPage {
   user: User = {  id: 0,
-                  name: "",
-                  surname: "",
-                  email: "",
-                  age: 0,
-                  address: "",
-                  telephoneNumber: 0,
-                  password: ""};
+    name: "",
+    surname: "",
+    email: "",
+    age: 0,
+    address: "",
+    telephoneNumber: 0,
+    password: ""};
 
+  account: Account = { email:"",
+                       password: ""};
 
-
-  login: Login = null;
+  login: Login=null;
   loginTitle: string;
   loginSubTitle: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public translateService: TranslateService,
+
+  constructor(public alertCtrl: AlertController, public events: Events, public navCtrl: NavController, public navParams: NavParams, public translateService: TranslateService,
                   private userService: UserService) {
   }
 
@@ -48,30 +51,34 @@ export class LoginPage {
       this.loginTitle = data;
     });
   }
-  
-  onLogin(form:NgForm){
+
+  onLogin(loginForm:NgForm){
 
     console.log('lanciato metodo onLogin');
-
-    this.user.email = this.navParams.get('user.email');
-    this.user.password = this.navParams.get('user.password');
-
     console.log("email: " + this.user.email);
-    console.log("password: " + this.user.password); 
+    console.log("password: " + this.user.password);
 
-    this.userService.login(this.user);
+    if (loginForm.valid) {
 
-    this.userService.login(this.user).subscribe((data: Login) => {
-      this.login = data;
-    });
+      console.log("form valida");
 
-    console.log('login: ' + this.login);
+      this.userService.login(this.user).subscribe((data: Login) => {
+        this.login = data;
+      })
+
+
+    console.log('login:' + this.login);
 
     if(this.login!=null){
-      //mandalo allo home
+      console.log("yeeeeeee");
     }else{
-      //messaggio errore
+      console.log("error");
     }
   }
+  else
+  console.log("form invalida");
+
+}
+
 
 }
