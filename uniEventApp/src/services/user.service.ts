@@ -58,12 +58,4 @@ export class UserService {
         //Per gestirlo si dovrebbe fare lato server una blacklist.
     }
 
-    getValueReview(idUser: number): Observable<number>{
-
-        let apiURL = `${URL.VALUE_REVIEW}/${idUser}`;
-
-        return this.http.get<number>(apiURL);
-
-    }
-
 }
