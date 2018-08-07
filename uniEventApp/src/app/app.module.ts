@@ -15,6 +15,7 @@ import { EventService } from '../services/event.service';
 import { LinguaService } from '../services/lingua.service';
 import { UserService } from '../services/user.service';
 import { MyApp } from './app.component';
+import { httpInterceptorProviders } from '../interceptors';
 
 //gli dico dove prendere la traduzione
 export function createTranslateLoader(http: HttpClient) {
@@ -30,7 +31,7 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
 
-    // //modulo per il trasferimento dei file 
+    // //modulo per il trasferimento dei file
     // // FileTransferObject,
     // FileTransfer,
 
@@ -69,10 +70,11 @@ export function createTranslateLoader(http: HttpClient) {
     EventService,
     CategoryService,
     UserService,
+    httpInterceptorProviders,
 
     //per il trasferimento dei file
     FileTransfer,
-    
+
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

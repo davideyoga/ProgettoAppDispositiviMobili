@@ -8,12 +8,15 @@ import { CategoryService } from '../../services/category.service';
 import { EventService } from '../../services/event.service';
 import { NgForm } from '@angular/forms';
 
+
+
 @IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+
 
   baseForm: BaseSearchForm = { what: "", when: "", where: "" };
 

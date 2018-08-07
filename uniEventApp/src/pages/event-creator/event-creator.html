@@ -1,9 +1,14 @@
 <ion-header>
-  
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'LISTA EVENTI' | translate}}</ion-title>
+  </ion-navbar>
 </ion-header>
-  
+
   <ion-content padding>
-  
+
     <div *ngIf="user">
       <ion-card>
         <ion-card-content>
@@ -21,8 +26,7 @@
     <ion-list>
         <button ion-item *ngFor="let e of listEvent" (click)="eventSelected(e)">
           {{ e.title }}
-        </button>  
+        </button>
       </ion-list>
-  
+
   </ion-content>
-  

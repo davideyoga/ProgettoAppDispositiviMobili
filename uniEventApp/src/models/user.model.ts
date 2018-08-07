@@ -7,5 +7,5 @@ export class User{
     age: number;
     address: string;
     telephoneNumber: number;
-
+    password: string;
 }

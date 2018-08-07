@@ -22,7 +22,7 @@ export class DettaglioEventoPage {
   creatore:User;
   image: File;  
   storageDirectory: string = '/';
-
+  reviewValueUser: number = 0;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public eventService: EventService,
@@ -40,10 +40,15 @@ export class DettaglioEventoPage {
       this.evento = data;
 
       this.userService.getUserCreatedEvent(this.evento.id).subscribe((data: User) => {
-        this.creatore = data;
-      });
+        this.creatore = data; 
 
-    });
+        this.userService.getValueReview(this.creatore.id).subscribe((data: number) => {
+        
+          this.reviewValueUser = data;
+        
+        });//end getValueReview
+      });//end getUserCreatedEvent
+    });//end findById
 
     //prendo image dal server 
     this.download(this.navParams.data.eventoId);

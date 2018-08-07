@@ -22,6 +22,9 @@ public interface UniEventService {
     User findUserByIdEvent(Long id);
 
     User findUserById(Long idUser);
+
+    void logout(String token);
+
     //End User
 
 
@@ -63,6 +66,6 @@ public interface UniEventService {
 
     //End Category
 
-    
+    double getReviewValueUser(Long idUser);
 
 }
