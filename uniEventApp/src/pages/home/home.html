@@ -5,6 +5,8 @@
     </button>
     <ion-title *ngIf="!isSearchBarOpened">{{'LISTA EVENTI' | translate}}</ion-title>
     <ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>
+    <ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>
+    <ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>
     <ion-buttons end>
       <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true">
         <ion-icon name="search"></ion-icon>
@@ -95,8 +97,8 @@
   <!--</button>-->
   <!--</ion-list>-->
 
-  <ion-card *ngFor="let e of eventi" class="adv-map">
-  <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
+  <!--<ion-card *ngFor="let e of eventi" class="adv-map">-->
+  <ion-card *ngFor="let e of evento" class="adv-map">
     <!--<ion-col offset-10>-->
     <!--<ion-icon name='heart-outline' class="giorgio" margin-left="10px"></ion-icon>-->
     <!--</ion-col>-->

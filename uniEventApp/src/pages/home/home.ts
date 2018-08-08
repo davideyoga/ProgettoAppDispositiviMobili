@@ -19,6 +19,7 @@ export class HomePage {
 
   public isSearchBarOpened = false;
   public citta2:any = ['oddio', 'pposto'];
+  public citta3:any = ['oddio', 'pposto'];
   public evento:any = [{id: 1, utente: 'cristiano', titolo: 'trattorissimo', date: "11/08/2016", imm: 10, ind: 'Via Roma, 50, 67019, Scoppito Avenue'},
                        {id: 2, utente: 'Cristiano1', titolo: 'titolo evento1',date: "16/12/2018", imm: 20}
                       ];
