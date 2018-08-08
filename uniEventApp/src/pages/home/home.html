@@ -96,16 +96,58 @@
   <!--</ion-list>-->
 
   <ion-card *ngFor="let e of evento">
-    <img src="../../assets/imgs/logo.png"/>
+    <img src="../../assets/imgs/maxresdefault.jpg"/>
+    
     <ion-card-content>
-      <ion-card-title>
-        {{e.desc}}
-      </ion-card-title>
+      <ion-row>
+        <ion-col class="col-7">
+            <ion-card-title>
+                {{e.titolo}}
+              </ion-card-title>
+        </ion-col>
+        <ion-col offset-4>
+          <ion-icon name='heart-outline' class="giorgio"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      
+      data -> {{e.date}}
       <p>
-        {{e.indirizzo}}
+        {{e.utente}}
       </p>
+      <br>
+      <!-- <div class="dimensione">
+        <div class="align">€ {{e.imm}}</div>
+        <div class="align">
+          <button ion-button class="block">
+            prenota
+          </button>
+        </div>
+      </div> -->
     </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='logo-usd'></ion-icon>
+          {{e.imm}}
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='cart'></ion-icon>
+          Prenota
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          {{'CONDIVIDI' | translate}}
+        </button>
+      </ion-col>
+</ion-row>
+
   </ion-card>
 
-  <button ion-button (click)="presentPopover($event)"> giancazzi </button>
+  <!-- <button ion-button (click)="presentPopover($event)"> giancazzi </button> -->
 </ion-content>

@@ -19,8 +19,9 @@ export class HomePage {
 
   public isSearchBarOpened = false;
   public citta2:any = ['oddio', 'pposto'];
-  public evento:any = [{id: 1, indirizzo: 'ciao', desc: 'descrizione', imm: 'imm'},
-{id: 2, indirizzo: 'ciao2', desc: 'descrizione2', imm: 'imm2'}];
+  public evento:any = [{id: 1, utente: 'cristiano', titolo: 'titolo evento', date: "11/08/2016", imm: 10},
+                       {id: 2, utente: 'Cristiano1', titolo: 'titolo evento1',date: "16/12/2018", imm: 20}
+                      ];
 
 
   baseForm: BaseSearchForm = { what: "", when: "", where: "" };
