@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH } from '../constants';
 import { Login } from '../models/login.model';
-import { User } from '../models/user.model';
+import { User,Account } from '../models/user.model';
 
 import 'rxjs/Rx';
 import { PARAMETERS } from '@angular/core/src/util/decorators';
@@ -21,11 +21,11 @@ export class UserService {
             this.tokenUtente = token;
         });
     }
-    
+
     getUtenteToken(): string {
         return this.tokenUtente;
-    } 
-    
+    }
+
     getUserCreatedEvent(idEvent: number): Observable<User>{
 
         console.log("lanciato metodo getUserCreatedEvent");
@@ -36,21 +36,21 @@ export class UserService {
 
     }
 
-    login(user: User): Observable<Login> {
+    login(user:User): Observable<Login> {
         return this.http.post<Login>(URL.LOGIN, user, { observe: 'response' })
             .map((resp: HttpResponse<Login>) => {
                 const token = resp.headers.get(X_AUTH);
                 this.storage.set(AUTH_TOKEN, token);
                 this.tokenUtente = token;
                 //Utente memorizzato nello storage in modo tale che se si vuole cambiare il
-                //profilo dell'utente stesso non si fa una chiamata REST. 
+                //profilo dell'utente stesso non si fa una chiamata REST.
                 this.storage.set(UTENTE_STORAGE, resp.body);
                 return resp.body;
-            });        
+            });
     }
 
     logout(){
-        
+
         this.tokenUtente = "";
         this.storage.remove(AUTH_TOKEN);
         this.storage.remove(UTENTE_STORAGE);

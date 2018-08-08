@@ -14,7 +14,7 @@
 		<ion-list no-lines>
 			<ion-item>
 				<ion-label stacked color="primary">{{ 'USERNAME' | translate }}</ion-label>
-				<ion-input [(ngModel)]="user.email" name="username" type="text" #username="ngModel"
+				<ion-input [(ngModel)]="user.email" name="email" type="text" #email="ngModel"
 						   [maxlength]="55" required>
 				</ion-input>
 			</ion-item>
@@ -24,13 +24,13 @@
 				           #password="ngModel" [maxlength]="255" required>
 				</ion-input>
 			</ion-item>
-			
+
 		</ion-list>
 		<ion-row responsive-sm>
 			<ion-col>
-				<button ion-button (click)="onLogin(loginForm)" type="submit" [disabled]="!loginForm.form.valid" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+				<button ion-button (click)="onLogin(loginForm)" type="submit" block>{{ 'LOGIN_BUTTON' | translate }}</button>
 			</ion-col>
 		</ion-row>
   </form>
-  
+
 </ion-content>
