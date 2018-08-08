@@ -12,6 +12,7 @@ export class Event {
     public price: number=0;
     public title: string="";
     public views: number=0;
+    public  city: string='';
 
 
     constructor(obj?: any) {
