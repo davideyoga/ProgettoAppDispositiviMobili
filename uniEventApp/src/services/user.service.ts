@@ -36,7 +36,7 @@ export class UserService {
 
     }
 
-    login(user:User): Observable<Login> {
+    login(user:User): Observable<Login>{
         return this.http.post<Login>(URL.LOGIN, user, { observe: 'response' })
             .map((resp: HttpResponse<Login>) => {
                 const token = resp.headers.get(X_AUTH);

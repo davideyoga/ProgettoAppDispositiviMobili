@@ -24,14 +24,13 @@ export class LoginPage {
   user: User = {  id: 0,
     name: "",
     surname: "",
-    email: "",
+    email: "pippo",
     age: 0,
     address: "",
     telephoneNumber: 0,
-    password: ""};
+    password: "pippo"};
 
-  account: Account = { email:"",
-                       password: ""};
+
 
   login: Login=null;
   loginTitle: string;
