@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
 
 import { BaseSearchForm } from '../../models/base.sear.form.model';
 import { Category } from '../../models/category.model';
@@ -8,6 +8,7 @@ import { CategoryService } from '../../services/category.service';
 import { EventService } from '../../services/event.service';
 import { NgForm } from '@angular/forms';
 import { PopoverComponent} from "../../components/popover/popover";
+import { SearchpopoverComponent } from "../../components/searchpopover/searchpopover";
 import { PopoverController} from "ionic-angular";
 
 @IonicPage()
@@ -16,6 +17,7 @@ import { PopoverController} from "ionic-angular";
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('mySlider') slider: Slides;
 
   public isSearchBarOpened = false;
   public citta2:any = ['oddio', 'pposto'];
@@ -36,9 +38,28 @@ export class HomePage {
   //lista di categorie
   categorie: Array<Category>;
 
+  selectedSegment: string;
+  slides: any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService,
               private categoryService: CategoryService, public popOverCtrl: PopoverController) {
+
+    this.selectedSegment = 'first';
+    this.slides = [
+      {
+        id: "first",
+        title: "First Slide"
+      },
+      {
+        id: "second",
+        title: "Second Slide"
+      },
+      {
+        id: "third",
+        title: "Third Slide"
+      }
+    ];
   }
 
   //tutto cio' che succede all'avvio della pagina
@@ -119,5 +140,31 @@ export class HomePage {
     popover.onDidDismiss(popoverData => {
       console.log(popoverData)
     });
+  }
+
+  presentSearchPopover(event){
+    let popover = this.popOverCtrl.create(SearchpopoverComponent);
+    popover.present({
+      ev: event
+    });
+
+    popover.onDidDismiss(popoverData => {
+      console.log(popoverData);
+      this.isSearchBarOpened=false;
+    });
+  }
+
+  onSegmentChanged(segmentButton) {
+    console.log("Segment changed to", segmentButton.value);
+    const selectedIndex = this.slides.findIndex((slide) => {
+      return slide.id === segmentButton.value;
+    });
+    this.slider.slideTo(selectedIndex);
+  }
+
+  onSlideChanged(slider) {
+    console.log('Slide changed');
+    const currentSlide = this.slides[slider.activeIndex];
+    this.selectedSegment = currentSlide.id;
   }
 }

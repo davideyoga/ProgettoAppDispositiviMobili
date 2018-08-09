@@ -1,16 +1,31 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu" fixed></ion-icon>
     </button>
     <ion-title *ngIf="!isSearchBarOpened">{{'LISTA EVENTI' | translate}}</ion-title>
-    <ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>
-    <ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>
-    <ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>
+
+    <!--<ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>-->
+
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)" *ngIf="isSearchBarOpened">
+      <ion-segment-button value="first">
+        First
+      </ion-segment-button>
+      <ion-segment-button value="second">
+        Second
+      </ion-segment-button>
+      <ion-segment-button value="third">
+        Third
+      </ion-segment-button>
+    </ion-segment>
+
+
+    <!--<ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>-->
     <ion-buttons end>
       <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true">
         <ion-icon name="search"></ion-icon>
       </button>
+      <!--trepallini-->
       <button ion-button icon-only (click)="presentPopover($event)">
         <ion-icon name="more"></ion-icon>
       </button>
@@ -23,6 +38,17 @@
 
 
 <ion-content class="cards-bg">
+
+    <ion-slides #mySlider (ionDidChange)="onSlideChanged($event)" *ngIf="isSearchBarOpened" class="mySlider">
+      <ion-slide *ngFor="let slide of slides">
+        <h1>{{ slide.title }}</h1>
+        <ion-buttons end>
+          <button ion-button clear (click)="isSearchBarOpened=false">
+            <ion-icon name="search"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-slide>
+    </ion-slides>
 
   <!--<form #baseSearchForm="ngForm">-->
   <!--<ion-list no-lines>-->

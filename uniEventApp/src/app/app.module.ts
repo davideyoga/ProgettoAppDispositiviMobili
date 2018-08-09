@@ -18,6 +18,7 @@ import { MyApp } from './app.component';
 import { httpInterceptorProviders } from '../interceptors';
 
 import { PopoverComponent} from "../components/popover/popover";
+import { SearchpopoverComponent } from "../components/searchpopover/searchpopover";
 
 //gli dico dove prendere la traduzione
 export function createTranslateLoader(http: HttpClient) {
@@ -28,7 +29,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     MyApp,
     HomePage,
-    PopoverComponent
+    PopoverComponent,
+    SearchpopoverComponent
   ],
 
   imports: [
@@ -65,7 +67,8 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     MyApp,
     HomePage,
-    PopoverComponent
+    PopoverComponent,
+    SearchpopoverComponent
   ],
   providers: [
     StatusBar,
