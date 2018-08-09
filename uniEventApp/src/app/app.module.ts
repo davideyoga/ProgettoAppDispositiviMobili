@@ -9,7 +9,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { HomePage } from '../pages/home/home';
 import { CategoryService } from '../services/category.service';
 import { EventService } from '../services/event.service';
 import { LinguaService } from '../services/lingua.service';
@@ -19,6 +18,7 @@ import { httpInterceptorProviders } from '../interceptors';
 
 import { PopoverComponent} from "../components/popover/popover";
 import { SearchpopoverComponent } from "../components/searchpopover/searchpopover";
+import { HomePage } from '../pages/home/home';
 
 //gli dico dove prendere la traduzione
 export function createTranslateLoader(http: HttpClient) {
@@ -28,7 +28,6 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     PopoverComponent,
     SearchpopoverComponent
   ],
@@ -56,7 +55,7 @@ export function createTranslateLoader(http: HttpClient) {
 
     //modulo storage
     IonicStorageModule.forRoot({
-      name: 'myunivaq__db',
+      name: 'unievent__db',
          driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
 
@@ -66,7 +65,6 @@ export function createTranslateLoader(http: HttpClient) {
 
   entryComponents: [
     MyApp,
-    HomePage,
     PopoverComponent,
     SearchpopoverComponent
   ],

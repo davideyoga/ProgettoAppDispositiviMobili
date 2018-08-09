@@ -7,7 +7,8 @@ import { AlertController, Events, MenuController, Nav, Platform } from 'ionic-an
 
 import { HomePage } from '../pages/home/home';
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE } from '../pages/pages';
+
 
 
 @Component({
@@ -15,32 +16,36 @@ import { EVENTI_PAGE, LOGIN_PAGE } from '../pages/pages';
 })
 
 export class MyApp {
-  rootPage:any=HomePage;
-
-
   @ViewChild(Nav) nav:Nav;
 
-  menu1: any[] = [
-    { title: 'Lista Eventi', component: EVENTI_PAGE, icon: 'school' },
-    {title: 'Login', component: LOGIN_PAGE, icon:''}
-  ];
+  rootPage:any;
+
+  menuL: Array<{title: string, component: any, icon:any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
   private linguaService: LinguaService, private translate: TranslateService) {
 
 
+    this.menuL = [
+      {title: 'Lista Eventi', component: EVENTI_PAGE, icon: '' },
+      {title: 'Login', component: LOGIN_PAGE, icon:''},
+      {title: 'Profile', component: PROFILE_PAGE, icon:''}
+    ];
+
     console.log("constructor MyApp");
 
     //chiama metodo initTranslate
     this.initTranslate();
-
     platform.ready().then(() => {
+
+      this.rootPage = EVENTI_PAGE;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
+
 
 
 
@@ -82,7 +87,7 @@ export class MyApp {
 
 
   openPage(page){
-    this.nav.push(page.component);
+    this.nav.setRoot(page.component);
   }
 
 }
