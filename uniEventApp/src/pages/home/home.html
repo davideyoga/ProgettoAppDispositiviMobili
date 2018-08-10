@@ -73,7 +73,7 @@
           <ion-label> <ion-icon name="wine"></ion-icon> {{'WHAT' | translate }}</ion-label>
 
           <ion-select [(ngModel)]="baseForm.what" interface="action-sheet" name=ca>
-            <ion-option value="">qualsiasi</ion-option>
+            <ion-option value="">ovunque</ion-option>
             <div *ngFor="let ca of categorie; let i = index">
 
               <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
