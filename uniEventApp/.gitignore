@@ -55,3 +55,4 @@ npm-debug.log*
 .tmp/
 .versions/
 coverage/
+ionic.config.json
