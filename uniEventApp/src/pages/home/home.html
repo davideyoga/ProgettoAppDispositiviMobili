@@ -1,12 +1,11 @@
-<ion-header>
-  <ion-navbar>
+<ion-header color="primary">
+  <ion-navbar color="primary_color">
     <button ion-button menuToggle>
       <ion-icon name="menu" fixed></ion-icon>
     </button>
     <ion-title *ngIf="!isSearchBarOpened">{{'LISTA EVENTI' | translate}}</ion-title>
 
     <ion-title *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">cerca...</ion-title>
-
 
     <!--<ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>-->
 
@@ -71,10 +70,10 @@
       <ion-list>
 
         <ion-item>
-          <ion-label col-3> <ion-icon name="wine"></ion-icon> {{'WHAT' | translate }}</ion-label>
-          <ion-input type="text" ></ion-input>
+          <ion-label> <ion-icon name="wine"></ion-icon> {{'WHAT' | translate }}</ion-label>
+
           <ion-select [(ngModel)]="baseForm.what" interface="action-sheet" name=ca>
-            <ion-option value=""> </ion-option>
+            <ion-option value="">qualsiasi</ion-option>
             <div *ngFor="let ca of categorie; let i = index">
 
               <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
@@ -106,49 +105,26 @@
       </ion-list>
 
       <ion-buttons>
-        <button ion-button>porcoddio</button>
+        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit">porcoddio</button>
       </ion-buttons>
     </form>
   </ion-card>
 
   <!--<form #baseSearchForm="ngForm">-->
-  <!-- <ion-item>-->
+  <!--<ion-item>-->
   <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
   <!--<ion-input [(ngModel)]="baseForm.when" name="when"-->
   <!--#when="ngModel" [maxlength]="255" required>-->
   <!--</ion-input>-->
   <!--</ion-item> &ndash;&gt;-->
 
-
   <!--<ion-item>-->
-  <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
-
-  <!--<ion-select [(ngModel)]="baseForm.what" name=ca>-->
-  <!--<ion-option value=""> </ion-option>-->
-  <!--<div *ngFor="let ca of categorie; let i = index">-->
-
-  <!--<ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>-->
-  <!--</div>-->
-
-  <!--</ion-select>-->
-
-  <!--</ion-item>-->
-  <!--&lt;!&ndash; <ion-item>-->
   <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
   <!--<ion-input [(ngModel)]="baseForm.what" name="what"-->
   <!--#what="ngModel" [maxlength]="255" required>-->
   <!--</ion-input>-->
-  <!--</ion-item> &ndash;&gt;-->
-
-  <!--<ion-item>-->
-  <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
-  <!--<ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when"-->
-  <!--name="when" #when="ngModel">-->
-
-  <!--</ion-datetime>-->
   <!--</ion-item>-->
 
-  <!--</ion-list>-->
   <!--<ion-row responsive-sm>-->
   <!--<ion-col>-->
   <!--<button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit" block>search</button>-->
@@ -166,8 +142,8 @@
   <!--</ion-list>-->
 
   <!--lista eventi-->
-  <ion-card *ngFor="let e of evento" class="adv-map">
-    <!--<ion-card *ngFor="let e of eventi" class="adv-map">-->
+  <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
+  <ion-card *ngFor="let e of eventi" class="adv-map" (click)="event(e)">
 
     <div style="position: relative">
       <img src="../../assets/imgs/maxresdefault.jpg"/>
