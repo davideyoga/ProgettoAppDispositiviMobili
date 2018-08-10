@@ -43,13 +43,23 @@ export class EventService {
 
 
     baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
+      var baseSearchFormUrl;
+      if(b.what=="" && b.where==""){
+         baseSearchFormUrl = `${URL.BASE_SEARCH}/null/null/${b.when}`;
+        return this.http.get<Array<Event>>(baseSearchFormUrl);}
+        else if(b.what=="" ){
+          baseSearchFormUrl = `${URL.BASE_SEARCH}/null/${b.where}/${b.when}`;
+         return this.http.get<Array<Event>>(baseSearchFormUrl);}
+         else if(b.where=="" ){
+          baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/null/${b.when}`;
+         return this.http.get<Array<Event>>(baseSearchFormUrl);}
 
+      else{
+      baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.where}/${b.when}`;
 
-
-        let baseSearchFormUrl = `${URL.BASE_SEARCH}/${b.what}/${b.where}/${b.when}`;
-
-        return this.http.get<Array<Event>>(baseSearchFormUrl);
-    }
+      console.log(baseSearchFormUrl);
+        return this.http.get<Array<Event>>(baseSearchFormUrl);}
+  }
 
 
 

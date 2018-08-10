@@ -73,10 +73,9 @@
           <ion-label> <ion-icon name="wine"></ion-icon> {{'WHAT' | translate }}</ion-label>
 
           <ion-select [(ngModel)]="baseForm.what" interface="action-sheet" name=ca>
-            <ion-option>Qualsiasi</ion-option>
+            <ion-option value="" selected disabled hidden>Qualsiasi</ion-option>
             <div *ngFor="let ca of categorie; let i = index">
-
-              <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
+              <ion-option value="{{ca.name}}">{{ca.name}}</ion-option>
             </div>
 
           </ion-select>
@@ -91,10 +90,10 @@
         </ion-item>
 
         <ion-item>
-          <ion-label col-8> <ion-icon name="pin"></ion-icon> {{'WHERE' | translate }}</ion-label>
+          <ion-label col-8><ion-icon name="pin"></ion-icon> {{'WHERE' | translate }} </ion-label>
 
           <ion-select [(ngModel)]="baseForm.where" interface="action-sheet" name=c>
-            <ion-option>Ovunque</ion-option>
+            <ion-option value="" selected disabled hidden>Ovunque</ion-option>
             <div *ngFor="let c of citta; let i = index">
 
               <ion-option value="{{c}}"> {{c}}</ion-option>
