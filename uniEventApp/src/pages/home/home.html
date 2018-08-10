@@ -5,25 +5,32 @@
     </button>
     <ion-title *ngIf="!isSearchBarOpened">{{'LISTA EVENTI' | translate}}</ion-title>
 
+    <ion-title *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">cerca...</ion-title>
+
+
     <!--<ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>-->
 
-    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)" *ngIf="isSearchBarOpened">
-      <ion-segment-button value="first">
-        {{'WHAT' | translate}}
-      </ion-segment-button>
-      <ion-segment-button value="second">
-        {{'WHEN' | translate}}
-      </ion-segment-button>
-      <ion-segment-button value="third">
-        {{'WHERE' | translate}}
-      </ion-segment-button>
-    </ion-segment>
+    <!--<ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)" *ngIf="isSearchBarOpened">-->
+    <!--<ion-segment-button value="first">-->
+    <!--{{'WHAT' | translate}}-->
+    <!--</ion-segment-button>-->
+    <!--<ion-segment-button value="second">-->
+    <!--{{'WHEN' | translate}}-->
+    <!--</ion-segment-button>-->
+    <!--<ion-segment-button value="third">-->
+    <!--{{'WHERE' | translate}}-->
+    <!--</ion-segment-button>-->
+    <!--</ion-segment>-->
 
 
     <!--<ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>-->
     <ion-buttons end>
       <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true">
         <ion-icon name="search"></ion-icon>
+      </button>
+
+      <button ion-button clear *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">
+        <ion-icon name="arrow-up" id="close"></ion-icon>
       </button>
       <!--trepallini-->
       <button ion-button icon-only (click)="presentPopover($event)">
@@ -39,24 +46,53 @@
 
 <ion-content class="cards-bg">
 
-    <!--barra ricerca-->
-    <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)" *ngIf="isSearchBarOpened" class="mySlider">
+  <!--barra ricerca-->
+  <!--<ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)" *ngIf="isSearchBarOpened" class="mySlider">-->
 
-      <ion-slide *ngFor="let slide of slides">
+  <!--<ion-slide *ngFor="let slide of slides">-->
 
-        <ion-buttons end>
-          <button ion-button clear (click)="isSearchBarOpened=false">
-            <ion-icon name="close" id="close"></ion-icon>
-          </button>
-        </ion-buttons>
+  <!--<ion-buttons end>-->
+  <!--<button ion-button clear (click)="isSearchBarOpened=false">-->
+  <!--<ion-icon name="close" id="close"></ion-icon>-->
+  <!--</button>-->
+  <!--</ion-buttons>-->
 
-        <ion-item>
-          <ion-label floating>Username</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
+  <!--<ion-item>-->
+  <!--<ion-label floating>Username</ion-label>-->
+  <!--<ion-input type="text"></ion-input>-->
+  <!--</ion-item>-->
 
-      </ion-slide>
-    </ion-slides>
+  <!--</ion-slide>-->
+  <!--</ion-slides>-->
+
+  <ion-card *ngIf="isSearchBarOpened">
+    <ion-buttons end>
+
+    </ion-buttons>
+    <ion-list>
+
+     <ion-icon name="beer"></ion-icon>
+
+  <ion-item>
+    <ion-input type="text" placeholder="{{'WHAT' | translate}}"></ion-input>
+  </ion-item>
+
+
+      <ion-item>
+        <ion-input type="text" placeholder="{{'WHEN' | translate}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="{{'WHERE' | translate}}"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-buttons>
+      <button ion-button>porcoddio</button>
+    </ion-buttons>
+
+  </ion-card>
 
   <!--<form #baseSearchForm="ngForm">-->
   <!--<ion-list no-lines>-->
