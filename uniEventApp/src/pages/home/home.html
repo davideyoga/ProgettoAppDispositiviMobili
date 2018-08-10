@@ -73,7 +73,7 @@
           <ion-label> <ion-icon name="wine"></ion-icon> {{'WHAT' | translate }}</ion-label>
 
           <ion-select [(ngModel)]="baseForm.what" interface="action-sheet" name=ca>
-            <ion-option value="">ovunque</ion-option>
+            <ion-option>Qualsiasi</ion-option>
             <div *ngFor="let ca of categorie; let i = index">
 
               <ion-option value="{{ca.name}}"> {{ca.name}}</ion-option>
@@ -94,7 +94,7 @@
           <ion-label col-8> <ion-icon name="pin"></ion-icon> {{'WHERE' | translate }}</ion-label>
 
           <ion-select [(ngModel)]="baseForm.where" interface="action-sheet" name=c>
-            <ion-option value="">ovunque</ion-option>
+            <ion-option>Ovunque</ion-option>
             <div *ngFor="let c of citta; let i = index">
 
               <ion-option value="{{c}}"> {{c}}</ion-option>
@@ -105,7 +105,7 @@
       </ion-list>
 
       <ion-buttons>
-        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit">porcoddio</button>
+        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit">Cerca</button>
       </ion-buttons>
     </form>
   </ion-card>

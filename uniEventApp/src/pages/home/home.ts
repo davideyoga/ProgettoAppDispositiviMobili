@@ -25,7 +25,7 @@ export class HomePage {
                       ];
 
 
-  baseForm: BaseSearchForm = { what: "", when: "", where: "" };
+  baseForm: BaseSearchForm = { what: "", when: "", where: ""};
 
   //lista di eventi visualizzabili nella home
   eventi: Array<Event>;
@@ -109,8 +109,10 @@ export class HomePage {
     onBaseSearch(baseSearchForm: NgForm){
 
         console.log('onBaseSearch HomePage');
+        console.log(this.baseForm)
 
-        this.navCtrl.push(HomePage, { "baseForm": this.baseForm });
+
+        this.navCtrl.push(HomePage, {"baseForm": this.baseForm });
 
     }
 
