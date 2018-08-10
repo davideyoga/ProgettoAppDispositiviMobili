@@ -36,28 +36,28 @@ export class HomePage {
   //lista di categorie
   categorie: Array<Category>;
 
-  selectedSegment: string;
-  slides: any;
+  // selectedSegment: string;
+  // slides: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService,
               private categoryService: CategoryService, public popOverCtrl: PopoverController) {
 
-    this.selectedSegment = 'first';
-    this.slides = [
-      {
-        id: "first",
-        title: "First Slide"
-      },
-      {
-        id: "second",
-        title: "Second Slide"
-      },
-      {
-        id: "third",
-        title: "Third Slide"
-      }
-    ];
+    // this.selectedSegment = 'first';
+    // this.slides = [
+    //   {
+    //     id: "first",
+    //     title: "First Slide"
+    //   },
+    //   {
+    //     id: "second",
+    //     title: "Second Slide"
+    //   },
+    //   {
+    //     id: "third",
+    //     title: "Third Slide"
+    //   }
+    // ];
   }
 
   //tutto cio' che succede all'avvio della pagina
@@ -140,29 +140,17 @@ export class HomePage {
     });
   }
 
-  presentSearchPopover(event){
-    let popover = this.popOverCtrl.create(SearchpopoverComponent);
-    popover.present({
-      ev: event
-    });
-
-    popover.onDidDismiss(popoverData => {
-      console.log(popoverData);
-      this.isSearchBarOpened=false;
-    });
-  }
-
-  onSegmentChanged(segmentButton) {
-    console.log("Segment changed to", segmentButton.value);
-    const selectedIndex = this.slides.findIndex((slide) => {
-      return slide.id === segmentButton.value;
-    });
-    this.slider.slideTo(selectedIndex);
-  }
-
-  onSlideChanged(slider) {
-    console.log('Slide changed');
-    const currentSlide = this.slides[slider.getActiveIndex()];
-    this.selectedSegment = currentSlide.id;
-  }
+  // onSegmentChanged(segmentButton) {
+  //   console.log("Segment changed to", segmentButton.value);
+  //   const selectedIndex = this.slides.findIndex((slide) => {
+  //     return slide.id === segmentButton.value;
+  //   });
+  //   this.slider.slideTo(selectedIndex);
+  // }
+  //
+  // onSlideChanged(slider) {
+  //   console.log('Slide changed');
+  //   const currentSlide = this.slides[slider.getActiveIndex()];
+  //   this.selectedSegment = currentSlide.id;
+  // }
 }
