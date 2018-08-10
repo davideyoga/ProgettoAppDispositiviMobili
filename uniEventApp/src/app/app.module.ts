@@ -15,10 +15,13 @@ import { LinguaService } from '../services/lingua.service';
 import { UserService } from '../services/user.service';
 import { MyApp } from './app.component';
 import { httpInterceptorProviders } from '../interceptors';
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from "@ionic-native/google-maps"
 
 import { PopoverComponent} from "../components/popover/popover";
 import { SearchpopoverComponent } from "../components/searchpopover/searchpopover";
 import { HomePage } from '../pages/home/home';
+import { BookedeventPage } from '../pages/bookedevent/bookedevent';
 
 //gli dico dove prendere la traduzione
 export function createTranslateLoader(http: HttpClient) {
@@ -29,7 +32,9 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     MyApp,
     PopoverComponent,
-    SearchpopoverComponent
+    SearchpopoverComponent,
+    BookedeventPage
+
   ],
 
   imports: [
@@ -40,7 +45,6 @@ export function createTranslateLoader(http: HttpClient) {
     // FileTransfer,
 
     IonicModule.forRoot(MyApp),
-
     //modulo per le chiamate http
     HttpClientModule,
 
@@ -66,7 +70,8 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     MyApp,
     PopoverComponent,
-    SearchpopoverComponent
+    SearchpopoverComponent,
+    BookedeventPage
   ],
   providers: [
     StatusBar,
@@ -76,9 +81,11 @@ export function createTranslateLoader(http: HttpClient) {
     CategoryService,
     UserService,
     httpInterceptorProviders,
+    Geolocation,
+    GoogleMaps,
 
     //per il trasferimento dei file
-    FileTransfer,
+    // FileTransfer,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

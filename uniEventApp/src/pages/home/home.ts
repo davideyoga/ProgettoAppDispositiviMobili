@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 import { PopoverComponent} from "../../components/popover/popover";
 import { SearchpopoverComponent } from "../../components/searchpopover/searchpopover";
 import { PopoverController} from "ionic-angular";
+import { BookedeventPage } from '../bookedevent/bookedevent';
 
 @IonicPage()
 @Component({
@@ -139,6 +140,10 @@ export class HomePage {
       console.log(popoverData)
     });
   }
+
+  goItemPage(){
+    this.navCtrl.push(BookedeventPage);
+}
 
   // onSegmentChanged(segmentButton) {
   //   console.log("Segment changed to", segmentButton.value);
