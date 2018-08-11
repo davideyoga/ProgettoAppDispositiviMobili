@@ -8,6 +8,10 @@ page-home {
     z-index: 50;
   }
 
+  .my-heart{
+    margin-right: 10px;
+  }
+
   .item-bold {
     font-weight: bold;
   }
@@ -16,18 +20,17 @@ page-home {
     background-color: #f4f4f7;
   }
 
-  .mySlider{
-    height:200px;
-    min-height:200px;
-  }
-
-  .slide-zoom {
-    height: 100%;
-  }
+  //.mySlider{
+  //  height:200px;
+  //  min-height:200px;
+  //}
+  //
+  //.slide-zoom {
+  //  height: 100%;
+  //}
 
   #close{
     font-size: 2em;
   }
-
 
 }

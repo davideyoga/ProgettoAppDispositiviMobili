@@ -156,4 +156,8 @@ export class HomePage {
   //   const currentSlide = this.slides[slider.getActiveIndex()];
   //   this.selectedSegment = currentSlide.id;
   // }
+
+  log(){
+    console.log('heart button');
+  }
 }
