@@ -1,4 +1,9 @@
 page-home {
+
+  ion-card{
+    height: 500px;
+  }
+
   ion-card.adv-map p {
     font-size: 0.7em !important;
   }
@@ -30,6 +35,17 @@ page-home {
 
   .my-padding{
     padding-bottom: 0px;
+  }
+
+  .img{
+    height: 250px;
+    overflow: hidden;
+
+  }
+
+  .img img{
+    height: 250px;
+    object-fit:scale-down;
   }
 
 }
