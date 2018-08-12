@@ -87,7 +87,7 @@ export function createTranslateLoader(http: HttpClient) {
     FileTransfer,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    {provide: LOCALE_ID, useValue: 'it'},
+    {provide: LOCALE_ID, useValue: 'it'}
   ]
 })
 export class AppModule {}

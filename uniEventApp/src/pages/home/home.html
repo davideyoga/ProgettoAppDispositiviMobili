@@ -5,24 +5,8 @@
     </button>
     <ion-title *ngIf="!isSearchBarOpened">{{'LISTA EVENTI' | translate}}</ion-title>
 
-    <ion-title *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">cerca...</ion-title>
+    <ion-title *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">{{'CERCA_EVENTI' | translate}}</ion-title>
 
-    <!--<ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>-->
-
-    <!--<ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)" *ngIf="isSearchBarOpened">-->
-    <!--<ion-segment-button value="first">-->
-    <!--{{'WHAT' | translate}}-->
-    <!--</ion-segment-button>-->
-    <!--<ion-segment-button value="second">-->
-    <!--{{'WHEN' | translate}}-->
-    <!--</ion-segment-button>-->
-    <!--<ion-segment-button value="third">-->
-    <!--{{'WHERE' | translate}}-->
-    <!--</ion-segment-button>-->
-    <!--</ion-segment>-->
-
-
-    <!--<ion-searchbar *ngIf="isSearchBarOpened"  showCancelButton="true" (ionInput)="onSearch($event)" (ionCancel)="isSearchBarOpened=false"></ion-searchbar>-->
     <ion-buttons end>
       <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true">
         <ion-icon name="search"></ion-icon>
@@ -46,24 +30,6 @@
 <ion-content class="cards-bg">
 
   <!--barra ricerca-->
-  <!--<ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)" *ngIf="isSearchBarOpened" class="mySlider">-->
-
-  <!--<ion-slide *ngFor="let slide of slides">-->
-
-  <!--<ion-buttons end>-->
-  <!--<button ion-button clear (click)="isSearchBarOpened=false">-->
-  <!--<ion-icon name="close" id="close"></ion-icon>-->
-  <!--</button>-->
-  <!--</ion-buttons>-->
-
-  <!--<ion-item>-->
-  <!--<ion-label floating>Username</ion-label>-->
-  <!--<ion-input type="text"></ion-input>-->
-  <!--</ion-item>-->
-
-  <!--</ion-slide>-->
-  <!--</ion-slides>-->
-
   <ion-card *ngIf="isSearchBarOpened">
 
     <form #baseSearchForm="ngForm">
@@ -73,7 +39,7 @@
           <ion-label> <ion-icon name="wine"></ion-icon> {{'WHAT' | translate }}</ion-label>
 
           <ion-select [(ngModel)]="baseForm.what" interface="action-sheet" name=ca>
-            <ion-option value="" selected disabled hidden>Qualsiasi</ion-option>
+            <ion-option value="" selected disabled hidden>{{'QUALSIASI' | translate }}</ion-option>
             <div *ngFor="let ca of categorie; let i = index">
               <ion-option value="{{ca.name}}">{{ca.name}}</ion-option>
             </div>
@@ -83,8 +49,12 @@
 
         <ion-item>
           <ion-label> <ion-icon name="calendar"></ion-icon> {{'WHEN' | translate }}</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="baseForm.when"
-                        name="when" #when="ngModel">
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="baseForm.when"
+                        name="when" #when="ngModel"
+                        monthShortNames="{{'GEN' | translate }}, {{'FEB' | translate }}, {{'MAR' | translate }},
+                                         {{'APR' | translate }}, {{'MAG' | translate }}, {{'GIU' | translate }},
+                                         {{'LUG' | translate }}, {{'AGO' | translate }}, {{'SET' | translate }},
+                                         {{'OTT' | translate }}, {{'NOV' | translate }}, {{'DIC' | translate }},">
 
           </ion-datetime>
         </ion-item>
@@ -93,7 +63,7 @@
           <ion-label col-8><ion-icon name="pin"></ion-icon> {{'WHERE' | translate }} </ion-label>
 
           <ion-select [(ngModel)]="baseForm.where" interface="action-sheet" name=c>
-            <ion-option value="" selected disabled hidden>Ovunque</ion-option>
+            <ion-option value="" selected disabled hidden>{{'OVUNQUE' | translate }}</ion-option>
             <div *ngFor="let c of citta; let i = index">
 
               <ion-option value="{{c}}"> {{c}}</ion-option>
@@ -104,10 +74,11 @@
       </ion-list>
 
       <ion-buttons>
-        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit">Cerca</button>
+        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit">{{'SEARCH' | translate }}</button>
       </ion-buttons>
     </form>
   </ion-card>
+  <!--fine barra ricerca-->
 
   <!--<form #baseSearchForm="ngForm">-->
   <!--<ion-item>-->
@@ -124,87 +95,72 @@
   <!--</ion-input>-->
   <!--</ion-item>-->
 
-  <!--<ion-row responsive-sm>-->
-  <!--<ion-col>-->
-  <!--<button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit" block>search</button>-->
-  <!--</ion-col>-->
-  <!--</ion-row>-->
   <!--</form>-->
 
-  <!--<ion-list>-->
-  <!--<button ion-item *ngFor="let e of eventi" (click)="event(e)">-->
-  <!--<ion-icon name="{{e.title}}" item-left></ion-icon>-->
-  <!--{{e.title}}-->
-  <!--<div class="item-note" item-right>-->
-  <!--</div>-->
-  <!--</button>-->
-  <!--</ion-list>-->
 
   <!--lista eventi-->
   <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
-  <div *ngFor="let e of eventi">
+  <ion-card *ngFor="let e of eventi" class="adv-map">
 
     <!--bottone favoriti-->
     <div style="position: relative">
-      <ion-fab right top class="my-heart">
+      <ion-fab right top class="my-heart" >
         <button ion-fab class="fab-map">
           <ion-icon name="heart-outline"></ion-icon>
         </button>
       </ion-fab>
     </div>
 
-    <ion-card  class="adv-map" (click)="event(e)">
+    <!--immagine-->
+    <div style="position: relative" class="img" (click)="event(e)">
+      <img src="../../assets/imgs/maxresdefault.jpg"/>
+    </div>
 
-      <!--immagine-->
-      <div style="position: relative" class="img">
-        <img src="../../assets/imgs/maxresdefault.jpg"/>
-      </div>
+    <ion-card-content class="my-padding" (click)="event(e)">
 
-      <ion-card-content>
+      <ion-card-title>
+        {{e.title}}
+      </ion-card-title>
 
-        <ion-card-title>
-          {{e.title}}
-        </ion-card-title>
+      <!--Informazioni principali-->
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+        <h2>Museum of Tractor</h2>
+        <p>info</p>
+      </ion-item>
 
-        <!--Informazioni principali-->
-        <ion-item>
-          <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-          <h2>Museum of Tractor</h2>
-          <p>{{e.city}}</p>
-        </ion-item>
+      <!--posto e ora-->
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='navigate'></ion-icon>
+        <h2>Institute of Fine Cocktails</h2>
+        <p>{{e.city}}</p>
+      </ion-item>
 
-        <!--posto e ora-->
-        <ion-item>
-          <ion-icon color="subtle" large item-start name='navigate'></ion-icon>
-          <h2>Institute of Fine Cocktails</h2>
-          <p>{{e.date | date:'MMM d' }}</p>
-        </ion-item>
 
-        <!--action bar-->
-        <ion-row no-padding>
-          <ion-col>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='logo-usd'></ion-icon>
-              {{e.imm}}
-            </button>
-          </ion-col>
-          <ion-col text-center>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='cart'></ion-icon>
-              Prenota
-            </button>
-          </ion-col>
-          <ion-col text-right>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='share-alt'></ion-icon>
-              {{'CONDIVIDI' | translate}}
-            </button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
+    </ion-card-content>
 
-    </ion-card>
+    <!--action bar-->
+    <ion-row no-padding>
+      <ion-col col-4>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='calendar'></ion-icon>
+          {{e.date | date:'MMM d' }}
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='cart'></ion-icon>
+          Prenota
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          {{'CONDIVIDI' | translate}}
+        </button>
+      </ion-col>
+    </ion-row>
 
-  </div>
+  </ion-card>
 
 </ion-content>
