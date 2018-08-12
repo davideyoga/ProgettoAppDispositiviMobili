@@ -26,7 +26,7 @@ export class HomePage {
                       ];
 
 
-  baseForm: BaseSearchForm = { what: "", when: "", where: "" };
+  baseForm: BaseSearchForm = { what: "", when: "", where: ""};
 
   //lista di eventi visualizzabili nella home
   eventi: Array<Event>;
@@ -109,9 +109,12 @@ export class HomePage {
     //metodo che risponde alla form di ricerca della home
     onBaseSearch(baseSearchForm: NgForm){
 
-        console.log('onBaseSearch HomePage');
 
-        this.navCtrl.push(HomePage, { "baseForm": this.baseForm });
+        console.log('onBaseSearch HomePage');
+        console.log(this.baseForm)
+
+
+        this.navCtrl.push(HomePage, {"baseForm": this.baseForm });
 
     }
 
@@ -158,4 +161,8 @@ export class HomePage {
   //   const currentSlide = this.slides[slider.getActiveIndex()];
   //   this.selectedSegment = currentSlide.id;
   // }
+
+  log(){
+    console.log('heart button');
+  }
 }

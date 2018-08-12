@@ -23,6 +23,12 @@ import { SearchpopoverComponent } from "../components/searchpopover/searchpopove
 import { HomePage } from '../pages/home/home';
 import { BookedeventPage } from '../pages/bookedevent/bookedevent';
 
+import { registerLocaleData } from '@angular/common';
+import localeIt from '@angular/common/locales/it';
+import { LOCALE_ID} from "@angular/core";
+
+registerLocaleData(localeIt, 'it');
+
 //gli dico dove prendere la traduzione
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -87,7 +93,8 @@ export function createTranslateLoader(http: HttpClient) {
     //per il trasferimento dei file
     // FileTransfer,
 
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: LOCALE_ID, useValue: 'it'},
   ]
 })
 export class AppModule {}

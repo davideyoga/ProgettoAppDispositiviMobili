@@ -37,7 +37,7 @@ public class EventController {
     @GetMapping("/hot")
     public List<Event> getHotEvent() {
 
-        System.out.println("\nGianni\n");
+        System.out.println("EVENTI SUPER HOT");
 
         return this.service.findHotEvent();
     }
@@ -85,8 +85,12 @@ public class EventController {
 
 
         /*
-            RACCOLTA DATI
-         */
+        
+        RACCOLTA DATI
+            
+        ATTENZIONE: AGGIUNGERE UN ELSE AD OGNI IF PER GESTIONE SINGOLI CAMPI NULLI, PENA ERRORE NELLA RICHIESTA
+        
+        */
         if (nameCategory!=null && nameCategory.length() != 0) {
 
             Category category = this.service.findCategoryByName(nameCategory);
@@ -100,6 +104,11 @@ public class EventController {
             eventsTotal.addAll(eventsByCategory);
 
             System.out.println("eventsTotal1: " + eventsTotal);
+        }
+        else if(nameCategory==null){
+            
+            eventsByCategory = null;
+            eventsTotal.addAll(eventsByCategory);
         }
 
         if (date!=null){
@@ -118,6 +127,10 @@ public class EventController {
 
             System.out.println("eventsTotal2: " + eventsTotal);
         }
+        else{
+            
+            
+        }
 
         if (city != null){
 
@@ -127,6 +140,13 @@ public class EventController {
 
             System.out.println("eventsTotal3: " + eventsTotal);
         }
+       else{
+            
+            eventsByCity = null;
+            eventsTotal.addAll(eventsByCity);
+        
+        }
+       
         /*
             FINE RACCOLTA DATI
          */
