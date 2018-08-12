@@ -4,28 +4,46 @@
   "WHAT": "Cosa",
   "LISTA EVENTI": "Lista eventi",
   "DETTAGLIO_EVENTO_TITOLO": "Dettaglio Evento",
+  "CERCA_EVENTI": "Cerca eventi",
+  "QUALSIASI": "tutti",
+  "OVUNQUE": "ovunque",
+  "SEARCH": "cerca",
 
-    "BACK_BUTTON_TEXT":  "Indietro",
-  
-    "LOGIN_BUTTON": "Accedi",
-    "DONE_BUTTON": "Fatto",
-    "SAVE_BUTTON": "Salva",
-    "CANCEL_BUTTON": "Annulla",
-    "DELETE_BUTTON": "Elimina",
-    "UPDATE_BUTTON": "Modifica",
-  
-    "LOGIN_TITLE": "Login",
-    "LOGIN_ERROR_TITLE": "Errore Login",
-    "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
-  
-    "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",
-   
-    "USERNAME": "Username",
-    "PASSWORD": "Password",
-    "TELEFONO": "Telefono",
-    "USERNAME_REQUIRED": "Username obbligatorio",
-    "PASSWORD_REQUIRED": "Password obbligatorio",
 
-    "CONDIVIDI": "Condividi" 
+  "BACK_BUTTON_TEXT":  "Indietro",
+
+  "LOGIN_BUTTON": "Accedi",
+  "DONE_BUTTON": "Fatto",
+  "SAVE_BUTTON": "Salva",
+  "CANCEL_BUTTON": "Annulla",
+  "DELETE_BUTTON": "Elimina",
+  "UPDATE_BUTTON": "Modifica",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_ERROR_TITLE": "Errore Login",
+  "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
+
+  "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "TELEFONO": "Telefono",
+  "USERNAME_REQUIRED": "Username obbligatorio",
+  "PASSWORD_REQUIRED": "Password obbligatorio",
+
+  "CONDIVIDI": "Condividi",
+
+  "GEN": "gen",
+  "FEB": "feb",
+  "MAR": "mar",
+  "APR": "apr",
+  "MAG": "mag",
+  "GIU": "giu",
+  "LUG": "lug",
+  "AGO": "ago",
+  "SET": "set",
+  "OTT": "ott",
+  "NOV": "nov",
+  "DIC": "dic"
 
 }

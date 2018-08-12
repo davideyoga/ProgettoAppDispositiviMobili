@@ -3,13 +3,8 @@ page-home {
     font-size: 0.7em !important;
   }
 
-  button[fab].fab-map {
-    top: calc(100% - 35px);
-    z-index: 50;
-  }
-
   .my-heart{
-    margin-right: 10px;
+    margin-right: 3px;
   }
 
   .item-bold {
@@ -20,17 +15,21 @@ page-home {
     background-color: #f4f4f7;
   }
 
-  //.mySlider{
-  //  height:200px;
-  //  min-height:200px;
-  //}
-  //
-  //.slide-zoom {
-  //  height: 100%;
-  //}
-
   #close{
     font-size: 2em;
+  }
+
+  .my-title {
+    display: inline-block;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: #222;
+    margin: 2px 0;
+    padding: 8px 0;
+  }
+
+  .my-padding{
+    padding-bottom: 0px;
   }
 
 }
