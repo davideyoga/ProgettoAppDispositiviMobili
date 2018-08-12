@@ -1,7 +1,7 @@
 
-<ion-header>
+<ion-header color="primary">
 
-        <ion-navbar>
+        <ion-navbar color="primary_color">
           <button ion-button menuToggle>
             <ion-icon name="menu" fixed></ion-icon>
           </button>
@@ -15,16 +15,20 @@
 
 <ion-content padding>
 
+		<ion-row class="logo-row">
+			<img class="center" src="../../assets/imgs/unieventV1.01.png"/>
+		</ion-row>
+
   <form #loginForm="ngForm">
 		<ion-list no-lines>
 			<ion-item>
-				<ion-label stacked color="primary">{{ 'USERNAME' | translate }}</ion-label>
+				<ion-label stacked color="primary_color">{{ 'USERNAME' | translate }}</ion-label>
 				<ion-input [(ngModel)]="user.email" name="email" type="text" #email="ngModel"
 						   [maxlength]="55" required>
 				</ion-input>
 			</ion-item>
 			<ion-item>
-				<ion-label stacked color="primary">{{ 'PASSWORD' | translate }}</ion-label>
+				<ion-label stacked color="primary_color">{{ 'PASSWORD' | translate }}</ion-label>
 				<ion-input [(ngModel)]="user.password" name="password" type="password"
 				           #password="ngModel" [maxlength]="255" required>
 				</ion-input>
@@ -33,7 +37,28 @@
 		</ion-list>
 		<ion-row responsive-sm>
 			<ion-col>
-				<button ion-button (click)="onLogin(loginForm)" type="submit" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+				<button class="submit-btn" ion-button (click)="onLogin(loginForm)" type="submit" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+				
+				<!-- aggiunta parte log-social -->
+				<ion-row wrap>
+					<ion-col width-25>
+						<button ion-button clear class="logo-facebook">
+								<ion-icon name="logo-facebook"></ion-icon>
+						 </button>
+					</ion-col>
+					<ion-col width-25>
+							<button ion-button clear class="logo-twitter">
+									<ion-icon name="logo-twitter"></ion-icon>
+							 </button>
+						</ion-col><ion-col width-25>
+								<button ion-button clear class="logo-googleplus">
+										<ion-icon name="logo-googleplus"></ion-icon>
+								 </button>
+							</ion-col>
+				</ion-row>
+				<button class="text_color" ion-button clear (click)="goItemPage()">Non sei utente? Registrati!</button>
+				<!-- finita la parte aggiuntiva -->
+				
 			</ion-col>
 		</ion-row>
   </form>

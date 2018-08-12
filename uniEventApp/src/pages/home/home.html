@@ -140,11 +140,12 @@
   <!--</button>-->
   <!--</ion-list>-->
 
-  <button ion-button full (click)="goItemPage()">Go Item Page</button>
+  <!-- bottone per prova mappa -->
+  <!-- <button ion-button full (click)="goItemPage()">Go Item Page</button> -->
 
   <!--lista eventi-->
-  <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
-  <div *ngFor="let e of eventi">
+  <ion-card *ngFor="let e of evento" class="adv-map">
+  <!-- <div *ngFor="let e of eventi"> -->
 
     <!--bottone favoriti-->
     <div style="position: relative">
@@ -179,7 +180,8 @@
         <ion-item>
           <ion-icon color="subtle" large item-start name='navigate'></ion-icon>
           <h2>Institute of Fine Cocktails</h2>
-          <p>{{e.date | date:'MMM d' }}</p>
+          <p>{{e.date}}</p>
+          <!-- <p>{{e.date | date:'MMM d' }}</p> -->
         </ion-item>
 
         <!--action bar-->
@@ -207,6 +209,6 @@
 
     </ion-card>
 
-  </div>
+  </ion-card>
 
 </ion-content>

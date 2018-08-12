@@ -21,8 +21,8 @@ export class HomePage {
   @ViewChild('mySlider') slider: Slides;
 
   public isSearchBarOpened = false;
-  public evento:any = [{id: 1, utente: 'cristiano', titolo: 'trattorissimo', date: "11/08/2016", imm: 10, ind: 'Via Roma, 50, 67019, Scoppito Avenue'},
-                       {id: 2, utente: 'Cristiano1', titolo: 'titolo evento1',date: "16/12/2018", imm: 20}
+  public evento:any = [{id: 1, utente: 'cristiano', titolo: 'trattorissimo', date: "jan 2016", imm: 10, ind: 'Via Roma, 50, 67019, Scoppito Avenue'},
+                       {id: 2, utente: 'Cristiano1', titolo: 'titolo evento1',date: "feb 2018", imm: 20}
                       ];
 
 
@@ -144,9 +144,11 @@ export class HomePage {
     });
   }
 
-  goItemPage(){
-    this.navCtrl.push(BookedeventPage);
-}
+// richiamo pagina per mappa e localizzazione
+// la localizzazione va, ma non la mappa
+//   goItemPage(){
+//     this.navCtrl.push(BookedeventPage);
+// }
 
   // onSegmentChanged(segmentButton) {
   //   console.log("Segment changed to", segmentButton.value);
