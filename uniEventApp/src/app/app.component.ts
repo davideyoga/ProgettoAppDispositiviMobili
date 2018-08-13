@@ -7,7 +7,7 @@ import { AlertController, Events, MenuController, Nav, Platform } from 'ionic-an
 
 import { HomePage } from '../pages/home/home';
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE } from '../pages/pages';
 
 
 
@@ -22,14 +22,30 @@ export class MyApp {
 
   menuL: Array<{title: string, component: any, icon:any}>;
 
+  menuNL: Array<{title: string, component: any, icon:any}>;  //menu non loggato
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
   private linguaService: LinguaService, private translate: TranslateService) {
 
 
     this.menuL = [
-      {title: 'Lista Eventi', component: EVENTI_PAGE, icon: '' },
       {title: 'Login', component: LOGIN_PAGE, icon:''},
-      {title: 'Profile', component: PROFILE_PAGE, icon:''}
+
+      //temporanei sopra
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
+      {title: 'PREFERITI_MENU', component: DUMMY_PAGE, icon: 'heart' },
+      {title: 'EVENTI_CREATI_MENU', component: DUMMY_PAGE, icon: 'add' },
+      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' },
+      {title: 'PROFILO_MENU', component: PROFILE_PAGE, icon:'person'},
+      {title: 'IMPOSTAZIONI_MENU', component: DUMMY_PAGE, icon:'settings'}
+    ];
+
+    this.menuNL = [
+      {title: 'Login', component: LOGIN_PAGE, icon:''},
+
+      //temporanei sopra
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
+      {title: 'IMPOSTAZIONI_MENU', component: DUMMY_PAGE, icon:'settings'}
     ];
 
     console.log("constructor MyApp");
