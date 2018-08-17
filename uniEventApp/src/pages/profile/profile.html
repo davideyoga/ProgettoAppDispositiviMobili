@@ -27,12 +27,25 @@
 
 <ion-list>
     <button ion-item (click)="modifyProfile()">
-      <ion-icon item-end name="person"></ion-icon>
+      <ion-icon class="menu" item-end name="person"></ion-icon>
       {{'PROFILO_MENU' | translate }}
     </button>
 
     <button ion-item (click)="openSettings()">
-      <ion-icon item-end name="settings"></ion-icon>
+      <ion-icon class="menu" item-end name="settings"></ion-icon>
+      {{'IMPOSTAZIONI_MENU' | translate }}
+    </button>
+
+
+    <div class="divider"></div>
+
+    <button ion-item (click)="openSettings()">
+      <ion-icon class="menu" item-end name="settings"></ion-icon>
+      {{'IMPOSTAZIONI_MENU' | translate }}
+    </button>
+
+    <button ion-item (click)="openSettings()">
+      <ion-icon class="menu" item-end name="settings"></ion-icon>
       {{'IMPOSTAZIONI_MENU' | translate }}
     </button>
 

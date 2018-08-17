@@ -1,6 +1,5 @@
 page-profile {
 
-  font-size: 0.1em !important;
 
 
 #positionavatar{
@@ -8,9 +7,10 @@ page-profile {
   left: 7em;
 }
 
-ion-icon{
-
-
+ion-icon.menu{
+  position: relative;
+  margin:auto;
 }
+
 
 }
