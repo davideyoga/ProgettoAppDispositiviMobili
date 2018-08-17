@@ -74,9 +74,12 @@
 
       </ion-list>
 
-      <ion-buttons>
-        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit"> {{'SEARCH' | translate }} </button>
-      </ion-buttons>
+
+        <button ion-button full round icon-end (click)="onBaseSearch(baseSearchForm)" type="submit" color="accent_colors">
+        <ion-icon name="search"></ion-icon>
+        {{'SEARCH' | translate }}
+      </button>
+
     </form>
   </ion-card>
 
@@ -104,12 +107,14 @@
 
   <!--lista eventi-->
   <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
+
+
   <ion-card *ngFor="let e of eventi" class="adv-map">
 
       <!--bottone favoriti-->
       <div style="position: relative">
         <ion-fab right top class="my-heart">
-          <button ion-fab class="fab-map">
+          <button ion-fab class="fab-map" color="accent_colors">
             <ion-icon name="heart-outline"></ion-icon>
           </button>
         </ion-fab>
