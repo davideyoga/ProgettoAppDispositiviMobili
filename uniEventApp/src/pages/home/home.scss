@@ -2,12 +2,17 @@ page-home {
 
   ion-card{
     height: 500px;
+    border-radius: 10px !important;
   }
 
   #search{
-    height:210px; //barra di ricerca
+    height:210px; //card di ricerca
   }
 
+#searchbutton{
+  width: 96%;
+  margin:auto;
+}
 
   ion-card.adv-map p {
     font-size: 0.7em !important;

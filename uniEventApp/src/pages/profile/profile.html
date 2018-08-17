@@ -1,5 +1,5 @@
 
-<ion-header color="primary">
+<ion-header>
 
   <ion-navbar color="primary_color">
     <button ion-button menuToggle>
@@ -7,6 +7,7 @@
     </button>
 <ion-title>{{'PROFILE_TITLE'| translate }}</ion-title>
 </ion-navbar>
+
 </ion-header>
 
 
@@ -25,10 +26,16 @@
 <div class="divider"></div>
 
 <ion-list>
-        <button ion-item (click)="sottomenu()">
-            <ion-icon item-start [name]="icon"></ion-icon>
-            ciao
-          </button>
-</ion-list>
+    <button ion-item (click)="modifyProfile()">
+      <ion-icon item-end name="person"></ion-icon>
+      {{'PROFILO_MENU' | translate }}
+    </button>
+
+    <button ion-item (click)="openSettings()">
+      <ion-icon item-end name="settings"></ion-icon>
+      {{'IMPOSTAZIONI_MENU' | translate }}
+    </button>
+
+  </ion-list>
 
 </ion-content>

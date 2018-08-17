@@ -7,7 +7,7 @@ import { MenuController, Nav, Platform } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
 import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE } from '../pages/pages';
-import { DummyPage } from '../pages/dummy/dummy';
+
 
 
 
@@ -52,7 +52,7 @@ export class MyApp {
     this.initTranslate();
     platform.ready().then(() => {
 
-      this.rootPage = EVENTI_PAGE;
+      this.rootPage = PROFILE_PAGE;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
