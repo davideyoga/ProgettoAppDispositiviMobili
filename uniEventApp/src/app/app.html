@@ -1,17 +1,37 @@
 <ion-menu [content]="content">
 
   <ion-header>
-    <ion-toolbar color="primary_color">
+    <ion-toolbar class="menutitle" color="primary_color">
       <ion-title>Menu</ion-title>
+      <button menuClose (click)="login()"> <!--temporaneo-->
+          Login
+        </button>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
+
       <button ion-item menuClose *ngFor="let page of menuL" (click)="openPage(page)">
         <ion-icon item-start [name]="page.icon"></ion-icon>
         {{page.title | translate }}
       </button>
+
+    </ion-list>
+    <hr>
+      <div class="divider"></div>
+
+      <ion-list>
+      <button ion-item class="menustyle" menuClose (click)="openProfile()"> <!--ng-if login o profilo-->
+        <ion-icon item-start name="person"></ion-icon>
+        {{'PROFILO_MENU' | translate }}
+      </button>
+
+      <button ion-item class="menustyle" menuClose (click)="openSettings()">
+        <ion-icon item-start name="settings"></ion-icon>
+        {{'IMPOSTAZIONI_MENU' | translate }}
+      </button>
+
     </ion-list>
   </ion-content>
 

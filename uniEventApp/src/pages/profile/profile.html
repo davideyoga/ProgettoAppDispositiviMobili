@@ -12,14 +12,23 @@
 
 <ion-content padding>
 
-<ion-grid>
-  <ion-row>
-    <ion-col col-3>Name Surname</ion-col>
-    <ion-col col-9>
-    <ion-avatar><img src="img/avatar-finn.png"></ion-avatar>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-<
+<ion-list>
+  <ion-item>
+      <h2 item-start>Name Surname</h2>
+    <ion-avatar id="positionavatar">
+      <img src="..\..\assets\imgs\logo.png">
+    </ion-avatar>
+
+  </ion-item>
+</ion-list>
+
+<div class="divider"></div>
+
+<ion-list>
+        <button ion-item  (click)="">
+            <ion-icon item-start [name]="page.icon"></ion-icon>
+            {{ | translate }}
+          </button>
+</ion-list>
 
 </ion-content>

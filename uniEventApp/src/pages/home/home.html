@@ -15,8 +15,9 @@
       <button ion-button clear *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">
         <ion-icon name="arrow-up" id="close"></ion-icon>
       </button>
+
       <!--trepallini-->
-      <button ion-button icon-only (click)="presentPopover($event)">
+      <button ion-button icon-only (click)="extraFilter()">
         <ion-icon name="more"></ion-icon>
       </button>
 
@@ -30,7 +31,7 @@
 <ion-content class="cards-bg">
 
   <!--barra ricerca-->
-  <ion-card *ngIf="isSearchBarOpened">
+  <ion-card id="search" *ngIf="isSearchBarOpened">
 
     <form #baseSearchForm="ngForm">
       <ion-list>
@@ -60,7 +61,7 @@
         </ion-item>
 
         <ion-item>
-          <ion-label col-8><ion-icon name="pin"></ion-icon> {{'WHERE' | translate }} </ion-label>
+          <ion-label><ion-icon name="pin"></ion-icon> {{'WHERE' | translate }} </ion-label>
 
           <ion-select [(ngModel)]="baseForm.where" interface="action-sheet" name=c>
             <ion-option value="" selected disabled hidden>{{'OVUNQUE' | translate }}</ion-option>
@@ -74,10 +75,11 @@
       </ion-list>
 
       <ion-buttons>
-        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit">{{'SEARCH' | translate }}</button>
+        <button ion-button (click)="onBaseSearch(baseSearchForm)" type="submit"> {{'SEARCH' | translate }} </button>
       </ion-buttons>
     </form>
   </ion-card>
+
   <!--fine barra ricerca-->
   <!--<form #baseSearchForm="ngForm">-->
   <!--<ion-item>-->
