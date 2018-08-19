@@ -17,7 +17,8 @@
       </button>
 
       <!--trepallini-->
-      <button ion-button icon-only (click)="extraFilter()">
+      <button ion-button icon-only (click)="goExtra()">
+        <!-- (click)="extraFilter()" -->
         <ion-icon name="more"></ion-icon>
       </button>
 
@@ -75,9 +76,10 @@
       </ion-list>
 
         <button id="searchbutton" ion-button full round (click)="onBaseSearch(baseSearchForm)" type="submit" color="accent_colors">
-        <ion-icon name="search"></ion-icon>
+        <ion-icon name="search"> </ion-icon>
         {{'SEARCH' | translate }}
-      </button>
+        </button>
+      <button class="text_color" ion-button clear (click)="goExtra()">{{'ADVSEARCH' | translate}}</button>
 
     </form>
   </ion-card>
@@ -152,7 +154,7 @@
         <ion-col col-4>
           <button ion-button clear small color="danger" icon-start>
             <ion-icon name='calendar'></ion-icon>
-            {{e.date | date:'MMM d' }}
+            <!-- {{e.date | date:'MMM d' }} -->
           </button>
         </ion-col>
         <ion-col col-4>

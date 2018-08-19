@@ -26,6 +26,7 @@ import { BookedeventPage } from '../pages/bookedevent/bookedevent';
 import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import { LOCALE_ID} from "@angular/core";
+import { ExtrafilterPage } from '../pages/extrafilter/extrafilter';
 
 registerLocaleData(localeIt, 'it');
 
@@ -39,7 +40,8 @@ export function createTranslateLoader(http: HttpClient) {
     MyApp,
     PopoverComponent,
     SearchpopoverComponent,
-    BookedeventPage
+    BookedeventPage,
+    ExtrafilterPage
 
   ],
 
@@ -77,7 +79,8 @@ export function createTranslateLoader(http: HttpClient) {
     MyApp,
     PopoverComponent,
     SearchpopoverComponent,
-    BookedeventPage
+    BookedeventPage,
+    ExtrafilterPage
   ],
   providers: [
     StatusBar,

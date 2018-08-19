@@ -9,6 +9,14 @@ page-home {
     height:210px; //card di ricerca
   }
 
+  .text_color {
+    color: #9c27b0;
+    text-align: center;
+    width: 100%;
+    text-transform: none !important;
+    /*border is optional*/
+}
+
 #searchbutton{
   width: 96%;
   margin:auto;

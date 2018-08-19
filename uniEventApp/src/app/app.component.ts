@@ -51,8 +51,8 @@ export class MyApp {
     //chiama metodo initTranslate
     this.initTranslate();
     platform.ready().then(() => {
-
-      this.rootPage = PROFILE_PAGE;
+      //QUI CAMBIO LA ROOT PAGE
+      this.rootPage = EVENTI_PAGE;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
