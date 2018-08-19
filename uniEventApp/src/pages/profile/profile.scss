@@ -1,10 +1,15 @@
 page-profile {
 
+h1{
+  font-size: 2rem !important;
+}
 
-
-#positionavatar{
+#avatar{
   position: relative;
-  left: 7em;
+  left: 6em;
+  height: 50px !important;
+  width: 50px !important;
+
 }
 
 ion-icon.menu{
