@@ -1,6 +1,6 @@
 page-home {
 
-  ion-card{
+  ion-card.adv-map{
     height: 500px;
   }
 
@@ -10,7 +10,12 @@ page-home {
 
   .my-heart{
     margin-right: 3px;
+    margin-top: 210px;
   }
+
+  //.my-heart button{
+  //  color: red;
+  //}
 
   .item-bold {
     font-weight: bold;
@@ -40,12 +45,13 @@ page-home {
   .img{
     height: 250px;
     overflow: hidden;
-
+    width: 100%;
   }
 
   .img img{
     height: 250px;
     object-fit:scale-down;
+    width: 100%;
   }
 
 }

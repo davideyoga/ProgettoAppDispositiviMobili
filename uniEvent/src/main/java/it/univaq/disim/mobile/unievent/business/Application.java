@@ -61,6 +61,7 @@ public class Application {
             event.setViews(new Long(100));
             event.setCity("Roma");
             event.setImage("/home/davide/Scrivania/gianni");
+            event.setPrice(12f);
 
             event.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
 
@@ -70,17 +71,20 @@ public class Application {
             event2.setTitle("PartyHard2");
             event2.setCity("Roma");
             event2.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
+            event2.setPrice(12f);
 
 
             Event event3 = new Event();
             event3.setTitle("Apecolmorto");
             event3.setCity("Milano");
             event3.setDate(new Date(Calendar.getInstance().getTimeInMillis() + 86400000));
+            event3.setPrice(1.5f);
 
             Event event4 = new Event();
             event4.setTitle("Apecolmorto2");
             event4.setCity("Milano");
             event4.setDate(new Date(Calendar.getInstance().getTimeInMillis() + 86400000));
+            event4.setPrice(4f);
 
 
             Category category = new Category();

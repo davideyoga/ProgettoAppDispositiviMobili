@@ -9,46 +9,65 @@
 
 <ion-content>
   <div *ngIf="evento">
-    <img src="../../assets/imgs/maxresdefault.jpg"/>
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title>
-          {{evento.title}}
-        </ion-card-title>
-        <p></p>
-        {{evento.date}}
-        bla bla bla
-        {{evento.date | date:'MMM d' }}
-        <p></p>
-        <p></p>
-      </ion-card-content>
-    </ion-card>
-    <h1></h1>
+    <!--<div *ngIf="image">-->
+    <!--<img [src]="image.data.url" />-->
+    <!--</div>-->
+    <div style="position: relative" class="img">
+      <img src="../../assets/imgs/logo.png"/>
+    </div>
+
+    <ion-grid>
+      <!--titolo-->
+      <ion-row>
+        <ion-col class="my-title">{{evento.title}}</ion-col>
+      </ion-row>
+
+      <!--data-->
+      <ion-row class="my-row">
+        <ion-col col-1>
+          <ion-icon name="calendar"></ion-icon>
+        </ion-col>
+        <ion-col col-10 class="my-date">
+          {{evento.date | date:'d MMMM yyyy' }}
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
   </div>
 
   <div *ngIf="creatore">
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title>
-          {{creatore.email}}
-        </ion-card-title>
-        <p></p>
-        <p></p>
-        <p></p>
-      </ion-card-content>
-    </ion-card>
-    <h1></h1>
-  </div>
 
-  <div *ngIf="creatore">
-    <button ion-button (click)="infoUser()">
-      creatore.email
-    </button>
+    <ion-item (click)="infoUser()" no-lines>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/logo.png">
+      </ion-avatar>
+      <h2>{{creatore.email}}</h2>
+      <p>November 5, 1955</p>
+    </ion-item>
   </div>
-
-  <div *ngIf="image">
-    <img [src]="image.data.url" />
-  </div>
-  <img src="" alt="Cute Pug">
 
 </ion-content>
+
+<!--<ion-footer class="my-price">-->
+<!--<ion-toolbar>-->
+<!--<ion-item>-->
+<!--<ion-icon color="subtle" item-start name='logo-euro'></ion-icon>-->
+<!--<p *ngIf="evento" >{{evento.price}}</p>-->
+<!--<ion-buttons end>-->
+<!--<button ion-button class="button-full" color="primary" >-->
+<!--<ion-icon name="home"></ion-icon>-->
+<!--PRENOTA-->
+<!--</button>-->
+<!--</ion-buttons>-->
+<!--</ion-item>-->
+<!--</ion-toolbar>-->
+<!--</ion-footer>-->
+
+<ion-footer no-lines>
+  <ion-toolbar class="my-toolbar">
+      <ion-icon color="subtle" item-start name='logo-euro'></ion-icon>
+      <p *ngIf="evento" class="my-price">{{evento.price}}</p>
+      <button ion-button color="primary">Prenota</button>
+  </ion-toolbar>
+</ion-footer>

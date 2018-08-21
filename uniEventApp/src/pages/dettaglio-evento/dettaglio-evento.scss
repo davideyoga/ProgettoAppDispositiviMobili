@@ -1,3 +1,88 @@
 page-dettaglio-evento {
 
+  .my-title{
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  .img{
+    height: 250px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .img img{
+    height: 250px;
+    object-fit:scale-down;
+    width: 100%;
+  }
+
+  ion-col ion-icon {
+    font-size: 30px;
+    color: grey;
+  }
+
+  ion-footer ion-icon{
+    font-size: 2.5rem !important;
+    color: grey;
+  }
+
+  .my-date{
+    line-height: 2.0;
+    padding-left: 23px;
+  }
+
+  .my-row{
+    padding-left: 16px;
+    padding-right: 0;
+    padding-top: 13px;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  .item-md ion-icon[item-left] + .item-inner,
+  .item-md ion-icon[item-left] + .item-input,
+  .item-md ion-icon[item-start] + .item-inner,
+  .item-md ion-icon[item-start] + .item-input {
+    margin-left: 8px;
+    font-size: 2rem;
+  }
+
+
+
+  .my-price{
+    position: absolute;
+    font-size: 2.0rem !important;
+    margin: 10px 0 0 20px;
+    display: inline-block !important;
+  }
+
+  .my-price-div{
+    margin-left: 25px;
+  }
+
+  .my-toolbar button{
+    position: relative;
+    left: 7em;
+    width: 200px;
+    margin-top: -0.6rem;
+  }
+
+  .my-toolbar ion-icon{
+    margin-top: 9px;
+  }
+
+  //.my-price ion-buttons{
+  //  position: relative;
+  //  left: 100px;
+  //  display: inline-block !important;
+  //}
+  //
+  //.button-full {
+  //  display: block;
+  //  width: 100%;
+  //  contain: strict;
+  //}
 }
