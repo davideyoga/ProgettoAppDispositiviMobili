@@ -21,12 +21,30 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
 
-  ionViewDidLoad() {
+ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
 
 modifyProfile(){
   this.navCtrl.push(DUMMY_PAGE);
 }
+
+openSettings(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+openPastEvents(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+openHelp(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+openFeed(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+
 
 }

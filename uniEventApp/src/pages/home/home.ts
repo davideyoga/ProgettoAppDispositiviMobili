@@ -11,7 +11,7 @@ import { PopoverComponent} from "../../components/popover/popover";
 import { SearchpopoverComponent } from "../../components/searchpopover/searchpopover";
 import { PopoverController} from "ionic-angular";
 import { dateDataSortValue } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
-import { DUMMY_PAGE } from '../pages';
+import { DUMMY_PAGE, EXTRAFILTER_PAGE } from '../pages';
 import { ExtrafilterPage } from '../extrafilter/extrafilter'
 
 @IonicPage()
@@ -151,7 +151,7 @@ export class HomePage {
   }
 
   goExtra(){
-    this.navCtrl.push(ExtrafilterPage);
+    this.navCtrl.push(EXTRAFILTER_PAGE);
   }
 
   // onSegmentChanged(segmentButton) {

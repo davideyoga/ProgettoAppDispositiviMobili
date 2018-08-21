@@ -49,14 +49,18 @@
 
   "LISTA_EVENTI_MENU": "Lista Eventi",
   "PREFERITI_MENU": "Preferiti",
-  "EVENTI_CREATI_MENU": "Eventi Creati",
+  "EVENTI_CREATI_MENU": "Miei Eventi",
   "EVENTI_PRENOTATI_MENU":"Eventi Prenotati",
   "PROFILO_MENU": "Profilo",
   "IMPOSTAZIONI_MENU":"Impostazioni",
 
 
 
-  "PROFILE_TITLE": "Profilo"
+  "PROFILE_TITLE": "Profilo",
+
+  "EVENTIPASSATI_MENU": "Eventi Passati",
+  "ASSISTENZA_MENU":"Assistenza"
+
 
 
 }

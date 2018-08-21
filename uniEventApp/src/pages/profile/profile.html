@@ -31,6 +31,11 @@
       {{'PROFILO_MENU' | translate }}
     </button>
 
+    <button ion-item (click)="openPastEvents()">
+      <ion-icon class="menu" item-end name="calendar"></ion-icon>
+      {{'EVENTIPASSATI_MENU' | translate }}
+    </button>
+
     <button ion-item (click)="openSettings()">
       <ion-icon class="menu" item-end name="settings"></ion-icon>
       {{'IMPOSTAZIONI_MENU' | translate }}
@@ -39,14 +44,14 @@
 
     <div class="divider"></div>
 
-    <button ion-item (click)="openSettings()">
-      <ion-icon class="menu" item-end name="settings"></ion-icon>
-      {{'IMPOSTAZIONI_MENU' | translate }}
+    <button ion-item (click)="openHelp()">
+      <ion-icon class="menu" item-end name="help-circle"></ion-icon>
+      {{'ASSISTENZA_MENU' | translate }}
     </button>
 
-    <button ion-item (click)="openSettings()">
-      <ion-icon class="menu" item-end name="settings"></ion-icon>
-      {{'IMPOSTAZIONI_MENU' | translate }}
+    <button ion-item (click)="openFeed()">
+      <ion-icon class="menu" item-end name="send"></ion-icon>
+      Feedback
     </button>
 
   </ion-list>

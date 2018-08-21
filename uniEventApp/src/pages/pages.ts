@@ -6,4 +6,9 @@ export const PROFILE_PAGE = 'ProfilePage';
 
 export const DUMMY_PAGE = 'DummyPage';
 
+export const EXTRAFILTER_PAGE = 'ExtrafilterPage';
+
+export const MYEVENTS_PAGE = 'MyeventsPage';
+
+
 

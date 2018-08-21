@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ExtrafilterPage } from './extrafilter';
+import { MyeventsPage } from './myevents';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
-    ExtrafilterPage,
+    MyeventsPage,
   ],
   imports: [
-    IonicPageModule.forChild(ExtrafilterPage),
+    IonicPageModule.forChild(MyeventsPage),
     TranslateModule.forChild()
   ],
 })
-export class ExtrafilterPageModule {}
+export class MyeventsPageModule {}

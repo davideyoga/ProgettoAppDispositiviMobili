@@ -40,9 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
     MyApp,
     PopoverComponent,
     SearchpopoverComponent,
-    BookedeventPage,
-    ExtrafilterPage
-
+    BookedeventPage
   ],
 
   imports: [
@@ -79,8 +77,8 @@ export function createTranslateLoader(http: HttpClient) {
     MyApp,
     PopoverComponent,
     SearchpopoverComponent,
-    BookedeventPage,
-    ExtrafilterPage
+    BookedeventPage
+
   ],
   providers: [
     StatusBar,
