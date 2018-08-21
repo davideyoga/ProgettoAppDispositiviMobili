@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DUMMY_PAGE } from '../pages';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,11 +16,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
 
-  ionViewDidLoad() {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+
+
+ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
+
+modifyProfile(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+openSettings(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+openPastEvents(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+openHelp(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+openFeed(){
+  this.navCtrl.push(DUMMY_PAGE);
+}
+
+
 
 }

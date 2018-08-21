@@ -9,6 +9,7 @@
   "QUALSIASI": "all",
   "OVUNQUE": "everywhere",
   "SEARCH": "search",
+  "ADVSEARCH": "Advanced Search",
 
   "LOGIN_BUTTON": "Enter",
   "DONE_BUTTON": "Done",
@@ -40,6 +41,19 @@
   "SET": "sep",
   "OTT": "oct",
   "NOV": "nov",
-  "DIC": "dec"
+  "DIC": "dec",
+
+
+  "LISTA_EVENTI_MENU": "Events List",
+  "PREFERITI_MENU": "Favourite",
+  "EVENTI_CREATI_MENU": "My Events",
+  "EVENTI_PRENOTATI_MENU":"Booked Events",
+  "PROFILO_MENU": "Profile",
+  "IMPOSTAZIONI_MENU":"Settings",
+
+  "PROFILE_TITLE": "Profile",
+
+  "EVENTIPASSATI_MENU": "Past Events",
+  "ASSISTENZA_MENU":"Help"
 }
 

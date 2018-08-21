@@ -3,11 +3,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 
-import { AlertController, Events, MenuController, Nav, Platform } from 'ionic-angular';
+import { MenuController, Nav, Platform } from 'ionic-angular';
 
-import { HomePage } from '../pages/home/home';
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE } from '../pages/pages';
+
+
 
 
 
@@ -22,14 +23,27 @@ export class MyApp {
 
   menuL: Array<{title: string, component: any, icon:any}>;
 
+  menuNL: Array<{title: string, component: any, icon:any}>;  //menu non loggato
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
   private linguaService: LinguaService, private translate: TranslateService) {
 
 
     this.menuL = [
-      {title: 'Lista Eventi', component: EVENTI_PAGE, icon: '' },
+
+      //temporanei sopra
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
+      {title: 'PREFERITI_MENU', component: DUMMY_PAGE, icon: 'heart' },
+      {title: 'EVENTI_CREATI_MENU', component: DUMMY_PAGE, icon: 'add' },
+      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' },
+    ];
+
+    this.menuNL = [
       {title: 'Login', component: LOGIN_PAGE, icon:''},
-      {title: 'Profile', component: PROFILE_PAGE, icon:''}
+
+      //temporanei sopra
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
+
     ];
 
     console.log("constructor MyApp");
@@ -37,7 +51,7 @@ export class MyApp {
     //chiama metodo initTranslate
     this.initTranslate();
     platform.ready().then(() => {
-
+      //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -84,11 +98,22 @@ export class MyApp {
     */
   }
 
-
-
   openPage(page){
     this.nav.setRoot(page.component);
   }
+
+  openProfile(){
+    //if utente.logged==true
+    this.nav.setRoot(PROFILE_PAGE);
+    //else loginpage
+  }
+
+  openSettings(){
+  this.nav.setRoot(DUMMY_PAGE)} //da sostituire
+
+  login(){
+    this.nav.setRoot(LOGIN_PAGE)}
+
 
 }
 

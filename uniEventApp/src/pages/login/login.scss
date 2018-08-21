@@ -4,7 +4,7 @@ page-login {
         padding-top: 10px;
         padding-bottom: 20px;
       }
-    
+
     ion-row {
         align-items: center;
         text-align: center;
@@ -27,11 +27,16 @@ page-login {
     }
 
     .submit-btn {
-        background: #ffc107;
-        border-radius: 30px !important;
+        color:white;
         border: 1px solid #ffffff;
 
+      &:hover{
+        background: #9b27b0 !important;
       }
+
+      }
+
+
 
     .text_color {
         color: #9c27b0;
@@ -42,12 +47,12 @@ page-login {
         color: #3B5998;
         // background-color: #3B5998;
     }
-    
+
     .logo-twitter{
         color: #1DA1F2;
         // background-color: #3B5998;
     }
-    
+
     .logo-googleplus{
         color: #DB4437;
         // background-color: #3B5998;

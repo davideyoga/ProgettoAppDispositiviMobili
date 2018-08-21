@@ -2,7 +2,25 @@ page-home {
 
   ion-card.adv-map{
     height: 500px;
+    border-radius: 10px !important;
   }
+
+  #search{
+    height:210px; //card di ricerca
+  }
+
+  .text_color {
+    color: #9c27b0;
+    text-align: center;
+    width: 100%;
+    text-transform: none !important;
+    /*border is optional*/
+}
+
+#searchbutton{
+  width: 96%;
+  margin:auto;
+}
 
   ion-card.adv-map p {
     font-size: 0.7em !important;

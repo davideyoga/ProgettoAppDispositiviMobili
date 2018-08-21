@@ -1,0 +1,73 @@
+<!--
+  Generated template for the ExtrafilterPage page.
+  
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header color="primary_color">
+  
+  <ion-navbar color="primary_color">
+    <ion-buttons left>
+    </ion-buttons>
+    <ion-title>{{'ADVSEARCH' | translate}}</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only >
+            <ion-icon name="refresh"></ion-icon>
+          </button>
+    </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+
+
+
+
+  <!-- bisogna aggiungere la form -->
+  
+  <ion-content>
+      <ion-list>
+          <ion-list-header >
+            Prezzo
+          </ion-list-header>
+            <ion-item>
+          
+            <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" color="accent_colors">
+                <ion-icon range-left small name="logo-euro" color="primary_color"></ion-icon>
+                <ion-icon range-right name="logo-euro" color="primary_color"></ion-icon>
+            </ion-range>
+            </ion-item>
+      </ion-list>
+      
+      <ion-list>
+        <ion-list-header>
+          Tipologia
+        </ion-list-header>
+
+        <ion-item *ngFor="let t of types">  
+          <ion-icon name='brush' item-start></ion-icon>  
+          <ion-label>
+            {{t.tp}}
+          </ion-label>
+          <ion-toggle color="primary_color"></ion-toggle>
+          
+        </ion-item>
+      </ion-list>
+    
+      <ion-list>
+          <ion-list-header>
+            servizi
+          </ion-list-header>
+  
+          <ion-item *ngFor="let s of services">  
+            <ion-icon name='brush' item-start></ion-icon>  
+            <ion-label>
+              {{s.sv}}
+            </ion-label>
+            <ion-toggle color="accent_colors"></ion-toggle>
+            
+          </ion-item>
+        </ion-list>
+    <ion-fab right middle>
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+</ion-fab>
+</ion-content>

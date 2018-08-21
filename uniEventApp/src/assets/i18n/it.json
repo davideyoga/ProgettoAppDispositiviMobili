@@ -8,6 +8,7 @@
   "QUALSIASI": "tutti",
   "OVUNQUE": "ovunque",
   "SEARCH": "cerca",
+  "ADVSEARCH": "Ricerca Avanzata",
 
 
   "BACK_BUTTON_TEXT":  "Indietro",
@@ -44,6 +45,22 @@
   "SET": "set",
   "OTT": "ott",
   "NOV": "nov",
-  "DIC": "dic"
+  "DIC": "dic",
+
+  "LISTA_EVENTI_MENU": "Lista Eventi",
+  "PREFERITI_MENU": "Preferiti",
+  "EVENTI_CREATI_MENU": "Miei Eventi",
+  "EVENTI_PRENOTATI_MENU":"Eventi Prenotati",
+  "PROFILO_MENU": "Profilo",
+  "IMPOSTAZIONI_MENU":"Impostazioni",
+
+
+
+  "PROFILE_TITLE": "Profilo",
+
+  "EVENTIPASSATI_MENU": "Eventi Passati",
+  "ASSISTENZA_MENU":"Assistenza"
+
+
 
 }
