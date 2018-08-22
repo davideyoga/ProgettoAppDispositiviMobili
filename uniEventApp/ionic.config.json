@@ -9,6 +9,5 @@
       "path": "/api",
       "proxyUrl": "http://localhost:8080/api"
     }
-  ],
-  "app_id": ""
+  ]
 }

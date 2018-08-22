@@ -3,15 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <!--<ion-title>{{'DETTAGLIO_EVENTO_TITOLO' | translate}}</ion-title>-->
+    <ion-title>{{'DETTAGLIO_EVENTO_TITOLO' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <div *ngIf="evento">
-    <!--<div *ngIf="image">-->
-    <!--<img [src]="image.data.url" />-->
-    <!--</div>-->
+    <div *ngIf="image">
+    <img [src]="image.data.url" />
+    </div>
     <div style="position: relative" class="img">
       <img src="../../assets/imgs/logo.png"/>
     </div>
