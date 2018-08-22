@@ -60,6 +60,7 @@ public class Application {
             event.setTitle("PartyHard1");
             event.setViews(new Long(100));
             event.setCity("Roma");
+            event.setAddress("via del corso 77");
             event.setImage("/home/davide/Scrivania/gianni");
             event.setPrice(19.68f);
             event.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
@@ -70,7 +71,7 @@ public class Application {
             event2.setTitle("PartyHard2");
             event2.setCity("Roma");
             event2.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
-            event2.setPrice(1.90f);
+//            event2.setPrice(1.90f);
 
 
             Event event3 = new Event();

@@ -54,6 +54,12 @@
   "PROFILE_TITLE": "Profile",
 
   "EVENTIPASSATI_MENU": "Past Events",
-  "ASSISTENZA_MENU":"Help"
+  "ASSISTENZA_MENU":"Help",
+
+  "GRATIS": "Free event",
+  "PRENOTA": "Book",
+  "PARTECIPA": "Participate"
+
+
 }
 
