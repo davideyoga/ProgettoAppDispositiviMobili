@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary_color">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -14,6 +14,17 @@
     <!--</div>-->
     <div style="position: relative" class="img">
       <img src="../../assets/imgs/logo.png"/>
+    </div>
+
+    <div *ngIf="creatore">
+
+      <ion-item (click)="infoUser()" no-lines color="accent_colors">
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/logo.png">
+        </ion-avatar>
+        <h2>{{creatore.email}}</h2>
+        <p>November 5, 1955</p>
+      </ion-item>
     </div>
 
     <ion-grid>
@@ -32,19 +43,40 @@
         </ion-col>
       </ion-row>
 
+      <!--indirizzo-->
+      <!--<button id='hidden-button' ion-button (click)="openMap()">-->
+
+        <ion-row class="my-row" (click)="openMap()">
+          <ion-col col-1>
+            <ion-icon name="pin"></ion-icon>
+          </ion-col>
+          <ion-col col-10 class="my-date">
+            {{evento.address}}, {{evento.city}}
+          </ion-col>
+        </ion-row>
+      <!--</button>-->
+
+
+      <!--descrizione-->
+      <ion-row class="my-row">
+        <ion-col col-1>
+          <ion-icon name="information" class="info"></ion-icon>
+        </ion-col>
+        <ion-col col-10 class="my-info">
+          {{evento.description}}
+          Ehi, questa è la maxi storia di come la mia vita è cambiata, capovolta sotto sopra sia finita. Seduto su due piedi qui con te ti parlerò di Willy, super fico di Bel Air: giocando a basket con gli amici sono cresciuto, me la sono spassata, wow! Che fissa ogni minuto! Le mie toste giornate filavano così, tra un mega-tiro a canestro e un film di Spike Lee. Poi la mia palla lanciata un po' più in sù andò proprio sulla testa di quei vichinghi laggiù; il più durò si imballò, fece una trottola di me e la mamma preoccupata disse: «Vattene a Bel Air!». L'ho pregata, scongiurata, dallo zio vuole che vada, lei m'ha fatto le valige e ha detto: «Va' per la tua strada». Dopo avermi dato un bacio e un biglietto per partire con lo stereo nelle orecchie ho detto: «Qua è meglio sgommare!». Prima classe, ma è uno sballo! Spremute d'arancia in bicchieri di cristallo. Se questa è la vita che fanno a Bel Air, per me, mm-mh, poi tanto male non è! Ho chiamato un taxi giallo col mio fischio collaudato, come in Formula Uno mi sentivo gasato; una vita tutta nuova sta esplodendo per me, «Avanti a tutta forza, portami a Bel Air!». Oh, che sventola di casa, mi sento già stra-ricco, la vita di prima mi puzza di vecchio! Guardate adesso gente in pista chi c'è, il principe Willy, lo svitato di Bel Air eh!
+        </ion-col>
+      </ion-row>
+
+      <!--visualizzazioni-->
+      <ion-item>
+        <ion-icon name='musical-notes' item-start style="color: #d03e84;"></ion-icon>
+        Visualizazioni
+        <ion-badge item-end>{{evento.views}}</ion-badge>
+      </ion-item>
+
     </ion-grid>
 
-  </div>
-
-  <div *ngIf="creatore">
-
-    <ion-item (click)="infoUser()" no-lines>
-      <ion-avatar item-start>
-        <img src="../../assets/imgs/logo.png">
-      </ion-avatar>
-      <h2>{{creatore.email}}</h2>
-      <p>November 5, 1955</p>
-    </ion-item>
   </div>
 
 </ion-content>
@@ -64,10 +96,37 @@
 <!--</ion-toolbar>-->
 <!--</ion-footer>-->
 
-<ion-footer no-lines>
-  <ion-toolbar class="my-toolbar">
-      <ion-icon color="subtle" item-start name='logo-euro'></ion-icon>
-      <p *ngIf="evento" class="my-price">{{evento.price}}</p>
-      <button ion-button color="primary">Prenota</button>
+<!--<ion-footer no-lines>-->
+<!--<ion-icon color="subtle" item-start name='logo-euro'></ion-icon>-->
+<!--<p *ngIf="evento" class="my-price">{{evento.price}}</p>-->
+<!--<button ion-button color="primary">Prenota</button>-->
+<!--</ion-footer>-->
+
+<ion-footer *ngIf="priceFlag">
+  <ion-toolbar color="primary_color" class="toolbar-buttons-page">
+    <ion-title class="footer-title">
+      <ion-icon item-start name='logo-euro'></ion-icon>
+      {{evento.price}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button large icon-end round class="priceButton">
+        {{'PRENOTA' | translate}}
+        <ion-icon class="my-icon" name="card"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-footer *ngIf="!priceFlag">
+  <ion-toolbar color="primary_color" class="toolbar-buttons-page">
+    <ion-title class="footer-title">
+      {{'GRATIS' | translate}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button large icon-end class="freeButton">
+        {{'PARTECIPA' | translate}}
+        <!--<ion-icon name="send"></ion-icon>-->
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>

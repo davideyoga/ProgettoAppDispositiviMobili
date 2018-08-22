@@ -22,16 +22,27 @@ page-dettaglio-evento {
     color: grey;
   }
 
-  ion-footer ion-icon{
-    font-size: 2.5rem !important;
-    color: grey;
-  }
-
   .my-date{
     line-height: 2.0;
     padding-left: 23px;
   }
 
+  #hidden-button{
+    height: 100%;
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+
+  .my-info{
+    line-height: 1.5;
+    text-align:justify;
+    padding-left: 23px;
+  }
+
+  .info{
+    margin-left: 7px;
+  }
   .my-row{
     padding-left: 16px;
     padding-right: 0;
@@ -50,39 +61,29 @@ page-dettaglio-evento {
     font-size: 2rem;
   }
 
-
-
-  .my-price{
-    position: absolute;
-    font-size: 2.0rem !important;
-    margin: 10px 0 0 20px;
-    display: inline-block !important;
+  .footer-title {
+    padding: 0 1rem;
   }
 
-  .my-price-div{
-    margin-left: 25px;
+  .footer-title .toolbar-title {
+    font-size: 1.6rem;
+    text-align: left;
+    padding: 0;
   }
 
-  .my-toolbar button{
-    position: relative;
-    left: 7em;
-    width: 200px;
-    margin-top: -0.6rem;
+  .my-icon{
+    padding-bottom: 3px;
   }
 
-  .my-toolbar ion-icon{
-    margin-top: 9px;
+  .priceButton{
+    background-color: #ffc107;
+    color: #212121 !important;
+    width: 170px;
   }
 
-  //.my-price ion-buttons{
-  //  position: relative;
-  //  left: 100px;
-  //  display: inline-block !important;
-  //}
-  //
-  //.button-full {
-  //  display: block;
-  //  width: 100%;
-  //  contain: strict;
-  //}
+  .freeButton{
+    background-color: #ffc107;
+    color: #212121 !important;
+    width: 170px;
+  }
 }
