@@ -29,6 +29,7 @@ import { LOCALE_ID} from "@angular/core";
 import { ExtrafilterPage } from '../pages/extrafilter/extrafilter';
 
 import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 registerLocaleData(localeIt, 'it');
 
@@ -93,6 +94,7 @@ export function createTranslateLoader(http: HttpClient) {
     Geolocation,
     GoogleMaps,
     InAppBrowser,
+    SocialSharing,
 
     //per il trasferimento dei file
     // FileTransfer,
