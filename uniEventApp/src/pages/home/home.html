@@ -8,17 +8,16 @@
     <ion-title *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">{{'CERCA_EVENTI' | translate}}</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true">
+      <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true" (click)="scrollToTop()">
         <ion-icon name="search"></ion-icon>
       </button>
 
-      <button ion-button clear *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">
+      <button ion-button clear *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false" (click)="scrollToTop()">
         <ion-icon name="arrow-up" id="close"></ion-icon>
       </button>
 
       <!--trepallini-->
       <button ion-button icon-only (click)="goExtra()">
-        <!-- (click)="extraFilter()" -->
         <ion-icon name="more"></ion-icon>
       </button>
 
@@ -29,7 +28,7 @@
 
 
 
-<ion-content class="cards-bg">
+<ion-content class="cards-bg" #pageTop>
 
   <!--barra ricerca-->
   <ion-card id="search" *ngIf="isSearchBarOpened">

@@ -33,7 +33,9 @@ export class MyeventsPage {
     });
   }
 
-
+  event(e: Event) {
+    this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
+  }
 
 
 }

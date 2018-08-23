@@ -13,6 +13,7 @@ import { PopoverController} from "ionic-angular";
 import { dateDataSortValue } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
 import { DUMMY_PAGE, EXTRAFILTER_PAGE } from '../pages';
 import { ExtrafilterPage } from '../extrafilter/extrafilter'
+import { Content } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -21,6 +22,7 @@ import { ExtrafilterPage } from '../extrafilter/extrafilter'
 })
 export class HomePage {
   @ViewChild('mySlider') slider: Slides;
+  @ViewChild(Content) content: Content;
 
   public isSearchBarOpened = false;
   public evento:any = [{id: 1, utente: 'cristiano', titolo: 'trattorissimo', date: "11/08/2016", imm: 10, ind: 'Via Roma, 50, 67019, Scoppito Avenue'},
@@ -146,10 +148,6 @@ export class HomePage {
     });
   }
 
-  extraFilter(){
-    this.navCtrl.push(DUMMY_PAGE);
-  }
-
   goExtra(){
     this.navCtrl.push(EXTRAFILTER_PAGE);
   }
@@ -167,4 +165,9 @@ export class HomePage {
   //   const currentSlide = this.slides[slider.getActiveIndex()];
   //   this.selectedSegment = currentSlide.id;
   // }
+
+  scrollToTop(){
+    this.content.scrollToTop();
+  }
+
 }
