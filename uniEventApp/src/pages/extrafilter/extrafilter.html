@@ -24,18 +24,18 @@
 <ion-content>
   <ion-list>
     <ion-list-header class="provat">
-          <ion-badge color="primary_color">{{structure.lower}}</ion-badge>
-          {{'PRICE' | translate}}
-          <ion-badge color="primary_color" item-right>{{structure.upper}}</ion-badge>
+      
+      {{'PRICE' | translate}}
+      
     </ion-list-header>
     <ion-item>
       
       
       
       <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" class="spazio" color="accent_colors">
-        <ion-icon range-left small name="logo-euro" color="primary_color"></ion-icon>
-        <ion-icon range-right name="logo-euro" color="primary_color"></ion-icon>
-
+        <ion-badge range-left small color="primary_color">{{structure.lower}}</ion-badge>
+        <ion-badge range-right small color="primary_color">{{structure.upper}}</ion-badge>
+        
         
       </ion-range>
     </ion-item>
