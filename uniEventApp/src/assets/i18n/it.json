@@ -11,11 +11,6 @@
   "ADVSEARCH": "Ricerca Avanzata",
 
 
-  "PRICE": "Intervallo di Prezzo",
-  "TYPE": "Tipologia",
-  "SERVICE": "Servizi",
-  "FILTER": "Filtri",
-
   "BACK_BUTTON_TEXT":  "Indietro",
 
   "LOGIN_BUTTON": "Accedi",
@@ -64,8 +59,11 @@
   "PROFILE_TITLE": "Profilo",
 
   "EVENTIPASSATI_MENU": "Eventi Passati",
-  "ASSISTENZA_MENU":"Assistenza"
+  "ASSISTENZA_MENU":"Assistenza",
 
+  "GRATIS": "Evento gratuito",
+  "PRENOTA": "Prenota",
+  "PARTECIPA": "Partecipa"
 
 
 }
