@@ -4,13 +4,22 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>{{'DETTAGLIO_EVENTO_TITOLO' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="share()">
+        <ion-icon name="share"></ion-icon>
+      </button>
+
+      <button ion-button icon-only>
+        <ion-icon name="heart-outline"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <div *ngIf="evento">
     <div *ngIf="image">
-    <img [src]="image.data.url" />
+      <img [src]="image.data.url" />
     </div>
     <div style="position: relative" class="img">
       <img src="../../assets/imgs/logo.png"/>
@@ -46,14 +55,14 @@
       <!--indirizzo-->
       <!--<button id='hidden-button' ion-button (click)="openMap()">-->
 
-        <ion-row class="my-row" (click)="openMap()">
-          <ion-col col-1>
-            <ion-icon name="pin"></ion-icon>
-          </ion-col>
-          <ion-col col-10 class="my-date">
-            {{evento.address}}, {{evento.city}}
-          </ion-col>
-        </ion-row>
+      <ion-row class="my-row" (click)="openMap()">
+        <ion-col col-1>
+          <ion-icon name="pin"></ion-icon>
+        </ion-col>
+        <ion-col col-10 class="my-date">
+          {{evento.address}}, {{evento.city}}
+        </ion-col>
+      </ion-row>
       <!--</button>-->
 
 
@@ -64,13 +73,13 @@
         </ion-col>
         <ion-col col-10 class="my-info">
           {{evento.description}}
-          Ehi, questa è la maxi storia di come la mia vita è cambiata, capovolta sotto sopra sia finita. Seduto su due piedi qui con te ti parlerò di Willy, super fico di Bel Air: giocando a basket con gli amici sono cresciuto, me la sono spassata, wow! Che fissa ogni minuto! Le mie toste giornate filavano così, tra un mega-tiro a canestro e un film di Spike Lee. Poi la mia palla lanciata un po' più in sù andò proprio sulla testa di quei vichinghi laggiù; il più durò si imballò, fece una trottola di me e la mamma preoccupata disse: «Vattene a Bel Air!». L'ho pregata, scongiurata, dallo zio vuole che vada, lei m'ha fatto le valige e ha detto: «Va' per la tua strada». Dopo avermi dato un bacio e un biglietto per partire con lo stereo nelle orecchie ho detto: «Qua è meglio sgommare!». Prima classe, ma è uno sballo! Spremute d'arancia in bicchieri di cristallo. Se questa è la vita che fanno a Bel Air, per me, mm-mh, poi tanto male non è! Ho chiamato un taxi giallo col mio fischio collaudato, come in Formula Uno mi sentivo gasato; una vita tutta nuova sta esplodendo per me, «Avanti a tutta forza, portami a Bel Air!». Oh, che sventola di casa, mi sento già stra-ricco, la vita di prima mi puzza di vecchio! Guardate adesso gente in pista chi c'è, il principe Willy, lo svitato di Bel Air eh!
+          Ehi, questa è la maxi storia di come la mia vita è cambiata
         </ion-col>
       </ion-row>
 
       <!--visualizzazioni-->
       <ion-item>
-        <ion-icon name='musical-notes' item-start style="color: #d03e84;"></ion-icon>
+        <ion-icon name='eye' item-start style="color: #d03e84;"></ion-icon>
         Visualizazioni
         <ion-badge item-end>{{evento.views}}</ion-badge>
       </ion-item>
@@ -80,27 +89,6 @@
   </div>
 
 </ion-content>
-
-<!--<ion-footer class="my-price">-->
-<!--<ion-toolbar>-->
-<!--<ion-item>-->
-<!--<ion-icon color="subtle" item-start name='logo-euro'></ion-icon>-->
-<!--<p *ngIf="evento" >{{evento.price}}</p>-->
-<!--<ion-buttons end>-->
-<!--<button ion-button class="button-full" color="primary" >-->
-<!--<ion-icon name="home"></ion-icon>-->
-<!--PRENOTA-->
-<!--</button>-->
-<!--</ion-buttons>-->
-<!--</ion-item>-->
-<!--</ion-toolbar>-->
-<!--</ion-footer>-->
-
-<!--<ion-footer no-lines>-->
-<!--<ion-icon color="subtle" item-start name='logo-euro'></ion-icon>-->
-<!--<p *ngIf="evento" class="my-price">{{evento.price}}</p>-->
-<!--<button ion-button color="primary">Prenota</button>-->
-<!--</ion-footer>-->
 
 <ion-footer *ngIf="priceFlag">
   <ion-toolbar color="primary_color" class="toolbar-buttons-page">

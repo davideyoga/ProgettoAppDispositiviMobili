@@ -9,6 +9,7 @@ import { EventService } from '../../services/event.service';
 import { UserService } from '../../services/user.service';
 import { URL } from '../../constants';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 @IonicPage()
 @Component({
@@ -29,7 +30,8 @@ export class DettaglioEventoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public eventService: EventService,
                 public userService: UserService,
                 private transfer: FileTransfer, private file: File,
-                private iab: InAppBrowser) {
+                private iab: InAppBrowser,
+                private socialSharing: SocialSharing) {
   }
 
 
@@ -102,10 +104,25 @@ export class DettaglioEventoPage {
   }
 
   openMap(){
-    console.log('mannaggia il signore');
-    let url= 'https://www.google.com/maps/search/?api=1&query=centurylink+field';
 
+    let url= 'https://www.google.com/maps/search/?api=1&query=';
+    url = url+this.evento.address;
+    url=url+' '+this.evento.city;
+
+    console.log(url);
+    url=url.split(' ').join('%20');
+    url=url.split(',').join('%2C');
+    console.log(url);
     window.open(url, '_system')
+  }
+
+  share(){
+    this.socialSharing.share(this.evento.id.toString())
+      .then(() =>{
+
+      }).catch(() => {
+
+    });
   }
   
 
