@@ -1,0 +1,89 @@
+page-dettaglio-evento {
+
+  .my-title{
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  .img{
+    height: 250px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .img img{
+    height: 250px;
+    object-fit:scale-down;
+    width: 100%;
+  }
+
+  ion-col ion-icon {
+    font-size: 30px;
+    color: grey;
+  }
+
+  .my-date{
+    line-height: 2.0;
+    padding-left: 23px;
+  }
+
+  #hidden-button{
+    height: 100%;
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+
+  .my-info{
+    line-height: 1.5;
+    text-align:justify;
+    padding-left: 23px;
+  }
+
+  .info{
+    margin-left: 7px;
+  }
+  .my-row{
+    padding-left: 16px;
+    padding-right: 0;
+    padding-top: 13px;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  .item-md ion-icon[item-left] + .item-inner,
+  .item-md ion-icon[item-left] + .item-input,
+  .item-md ion-icon[item-start] + .item-inner,
+  .item-md ion-icon[item-start] + .item-input {
+    margin-left: 8px;
+    font-size: 2rem;
+  }
+
+  .footer-title {
+    padding: 0 1rem;
+  }
+
+  .footer-title .toolbar-title {
+    font-size: 1.6rem;
+    text-align: left;
+    padding: 0;
+  }
+
+  .my-icon{
+    padding-bottom: 3px;
+  }
+
+  .priceButton{
+    background-color: #ffc107;
+    color: #212121 !important;
+    width: 170px;
+  }
+
+  .freeButton{
+    background-color: #ffc107;
+    color: #212121 !important;
+    width: 170px;
+  }
+}

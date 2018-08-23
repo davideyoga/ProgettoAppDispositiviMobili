@@ -1,0 +1,176 @@
+<ion-header color="primary">
+  <ion-navbar color="primary_color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" fixed></ion-icon>
+    </button>
+    <ion-title *ngIf="!isSearchBarOpened">{{'LISTA EVENTI' | translate}}</ion-title>
+
+    <ion-title *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">{{'CERCA_EVENTI' | translate}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!isSearchBarOpened" (click)="isSearchBarOpened=true">
+        <ion-icon name="search"></ion-icon>
+      </button>
+
+      <button ion-button clear *ngIf="isSearchBarOpened" (click)="isSearchBarOpened=false">
+        <ion-icon name="arrow-up" id="close"></ion-icon>
+      </button>
+
+      <!--trepallini-->
+      <button ion-button icon-only (click)="goExtra()">
+        <!-- (click)="extraFilter()" -->
+        <ion-icon name="more"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content class="cards-bg">
+
+  <!--barra ricerca-->
+  <ion-card id="search" *ngIf="isSearchBarOpened">
+
+    <form #baseSearchForm="ngForm">
+      <ion-list>
+
+        <ion-item>
+          <ion-label> <ion-icon name="wine"></ion-icon> {{'WHAT' | translate }}</ion-label>
+
+          <ion-select [(ngModel)]="baseForm.what" interface="action-sheet" name=ca>
+            <ion-option value="" selected disabled hidden>{{'QUALSIASI' | translate }}</ion-option>
+            <div *ngFor="let ca of categorie; let i = index">
+              <ion-option value="{{ca.name}}">{{ca.name}}</ion-option>
+            </div>
+
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label> <ion-icon name="calendar"></ion-icon> {{'WHEN' | translate }}</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="baseForm.when"
+                        name="when" #when="ngModel"
+                        monthShortNames="{{'GEN' | translate }}, {{'FEB' | translate }}, {{'MAR' | translate }},
+                                         {{'APR' | translate }}, {{'MAG' | translate }}, {{'GIU' | translate }},
+                                         {{'LUG' | translate }}, {{'AGO' | translate }}, {{'SET' | translate }},
+                                         {{'OTT' | translate }}, {{'NOV' | translate }}, {{'DIC' | translate }},">
+
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><ion-icon name="pin"></ion-icon> {{'WHERE' | translate }} </ion-label>
+
+          <ion-select [(ngModel)]="baseForm.where" interface="action-sheet" name=c>
+            <ion-option value="" selected disabled hidden>{{'OVUNQUE' | translate }}</ion-option>
+            <div *ngFor="let c of citta; let i = index">
+
+              <ion-option value="{{c}}"> {{c}}</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+
+      </ion-list>
+
+        <button id="searchbutton" ion-button full round (click)="onBaseSearch(baseSearchForm)" type="submit" color="accent_colors">
+        <ion-icon name="search"> </ion-icon>
+        {{'SEARCH' | translate }}
+        </button>
+      <button class="text_color" ion-button clear (click)="goExtra()">{{'ADVSEARCH' | translate}}</button>
+
+    </form>
+  </ion-card>
+
+  <!--fine barra ricerca-->
+  <!--<form #baseSearchForm="ngForm">-->
+  <!--<ion-item>-->
+  <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
+  <!--<ion-input [(ngModel)]="baseForm.when" name="when"-->
+  <!--#when="ngModel" [maxlength]="255" required>-->
+  <!--</ion-input>-->
+  <!--</ion-item> &ndash;&gt;-->
+
+  <!--<ion-item>-->
+  <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
+  <!--<ion-input [(ngModel)]="baseForm.what" name="what"-->
+  <!--#what="ngModel" [maxlength]="255" required>-->
+  <!--</ion-input>-->
+  <!--</ion-item>-->
+
+  <!--</form>-->
+
+
+  <!-- bottone per prova mappa -->
+  <!-- <button ion-button full (click)="goItemPage()">Go Item Page</button> -->
+
+  <!--lista eventi-->
+  <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
+
+
+  <ion-card *ngFor="let e of eventi" class="adv-map">
+
+      <!--bottone favoriti-->
+      <div style="position: relative">
+        <ion-fab right top class="my-heart">
+          <button ion-fab class="fab-map" color="accent_colors">
+            <ion-icon name="heart-outline"></ion-icon>
+          </button>
+        </ion-fab>
+      </div>
+
+      <!--immagine-->
+      <div style="position: relative" class="img" (click)="event(e)">
+        <img src="../../assets/imgs/maxresdefault.jpg"/>
+      </div>
+
+      <ion-card-content class="my-padding" (click)="event(e)">
+
+        <ion-card-title text-wrap>
+          {{e.title}}
+        </ion-card-title>
+
+        <!--Informazioni principali-->
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+          <h2>Museum of Tractor</h2>
+          <p>info</p>
+        </ion-item>
+
+        <!--posto e ora-->
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='navigate'></ion-icon>
+          <h2>Institute of Fine Cocktails</h2>
+          <p>{{e.city}}</p>
+        </ion-item>
+
+
+      </ion-card-content>
+
+      <!--action bar-->
+      <ion-row no-padding>
+        <ion-col col-4>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='calendar'></ion-icon>
+             {{e.date | date:'MMM d' }}
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='cart'></ion-icon>
+            {{e.price}} €
+          </button>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='share-alt'></ion-icon>
+            {{'CONDIVIDI' | translate}}
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+</ion-content>

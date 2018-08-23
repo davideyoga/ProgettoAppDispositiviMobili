@@ -1,0 +1,76 @@
+<ion-header color="primary">
+  <ion-navbar color="primary_color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" fixed></ion-icon>
+    </button>
+    <ion-title>{{'EVENTI_CREATI_MENU' | translate}}</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content class="cards-bg">
+
+  <!--bottone-->
+  <ion-fab right bottom>
+    <button ion-fab color="accent_colors"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-card *ngFor="let e of eventi" class="adv-map">
+
+
+      <!--immagine-->
+      <div style="position: relative" class="img" (click)="event(e)">
+        <img src="../../assets/imgs/maxresdefault.jpg"/>
+      </div>
+
+      <ion-card-content class="my-padding" (click)="event(e)">
+
+        <ion-card-title text-wrap>
+          {{e.title}}
+        </ion-card-title>
+
+        <!--Informazioni principali-->
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
+          <h2>Museum of Tractor</h2>
+          <p>info</p>
+        </ion-item>
+
+        <!--posto e ora-->
+        <ion-item>
+          <ion-icon color="subtle" large item-start name='navigate'></ion-icon>
+          <h2>Institute of Fine Cocktails</h2>
+          <p>{{e.city}}</p>
+        </ion-item>
+
+
+      </ion-card-content>
+
+      <!--action bar-->
+      <ion-row no-padding>
+        <ion-col col-4>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='calendar'></ion-icon>
+             {{e.date | date:'MMM d' }}
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='cart'></ion-icon>
+            {{e.price}} €
+          </button>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='share-alt'></ion-icon>
+            {{'CONDIVIDI' | translate}}
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,69 @@
+{
+  "WHERE": "Dove",
+  "WHEN": "Quando",
+  "WHAT": "Cosa",
+  "LISTA EVENTI": "Lista eventi",
+  "DETTAGLIO_EVENTO_TITOLO": "Dettaglio Evento",
+  "CERCA_EVENTI": "Cerca eventi",
+  "QUALSIASI": "tutti",
+  "OVUNQUE": "ovunque",
+  "SEARCH": "cerca",
+  "ADVSEARCH": "Ricerca Avanzata",
+
+
+  "BACK_BUTTON_TEXT":  "Indietro",
+
+  "LOGIN_BUTTON": "Accedi",
+  "DONE_BUTTON": "Fatto",
+  "SAVE_BUTTON": "Salva",
+  "CANCEL_BUTTON": "Annulla",
+  "DELETE_BUTTON": "Elimina",
+  "UPDATE_BUTTON": "Modifica",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_ERROR_TITLE": "Errore Login",
+  "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
+
+  "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "TELEFONO": "Telefono",
+  "USERNAME_REQUIRED": "Username obbligatorio",
+  "PASSWORD_REQUIRED": "Password obbligatorio",
+
+  "CONDIVIDI": "Condividi",
+
+  "GEN": "gen",
+  "FEB": "feb",
+  "MAR": "mar",
+  "APR": "apr",
+  "MAG": "mag",
+  "GIU": "giu",
+  "LUG": "lug",
+  "AGO": "ago",
+  "SET": "set",
+  "OTT": "ott",
+  "NOV": "nov",
+  "DIC": "dic",
+
+  "LISTA_EVENTI_MENU": "Lista Eventi",
+  "PREFERITI_MENU": "Preferiti",
+  "EVENTI_CREATI_MENU": "Miei Eventi",
+  "EVENTI_PRENOTATI_MENU":"Eventi Prenotati",
+  "PROFILO_MENU": "Profilo",
+  "IMPOSTAZIONI_MENU":"Impostazioni",
+
+
+
+  "PROFILE_TITLE": "Profilo",
+
+  "EVENTIPASSATI_MENU": "Eventi Passati",
+  "ASSISTENZA_MENU":"Assistenza",
+
+  "GRATIS": "Evento gratuito",
+  "PRENOTA": "Prenota",
+  "PARTECIPA": "Partecipa"
+
+
+}

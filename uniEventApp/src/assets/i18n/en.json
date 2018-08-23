@@ -1,0 +1,65 @@
+{
+  "WHERE": "Where",
+  "WHEN": "When",
+  "WHAT": "What",
+  "LISTA EVENTI": "Event List",
+  "DETTAGLIO_EVENTO_TITOLO": "Event Detail",
+  "BACK_BUTTON_TEXT": "Back",
+  "CERCA_EVENTI": "Search events",
+  "QUALSIASI": "all",
+  "OVUNQUE": "everywhere",
+  "SEARCH": "search",
+  "ADVSEARCH": "Advanced Search",
+
+  "LOGIN_BUTTON": "Enter",
+  "DONE_BUTTON": "Done",
+  "SAVE_BUTTON": "Save",
+  "CANCEL_BUTTON": "Cancel",
+  "DELETE_BUTTON": "Delete",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_ERROR_TITLE": "Login error",
+  "LOGIN_ERROR_SUB_TITLE": "Username and/or password Wrong!",
+
+  "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "USERNAME_REQUIRED": "Username required",
+  "PASSWORD_REQUIRED": "Password required",
+
+  "CONDIVIDI": "Share",
+
+  "GEN": "jan",
+  "FEB": "feb",
+  "MAR": "mar",
+  "APR": "apr",
+  "MAG": "may",
+  "GIU": "jun",
+  "LUG": "jul",
+  "AGO": "aug",
+  "SET": "sep",
+  "OTT": "oct",
+  "NOV": "nov",
+  "DIC": "dec",
+
+
+  "LISTA_EVENTI_MENU": "Events List",
+  "PREFERITI_MENU": "Favourite",
+  "EVENTI_CREATI_MENU": "My Events",
+  "EVENTI_PRENOTATI_MENU":"Booked Events",
+  "PROFILO_MENU": "Profile",
+  "IMPOSTAZIONI_MENU":"Settings",
+
+  "PROFILE_TITLE": "Profile",
+
+  "EVENTIPASSATI_MENU": "Past Events",
+  "ASSISTENZA_MENU":"Help",
+
+  "GRATIS": "Free event",
+  "PRENOTA": "Book",
+  "PARTECIPA": "Participate"
+
+  
+}
+
