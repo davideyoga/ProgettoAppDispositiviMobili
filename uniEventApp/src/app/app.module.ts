@@ -28,6 +28,8 @@ import localeIt from '@angular/common/locales/it';
 import { LOCALE_ID} from "@angular/core";
 import { ExtrafilterPage } from '../pages/extrafilter/extrafilter';
 
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+
 registerLocaleData(localeIt, 'it');
 
 //gli dico dove prendere la traduzione
@@ -90,6 +92,7 @@ export function createTranslateLoader(http: HttpClient) {
     httpInterceptorProviders,
     Geolocation,
     GoogleMaps,
+    InAppBrowser,
 
     //per il trasferimento dei file
     // FileTransfer,
