@@ -8,7 +8,7 @@ import { User } from '../../models/user.model';
 import { EventService } from '../../services/event.service';
 import { UserService } from '../../services/user.service';
 import { URL } from '../../constants';
-import { InAppBrowser } from "@ionic-native/in-app-browser";
+
 
 @IonicPage()
 @Component({
@@ -22,14 +22,12 @@ export class DettaglioEventoPage {
   creatore:User;
   image: File;  
   storageDirectory: string = '/';
-  priceFlag: boolean;
 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public eventService: EventService,
                 public userService: UserService,
-                private transfer: FileTransfer, private file: File,
-                private iab: InAppBrowser) {
+                private transfer: FileTransfer, private file: File) {
   }
 
 
@@ -40,14 +38,6 @@ export class DettaglioEventoPage {
     this.eventService.findById(this.navParams.data.eventoId).subscribe((data: Event) => {
       
       this.evento = data;
-      if (this.evento.price!=null){
-        console.log(this.evento.price);
-        this.priceFlag=true;
-      }
-      else {
-        console.log(this.evento.price + "no prezzo");
-        this.priceFlag=false;
-      }
 
       this.userService.getUserCreatedEvent(this.evento.id).subscribe((data: User) => {
         this.creatore = data;
@@ -99,13 +89,6 @@ export class DettaglioEventoPage {
       console.log("ERROR in fileTransfer" );
     });
 
-  }
-
-  openMap(){
-    console.log('mannaggia il signore');
-    let url= 'https://www.google.com/maps/search/?api=1&query=centurylink+field';
-
-    window.open(url, '_system')
   }
   
 

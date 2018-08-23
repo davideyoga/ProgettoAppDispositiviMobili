@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { EventService } from '../../services/event.service';
-import { Event } from '../../models/event.model';
-import { Category } from '../../models/category.model';
+
+/**
+ * Generated class for the MyeventsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -11,29 +15,11 @@ import { Category } from '../../models/category.model';
 })
 export class MyeventsPage {
 
-  //lista di eventi visualizzabili nella home
-  eventi: Array<Event>;
-
-  //lista citta' salvate nel db
-  citta: Array<String>;
-
-  //lista di categorie
-  categorie: Array<Category>;
-
-  utenteid: number = 1; //per ora è statico, poi si prende da db
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyeventsPage');
-
-  this.eventService.getEventByUserCreator(this.utenteid).subscribe((data: Array<Event>) => {
-      this.eventi = data;
-    });
   }
-
-
-
 
 }

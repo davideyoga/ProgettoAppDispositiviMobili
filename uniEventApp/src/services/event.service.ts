@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AlertController } from "ionic-angular";
@@ -16,6 +16,14 @@ export class EventService {
     }
 
     listHotEvent(): Observable<Array<Event>> {
+
+       /* this.alertCtrl.create({
+            title: 'Low battery',
+    subTitle: URL.HOT_EVENT,
+    buttons: ['Dismiss']
+        }).present() */
+
+
         return this.http.get<Array<Event>>(URL.HOT_EVENT);
     }
 
