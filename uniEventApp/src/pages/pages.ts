@@ -10,5 +10,7 @@ export const EXTRAFILTER_PAGE = 'ExtrafilterPage';
 
 export const MYEVENTS_PAGE = 'MyeventsPage';
 
+export const CREATEVENTS_PAGE = 'CreateEventPage';
+
 
 

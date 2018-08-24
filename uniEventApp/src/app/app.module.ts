@@ -1,7 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FileTransfer } from '@ionic-native/file-transfer';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
@@ -20,16 +19,20 @@ import { GoogleMaps } from "@ionic-native/google-maps"
 
 import { PopoverComponent} from "../components/popover/popover";
 import { SearchpopoverComponent } from "../components/searchpopover/searchpopover";
-import { HomePage } from '../pages/home/home';
+
 import { BookedeventPage } from '../pages/bookedevent/bookedevent';
 
 import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import { LOCALE_ID} from "@angular/core";
-import { ExtrafilterPage } from '../pages/extrafilter/extrafilter';
 
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { SocialSharing } from "@ionic-native/social-sharing";
+
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
 
 registerLocaleData(localeIt, 'it');
 
@@ -96,8 +99,10 @@ export function createTranslateLoader(http: HttpClient) {
     InAppBrowser,
     SocialSharing,
 
-    //per il trasferimento dei file
-    // FileTransfer,
+    File,
+    Transfer,
+    Camera,
+    FilePath,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     {provide: LOCALE_ID, useValue: 'it'}
