@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event.model';
 import { Category } from '../../models/category.model';
+import { CREATEVENTS_PAGE } from '../pages';
 
 @IonicPage()
 @Component({
@@ -37,5 +38,8 @@ export class MyeventsPage {
     this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
   }
 
+createevent(){
+  this.navCtrl.push(CREATEVENTS_PAGE);
 
+}
 }

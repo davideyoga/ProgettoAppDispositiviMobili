@@ -58,8 +58,11 @@
 
   "GRATIS": "Free event",
   "PRENOTA": "Book",
-  "PARTECIPA": "Participate"
+  "PARTECIPA": "Participate",
+  "CREAEVENTO_MENU": "Publish your event",
+  "CARICA_MANIFESTO": "Carica la tua locandina, comparirà qui",
+  "SCEGLI_FOTO":"Scegli la locandina",
+  "CARICA_IMMAGINE":"Carica la locandina"
 
-  
 }
 

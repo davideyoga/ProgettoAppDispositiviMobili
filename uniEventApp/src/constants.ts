@@ -1,6 +1,6 @@
 export const USE_PROXY = true;
 
-export const URL_BASE = USE_PROXY ? 'api' : 'http://localhost:8080/api';
+export const URL_BASE = USE_PROXY ? 'api' : 'http://192.168.1.2:8080/api';
 
 export const URL = {
     // LOGIN: URL_BASE + "/login",
