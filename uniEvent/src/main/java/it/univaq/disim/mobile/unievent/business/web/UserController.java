@@ -53,8 +53,12 @@ public class UserController {
     @PostMapping("/login")
     public Login login(@RequestBody User user){
 
+        System.out.println("user: " + user);
+
         //creo la sessione
         Session session = service.login(user.getEmail(), user.getPassword());
+
+        System.out.println("session: " + session);
 
         //controllo se la sessione non e' diversa da null
         if(session!=null){
@@ -64,7 +68,7 @@ public class UserController {
             login.setToken(session.getToken());
             login.setEmail(session.getUser().getEmail());
 
-            System.out.println(login);
+            System.out.println("login: " + login);
 
             return login;
 

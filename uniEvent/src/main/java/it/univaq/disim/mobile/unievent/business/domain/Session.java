@@ -49,4 +49,33 @@ public class Session implements java.io.Serializable {
         this.user = user;
     }
 
+
+    @Override
+    public String toString() {
+        return "Session{" +
+                "id=" + id +
+                ", token='" + token + '\'' +
+                ", user=" + user +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Session session = (Session) o;
+
+        if (getId() != null ? !getId().equals(session.getId()) : session.getId() != null) return false;
+        if (getToken() != null ? !getToken().equals(session.getToken()) : session.getToken() != null) return false;
+        return getUser() != null ? getUser().equals(session.getUser()) : session.getUser() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getToken() != null ? getToken().hashCode() : 0);
+        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
+        return result;
+    }
 }

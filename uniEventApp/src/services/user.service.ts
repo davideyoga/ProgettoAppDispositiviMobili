@@ -36,9 +36,17 @@ export class UserService {
 
     }
 
-    login(user:User): Observable<Login>{
+    login(user: User): Observable<Login>{
+
+        console.log("Entrato nel metodo login");
+        console.log("user.email: " + user.email);
+        console.log("user.password: " + user.password);
+
         return this.http.post<Login>(URL.LOGIN, user, { observe: 'response' })
             .map((resp: HttpResponse<Login>) => {
+
+                console.log("Entrato nel metodo map");
+
                 const token = resp.headers.get(X_AUTH);
                 this.storage.set(AUTH_TOKEN, token);
                 this.tokenUtente = token;

@@ -63,17 +63,29 @@ export class LoginPage {
 
       this.userService.login(this.user).subscribe((data: Login) => {
         this.login = data;
+      
+        console.log('login:' + this.login);
+        if(this.login!=null){
+          console.log("tornato login.email: " + this.login.email);
+          console.log("tornato login.token: " + this.login.token);
+        }else{
+          console.log("oggetto tornato login = null");
+        }
+      
       })
 
 
-    console.log('login:' + this.login);
+    // console.log('login:' + this.login);
 
-    if(this.login!=null){
-      console.log("yeeeeeee");
-    }else{
-      console.log("error");
-    }
+    // if(this.login!=null){
+    //   console.log("tornato login.email: " + this.login.email);
+    //   console.log("tornato login.token: " + this.login.token);
+    // }else{
+    //   console.log("oggetto tornato login = null");
+    // }
+  
   }
+  //se form non valida
   else
   console.log("form invalida");
 
