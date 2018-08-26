@@ -61,18 +61,26 @@ export class LoginPage {
 
       console.log("form valida");
 
+
+      //eseguo la chiamata al server
       this.userService.login(this.user).subscribe((data: Login) => {
+        
+        //setto l'oggetto login
         this.login = data;
       
         console.log('login:' + this.login);
+        
+        //se l'oggetto ricevuto dal server e' diverso da null
         if(this.login!=null){
           console.log("tornato login.email: " + this.login.email);
           console.log("tornato login.token: " + this.login.token);
+        
+        //se l'oggetto ricevuto dal server e' uguale a null
         }else{
           console.log("oggetto tornato login = null");
         }
       
-      })
+      })//fine chiamata
 
 
     // console.log('login:' + this.login);
