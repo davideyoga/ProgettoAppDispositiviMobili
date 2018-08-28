@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MenuController, Nav, Platform } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE } from '../pages/pages';
 
 
 
@@ -33,9 +33,9 @@ export class MyApp {
 
       //temporanei sopra
       {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
-      {title: 'PREFERITI_MENU', component: DUMMY_PAGE, icon: 'heart' },
+      {title: 'PREFERITI_MENU', component: FAVORITE_PAGE, icon: 'heart' },
       {title: 'EVENTI_CREATI_MENU', component: MYEVENTS_PAGE, icon: 'add' },
-      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' },
+      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' }
     ];
 
     this.menuNL = [
