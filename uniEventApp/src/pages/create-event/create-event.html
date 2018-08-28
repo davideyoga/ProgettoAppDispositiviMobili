@@ -30,10 +30,22 @@
 
 
 <!-- titolo evento -->
-<ion-input>
+<ion-item>
+  <ion-label color="primary">{{'TITOLO' | translate}}</ion-label>
+  <ion-input ></ion-input>
+</ion-item>
 
-</ion-input>
+<!-- categoria -->
+<ion-item>
+          <ion-label><ion-icon name="wine"></ion-icon>{{'WHAT' | translate }}</ion-label>
 
+    <ion-select [(ngModel)]="category" interface="action-sheet" name=ca>
+            <div *ngFor="let ca of categorie; let i = index">
+              <ion-option value="{{ca.name}}">{{ca.name}}</ion-option>
+            </div>
+
+      </ion-select>
+  </ion-item>
 
 
 
