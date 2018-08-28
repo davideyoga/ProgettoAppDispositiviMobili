@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EXTRAFILTER_PAGE } from '../pages';
+import { Category } from '../../models/category.model';
+import { CategoryService } from '../../services/category.service';
 
 
 /**
@@ -16,48 +18,56 @@ import { EXTRAFILTER_PAGE } from '../pages';
   templateUrl: 'extrafilter.html',
 })
 export class ExtrafilterPage {
-  
+
   structure: any = { lower: 33, upper: 60 };
-  
+
   public types:any = [{tp: 'concerto'},
                       {tp: 'degustazione'},
                       {tp: 'accensione trattori'}];
-  
+
   public services:any = [{sv:'servizio '},
                          {sv:'servizio one'},
                          {sv:'servizio trattori'},
                          {sv:'servizio di ordine'},
                          {sv:'servizietto '}];
-  
+
   servicesArray :any = [];
   rangeArray :any = [];
   sendArray :any = [];
-  typeArray :any = [] ;z
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
-    
+  typeArray :any = [] ;
+
+  categorie: Array<Category>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private categoryService: CategoryService) {
+
+
   }
-  
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExtrafilterPage');
+
+    //caricare le categorie all'apertura della pagina
+    this.categoryService.categories().subscribe((data: Array<Category>) => {
+      this.categorie = data;
+    });
+
   }
-  
-  
-  
+
+
+
   reset(){
       this.navCtrl.push(EXTRAFILTER_PAGE);
   }
-  
-  
+
+
   // checkAll(){
   //   for(let i =0; i <= this.services.length; i++) {
   //     this.services[i].checked = true;
   //   }
   //  console.log(this.services);
   // }
-  
-  
+
+
   research(min:any, max:any){
     // console.log('minimo: ',min);
     // console.log('massimo: ',max);
@@ -70,11 +80,11 @@ export class ExtrafilterPage {
     this.sendArray.push(this.rangeArray);
     this.sendArray.push(this.servicesArray);
     this.sendArray.push(this.typeArray);
-    
+
     console.log(this.sendArray);
-    
+
   }
-  
+
   selectService(data){
     if (data.checked == true) {
       this.servicesArray.push(data);
@@ -86,11 +96,11 @@ export class ExtrafilterPage {
     }
     //console.log(this.servicesArray);
   }
-  
+
   selectType(data){
     this.typeArray.length = 0;
     this.typeArray.push(data);
     //console.log(this.typeArray);
   }
-  
+
 }

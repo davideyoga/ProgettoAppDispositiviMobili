@@ -33,6 +33,8 @@ export class CreateEventPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateEventPage');
+
+    
   }
 
   public presentActionSheet() {
