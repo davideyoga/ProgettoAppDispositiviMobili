@@ -44,10 +44,13 @@ public class Application {
             User user = new User();
             user.setEmail("d.micarelli7@gmail.com");
             user.setPassword("d.micarelli");
+            user.setName("davide");
 
             User user2 = new User();
             user2.setEmail("d.micarelli27@gmail.com");
             user2.setPassword("d.micarelli2");
+            user2.setName("davide2");
+
 
 
             userRepository.save(user);

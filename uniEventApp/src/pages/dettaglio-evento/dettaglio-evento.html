@@ -97,7 +97,7 @@
       {{evento.price}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end round class="priceButton">
+      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)">
         {{'PRENOTA' | translate}}
         <ion-icon class="my-icon" name="card"></ion-icon>
       </button>
@@ -111,7 +111,7 @@
       {{'GRATIS' | translate}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end class="freeButton">
+      <button ion-button large icon-end class="freeButton" (click)="openPayment(evento)">
         {{'PARTECIPA' | translate}}
         <!--<ion-icon name="send"></ion-icon>-->
       </button>

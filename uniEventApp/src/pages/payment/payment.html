@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar color="primary_color">
+    <ion-title>{{'PAGAMENTI'| translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="evento && creatore">
+
+    <h2>{{evento.title}}</h2>
+    <p>di: {{creatore.name}}</p>
+
+    <p>{{evento.date | date:'full'}}</p>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-col>prezzo</ion-col>
+        <span>{{evento.price}}</span>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>quantità</ion-label>
+        <ion-input type="password" value=""></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+</ion-content>

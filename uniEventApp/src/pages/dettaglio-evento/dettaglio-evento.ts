@@ -10,6 +10,7 @@ import { UserService } from '../../services/user.service';
 import { URL } from '../../constants';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { SocialSharing } from "@ionic-native/social-sharing";
+import { PaymentPage } from "../payment/payment";
 
 @IonicPage()
 @Component({
@@ -123,6 +124,11 @@ export class DettaglioEventoPage {
       }).catch(() => {
 
     });
+  }
+
+  openPayment(e: Event){
+
+    this.navCtrl.push('PaymentPage', { eventoId: e.id});
   }
   
 
