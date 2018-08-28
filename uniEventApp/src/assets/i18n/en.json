@@ -62,7 +62,9 @@
   "CREAEVENTO_MENU": "Publish your event",
   "CARICA_MANIFESTO": "Carica la tua locandina, comparirà qui",
   "SCEGLI_FOTO":"Scegli la locandina",
-  "CARICA_IMMAGINE":"Carica la locandina"
-  
+  "CARICA_IMMAGINE":"Carica la locandina",
+
+  "FAVORITE_TITLE": "Favorite"
+
 }
 

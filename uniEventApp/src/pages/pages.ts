@@ -12,5 +12,7 @@ export const MYEVENTS_PAGE = 'MyeventsPage';
 
 export const CREATEVENTS_PAGE = 'CreateEventPage';
 
+export const FAVORITE_PAGE = 'FavoritePage';
+
 
 
