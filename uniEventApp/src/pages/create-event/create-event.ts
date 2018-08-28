@@ -64,9 +64,9 @@ export class CreateEventPage {
 public takePicture(sourceType) {
   // Create options for the Camera Dialog
   var options = {
-    quality: 100,
+    quality: 80,
     sourceType: sourceType,
-    saveToPhotoAlbum: false,
+    saveToPhotoAlbum: true,
     correctOrientation: true
   };
 
@@ -124,7 +124,7 @@ public pathForImage(img) {
 
 public uploadImage() {
   // Destination URL
-  var url = "http://yoururl/upload.php";
+  var url = "../assets/imgs";
 
   // File for Upload
   var targetPath = this.pathForImage(this.lastImage);
@@ -137,8 +137,9 @@ public uploadImage() {
     fileName: filename,
     chunkedMode: false,
     mimeType: "multipart/form-data",
-    params : {'fileName': filename}
-  };
+    params : {'fileName': filename},
+    httpMethod: 'POST'
+    };
 
   const fileTransfer: TransferObject = this.transfer.create();
 
