@@ -17,21 +17,40 @@
 <!-- inizio body -->
 <ion-content padding>
 
+
+    <ion-slides pager>
+
+        <ion-slide style="background-color: green">
+          <h2>Slide 1</h2>
+        </ion-slide>
+
+        <ion-slide style="background-color: blue">
+          <h2>Slide 2</h2>
+        </ion-slide>
+
+        <ion-slide style="background-color: red">
+          <h2>Slide 3</h2>
+        </ion-slide>
+
+      </ion-slides>
 <!-- button -->
     <ion-fab right bottom>
         <button ion-fab color="accent_colors" (click)="createevent2()"><ion-icon name="arrow-forward"></ion-icon></button>
       </ion-fab>
 
 <!-- image upload -->
-
+<ion-list>
+  <ion-card [hidden]="lastImage !== null">
   <img src="{{pathForImage(lastImage)}}" style="width:100%" [hidden]="lastImage === null">
-  <h3 [hidden]="lastImage !== null">{{'CARICA_MANIFESTO' | translate}}</h3>
+  </ion-card>
+
+  <!-- <h3 [hidden]="lastImage !== null">{{'CARICA_MANIFESTO' | translate}}</h3> -->
 
 
 
 <!-- titolo evento -->
 <ion-item>
-  <ion-label color="primary">{{'TITOLO' | translate}}</ion-label>
+  <ion-label>{{'TITOLO' | translate}}</ion-label>
   <ion-input ></ion-input>
 </ion-item>
 
@@ -39,17 +58,18 @@
 <ion-item>
           <ion-label><ion-icon name="wine"></ion-icon>{{'WHAT' | translate }}</ion-label>
 
-    <ion-select [(ngModel)]="category" interface="action-sheet" name=ca>
-            <div *ngFor="let ca of categorie; let i = index">
-              <ion-option value="{{ca.name}}">{{ca.name}}</ion-option>
-            </div>
-
-      </ion-select>
+          <ion-select interface="action-sheet">
+          <div *ngFor="let ca of categorie; let i = index">
+            <ion-option value="{{ca.name}}">{{ca.name}}</ion-option>
+          </div>
+        </ion-select>
   </ion-item>
 
 
 
 
+
+</ion-list>
 </ion-content>
 
 

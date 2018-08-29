@@ -5,13 +5,8 @@ import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
-/**
- * Generated class for the CreateEventPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { Category } from '../../models/category.model';
+import { CategoryService } from '../../services/category.service';
 
 
 declare var cordova: any;
@@ -27,14 +22,24 @@ export class CreateEventPage {
   lastImage: string = null;
   loading: Loading;
 
+  categorie: Array<Category>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
+
+
+  constructor(private categoryService: CategoryService, public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateEventPage');
 
-    
+
+    this.categoryService.categories().subscribe((data: Array<Category>) => {
+      this.categorie = data;
+
+      console.log('Prese categorie');
+
+    });
+
   }
 
   public presentActionSheet() {
