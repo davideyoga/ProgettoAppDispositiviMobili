@@ -21,6 +21,7 @@ export class PaymentPage {
 
   evento:Event;
   creatore:User;
+  qta: number= 1;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService,
@@ -45,12 +46,16 @@ export class PaymentPage {
       console.log(this.evento.title);
       this.userService.getUserCreatedEvent(this.evento.id).subscribe((data: User) => {
         this.creatore = data;
+        this.creatore.name = this.creatore.name.charAt(0).toUpperCase() + this.creatore.name.slice(1);
         console.log(this.creatore.id);
       });
 
     });
 
+  }
 
+  openCreator(){
+    this.navCtrl.push('EventCreatorPage', {user: this.creatore});
   }
 
 }

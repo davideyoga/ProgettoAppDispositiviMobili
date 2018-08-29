@@ -12,21 +12,38 @@
   <div *ngIf="evento && creatore">
 
     <h2>{{evento.title}}</h2>
-    <p>di: {{creatore.name}}</p>
+    <p (click)="openCreator()">di: {{creatore.name}}</p>
 
     <p>{{evento.date | date:'full'}}</p>
 
-    <ion-list>
-
+    <ion-list padding-top>
+      <ion-item-divider color="light" text-center="">Riepilogo</ion-item-divider>
       <ion-item>
-        <ion-col>prezzo</ion-col>
-        <span>{{evento.price}}</span>
+        <ion-icon name='cart' item-start color="accent_colors"></ion-icon>
+        Prezzo
+        <ion-badge item-end color="text">{{evento.price}} €</ion-badge>
       </ion-item>
 
       <ion-item>
-        <ion-label>quantità</ion-label>
-        <ion-input type="password" value=""></ion-input>
+        <ion-icon name='man' item-start color="accent_colors"></ion-icon>
+        <ion-label>Quantità</ion-label>
+        <ion-select [(ngModel)]="qta" interface="popover">
+          <ion-option value="1">1</ion-option>
+          <ion-option value="2">2</ion-option>
+          <ion-option value="3">3</ion-option>
+          <ion-option value="4">4</ion-option>
+          <ion-option value="5">5</ion-option>
+        </ion-select>
       </ion-item>
+
+      <ion-item>
+        mettere totale prezzo
+      </ion-item>
+
+      <ion-buttons padding-top="">
+        <button ion-button="" block color="accent_colors">pagah</button>
+      </ion-buttons>
+
 
     </ion-list>
   </div>
