@@ -24,6 +24,8 @@ export class CreateEventPage {
 
   categorie: Array<Category>;
 
+  @ViewChild('Slider') slider: any;
+
 
 
   constructor(private categoryService: CategoryService, public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
@@ -40,6 +42,7 @@ export class CreateEventPage {
 
     });
 
+    this.slider.lockSwipes(true);
   }
 
   public presentActionSheet() {
@@ -167,5 +170,17 @@ public uploadImage() {
 
 
 
+
+next(){
+  this.slider.slideNext();
+}
+
+prev(){
+  this.slider.slidePrev();
+}
+
+save(){
+
+}
 
 }

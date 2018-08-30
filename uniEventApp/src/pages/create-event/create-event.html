@@ -16,23 +16,11 @@
 
 <!-- inizio body -->
 <ion-content padding>
+<ion-slides #Slider>
+
+<ion-slide>
 
 
-    <ion-slides pager>
-
-        <ion-slide style="background-color: green">
-          <h2>Slide 1</h2>
-        </ion-slide>
-
-        <ion-slide style="background-color: blue">
-          <h2>Slide 2</h2>
-        </ion-slide>
-
-        <ion-slide style="background-color: red">
-          <h2>Slide 3</h2>
-        </ion-slide>
-
-      </ion-slides>
 <!-- button -->
     <ion-fab right bottom>
         <button ion-fab color="accent_colors" (click)="createevent2()"><ion-icon name="arrow-forward"></ion-icon></button>
@@ -40,9 +28,13 @@
 
 <!-- image upload -->
 <ion-list>
+<ion-item>
+
   <ion-card [hidden]="lastImage !== null">
   <img src="{{pathForImage(lastImage)}}" style="width:100%" [hidden]="lastImage === null">
   </ion-card>
+
+</ion-item>
 
   <!-- <h3 [hidden]="lastImage !== null">{{'CARICA_MANIFESTO' | translate}}</h3> -->
 
@@ -57,19 +49,24 @@
 <!-- categoria -->
 <ion-item>
           <ion-label><ion-icon name="wine"></ion-icon>{{'WHAT' | translate }}</ion-label>
-
           <ion-select interface="action-sheet">
           <div *ngFor="let ca of categorie; let i = index">
             <ion-option value="{{ca.name}}">{{ca.name}}</ion-option>
           </div>
         </ion-select>
-  </ion-item>
-
-
-
-
-
+</ion-item>
 </ion-list>
+
+</ion-slide>
+
+
+
+
+
+
+
+
+</ion-slides>
 </ion-content>
 
 
