@@ -66,7 +66,13 @@
 
   "FAVORITE_TITLE": "Favorite",
 
-  "PAGAMENTI": "Booking details"
+  "PAGAMENTI": "Booking details",
 
+  "RIEPILOGO": "Summary",
+  "PREZZO": "Price",
+  "FREE_EV": "free event",
+  "QTA": "Quantity",
+  "TOTAL": "Total",
+  "PAGA": "unstitch the money"
 }
 

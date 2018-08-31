@@ -22,6 +22,8 @@ export class PaymentPage {
   evento:Event;
   creatore:User;
   qta: number= 1;
+  total: number= 0;
+  priceFlag: boolean;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService,
@@ -34,14 +36,16 @@ export class PaymentPage {
     this.eventService.findById(this.navParams.data.eventoId).subscribe((data: Event) => {
 
       this.evento = data;
-      // if (this.evento.price!=null){
-      //   console.log(this.evento.price);
-      //   this.priceFlag=true;
-      // }
-      // else {
-      //   console.log(this.evento.price + "no prezzo");
-      //   this.priceFlag=false;
-      // }
+      if (this.evento.price!=null){
+        console.log(this.evento.price);
+        this.priceFlag=true;
+        this.total=this.evento.price;
+      }
+      else {
+        console.log(this.evento.price + "no prezzo");
+        this.priceFlag=false;
+        this.total=0;
+      }
 
       console.log(this.evento.title);
       this.userService.getUserCreatedEvent(this.evento.id).subscribe((data: User) => {
@@ -56,6 +60,11 @@ export class PaymentPage {
 
   openCreator(){
     this.navCtrl.push('EventCreatorPage', {user: this.creatore});
+  }
+
+  changeTotal(){
+    this.total=this.evento.price*this.qta;
+    console.log(this.total);
   }
 
 }

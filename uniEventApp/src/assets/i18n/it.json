@@ -71,7 +71,12 @@
 
   "FAVORITE_TITLE": "Preferiti",
 
-  "PAGAMENTI": "Dettaglio prenotazione"
+  "PAGAMENTI": "Dettaglio prenotazione",
 
-
+  "RIEPILOGO": "Riepilogo",
+  "PREZZO": "Prezzo",
+  "FREE_EV": "evento gratuito",
+  "QTA": "Quantità",
+  "TOTAL": "Totale",
+  "PAGA": "scuci li sordi"
 }
