@@ -43,8 +43,12 @@
         <ion-badge  item-end color="text">{{total | number: '1.2-2'}} €</ion-badge>
       </ion-item>
 
-      <ion-buttons padding-top="">
+      <ion-buttons *ngIf="priceFlag" padding-top="">
         <button ion-button="" block color="accent_colors">{{'PAGA' | translate}}</button>
+      </ion-buttons>
+
+      <ion-buttons *ngIf="!priceFlag" padding-top="">
+        <button ion-button="" block color="accent_colors">{{'PRENOTA' | translate}}</button>
       </ion-buttons>
 
 
