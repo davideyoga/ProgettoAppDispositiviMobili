@@ -78,5 +78,9 @@
   "FREE_EV": "evento gratuito",
   "QTA": "Quantità",
   "TOTAL": "Totale",
-  "PAGA": "scuci li sordi"
+  "PAGA": "scuci li sordi",
+
+  "DESC": "Informazioni",
+  "OLD_EVENT": "Eventi passati",
+  "EV_CREATOR": "Organizzatore"
 }

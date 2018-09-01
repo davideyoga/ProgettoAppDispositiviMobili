@@ -3,13 +3,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{'LISTA EVENTI' | translate}}</ion-title>
+    <ion-title>{{'EV_CREATOR' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="user">
-    <ion-item color="light_color">
+    <ion-item color="light_color" no-lines="">
       <ion-avatar item-start>
         <img src="../../assets/imgs/patato.jpg">
       </ion-avatar>
@@ -18,13 +18,13 @@
       <p>{{user.address}}</p>
     </ion-item>
 
-    <ion-item-divider>descrizione</ion-item-divider>
+    <ion-item-divider>{{'DESC' | translate}}</ion-item-divider>
 
     <ion-item no-lines="">
       la descrizione di davide
     </ion-item>
 
-    <ion-item-divider padding-top="">vecchi eventi</ion-item-divider>
+    <ion-item-divider padding-top="">{{'OLD_EVENT' | translate}}</ion-item-divider>
     <ion-item *ngFor="let e of listEvent" (click)="eventSelected(e)">
       {{ e.title }}
       <ion-note item-end>

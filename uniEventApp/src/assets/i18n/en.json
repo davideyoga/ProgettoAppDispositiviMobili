@@ -73,6 +73,10 @@
   "FREE_EV": "free event",
   "QTA": "Quantity",
   "TOTAL": "Total",
-  "PAGA": "unstitch the money"
+  "PAGA": "unstitch the money",
+
+  "DESC": "About",
+  "OLD_EVENT": "Old event",
+  "EV_CREATOR": "Event manager"
 }
 
