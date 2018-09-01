@@ -1,3 +1,19 @@
 page-event-creator {
 
+  ion-avatar{
+    width: 106px;
+    height: 106px;
+    border-radius: 5%;
+    background-color: #ffc107;
+  }
+
+  .item-md ion-avatar ion-img, .item-md ion-avatar img {
+
+    border-radius: 5%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin-left: 3px;
+    margin-top: 3px;
+  }
 }

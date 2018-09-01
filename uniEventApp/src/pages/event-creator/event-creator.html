@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary_color">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,26 +7,29 @@
   </ion-navbar>
 </ion-header>
 
-  <ion-content padding>
+<ion-content>
+  <ion-list *ngIf="user">
+    <ion-item color="light_color">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/patato.jpg">
+      </ion-avatar>
+      <h2>{{user.name}} {{user.surname}}</h2>
+      <p>{{user.email}}</p>
+      <p>{{user.address}}</p>
+    </ion-item>
 
-    <div *ngIf="user">
-      <ion-card>
-        <ion-card-content>
-          <ion-card-title>
-              {{user.email}}
-          </ion-card-title>
-          <p></p>
-          <p></p>
-          <p></p>
-        </ion-card-content>
-      </ion-card>
-      <h1></h1>
-    </div>
+    <ion-item-divider>descrizione</ion-item-divider>
 
-    <ion-list>
-        <button ion-item *ngFor="let e of listEvent" (click)="eventSelected(e)">
-          {{ e.title }}
-        </button>
-      </ion-list>
+    <ion-item no-lines="">
+      la descrizione di davide
+    </ion-item>
 
-  </ion-content>
+    <ion-item-divider padding-top="">vecchi eventi</ion-item-divider>
+    <ion-item *ngFor="let e of listEvent" (click)="eventSelected(e)">
+      {{ e.title }}
+      <ion-note item-end>
+        {{e.date}}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>
