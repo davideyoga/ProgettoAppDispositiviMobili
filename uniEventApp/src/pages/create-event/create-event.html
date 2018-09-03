@@ -1,9 +1,3 @@
-<!--
-  Generated template for the CreateEventPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header color="primary">
   <ion-navbar color="primary_color">
     <button ion-button menuToggle>
@@ -16,6 +10,7 @@
 
 <!-- inizio body -->
 <ion-content padding>
+
 <ion-slides #Slider>
 
 <ion-slide>
@@ -23,7 +18,7 @@
 
 <!-- button -->
     <ion-fab right bottom>
-        <button ion-fab color="accent_colors" (click)="createevent2()"><ion-icon name="arrow-forward"></ion-icon></button>
+        <button ion-fab color="accent_colors" (click)="next()"><ion-icon name="arrow-forward"></ion-icon></button>
       </ion-fab>
 
 <!-- image upload -->
@@ -55,31 +50,41 @@
           </div>
         </ion-select>
 </ion-item>
+
 </ion-list>
 
-</ion-slide>
+  <div class="divider"></div>
 
-
-
-
-
-
-
-
-</ion-slides>
-</ion-content>
-
-
-
-<ion-footer>
   <ion-toolbar color="primary_color">
     <ion-buttons>
       <button ion-button icon-left (click)="presentActionSheet()">
         <ion-icon name="camera"></ion-icon>{{'SCEGLI_FOTO' | translate}}
       </button>
-      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
-        <ion-icon name="cloud-upload"></ion-icon>{{'CARICA_IMMAGINE' | translate}}
-      </button>
     </ion-buttons>
   </ion-toolbar>
-</ion-footer>
+
+
+</ion-slide>
+
+
+<!-- SECONDA PAGINA -->
+<ion-slide>
+
+    <ion-fab left bottom>
+        <button ion-fab color="accent_colors" (click)="back()"><ion-icon name="arrow-back"></ion-icon></button>
+      </ion-fab>
+
+      <ion-fab right bottom>
+          <button ion-fab color="accent_colors" (click)="save()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
+        </ion-fab>
+
+
+
+
+
+</ion-slide>
+</ion-slides>
+</ion-content>
+
+
+

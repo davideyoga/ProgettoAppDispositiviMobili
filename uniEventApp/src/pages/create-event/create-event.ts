@@ -42,8 +42,10 @@ export class CreateEventPage {
 
     });
 
-    this.slider.lockSwipes(true);
+    //this.slider.lockSwipes(true);
   }
+
+
 
   public presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
@@ -172,15 +174,24 @@ public uploadImage() {
 
 
 next(){
+  this.slider.lockSwipes(false);
   this.slider.slideNext();
+  this.slider.lockSwipes(true);
 }
 
-prev(){
+back(){
+  this.slider.lockSwipes(false);
   this.slider.slidePrev();
+  this.slider.lockSwipes(true);
 }
 
 save(){
 
+  //convalida e salvataggio tutta la form
+
+
+
 }
+
 
 }

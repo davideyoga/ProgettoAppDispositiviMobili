@@ -134,4 +134,12 @@ export class HomePage {
     this.content.scrollToTop();
   }
 
+  /*doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewDidLoad();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);}*/
+
 }

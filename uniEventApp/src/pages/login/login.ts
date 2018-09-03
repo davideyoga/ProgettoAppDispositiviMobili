@@ -63,16 +63,17 @@ export class LoginPage {
 
       this.userService.login(this.user).subscribe((data: Login) => {
         this.login = data;
+
+      if(this.login!=null){
+        
+
+    }else{
+      console.log("error");
+    }
       })
 
 
     console.log('login:' + this.login);
-
-    if(this.login!=null){
-      console.log("yeeeeeee");
-    }else{
-      console.log("error");
-    }
   }
   else
   console.log("form invalida");

@@ -30,6 +30,11 @@
 
 <ion-content class="cards-bg" #pageTop>
 
+
+
+
+
+
   <!--barra ricerca-->
   <ion-card id="search" *ngIf="isSearchBarOpened">
 
@@ -107,7 +112,9 @@
 
   <!--lista eventi-->
   <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
-
+    
+<!-- <ion-refresher (ionRefresh)="doRefresh($event)"> -->
+<!-- <ion-refresher-content> -->
 
   <ion-card *ngFor="let e of eventi" class="adv-map">
 
@@ -171,5 +178,8 @@
       </ion-row>
 
     </ion-card>
+
+  <!-- </ion-refresher-content> -->
+  <!-- </ion-refresher> -->
 
 </ion-content>
