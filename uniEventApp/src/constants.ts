@@ -1,6 +1,7 @@
 export const USE_PROXY = true;
 
-export const URL_BASE = USE_PROXY ? 'api' : 'http://192.168.1.2:8080/api';
+export const URL_BASE = USE_PROXY ? 'api' : 'localhost:8080/api'; //mettere indirizzo locale in caso di test su telefono
+// per tony 192.168.1.2:8080/api
 
 export const URL = {
     // LOGIN: URL_BASE + "/login",
@@ -20,7 +21,6 @@ export const URL = {
     GET_EVENT_CREATED_BY_USER: URL_BASE + "/event/EventCreatedByUser",
     IMAGE: URL_BASE + '/event/image',
     LOGIN: URL_BASE + '/user/login'
-
 
 }
 

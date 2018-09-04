@@ -57,27 +57,24 @@ export class LoginPage {
     console.log("email: " + this.user.email);
     console.log("password: " + this.user.password);
 
+
+
     if (loginForm.valid) {
 
       console.log("form valida");
 
+
+      console.log("Oggetto login1 " + this.login);
+
       this.userService.login(this.user).subscribe((data: Login) => {
         this.login = data;
 
-      if(this.login!=null){
-        
+        console.log("Oggetto login2 " + this.login);
+      });
+      console.log("Oggetto login3 " + this.login);
 
-    }else{
-      console.log("error");
     }
-      })
-
-
-    console.log('login:' + this.login);
   }
-  else
-  console.log("form invalida");
 
-}
 
 }
