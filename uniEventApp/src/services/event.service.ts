@@ -31,6 +31,10 @@ export class EventService {
         return this.http.get<Array<String>>(URL.CITIES);
     }
 
+    //get all favorite events method
+
+
+
 
 
 
@@ -72,5 +76,7 @@ export class EventService {
         return this.http.get<File>(apiURL);
 
     }
+
+
 
 }

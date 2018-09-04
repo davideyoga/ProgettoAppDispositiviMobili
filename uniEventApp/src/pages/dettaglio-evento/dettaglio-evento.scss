@@ -95,4 +95,9 @@ page-dettaglio-evento {
     color: #212121 !important;
     width: 170px;
   }
+
+  .wrapping-list .item-content, .wrapping-list .item {
+    overflow: initial;
+    white-space: initial;
+}
 }

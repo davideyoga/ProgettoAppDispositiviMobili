@@ -82,5 +82,7 @@
 
   "DESC": "Informazioni",
   "OLD_EVENT": "Eventi passati",
-  "EV_CREATOR": "Organizzatore"
+  "EV_CREATOR": "Organizzatore",
+
+  "VISUAL":"Visualizzazioni"
 }

@@ -77,6 +77,13 @@
 
   "DESC": "About",
   "OLD_EVENT": "Old event",
-  "EV_CREATOR": "Event manager"
+  "EV_CREATOR": "Event manager",
+
+  "VISUAL":"Views"
+
+
+
+
+
 }
 

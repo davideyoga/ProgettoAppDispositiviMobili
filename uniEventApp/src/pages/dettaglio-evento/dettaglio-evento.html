@@ -31,8 +31,8 @@
         <ion-avatar item-start>
           <img src="../../assets/imgs/logo.png">
         </ion-avatar>
-        <h2>{{creatore.email}}</h2>
-        <p>November 5, 1955</p>
+        <h2>{{creatore.name}} {{creatore.surname}}</h2>
+        <p>{{creatore.age}}</p>
       </ion-item>
     </div>
 
@@ -54,19 +54,14 @@
         {{evento.address}}, {{evento.city}}
       </ion-item>
 
-      <ion-item (click)="openModal()">
+      <ion-item text-wrap>
         <ion-icon name='information-circle' item-start color="accent_colors"></ion-icon>
-        {{evento.description}}
-        Ehi, questa è la maxi storia di come la mia vita è cambiata
-        Ehi, questa è la maxi storia di come la mia vita è cambiata
-        Ehi, questa è la maxi storia di come la mia vita è cambiata
-        Ehi, questa è la maxi storia di come la mia vita è cambiata
-        Ehi, questa è la maxi storia di come la mia vita è cambiata
+        {{evento.description}} adsgafdsgfgdssfhgjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdgfjhgdfgfhdgdhjgfrfghafghgjahfsgjhfgfjhgfjhgdsjhgajhgjhagajsgdsjhdgasjh
       </ion-item>
 
-      <ion-item >
+      <ion-item>
         <ion-icon name='eye' item-start color="accent_colors"></ion-icon>
-        Visualizazioni
+        {{'VISUAL' | translate}}
         <ion-badge item-end>{{evento.views}}</ion-badge>
       </ion-item>
     </ion-list>
