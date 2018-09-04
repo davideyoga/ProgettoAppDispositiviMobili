@@ -6,9 +6,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { MenuController, Nav, Platform } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE } from '../pages/pages';
 
-
+import {timer} from 'rxjs/observable/timer';
 
 
 
@@ -25,6 +25,9 @@ export class MyApp {
 
   menuNL: Array<{title: string, component: any, icon:any}>;  //menu non loggato
 
+
+  showSplash = true;
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
   private linguaService: LinguaService, private translate: TranslateService) {
 
@@ -33,9 +36,9 @@ export class MyApp {
 
       //temporanei sopra
       {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
-      {title: 'PREFERITI_MENU', component: DUMMY_PAGE, icon: 'heart' },
+      {title: 'PREFERITI_MENU', component: FAVORITE_PAGE, icon: 'heart' },
       {title: 'EVENTI_CREATI_MENU', component: MYEVENTS_PAGE, icon: 'add' },
-      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' },
+      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' }
     ];
 
     this.menuNL = [
@@ -55,8 +58,11 @@ export class MyApp {
       this.rootPage = EVENTI_PAGE;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
       statusBar.styleDefault();
       splashScreen.hide();
+
+      timer(4000).subscribe(()=> this.showSplash = false)
     });
   }
 

@@ -67,31 +67,17 @@ export class LoginPage {
         
         //setto l'oggetto login
         this.login = data;
-      
-        console.log('login:' + this.login);
+
+      if(this.login!=null){
         
-        //se l'oggetto ricevuto dal server e' diverso da null
-        if(this.login!=null){
-          console.log("tornato login.email: " + this.login.email);
-          console.log("tornato login.token: " + this.login.token);
-        
-        //se l'oggetto ricevuto dal server e' uguale a null
-        }else{
-          console.log("oggetto tornato login = null");
-        }
-      
-      })//fine chiamata
+
+    }else{
+      console.log("error");
+    }
+      })
 
 
-    // console.log('login:' + this.login);
-
-    // if(this.login!=null){
-    //   console.log("tornato login.email: " + this.login.email);
-    //   console.log("tornato login.token: " + this.login.token);
-    // }else{
-    //   console.log("oggetto tornato login = null");
-    // }
-  
+    console.log('login:' + this.login);
   }
   //se form non valida
   else

@@ -31,60 +31,40 @@
         <ion-avatar item-start>
           <img src="../../assets/imgs/logo.png">
         </ion-avatar>
-        <h2>{{creatore.email}}</h2>
-        <p>November 5, 1955</p>
+        <h2>{{creatore.name}} {{creatore.surname}}</h2>
+        <p>{{creatore.age}}</p>
       </ion-item>
     </div>
 
-    <ion-grid>
-      <!--titolo-->
-      <ion-row>
-        <ion-col class="my-title">{{evento.title}}</ion-col>
-      </ion-row>
+    <!--titolo-->
+    <h2>
+      <ion-col class="my-title">{{evento.title}}</ion-col>
+    </h2>
 
-      <!--data-->
-      <ion-row class="my-row">
-        <ion-col col-1>
-          <ion-icon name="calendar"></ion-icon>
-        </ion-col>
-        <ion-col col-10 class="my-date">
-          {{evento.date | date:'d MMMM yyyy' }}
-        </ion-col>
-      </ion-row>
-
-      <!--indirizzo-->
-      <!--<button id='hidden-button' ion-button (click)="openMap()">-->
-
-      <ion-row class="my-row" (click)="openMap()">
-        <ion-col col-1>
-          <ion-icon name="pin"></ion-icon>
-        </ion-col>
-        <ion-col col-10 class="my-date">
-          {{evento.address}}, {{evento.city}}
-        </ion-col>
-      </ion-row>
-      <!--</button>-->
-
-
-      <!--descrizione-->
-      <ion-row class="my-row">
-        <ion-col col-1>
-          <ion-icon name="information" class="info"></ion-icon>
-        </ion-col>
-        <ion-col col-10 class="my-info">
-          {{evento.description}}
-          Ehi, questa è la maxi storia di come la mia vita è cambiata
-        </ion-col>
-      </ion-row>
-
-      <!--visualizzazioni-->
-      <ion-item>
-        <ion-icon name='eye' item-start style="color: #d03e84;"></ion-icon>
-        Visualizazioni
-        <ion-badge item-end>{{evento.views}}</ion-badge>
+    <!--data-->
+    <ion-list padding-top="" no-lines="">
+      <ion-item class="my-text">
+        <ion-icon name='calendar' item-start color="accent_colors"></ion-icon>
+        {{evento.date | date:'d MMMM yyyy' }}
       </ion-item>
 
-    </ion-grid>
+      <!--indirizzo-->
+      <ion-item (click)="openMap()" >
+        <ion-icon name='pin' item-start color="accent_colors"></ion-icon>
+        {{evento.address}}, {{evento.city}}
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-icon name='information-circle' item-start color="accent_colors"></ion-icon>
+        {{evento.description}} adsgafdsgfgdssfhgjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhdgfjhgdfgfhdgdhjgfrfghafghgjahfsgjhfgfjhgfjhgdsjhgajhgjhagajsgdsjhdgasjh
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name='eye' item-start color="accent_colors"></ion-icon>
+        {{'VISUAL' | translate}}
+        <ion-badge item-end>{{evento.views}}</ion-badge>
+      </ion-item>
+    </ion-list>
 
   </div>
 
@@ -97,7 +77,7 @@
       {{evento.price}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end round class="priceButton">
+      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)">
         {{'PRENOTA' | translate}}
         <ion-icon class="my-icon" name="card"></ion-icon>
       </button>
@@ -111,7 +91,7 @@
       {{'GRATIS' | translate}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end class="freeButton">
+      <button ion-button large icon-end class="freeButton" (click)="openPayment(evento)">
         {{'PARTECIPA' | translate}}
         <!--<ion-icon name="send"></ion-icon>-->
       </button>

@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar color="primary_color">
+    <ion-title>{{'PAGAMENTI'| translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="evento && creatore">
+
+    <h2>{{evento.title}}</h2>
+    <p (click)="openCreator()">di: {{creatore.name}}</p>
+
+    <p>{{evento.date | date:'full'}}</p>
+
+    <ion-list padding-top>
+      <ion-item-divider color="light" text-center="">{{'RIEPILOGO' | translate}}</ion-item-divider>
+      <ion-item>
+        <ion-icon name='cart' item-start color="accent_colors"></ion-icon>
+        {{'PREZZO' | translate}}
+        <ion-badge *ngIf="priceFlag" item-end color="text">{{evento.price}} €</ion-badge>
+        <ion-badge *ngIf="!priceFlag" item-end color="text">{{'FREE_EV' | translate}}</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name='man' item-start color="accent_colors"></ion-icon>
+        <ion-label>{{'QTA' | translate}}</ion-label>
+        <ion-select [(ngModel)]="qta" interface="popover" (ionChange)="changeTotal()">
+          <ion-option value="1">1</ion-option>
+          <ion-option value="2">2</ion-option>
+          <ion-option value="3">3</ion-option>
+          <ion-option value="4">4</ion-option>
+          <ion-option value="5">5</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name='euro' item-start color="accent_colors"></ion-icon>
+        {{'TOTAL' | translate}}
+        <ion-badge  item-end color="text">{{total | number: '1.2-2'}} €</ion-badge>
+      </ion-item>
+
+      <ion-buttons *ngIf="priceFlag" padding-top="">
+        <button ion-button="" block color="accent_colors">{{'PAGA' | translate}}</button>
+      </ion-buttons>
+
+      <ion-buttons *ngIf="!priceFlag" padding-top="">
+        <button ion-button="" block color="accent_colors">{{'PRENOTA' | translate}}</button>
+      </ion-buttons>
+
+
+    </ion-list>
+  </div>
+
+</ion-content>

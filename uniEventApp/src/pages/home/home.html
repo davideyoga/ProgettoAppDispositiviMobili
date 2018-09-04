@@ -30,6 +30,11 @@
 
 <ion-content class="cards-bg" #pageTop>
 
+
+
+
+
+
   <!--barra ricerca-->
   <ion-card id="search" *ngIf="isSearchBarOpened">
 
@@ -64,7 +69,7 @@
           <ion-label><ion-icon name="pin"></ion-icon> {{'WHERE' | translate }} </ion-label>
 
           <ion-select [(ngModel)]="baseForm.where" interface="action-sheet" name=c>
-            <ion-option value="" selected disabled hidden>{{'OVUNQUE' | translate }}</ion-option>
+            <ion-option selected disabled hidden>{{'OVUNQUE' | translate }}</ion-option>
             <div *ngFor="let c of citta; let i = index">
 
               <ion-option value="{{c}}"> {{c}}</ion-option>
@@ -84,30 +89,7 @@
   </ion-card>
 
   <!--fine barra ricerca-->
-  <!--<form #baseSearchForm="ngForm">-->
-  <!--<ion-item>-->
-  <!--<ion-label stacked color="primary">{{'WHEN' | translate}}</ion-label>-->
-  <!--<ion-input [(ngModel)]="baseForm.when" name="when"-->
-  <!--#when="ngModel" [maxlength]="255" required>-->
-  <!--</ion-input>-->
-  <!--</ion-item> &ndash;&gt;-->
-
-  <!--<ion-item>-->
-  <!--<ion-label stacked color="primary">{{'WHAT' | translate}}</ion-label>-->
-  <!--<ion-input [(ngModel)]="baseForm.what" name="what"-->
-  <!--#what="ngModel" [maxlength]="255" required>-->
-  <!--</ion-input>-->
-  <!--</ion-item>-->
-
-  <!--</form>-->
-
-
-  <!-- bottone per prova mappa -->
-  <!-- <button ion-button full (click)="goItemPage()">Go Item Page</button> -->
-
-  <!--lista eventi-->
-  <!--<ion-card *ngFor="let e of evento" class="adv-map">-->
-
+  
 
   <ion-card *ngFor="let e of eventi" class="adv-map">
 
@@ -171,5 +153,8 @@
       </ion-row>
 
     </ion-card>
+
+  <!-- </ion-refresher-content> -->
+  <!-- </ion-refresher> -->
 
 </ion-content>

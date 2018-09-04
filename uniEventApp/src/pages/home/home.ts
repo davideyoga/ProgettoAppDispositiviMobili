@@ -12,7 +12,6 @@ import { SearchpopoverComponent } from "../../components/searchpopover/searchpop
 import { PopoverController} from "ionic-angular";
 import { dateDataSortValue } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
 import { DUMMY_PAGE, EXTRAFILTER_PAGE } from '../pages';
-import { ExtrafilterPage } from '../extrafilter/extrafilter'
 import { Content } from 'ionic-angular';
 
 @IonicPage()
@@ -41,29 +40,9 @@ export class HomePage {
   //lista di categorie
   categorie: Array<Category>;
 
-  // selectedSegment: string;
-  // slides: any;
-
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService,
-              private categoryService: CategoryService, public popOverCtrl: PopoverController) {
-
-    // this.selectedSegment = 'first';
-    // this.slides = [
-    //   {
-    //     id: "first",
-    //     title: "First Slide"
-    //   },
-    //   {
-    //     id: "second",
-    //     title: "Second Slide"
-    //   },
-    //   {
-    //     id: "third",
-    //     title: "Third Slide"
-    //   }
-    // ];
-  }
+              private categoryService: CategoryService, public popOverCtrl: PopoverController) {}
 
   //tutto cio' che succede all'avvio della pagina
   ionViewDidLoad() {
@@ -76,6 +55,7 @@ export class HomePage {
       }
 
       if( this.baseForm.what != "" || this.baseForm.when != "" || this.baseForm.where!="" ){
+        //attenzione gestire singoli campi nulli
 
         console.log('ho trovato parametro di ricerca base');
 
@@ -106,8 +86,6 @@ export class HomePage {
       });
 
     }
-
-
 
 
     //metodo che risponde alla form di ricerca della home
@@ -152,22 +130,16 @@ export class HomePage {
     this.navCtrl.push(EXTRAFILTER_PAGE);
   }
 
-  // onSegmentChanged(segmentButton) {
-  //   console.log("Segment changed to", segmentButton.value);
-  //   const selectedIndex = this.slides.findIndex((slide) => {
-  //     return slide.id === segmentButton.value;
-  //   });
-  //   this.slider.slideTo(selectedIndex);
-  // }
-  //
-  // onSlideChanged(slider) {
-  //   console.log('Slide changed');
-  //   const currentSlide = this.slides[slider.getActiveIndex()];
-  //   this.selectedSegment = currentSlide.id;
-  // }
-
   scrollToTop(){
     this.content.scrollToTop();
   }
+
+  /*doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ionViewDidLoad();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);}*/
 
 }

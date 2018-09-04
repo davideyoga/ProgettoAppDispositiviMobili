@@ -62,7 +62,28 @@
   "CREAEVENTO_MENU": "Publish your event",
   "CARICA_MANIFESTO": "Carica la tua locandina, comparirà qui",
   "SCEGLI_FOTO":"Scegli la locandina",
-  "CARICA_IMMAGINE":"Carica la locandina"
+  "CARICA_IMMAGINE":"Carica la locandina",
+
+  "FAVORITE_TITLE": "Favorite",
+
+  "PAGAMENTI": "Booking details",
+
+  "RIEPILOGO": "Summary",
+  "PREZZO": "Price",
+  "FREE_EV": "free event",
+  "QTA": "Quantity",
+  "TOTAL": "Total",
+  "PAGA": "unstitch the money",
+
+  "DESC": "About",
+  "OLD_EVENT": "Old event",
+  "EV_CREATOR": "Event manager",
+
+  "VISUAL":"Views"
+
+
+
+
 
 }
 
