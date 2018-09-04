@@ -1,5 +1,6 @@
 package it.univaq.disim.mobile.unievent.business.web;
 
+import it.univaq.disim.mobile.unievent.business.AdvanceSearch;
 import it.univaq.disim.mobile.unievent.business.domain.Category;
 import it.univaq.disim.mobile.unievent.business.domain.Event;
 import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
@@ -8,10 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author Davide Micarelli
@@ -207,5 +205,45 @@ public class EventController {
         return in;
     }
 
+
+
+    //mi devo aspettare:
+    // - prezzo min
+    // - prezzo max
+    // - una categoria
+    // - una lista di servizi
+    @PostMapping("/advanceSearch")
+    public List<Event> advanceSearch(@RequestBody AdvanceSearch advanceSearch){
+
+            System.out.println("advanceSearch: " + advanceSearch);
+
+            List <Event> eventList = service.findAllEvents();
+
+            List <Event> newList = new ArrayList <>();
+
+            for (Event e : eventList) {
+
+                System.out.println("event e: " + e);
+
+                //controllo sul prezzo
+                if (( e.getPrice() >= advanceSearch.getMinPrice() && e.getPrice() <= advanceSearch.getMaxPrice())
+//                        &&
+//                        (e.getCategories().get(0).getName().equals(advanceSearch.getCategory()) || advanceSearch.getCategory() == null) &&
+//                        (e.getServices().containsAll(advanceSearch.getServiceList()) || advanceSearch.getServiceList() == null)
+//
+
+                        ) {
+
+                    System.out.println("Aggiunto a new List l'evento: " + e);
+
+                    newList.add(e);
+
+                }
+            }
+
+            System.out.println("newList: " + newList);
+
+            return newList;
+    }
 
 }

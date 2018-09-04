@@ -74,9 +74,10 @@ public class Service implements java.io.Serializable {
 
         Service service = (Service) o;
 
-        if (getId() != null ? !getId().equals(service.getId()) : service.getId() != null) return false;
         if (getName() != null ? !getName().equals(service.getName()) : service.getName() != null) return false;
-        return getDescription() != null ? getDescription().equals(service.getDescription()) : service.getDescription() == null;
+        if (getDescription() != null ? !getDescription().equals(service.getDescription()) : service.getDescription() != null)
+            return false;
+        return getEventsWithService() != null ? getEventsWithService().equals(service.getEventsWithService()) : service.getEventsWithService() == null;
     }
 
     @Override

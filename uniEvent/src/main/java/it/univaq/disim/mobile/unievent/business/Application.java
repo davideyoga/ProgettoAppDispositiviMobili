@@ -2,9 +2,11 @@ package it.univaq.disim.mobile.unievent.business;
 
 import it.univaq.disim.mobile.unievent.business.domain.Category;
 import it.univaq.disim.mobile.unievent.business.domain.Event;
+import it.univaq.disim.mobile.unievent.business.domain.Service;
 import it.univaq.disim.mobile.unievent.business.domain.User;
 import it.univaq.disim.mobile.unievent.business.impl.CategoryRepository;
 import it.univaq.disim.mobile.unievent.business.impl.EventRepository;
+import it.univaq.disim.mobile.unievent.business.impl.ServiceRepository;
 import it.univaq.disim.mobile.unievent.business.impl.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -35,7 +37,7 @@ public class Application {
 
 
     @Bean
-    public CommandLineRunner loadData(EventRepository eventRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
+    public CommandLineRunner loadData(EventRepository eventRepository, CategoryRepository categoryRepository, UserRepository userRepository, ServiceRepository serviceRepository) {
         return (args) -> {
 
             /*
@@ -43,7 +45,7 @@ public class Application {
              */
             User user = new User();
             user.setEmail("d.micarelli7@gmail.com");
-            user.setPassword("d.micarelli");
+                user.setPassword("d.micarelli");
 
             User user2 = new User();
             user2.setEmail("d.micarelli27@gmail.com");
@@ -71,7 +73,7 @@ public class Application {
             event2.setTitle("PartyHard2");
             event2.setCity("Roma");
             event2.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
-//            event2.setPrice(1.90f);
+            event2.setPrice(1.90f);
 
 
             Event event3 = new Event();
@@ -100,11 +102,22 @@ public class Application {
             categoryRepository.save(category2);
 
 
+            Service service1 = new Service();
+            service1.setName("service1");
+
+            serviceRepository.save(service1);
+
+            List<Service> services = new ArrayList <>();
+            services.add(service1);
+
+
+
             List<Category> categories1 = new ArrayList <>();
             categories1.add(category);
 
             event.setCategories(categories1);
             event.setCreator(user);
+            event.setServices(services);
             eventRepository.save(event);
             event3.setCategories(categories1);
             eventRepository.save(event3);

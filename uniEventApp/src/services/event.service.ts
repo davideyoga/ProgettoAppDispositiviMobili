@@ -6,6 +6,7 @@ import { AlertController } from "ionic-angular";
 import { URL } from '../constants';
 import { BaseSearchForm } from '../models/base.sear.form.model';
 import { Event } from '../models/event.model';
+import { AdvanceSearchForm } from '../models/advance.search.model';
 
 
 @Injectable()
@@ -70,6 +71,14 @@ export class EventService {
 
         let apiURL = `${URL.IMAGE}/${idEvent}`;
         return this.http.get<File>(apiURL);
+
+    }
+
+    advanceSearch(advanceSearch : AdvanceSearchForm): Observable<Array<Event>>{
+
+       let apiURL = `${URL.ADVANCE_SEARCH}`;
+
+       return this.http.post<Array<Event>>(apiURL, advanceSearch);
 
     }
 
