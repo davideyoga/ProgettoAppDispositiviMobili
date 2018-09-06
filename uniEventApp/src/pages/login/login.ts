@@ -7,6 +7,7 @@ import { User,Account } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { Login } from '../../models/login.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { RegisterPage } from "../register/register";
 
 /**
  * Generated class for the LoginPage page.
@@ -57,32 +58,35 @@ export class LoginPage {
     console.log("email: " + this.user.email);
     console.log("password: " + this.user.password);
 
+
+
     if (loginForm.valid) {
 
       console.log("form valida");
 
-
-      //eseguo la chiamata al server
       this.userService.login(this.user).subscribe((data: Login) => {
         
-        //setto l'oggetto login
-        this.login = data;
+        //se username e login sono corretti
+        if(data != null){
+          
+          //setto l'oggetto login
+          this.login = data;
 
-      if(this.login!=null){
+          console.log("Login effettuato");
         
 
-    }else{
-      console.log("error");
+        //se username e password non corretti
+        }else{
+          console.log("Login non effettuato");
+        }
+
+      });
+
     }
-      })
-
-
-    console.log('login:' + this.login);
   }
-  //se form non valida
-  else
-  console.log("form invalida");
 
-}
+  goRegister(){
+    this.navCtrl.push(RegisterPage);
+  }
 
 }

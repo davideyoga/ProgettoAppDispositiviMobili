@@ -9,6 +9,7 @@ import { User,Account } from '../models/user.model';
 
 import 'rxjs/Rx';
 import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { Register } from "../models/register.model";
 
 @Injectable()
 export class UserService {
@@ -38,23 +39,51 @@ export class UserService {
 
     login(user: User): Observable<Login>{
 
-        console.log("Entrato nel metodo login");
-        console.log("user.email: " + user.email);
-        console.log("user.password: " + user.password);
+        //console.log("Entrato nel metodo login");
+        //console.log("user.email: " + user.email);
+        //console.log("user.password: " + user.password);
 
         return this.http.post<Login>(URL.LOGIN, user, { observe: 'response' })
             .map((resp: HttpResponse<Login>) => {
 
-                console.log("Entrato nel metodo map");
+                //console.log("Entrato nel metodo map");
 
-                const token = resp.headers.get(X_AUTH);
-                this.storage.set(AUTH_TOKEN, token);
-                this.tokenUtente = token;
-                //Utente memorizzato nello storage in modo tale che se si vuole cambiare il
-                //profilo dell'utente stesso non si fa una chiamata REST.
-                this.storage.set(UTENTE_STORAGE, resp.body);
-                return resp.body;
+                if(resp.body!=null){
+
+                    const token = resp.body.token;
+                    
+                    this.storage.set(AUTH_TOKEN, token);
+                    
+                    
+                    // this.storage.get(AUTH_TOKEN).then((token) => {
+                    //     console.log("token in memo: " + token);
+                    // });
+
+                    //console.log("resp.body.token: " + resp.body.token);
+
+                    this.tokenUtente = token;
+            
+                    return resp.body;
+                }else{
+                    return null;
+                }
             });
+    }
+
+    register(user:User): Observable<Register>{
+        // return this.http.post<Register>(URL.REGISTER, user, { observe: 'response' })
+        //     .map((resp: HttpResponse<Register>) => {
+        //         const token = resp.headers.get(X_AUTH);
+        //         this.storage.set(AUTH_TOKEN, token);
+        //         this.tokenUtente = token;
+        //         //Utente memorizzato nello storage in modo tale che se si vuole cambiare il
+        //         //profilo dell'utente stesso non si fa una chiamata REST.
+        //         this.storage.set(UTENTE_STORAGE, resp.body);
+        //         return resp.body;
+        //     });
+
+      console.log('register function');
+      return ;
     }
 
     logout(){
