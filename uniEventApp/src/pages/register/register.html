@@ -8,21 +8,30 @@
 
 
 <ion-content>
-
   <form #registerForm="ngForm">
-    <ion-list>
-      <ion-item-divider color="light" padding-top="">Dati base</ion-item-divider>
-      <ion-item no-lines="">
-        <ion-label floating>Email</ion-label>
-        <ion-input [(ngModel)]="user.email" type="text" name="email"></ion-input>
-      </ion-item>
 
-      <ion-item no-lines="">
-        <ion-label floating>Password</ion-label>
-        <ion-input [(ngModel)]="user.password" type="password" name="password"></ion-input>
-      </ion-item>
+    <ion-card>
+      <ion-list>
+        <ion-card-title class="my-title" padding-top="">
+          <ion-icon name="contact" item-start></ion-icon>
+          Dati base</ion-card-title>
+        <ion-item no-lines="">
+          <ion-label floating>Email</ion-label>
+          <ion-input [(ngModel)]="user.email" type="text" name="email"></ion-input>
+        </ion-item>
 
-      <ion-item-divider color="light" padding-top="">Dati personali</ion-item-divider>
+        <ion-item no-lines="">
+          <ion-label floating>Password</ion-label>
+          <ion-input [(ngModel)]="user.password" type="password" name="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+    </ion-card>
+
+  <ion-card>
+      <ion-card-title padding-top="" class="my-title">
+        <ion-icon name="man" item-start></ion-icon>
+        Dati personali</ion-card-title>
       <ion-item no-lines="">
         <ion-label floating>Nome</ion-label>
         <ion-input [(ngModel)]="user.name" type="text" name="name"></ion-input>
@@ -47,11 +56,11 @@
         <ion-label floating>Numero di telefono</ion-label>
         <ion-input [(ngModel)]="user.telephoneNumber" type="number" name="telephoneNumber"></ion-input>
       </ion-item>
+    </ion-card>
 
-      <ion-item>
-        <button full ion-button="" (click)="register(registerForm)">{{'REGISTER' | translate}}</button>
-      </ion-item>
-    </ion-list>
+    <ion-item>
+      <button full ion-button="" color="accent_colors" (click)="register(registerForm)">{{'REGISTER' | translate}}</button>
+    </ion-item>
   </form>
 
 </ion-content>
