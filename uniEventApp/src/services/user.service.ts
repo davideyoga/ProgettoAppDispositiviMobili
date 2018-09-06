@@ -9,6 +9,7 @@ import { User,Account } from '../models/user.model';
 
 import 'rxjs/Rx';
 import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { Register } from "../models/register.model";
 
 @Injectable()
 export class UserService {
@@ -47,6 +48,22 @@ export class UserService {
                 this.storage.set(UTENTE_STORAGE, resp.body);
                 return resp.body;
             });
+    }
+
+    register(user:User): Observable<Register>{
+        // return this.http.post<Register>(URL.REGISTER, user, { observe: 'response' })
+        //     .map((resp: HttpResponse<Register>) => {
+        //         const token = resp.headers.get(X_AUTH);
+        //         this.storage.set(AUTH_TOKEN, token);
+        //         this.tokenUtente = token;
+        //         //Utente memorizzato nello storage in modo tale che se si vuole cambiare il
+        //         //profilo dell'utente stesso non si fa una chiamata REST.
+        //         this.storage.set(UTENTE_STORAGE, resp.body);
+        //         return resp.body;
+        //     });
+
+      console.log('register function');
+      return ;
     }
 
     logout(){

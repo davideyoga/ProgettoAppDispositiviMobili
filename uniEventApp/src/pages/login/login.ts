@@ -7,6 +7,7 @@ import { User,Account } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { Login } from '../../models/login.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { RegisterPage } from "../register/register";
 
 /**
  * Generated class for the LoginPage page.
@@ -76,5 +77,8 @@ export class LoginPage {
     }
   }
 
+  goRegister(){
+    this.navCtrl.push(RegisterPage);
+  }
 
 }

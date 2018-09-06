@@ -20,7 +20,8 @@ export const URL = {
     GET_USER_CREATED_EVENT: URL_BASE + "/user/userCreatedEvent",
     GET_EVENT_CREATED_BY_USER: URL_BASE + "/event/EventCreatedByUser",
     IMAGE: URL_BASE + '/event/image',
-    LOGIN: URL_BASE + '/user/login'
+    LOGIN: URL_BASE + '/user/login',
+    REGISTER: URL_BASE + '/user/register'
 
 }
 
