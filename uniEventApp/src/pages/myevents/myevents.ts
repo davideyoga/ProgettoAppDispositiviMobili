@@ -23,6 +23,10 @@ export class MyeventsPage {
 
   utenteid: number = 1; //per ora è statico, poi si prende da db
 
+  public evento:any = [{id: 1, utente: 'cristiano', title: 'trattorissimo', date: "11/08/2016", imm: 10, ind: 'Via Roma, 50, 67019, Scoppito Avenue'},
+    {id: 2, utente: 'Cristiano1', title: 'titolo evento1',date: "16/12/2018", imm: 20}
+  ];
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService) {
   }
 

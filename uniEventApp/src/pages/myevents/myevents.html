@@ -11,17 +11,45 @@
 
 
 
-<ion-content class="cards-bg">
+<ion-content class="list-avatar-page">
 
   <!--bottone-->
   <ion-fab right bottom>
     <button ion-fab color="accent_colors" (click)="createevent()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
-  <ion-card *ngFor="let e of eventi" class="adv-map">
+
+    <ion-list no-lines="">
+      <ion-list-header color="light">In corso</ion-list-header>
+
+      <ion-item *ngFor="let e of evento" >
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/patato.jpg">
+        </ion-avatar>
+        <h2>{{e.title}}</h2>
+        <p>This town ain't big enough for the two of us!</p>
+        <ion-note item-end>{{e.date}}</ion-note>
+      </ion-item>
+    </ion-list>
+
+  <ion-list padding-top="" no-lines>
+
+      <ion-list-header color="light">Passati</ion-list-header>
+
+      <ion-item *ngFor="let e of evento">
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/patato.jpg">
+        </ion-avatar>
+        <h2>{{e.title}}</h2>
+        <p>This town ain't big enough for the two of us!</p>
+        <ion-note item-end>{{e.date}}</ion-note>
+      </ion-item>
+    </ion-list>
+
+  <!--<ion-card *ngFor="let e of eventi" class="adv-map">
 
 
-      <!--immagine-->
+      &lt;!&ndash;immagine&ndash;&gt;
       <div style="position: relative" class="img" (click)="event(e)">
         <img src="../../assets/imgs/logo.png"/>
       </div>
@@ -32,14 +60,14 @@
           {{e.title}}
         </ion-card-title>
 
-        <!--Informazioni principali-->
+        &lt;!&ndash;Informazioni principali&ndash;&gt;
         <ion-item>
           <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
           <h2>Museum of Tractor</h2>
           <p>info</p>
         </ion-item>
 
-        <!--posto e ora-->
+        &lt;!&ndash;posto e ora&ndash;&gt;
         <ion-item>
           <ion-icon color="subtle" large item-start name='navigate'></ion-icon>
           <h2>Institute of Fine Cocktails</h2>
@@ -49,7 +77,7 @@
 
       </ion-card-content>
 
-      <!--action bar-->
+      &lt;!&ndash;action bar&ndash;&gt;
       <ion-row no-padding>
         <ion-col col-4>
           <button ion-button clear small color="danger" icon-start>
@@ -71,6 +99,6 @@
         </ion-col>
       </ion-row>
 
-    </ion-card>
+    </ion-card>-->
 
 </ion-content>
