@@ -62,12 +62,15 @@ public class Event implements java.io.Serializable, Comparable {
 
 
     @OneToMany
+    @JsonIgnore
     private List<Participate> participation;
 
     @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Category> categories;
 
     @ManyToMany
+    @JsonIgnore
     private List<Service> services;
 
 
