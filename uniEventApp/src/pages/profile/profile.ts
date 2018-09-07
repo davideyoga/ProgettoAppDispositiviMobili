@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DUMMY_PAGE } from '../pages';
+import {DUMMY_PAGE, PROFILE_EDIT_PAGE} from '../pages';
 
 /**
  * Generated class for the ProfilePage page.
@@ -26,7 +26,7 @@ ionViewDidLoad() {
   }
 
 modifyProfile(){
-  this.navCtrl.push(DUMMY_PAGE);
+  this.navCtrl.push(PROFILE_EDIT_PAGE);
 }
 
 openSettings(){

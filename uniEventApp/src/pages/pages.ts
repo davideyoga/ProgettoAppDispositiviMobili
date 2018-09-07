@@ -14,5 +14,7 @@ export const CREATEVENTS_PAGE = 'CreateEventPage';
 
 export const FAVORITE_PAGE = 'FavoritePage';
 
+export const PROFILE_EDIT_PAGE = 'ProfileEditPage';
+
 
 

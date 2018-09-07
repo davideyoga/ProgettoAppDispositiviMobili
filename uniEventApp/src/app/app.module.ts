@@ -48,7 +48,6 @@ export function createTranslateLoader(http: HttpClient) {
     PopoverComponent,
     SearchpopoverComponent,
     BookedeventPage,
-    ModalevdescriptionPage
   ],
 
   imports: [
@@ -86,7 +85,6 @@ export function createTranslateLoader(http: HttpClient) {
     PopoverComponent,
     SearchpopoverComponent,
     BookedeventPage,
-    ModalevdescriptionPage
   ],
   providers: [
     StatusBar,
