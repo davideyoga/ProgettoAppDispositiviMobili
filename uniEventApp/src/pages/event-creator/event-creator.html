@@ -7,24 +7,42 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding-top="">
   <ion-list *ngIf="user">
-    <ion-item color="light_color" no-lines="">
-      <ion-avatar item-start>
+
+    <!--<ion-row class="logo-row">-->
+      <!--<p *ngIf="verified"  class="verified">account verificato-->
+        <!--<ion-icon name="star" item-right ></ion-icon>-->
+      <!--</p>-->
+      <!--<img class="center" src="../../assets/imgs/patato.jpg"/>-->
+    <!--</ion-row>-->
+
+    <ion-item  no-lines="" padding-bottom="">
+
+      <p *ngIf="verified"  class="verified">account verificato
+        <ion-icon name="star" item-right ></ion-icon>
+      </p>
+
+      <p *ngIf="!verified"  class="notVerified">account non verificato
+        <ion-icon name="star-outline" item-right color="danger" ></ion-icon>
+      </p>
+
+      <ion-avatar >
         <img src="../../assets/imgs/patato.jpg">
       </ion-avatar>
-      <h2>{{user.name}} {{user.surname}}</h2>
-      <p>{{user.email}}</p>
-      <p>{{user.address}}</p>
+
+      <h2 padding-top="" text-center="">{{user.name}} {{user.surname}}</h2>
+      <p text-center="">{{user.email}}</p>
+      <p text-center="">{{user.address}}</p>
     </ion-item>
 
-    <ion-item-divider>{{'DESC' | translate}}</ion-item-divider>
+    <ion-item-divider color="light">{{'DESC' | translate}}</ion-item-divider>
 
-    <ion-item no-lines="">
+    <ion-item no-lines="" padding-bottom="">
       la descrizione di davide
     </ion-item>
 
-    <ion-item-divider padding-top="">{{'OLD_EVENT' | translate}}</ion-item-divider>
+    <ion-item-divider color="light">{{'OLD_EVENT' | translate}}</ion-item-divider>
     <ion-item *ngFor="let e of listEvent" (click)="eventSelected(e)">
       {{ e.title }}
       <ion-note item-end>

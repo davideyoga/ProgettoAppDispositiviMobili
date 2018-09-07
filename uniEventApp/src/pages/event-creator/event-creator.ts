@@ -12,6 +12,7 @@ import { EventService } from '../../services/event.service';
 })
 export class EventCreatorPage {
 
+  verified: boolean= false;
   user: User;
   listEvent: Array<Event>;
 

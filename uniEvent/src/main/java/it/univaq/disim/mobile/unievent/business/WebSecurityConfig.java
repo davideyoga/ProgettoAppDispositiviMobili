@@ -3,7 +3,7 @@ package it.univaq.disim.mobile.unievent.business;
 import java.util.Arrays;
 
 import it.univaq.disim.mobile.unievent.business.common.spring.security.JWTAuthenticationEntryPoint;
-import it.univaq.disim.mobile.unievent.business.common.spring.security.JWTAuthenticationTokenFilter;
+//import it.univaq.disim.mobile.unievent.business.common.spring.security.JWTAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,10 +50,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public JWTAuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
-        return new JWTAuthenticationTokenFilter();
-    }
+//    @Bean
+//    public JWTAuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
+//        return new JWTAuthenticationTokenFilter();
+//    }
 
     // configurazione Cors per poter consumare le api restful con richieste ajax
     @Bean
@@ -82,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
         // Filtro Custom JWT
-        httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+//        httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 
         httpSecurity.headers().cacheControl();
     }

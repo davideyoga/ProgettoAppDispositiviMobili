@@ -1,19 +1,57 @@
 page-event-creator {
 
   ion-avatar{
-    width: 106px;
-    height: 106px;
-    border-radius: 5%;
-    background-color: #ffc107;
+    height: 160px;
+    width: 160px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .item-md ion-avatar ion-img, .item-md ion-avatar img {
 
-    border-radius: 5%;
     overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin-left: 3px;
-    margin-top: 3px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .dim{
+    width: 100%;
+    max-height: 165px;
+  }
+
+  .center{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dist{
+    margin-bottom: -15px;
+  }
+
+  .scroll-content{
+    margin-top: 15px !important;
+  }
+
+  .logo-row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .testo{
+    text-align: center;
+  }
+
+  .verified{
+    text-align: right !important;
+    color: green;
+    padding-top: 8px;
+    width: 100%;
+  }
+
+  .notVerified{
+    text-align: right !important;
+    color: #f53d3d;
+    padding-top: 8px;
+    width: 100%;
   }
 }
