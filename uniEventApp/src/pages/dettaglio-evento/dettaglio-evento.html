@@ -74,7 +74,7 @@
   <ion-toolbar color="primary_color" class="toolbar-buttons-page">
     <ion-title class="footer-title">
       <ion-icon item-start name='logo-euro'></ion-icon>
-      {{evento.price}}
+      {{evento.price | number: '1.2-2'}}
     </ion-title>
     <ion-buttons end>
       <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)">

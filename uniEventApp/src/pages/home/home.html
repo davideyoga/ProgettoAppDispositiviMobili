@@ -141,7 +141,7 @@
         <ion-col col-4>
           <button ion-button clear small color="danger" icon-start>
             <ion-icon name='cart'></ion-icon>
-            {{e.price}} €
+            {{e.price | number: '1.2-2'}} €
           </button>
         </ion-col>
         <ion-col col-3>
