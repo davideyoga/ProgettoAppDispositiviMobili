@@ -74,6 +74,11 @@ public class UniEventServiceImpl implements UniEventService {
     }
 
     @Override
+    public void updateEvent(Event event) {
+        eventRepository.save(event);
+    }
+
+    @Override
     public void createEvent(Event event){
         this.eventRepository.save(event);
     }

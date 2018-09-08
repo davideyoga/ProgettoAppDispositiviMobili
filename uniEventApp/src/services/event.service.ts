@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AlertController } from "ionic-angular";
@@ -17,6 +17,9 @@ export class EventService {
     }
 
     listHotEvent(): Observable<Array<Event>> {
+
+        console.log("URL.HOT_EVENT: " + URL.HOT_EVENT);
+
         return this.http.get<Array<Event>>(URL.HOT_EVENT);
     }
 
@@ -85,5 +88,30 @@ export class EventService {
        return this.http.post<Array<Event>>(apiURL, advanceSearch);
 
     }
+
+    createEvent(event : Event): Observable<boolean>{
+        console.log("URL.CREATE_EVENT: " + URL.CREATE_EVENT);
+        return this.http.post<boolean>(URL.CREATE_EVENT, event, {observe: 'response'})
+            .map((resp: HttpResponse<boolean>) => {
+                //Aggiornamento dell'utente nello storage.
+                //Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
+                //e se l'utente chiude la app e la riapre i dati sono gia' presenti
+
+                console.log("resp.body.valueOf():" + resp.body.valueOf());
+
+                return resp.body;
+            });
+    }
+
+    // updateProfilo(nuovoUtente: Utente): Observable<Utente> {
+    //     return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, { observe: 'response' })
+    //         .map((resp: HttpResponse<Utente>) => {
+    //             //Aggiornamento dell'utente nello storage.
+    //             //Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
+    //             //e se l'utente chiude la app e la riapre i dati sono gia' presenti
+    //             this.storage.set(UTENTE_STORAGE, resp.body);
+    //             return resp.body;
+    //         });
+    // }
 
 }

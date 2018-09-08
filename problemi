@@ -10,4 +10,4 @@ pagina che devo finire di fare perchè sono un pezzo di merda.
 ricerca avanzata 
 preferiti
 eventi prenotati riprendere dati e prenotare evento al tap
-creazione evento tramite json ricevuto
+creazione evento tramite json ricevuto (formato della fata da mandare: "yyyy-MM-dd HH:mm:ss")

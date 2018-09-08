@@ -55,6 +55,8 @@ public interface UniEventService {
 
     Event findEventById(Long id);
 
+    void updateEvent(Event event);
+
     //End Event
 
 

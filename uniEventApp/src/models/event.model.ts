@@ -5,8 +5,8 @@ export class Event {
 
     public id: number = -1;
     public address: string = "";
-    public date: Date= new Date();
-    public date_creation: Date = new Date();
+    public date: string= "";
+    public date_creation: string = "";
     public description: string="";
     public image: string="";
     public price: number=0;

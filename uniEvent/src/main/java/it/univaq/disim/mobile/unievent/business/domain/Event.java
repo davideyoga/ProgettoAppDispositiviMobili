@@ -47,6 +47,7 @@ public class Event implements java.io.Serializable, Comparable {
 
     @Column(name = "DATE_CREATION")
     @CreationTimestamp
+    @DateTimeFormat(pattern="yyyy-MM-dd'T'hh:mm:ss")
     private Date dateCreation;
 
     @Column(name="VIEWS", nullable = false)
@@ -60,15 +61,17 @@ public class Event implements java.io.Serializable, Comparable {
     private User creator;
 
 
-
+    @JsonIgnore
     @OneToMany
     @JsonIgnore
     private List<Participate> participation;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Category> categories;
 
+    @JsonIgnore
     @ManyToMany
     @JsonIgnore
     private List<Service> services;

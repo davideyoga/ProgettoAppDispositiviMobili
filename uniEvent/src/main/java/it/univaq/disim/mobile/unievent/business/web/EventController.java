@@ -1,6 +1,8 @@
 package it.univaq.disim.mobile.unievent.business.web;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import it.univaq.disim.mobile.unievent.business.AdvanceSearch;
+import it.univaq.disim.mobile.unievent.business.CustomerDateAndTimeDeserialize;
 import it.univaq.disim.mobile.unievent.business.domain.Category;
 import it.univaq.disim.mobile.unievent.business.domain.Event;
 import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
@@ -21,14 +23,32 @@ public class EventController {
     @Autowired
     private UniEventService service;
 
-    @RequestMapping(value = "/create", produces = "application/json", method = RequestMethod.POST)
-    public void createEvent(@RequestBody Event event) {
+    @PostMapping("/create")
+    @JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
+    public boolean createEvent(@RequestBody Event event) {
+
+        System.out.println("Event: " + event);
 
         this.service.createEvent(event);
+
+        System.out.println("Evento creato");
+
+        return true;
     }
+
 
     @GetMapping("/{id}")
     public Event findEventById(@PathVariable Long id) {
+
+        Event event = service.findEventById(id);
+
+        if(event.getViews()!=null) {
+            event.setViews(event.getViews() + 1);
+        }else{
+            event.setViews(new Long(1));
+        }
+        service.updateEvent(event);
+
 		return service.findEventById(id);
 	}
         
