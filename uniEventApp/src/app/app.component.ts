@@ -9,6 +9,7 @@ import { LinguaService } from '../services/lingua.service';
 import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE } from '../pages/pages';
 
 import {timer} from 'rxjs/observable/timer';
+import { UserService } from '../services/user.service';
 
 
 
@@ -20,16 +21,20 @@ export class MyApp {
   @ViewChild(Nav) nav:Nav;
 
   rootPage:any;
+  token:boolean=false;
 
   menuL: Array<{title: string, component: any, icon:any}>;
 
   menuNL: Array<{title: string, component: any, icon:any}>;  //menu non loggato
 
-
   showSplash = true;
 
+
+
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService) {
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService) {
+
 
 
     this.menuL = [
@@ -54,16 +59,19 @@ export class MyApp {
     //chiama metodo initTranslate
     this.initTranslate();
     platform.ready().then(() => {
+
+        if(this.UserService.getUtenteToken()!=null){
+        this.token=true;
+        console.log("LOGIN CONFIRMED");}
       //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-
       statusBar.styleDefault();
       splashScreen.hide();
-
       timer(4000).subscribe(()=> this.showSplash = false)
     });
+
   }
 
 
@@ -121,5 +129,10 @@ export class MyApp {
     this.nav.setRoot(LOGIN_PAGE)}
 
 
+   checkLogin(){
+     if(this.UserService.getUtenteToken()!=null){
+       this.token=true;}
+
 }
 
+}

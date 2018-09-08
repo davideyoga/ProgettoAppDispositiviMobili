@@ -29,11 +29,18 @@
     <hr>
       <div class="divider"></div>
 
+
       <ion-list>
-      <button ion-item class="menustyle" menuClose (click)="openProfile()"> <!--ng-if login o profilo-->
+      <button *ngIf="token==true" ion-item class="menustyle" menuClose (click)="openProfile()"> <!--ng-if login o profilo-->
         <ion-icon item-start name="person"></ion-icon>
         {{'PROFILO_MENU' | translate }}
       </button>
+
+      <button *ngIf="token==false" ion-item class="menustyle" menuClose (click)="login()"> <!--ng-if login o profilo-->
+        <ion-icon item-start name="person"></ion-icon>
+        Login
+      </button>
+
 
       <button ion-item class="menustyle" menuClose (click)="openSettings()">
         <ion-icon item-start name="settings"></ion-icon>
