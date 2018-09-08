@@ -23,6 +23,10 @@ export class ProfilePage {
 
 ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+    
+
+
+
   }
 
 modifyProfile(){

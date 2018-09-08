@@ -11,9 +11,9 @@
   <ion-header>
     <ion-toolbar class="menutitle" color="primary_color">
       <ion-title>Menu</ion-title>
-      <button menuClose (click)="login()"> <!--temporaneo-->
-          Login
-        </button>
+      <button (click)="logout()">
+        Logout test
+      </button>
     </ion-toolbar>
   </ion-header>
 
@@ -31,12 +31,13 @@
 
 
       <ion-list>
-      <button *ngIf="token==true" ion-item class="menustyle" menuClose (click)="openProfile()"> <!--ng-if login o profilo-->
+
+      <button *ngIf="loggedIn" ion-item class="menustyle" menuClose (click)="openProfile()">
         <ion-icon item-start name="person"></ion-icon>
         {{'PROFILO_MENU' | translate }}
       </button>
 
-      <button *ngIf="token==false" ion-item class="menustyle" menuClose (click)="login()"> <!--ng-if login o profilo-->
+      <button *ngIf="!loggedIn" ion-item class="menustyle" menuClose (click)="login()">
         <ion-icon item-start name="person"></ion-icon>
         Login
       </button>

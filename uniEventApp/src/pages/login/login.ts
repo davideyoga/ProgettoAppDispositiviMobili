@@ -26,11 +26,11 @@ export class LoginPage {
   user: User = {  id: 0,
     name: "",
     surname: "",
-    email: "Prova",
+    email: "",
     age: 0,
     address: "",
     telephoneNumber: 0,
-    password: "Prova"};
+    password: ""};
 
 
 
@@ -75,14 +75,14 @@ export class LoginPage {
 
           console.log("Login effettuato");
 
+          this.events.publish('user:login');
+
           this.navCtrl.setRoot(EVENTI_PAGE);
 
 
         //se username e password non corretti
         }else{
           console.log("Login non effettuato");
-
-
         }
 
       });

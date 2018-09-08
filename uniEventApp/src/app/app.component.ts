@@ -10,7 +10,7 @@ import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVOR
 
 import {timer} from 'rxjs/observable/timer';
 import { UserService } from '../services/user.service';
-
+import { Events } from 'ionic-angular';
 
 
 @Component({
@@ -21,7 +21,8 @@ export class MyApp {
   @ViewChild(Nav) nav:Nav;
 
   rootPage:any;
-  token:boolean=false;
+
+  loggedIn = false;
 
   menuL: Array<{title: string, component: any, icon:any}>;
 
@@ -33,7 +34,7 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService) {
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events) {
 
 
 
@@ -59,14 +60,14 @@ export class MyApp {
     //chiama metodo initTranslate
     this.initTranslate();
     platform.ready().then(() => {
-
-        if(this.UserService.getUtenteToken()!=null){
-        this.token=true;
-        console.log("LOGIN CONFIRMED");}
       //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;
+
+      this.listenToLoginEvents(); //guarda sotto
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
       statusBar.styleDefault();
       splashScreen.hide();
       timer(4000).subscribe(()=> this.showSplash = false)
@@ -117,9 +118,7 @@ export class MyApp {
   }
 
   openProfile(){
-    //if utente.logged==true
     this.nav.setRoot(PROFILE_PAGE);
-    //else loginpage
   }
 
   openSettings(){
@@ -128,11 +127,20 @@ export class MyApp {
   login(){
     this.nav.setRoot(LOGIN_PAGE)}
 
+    logout(){
+      this.UserService.logout();
+      console.log("logout effettuato");}
 
-   checkLogin(){
-     if(this.UserService.getUtenteToken()!=null){
-       this.token=true;}
 
-}
+
+      listenToLoginEvents() {
+        this.events.subscribe('user:login', () => {
+          this.loggedIn = true;
+        });
+
+        this.events.subscribe('user:logout', () => {
+          this.loggedIn = false;
+        });
+      }
 
 }
