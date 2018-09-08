@@ -66,7 +66,7 @@ public class UserController {
             //setto l'oggetto login che va inserito nella risposta
             Login login = new Login();
             login.setToken(session.getToken());
-            login.setEmail(session.getUser().getEmail());
+            login.setUser(session.getUser());
 
             System.out.println("login: " + login);
 
@@ -101,5 +101,6 @@ public class UserController {
         return event.getCreator();
 
     }
+
 
 }//FINE CLASSE

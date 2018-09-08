@@ -52,7 +52,9 @@ export class UserService {
 
                     const token = resp.body.token;
                     
+                    
                     this.storage.set(AUTH_TOKEN, token);
+                    this.storage.set(UTENTE_STORAGE, resp.body.user);
                     
                     
                     // this.storage.get(AUTH_TOKEN).then((token) => {
@@ -94,5 +96,13 @@ export class UserService {
         //Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
         //Per gestirlo si dovrebbe fare lato server una blacklist.
     }
+
+    // addUserPreference(idUser: number, idEvent: number){
+
+    //     let apiUrl = `${URL.ADD_PREFERENCE}/${idUser}/${idEvent}`;
+
+    //     return this.http.get
+
+    // }
 
 }

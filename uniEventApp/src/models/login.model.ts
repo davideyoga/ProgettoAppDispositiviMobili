@@ -1,5 +1,7 @@
+import { User } from "./user.model";
+
 export class Login{
 
-    email: string;
+    user: User;
     token: string;
 }

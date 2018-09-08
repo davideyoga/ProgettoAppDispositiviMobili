@@ -1,9 +1,12 @@
 package it.univaq.disim.mobile.unievent.business.web;
 
+import it.univaq.disim.mobile.unievent.business.domain.User;
+
 public class Login {
 
     private String token;
-    private String email;
+
+    private User user;
 
     public String getToken() {
         return token;
@@ -13,19 +16,22 @@ public class Login {
         this.token = token;
     }
 
-    public String getEmail() {
-        return email;
+
+
+
+
+    public User getUser() {
+        return user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
         return "Login{" +
                 "token='" + token + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -37,13 +43,13 @@ public class Login {
         Login login = (Login) o;
 
         if (getToken() != null ? !getToken().equals(login.getToken()) : login.getToken() != null) return false;
-        return getEmail() != null ? getEmail().equals(login.getEmail()) : login.getEmail() == null;
+        return getUser() != null ? getUser().equals(login.getUser()) : login.getUser() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getToken() != null ? getToken().hashCode() : 0;
-        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
         return result;
     }
 }
