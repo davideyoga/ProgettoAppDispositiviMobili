@@ -6,7 +6,6 @@
 
 </ion-header>
 
-
 <ion-content >
 
   <ion-list *ngIf="utente">
@@ -47,7 +46,7 @@
 
     <ion-item (click)="doPromptPw()">
       <ion-icon item-start name="lock"></ion-icon>
-      {{utente.email}}
+      cambia password
       <button ion-button item-end="" clear >
         <ion-icon name="create"></ion-icon>
       </button>
@@ -55,7 +54,7 @@
 
     <ion-item (click)="doPromptNumb()">
       <ion-icon item-start name="phone-portrait"></ion-icon>
-      {{utente.email}}
+      {{utente.telephoneNumber}}
       <button ion-button item-end="" clear >
         <ion-icon name="create"></ion-icon>
       </button>
@@ -63,13 +62,12 @@
 
     <ion-item (click)="doPromptAddr()">
       <ion-icon item-start name="locate"></ion-icon>
-      {{utente.email}}
+      {{utente.address}}
       <button ion-button item-end="" clear >
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-item>
 
   </ion-list>
-
 
 </ion-content>

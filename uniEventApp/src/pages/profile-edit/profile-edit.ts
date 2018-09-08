@@ -35,6 +35,7 @@ export class ProfileEditPage {
   photo: string = null;
   loading: Loading;
   utente: User;
+  maskMail: string;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
@@ -202,7 +203,7 @@ export class ProfileEditPage {
       message: "Inserisci una nuova email",
       inputs: [
         {
-          name: 'title',
+          name: 'email',
           placeholder: this.utente.email
         },
       ],
@@ -219,11 +220,26 @@ export class ProfileEditPage {
           handler: data => {
             console.log('Saved clicked');
             console.log(data);
+            if (this.changeEmail(data.email)) {
+              console.log('Saved clicked');
+            }
+            else {
+              //mettere erore
+            }
           }
         }
       ]
     });
     prompt.present();
+  }
+
+  changeEmail(mail: string){
+    let re = /\S+@\S+\.\S+/;
+    if ( re.test(mail)){
+      this.utente.email=mail;
+      return true;
+    }
+    else return false;
   }
 
   doPromptName() {
@@ -232,7 +248,7 @@ export class ProfileEditPage {
       message: "Inserisci il nuovo nome",
       inputs: [
         {
-          name: 'title',
+          name: 'name',
           placeholder: this.utente.name
         },
       ],
@@ -248,6 +264,7 @@ export class ProfileEditPage {
           handler: data => {
             console.log('Saved clicked');
             console.log(data);
+            this.utente.name=data.name;
           }
         }
       ]
@@ -261,7 +278,7 @@ export class ProfileEditPage {
       message: "Inserisci il nuovo cognome",
       inputs: [
         {
-          name: 'title',
+          name: 'surname',
           placeholder: this.utente.surname
         },
       ],
@@ -277,6 +294,7 @@ export class ProfileEditPage {
           handler: data => {
             console.log('Saved clicked');
             console.log(data);
+            this.utente.surname=data.surname;
           }
         }
       ]
@@ -290,12 +308,12 @@ export class ProfileEditPage {
       message: "Inserisci la nuova password",
       inputs: [
         {
-          name: 'title',
+          name: 'pass',
           type: 'password',
           placeholder: 'Password'
         },
         {
-          name: 'title2',
+          name: 'pass2',
           type: 'password',
           placeholder: 'Conferma password'
         },
@@ -312,6 +330,8 @@ export class ProfileEditPage {
           handler: data => {
             console.log('Saved clicked');
             console.log(data);
+            if (data.pass==data.pass2)
+              this.utente.password=data.password;
           }
         }
       ]
@@ -325,7 +345,7 @@ export class ProfileEditPage {
       message: "Inserisci il nuovo numero di telefono",
       inputs: [
         {
-          name: 'title',
+          name: 'number',
           placeholder: 'Numero'
         },
       ],
@@ -341,6 +361,14 @@ export class ProfileEditPage {
           handler: data => {
             console.log('Saved clicked');
             console.log(data);
+            let phoneRe = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+            let digits = data.number.replace(/\D/g, "");
+            if (phoneRe.test(digits)){
+              this.utente.telephoneNumber=data.number;
+            }
+            else{
+              // erroe
+            }
           }
         }
       ]
@@ -354,7 +382,7 @@ export class ProfileEditPage {
       message: "Inserisci il nuovo indirizzo",
       inputs: [
         {
-          name: 'title',
+          name: 'address',
           placeholder: 'Indirizzo'
         },
       ],
@@ -370,6 +398,7 @@ export class ProfileEditPage {
           handler: data => {
             console.log('Saved clicked');
             console.log(data);
+            this.utente.address=data.address;
           }
         }
       ]
