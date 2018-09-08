@@ -10,4 +10,21 @@ pagina che devo finire di fare perchè sono un pezzo di merda.
 ricerca avanzata 
 preferiti
 eventi prenotati riprendere dati e prenotare evento al tap
+<<<<<<< Updated upstream
 creazione evento tramite json ricevuto (formato della fata da mandare: "yyyy-MM-dd HH:mm:ss")
+=======
+creazione evento tramite json ricevuto
+
+
+mettere campo foto user server
+
+finire registrazione
+
+finire preferiti
+
+fare la funzione per i preferiti
+
+utente lato server non ha il campo descrizione
+
+lato server mandare due array per eventi passati e eventi futuri 
+>>>>>>> Stashed changes
