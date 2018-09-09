@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MenuController, Nav, Platform } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SETTING_PAGE } from '../pages/pages';
 
 import {timer} from 'rxjs/observable/timer';
 import { UserService } from '../services/user.service';
@@ -47,11 +47,7 @@ export class MyApp {
     ];
 
     this.menuNL = [
-      {title: 'Login', component: LOGIN_PAGE, icon:''},
-
-      //temporanei sopra
-      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
-
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' }
     ];
 
     console.log("constructor MyApp");
@@ -121,27 +117,28 @@ export class MyApp {
   }
 
   openSettings(){
-  this.nav.setRoot(DUMMY_PAGE)} //da sostituire
+  this.nav.setRoot(SETTING_PAGE)}
 
   login(){
     this.nav.setRoot(LOGIN_PAGE)}
 
-    logout(){
-      this.UserService.logout();
-      console.log("logout effettuato");}
+  logout(){
+    this.UserService.logout();
+    this.nav.setRoot(EVENTI_PAGE);
+    console.log("logout effettuato");}
 
 
-
-      listenToLoginEvents() {
+    listenToLoginEvents() {
         if(this.UserService.checkLogin()==true){
         this.events.subscribe('user:login', () => {
           this.loggedIn = true;
+
         });
 
         this.events.subscribe('user:logout', () => {
           this.loggedIn = false;
         });
-      }
-    }
+    }}
+
 
 }

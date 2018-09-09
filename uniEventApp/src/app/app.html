@@ -7,26 +7,39 @@
 
 
 <ion-menu [content]="content">
-
+<!-- parte alta -->
   <ion-header>
     <ion-toolbar class="menutitle" color="primary_color">
-      <ion-title>Menu</ion-title>
-      <button (click)="logout()">
-        Logout test
-      </button>
+
+      <ion-title *ngIf="loggedIn">{{ Welcome | translate }} {{utente.name}} {{utente.surname}}</ion-title>
+
+      <ion-title *ngIf="!loggedIn">Menu</ion-title>
+
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-list>
 
-      <button ion-item menuClose *ngFor="let page of menuL" (click)="openPage(page)">
+
+
+  <!-- corpo menu -->
+  <ion-content>
+    <ion-list *ngIf="loggedIn">   <!-- lista loggato-->
+      <button  ion-item menuClose *ngFor="let page of menuL" (click)="openPage(page)">
         <ion-icon item-start [name]="page.icon"></ion-icon>
         {{page.title | translate }}
       </button>
-
     </ion-list>
+
+    <ion-list *ngIf="!loggedIn">   <!-- lista non loggato-->
+      <button  ion-item menuClose *ngFor="let page of menuNL" (click)="openPage(page)">
+        <ion-icon item-start [name]="page.icon"></ion-icon>
+        {{page.title | translate }}
+      </button>
+    </ion-list>
+
+
     <hr>
+
       <div class="divider"></div>
 
 
@@ -38,8 +51,13 @@
       </button>
 
       <button *ngIf="!loggedIn" ion-item class="menustyle" menuClose (click)="login()">
-        <ion-icon item-start name="person"></ion-icon>
+        <ion-icon item-start name="log-in"></ion-icon>
         Login
+      </button>
+
+      <button *ngIf="loggedIn" ion-item class="menustyle" menuClose (click)="logout()">
+        <ion-icon item-start name="log-out"></ion-icon>
+        Logout
       </button>
 
 
