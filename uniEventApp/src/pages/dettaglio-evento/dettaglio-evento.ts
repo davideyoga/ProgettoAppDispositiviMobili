@@ -12,6 +12,7 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { PaymentPage } from "../payment/payment";
 import {ModalevdescriptionPage} from "../modalevdescription/modalevdescription";
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -26,6 +27,7 @@ export class DettaglioEventoPage {
   image: File;
   storageDirectory: string = '/';
   priceFlag: boolean;
+  favorite: boolean;
 
 
 
@@ -34,7 +36,8 @@ export class DettaglioEventoPage {
               private transfer: FileTransfer, private file: File,
               private iab: InAppBrowser,
               private socialSharing: SocialSharing,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public toastCtrl: ToastController) {
   }
 
 
@@ -57,6 +60,9 @@ export class DettaglioEventoPage {
       this.userService.getUserCreatedEvent(this.evento.id).subscribe((data: User) => {
         this.creatore = data;
       });
+
+      //controlla se l'evento è tra i  preferiti dell'utente
+      this.favorite=false;
 
     });
 
@@ -109,8 +115,10 @@ export class DettaglioEventoPage {
   openMap(){
 
     let url= 'https://www.google.com/maps/search/?api=1&query=';
-    url = url+this.evento.address;
-    url=url+' '+this.evento.city;
+    if (this.evento.address != null)
+      url = url+this.evento.address;
+    if (this.evento.city != null)
+      url=url+' '+this.evento.city;
 
     console.log(url);
     url=url.split(' ').join('%20');
@@ -139,5 +147,38 @@ export class DettaglioEventoPage {
     let modal= this.modalCtrl.create(ModalevdescriptionPage, data);
     modal.present();
   }
+
+  setFavorite(e: Event){
+    let token= this.userService.getUtenteToken();
+    this.userService.addUserFavorite(token, e.id).subscribe((data: boolean) => {
+      console.log('booked event');
+      console.log(data);
+      this.favorite=true;
+      let toast = this.toastCtrl.create({
+        message: 'Evento aggiunto ai preferiti',
+        duration: 2000,
+        position: 'top'
+      });
+
+      toast.present(toast);
+    });
+  }
+
+  unsetFavorite(e: Event){
+    let token= this.userService.getUtenteToken();
+    this.userService.removeUserFavorite(token, e.id).subscribe((data: boolean) => {
+      console.log('remove booked event');
+      console.log(data);
+      this.favorite=false;
+      let toast = this.toastCtrl.create({
+        message: 'Evento rimosso dai preferiti',
+        duration: 2000,
+        position: 'top'
+      });
+
+      toast.present(toast);
+    });
+  }
+
 
 }

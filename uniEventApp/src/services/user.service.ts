@@ -150,8 +150,9 @@ export class UserService {
 
                     this.storage.set(UTENTE_STORAGE, resp.body);
 
-                    console.log("resp.body: " + resp.body);
-            
+                    console.log("resp.body: ");
+                    console.log(resp.body);
+
                     return resp.body;
                 }else{
                     return null;

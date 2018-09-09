@@ -95,7 +95,7 @@
 
       <!--bottone favoriti-->
       <div style="position: relative">
-        <ion-fab right top class="my-heart">
+        <ion-fab right top class="my-heart" (click)="setFavorite(e)">
           <button ion-fab class="fab-map" color="accent_colors">
             <ion-icon name="heart-outline"></ion-icon>
           </button>
@@ -145,7 +145,7 @@
           </button>
         </ion-col>
         <ion-col col-3>
-          <button ion-button clear small color="danger" icon-start>
+          <button ion-button clear small color="danger" icon-start (click)="share(e)">
             <ion-icon name='share-alt'></ion-icon>
             {{'CONDIVIDI' | translate}}
           </button>

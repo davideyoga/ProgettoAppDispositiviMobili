@@ -13,6 +13,8 @@ import { PopoverController} from "ionic-angular";
 import { dateDataSortValue } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
 import { DUMMY_PAGE, EXTRAFILTER_PAGE } from '../pages';
 import { Content } from 'ionic-angular';
+import {UserService} from "../../services/user.service";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 @IonicPage()
 @Component({
@@ -42,7 +44,8 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService,
-              private categoryService: CategoryService, public popOverCtrl: PopoverController) {}
+              private categoryService: CategoryService, public popOverCtrl: PopoverController,
+              public userService: UserService, private socialSharing: SocialSharing) {}
 
   //tutto cio' che succede all'avvio della pagina
   ionViewDidLoad() {
@@ -134,6 +137,30 @@ export class HomePage {
     this.content.scrollToTop();
   }
 
+  setFavorite(e: Event){
+    let token= this.userService.getUtenteToken();
+    this.userService.addUserFavorite(token, e.id).subscribe((data: boolean) => {
+      console.log('booked event');
+      console.log(data);
+    });
+  }
+
+  unsetFavorite(e: Event){
+    let token= this.userService.getUtenteToken();
+    this.userService.removeUserFavorite(token, e.id).subscribe((data: boolean) => {
+      console.log('remove booked event');
+      console.log(data);
+    });
+  }
+
+  share(e: Event){
+    this.socialSharing.share(e.id.toString())
+      .then(() =>{
+
+      }).catch(() => {
+
+    });
+  }
   /*doRefresh(refresher) {
     console.log('Begin async operation', refresher);
     this.ionViewDidLoad();

@@ -14,6 +14,7 @@ import {FilePath} from "@ionic-native/file-path";
 import { Storage } from '@ionic/storage';
 import {UTENTE_STORAGE} from "../../constants";
 import {User} from "../../models/user.model";
+import {UserService} from "../../services/user.service";
 
 
 declare var cordova: any;
@@ -41,7 +42,8 @@ export class ProfileEditPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
               private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath,
               public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController,
-              public platform: Platform, public loadingCtrl: LoadingController, private storage: Storage) {
+              public platform: Platform, public loadingCtrl: LoadingController, private storage: Storage,
+              public userService: UserService) {
   }
 
   ionViewDidLoad() {
@@ -217,10 +219,16 @@ export class ProfileEditPage {
         {
           text: 'Salva',
           handler: data => {
-            console.log('Saved clicked');
+            console.log('email save click');
             console.log(data);
             if (this.changeEmail(data.email)) {
-              console.log('Saved clicked');
+              console.log('sono qui');
+              this.userService.updateUser(this.utente).subscribe((data: User) => {
+                console.log('user dopo la modifica');
+                console.log(this.utente);
+                console.log(data);
+              });
+              console.log('email changed');
             }
             else {
               //mettere erore

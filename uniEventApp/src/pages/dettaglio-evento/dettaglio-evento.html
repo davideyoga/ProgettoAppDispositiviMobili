@@ -9,7 +9,10 @@
         <ion-icon name="share"></ion-icon>
       </button>
 
-      <button ion-button icon-only>
+      <button ion-button icon-only *ngIf="evento && favorite" (click)="unsetFavorite(evento)">
+        <ion-icon name="heart" color="danger"></ion-icon>
+      </button>
+      <button ion-button icon-only *ngIf="evento && !favorite" (click)="setFavorite(evento)">
         <ion-icon name="heart-outline"></ion-icon>
       </button>
     </ion-buttons>
@@ -49,9 +52,14 @@
       </ion-item>
 
       <!--indirizzo-->
-      <ion-item (click)="openMap()" >
+      <ion-item (click)="openMap()" *ngIf="evento.address && evento.city">
         <ion-icon name='pin' item-start color="accent_colors"></ion-icon>
         {{evento.address}}, {{evento.city}}
+      </ion-item>
+
+      <ion-item (click)="openMap()" *ngIf="evento.address == null && evento.city">
+        <ion-icon name='pin' item-start color="accent_colors"></ion-icon>
+        {{evento.city}}
       </ion-item>
 
       <ion-item text-wrap>
