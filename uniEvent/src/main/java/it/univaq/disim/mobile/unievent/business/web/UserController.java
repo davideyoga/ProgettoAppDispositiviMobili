@@ -21,15 +21,20 @@ public class UserController {
     private UniEventService service;
 
     @PostMapping("/create")
-    public Response createUser(@RequestParam String email, @RequestParam String password) {
+    public Login createUser(@RequestParam String email, @RequestParam String password) {
 
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
 
         service.createUser(user);
+        Session session = service.login(user.getEmail(), user.getPassword());
 
-        return Response.DEFAULT_RESPONSE_OK;
+        Login login = new Login();
+        login.setUser(session.getUser());
+        login.setToken(session.getToken());
+
+        return login;
     }
 
     @PostMapping("/updateUser")

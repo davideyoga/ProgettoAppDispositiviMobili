@@ -78,17 +78,31 @@ export class UserService {
             });
     }
 
-    register(user:User): Observable<Register>{
-        // return this.http.post<Register>(URL.REGISTER, user, { observe: 'response' })
-        //     .map((resp: HttpResponse<Register>) => {
-        //         const token = resp.headers.get(X_AUTH);
-        //         this.storage.set(AUTH_TOKEN, token);
-        //         this.tokenUtente = token;
-        //         //Utente memorizzato nello storage in modo tale che se si vuole cambiare il
-        //         //profilo dell'utente stesso non si fa una chiamata REST.
-        //         this.storage.set(UTENTE_STORAGE, resp.body);
-        //         return resp.body;
-        //     });
+    register(user:User): Observable<Login>{
+        return this.http.post<Login>(URL.REGISTER, user, { observe: 'response' })
+            .map((resp: HttpResponse<Login>) => {
+                if(resp.body!=null){
+
+                    const token = resp.body.token;
+
+
+                    this.storage.set(AUTH_TOKEN, token);
+                    this.storage.set(UTENTE_STORAGE, resp.body.user);
+
+
+                    // this.storage.get(AUTH_TOKEN).then((token) => {
+                    //     console.log("token in memo: " + token);
+                    // });
+
+                    //console.log("resp.body.token: " + resp.body.token);
+
+                    this.tokenUtente = token;
+
+                    return resp.body;
+                }else{
+                    return null;
+                }
+            });
 
       console.log('register function');
       return ;

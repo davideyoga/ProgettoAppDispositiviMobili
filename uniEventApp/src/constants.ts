@@ -22,7 +22,7 @@ export const URL = {
     IMAGE: URL_BASE + '/event/image',
     LOGIN: URL_BASE + '/user/login',
     ADVANCE_SEARCH: URL_BASE + '/event/advanceSearch',
-    REGISTER: URL_BASE + '/user/register',
+    REGISTER: URL_BASE + '/user/create',
     CREATE_EVENT: URL_BASE + '/event/create',
     ADD_PREFERENCE: URL_BASE + '/event/addUserPreference',
     REMOVE_PREFERENCE: URL_BASE + '/event/removeUserPreference',
