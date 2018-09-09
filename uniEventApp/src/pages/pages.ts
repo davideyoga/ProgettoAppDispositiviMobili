@@ -16,5 +16,7 @@ export const FAVORITE_PAGE = 'FavoritePage';
 
 export const PROFILE_EDIT_PAGE = 'ProfileEditPage';
 
+export const SETTING_PAGE = 'SettingPage';
+
 
 

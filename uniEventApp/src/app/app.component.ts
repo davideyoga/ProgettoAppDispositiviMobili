@@ -6,11 +6,14 @@ import { TranslateService } from '@ngx-translate/core';
 import { MenuController, Nav, Platform } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SETTING_PAGE } from '../pages/pages';
 
 import {timer} from 'rxjs/observable/timer';
-
-
+import { UserService } from '../services/user.service';
+import { Events } from 'ionic-angular';
+import { UTENTE_STORAGE } from '../constants';
+import { User } from '../models/user.model';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,32 +24,35 @@ export class MyApp {
 
   rootPage:any;
 
+  loggedIn = false;
+
   menuL: Array<{title: string, component: any, icon:any}>;
 
   menuNL: Array<{title: string, component: any, icon:any}>;  //menu non loggato
 
-
   showSplash = true;
 
+  utente: User;
+
+
+
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService) {
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage) {
+
 
 
     this.menuL = [
 
       //temporanei sopra
-      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
-      {title: 'PREFERITI_MENU', component: FAVORITE_PAGE, icon: 'heart' },
-      {title: 'EVENTI_CREATI_MENU', component: MYEVENTS_PAGE, icon: 'add' },
-      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' }
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar'},
+      {title: 'PREFERITI_MENU', component: FAVORITE_PAGE, icon: 'heart'},
+      {title: 'EVENTI_CREATI_MENU', component: MYEVENTS_PAGE, icon: 'add'},
+      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline'}
     ];
 
     this.menuNL = [
-      {title: 'Login', component: LOGIN_PAGE, icon:''},
-
-      //temporanei sopra
-      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
-
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' }
     ];
 
     console.log("constructor MyApp");
@@ -56,14 +62,17 @@ export class MyApp {
     platform.ready().then(() => {
       //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;
+
+      this.listenToLoginEvents(); //guarda sotto
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
 
       statusBar.styleDefault();
       splashScreen.hide();
-
-      timer(4000).subscribe(()=> this.showSplash = false)
+      timer(1000).subscribe(()=> this.showSplash = false)
     });
+
   }
 
 
@@ -109,17 +118,47 @@ export class MyApp {
   }
 
   openProfile(){
-    //if utente.logged==true
     this.nav.setRoot(PROFILE_PAGE);
-    //else loginpage
   }
 
   openSettings(){
-  this.nav.setRoot(DUMMY_PAGE)} //da sostituire
+  this.nav.setRoot(SETTING_PAGE)}
 
   login(){
     this.nav.setRoot(LOGIN_PAGE)}
 
+  logout(){
+    this.UserService.logout();
+    this.nav.setRoot(EVENTI_PAGE);
+    console.log("logout effettuato");}
+
+
+    listenToLoginEvents() {
+        if(this.UserService.checkLogin()==true){
+        this.events.subscribe('user:login', () => {
+          this.loggedIn = true;
+          this.storage.get(UTENTE_STORAGE).then((user) => {
+
+            this.utente=user;
+            console.log(this.utente);
+            if (this.utente== null){
+              this.utente={  id: 0,
+                name: "",
+                surname: "",
+                email: "",
+                age: 0,
+                address: "",
+                telephoneNumber: 0,
+                password: ""};
+            }
+          })
+        });
+
+        this.events.subscribe('user:logout', () => {
+          this.loggedIn = false;
+        });
+    }
+  }
+
 
 }
-

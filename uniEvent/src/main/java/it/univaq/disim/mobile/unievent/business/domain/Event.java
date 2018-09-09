@@ -61,7 +61,6 @@ public class Event implements java.io.Serializable, Comparable {
     private User creator;
 
 
-    @JsonIgnore
     @OneToMany
     private List<Participate> participation;
 

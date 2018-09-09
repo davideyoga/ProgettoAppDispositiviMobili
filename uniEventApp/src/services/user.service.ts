@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs/Observable';
 
-import { AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH } from '../constants';
+import { AUTH_TOKEN, URL, UTENTE_STORAGE} from '../constants';
 import { Login } from '../models/login.model';
-import { User,Account } from '../models/user.model';
-
-import 'rxjs/Rx';
-import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { User } from '../models/user.model';
+import {Events} from 'ionic-angular';
 import { Register } from "../models/register.model";
+import 'rxjs/Rx';
+
 
 @Injectable()
 export class UserService {
@@ -17,15 +17,21 @@ export class UserService {
     //token dell'utente che va settato durante il login
     private tokenUtente: string;
 
-    constructor(private http: HttpClient, private storage: Storage) {
+    constructor(private http: HttpClient, private storage: Storage, public events:Events) {
         this.storage.get(AUTH_TOKEN).then((token) => {
             this.tokenUtente = token;
         });
     }
 
-    getUtenteToken(): string {
+    getUtenteToken(): string{
         return this.tokenUtente;
     }
+
+    checkLogin():boolean{
+      if(this.getUtenteToken()!="" || this.getUtenteToken()!=null)
+      return true;
+    }
+
 
     getUserCreatedEvent(idEvent: number): Observable<User>{
 
@@ -51,12 +57,12 @@ export class UserService {
                 if(resp.body!=null){
 
                     const token = resp.body.token;
-                    
-                    
+
+
                     this.storage.set(AUTH_TOKEN, token);
                     this.storage.set(UTENTE_STORAGE, resp.body.user);
-                    
-                    
+
+
                     // this.storage.get(AUTH_TOKEN).then((token) => {
                     //     console.log("token in memo: " + token);
                     // });
@@ -64,7 +70,7 @@ export class UserService {
                     //console.log("resp.body.token: " + resp.body.token);
 
                     this.tokenUtente = token;
-            
+
                     return resp.body;
                 }else{
                     return null;
@@ -89,10 +95,10 @@ export class UserService {
     }
 
     logout(){
-
         this.tokenUtente = "";
         this.storage.remove(AUTH_TOKEN);
         this.storage.remove(UTENTE_STORAGE);
+        this.events.publish('user:logout');
         //Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
         //Per gestirlo si dovrebbe fare lato server una blacklist.
     }

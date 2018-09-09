@@ -1,5 +1,5 @@
+<!-- METTERE TUTTI I PORCA PUTTANNA DI CAMPI IN ITA - ENG -->
 <ion-header>
-
   <ion-navbar color="primary_color">
     <ion-title>{{'REGISTER'| translate}}</ion-title>
   </ion-navbar>
@@ -17,7 +17,7 @@
           Dati base</ion-card-title>
         <ion-item no-lines="">
           <ion-label floating>Email</ion-label>
-          <ion-input [(ngModel)]="user.email" type="text" name="email"></ion-input>
+          <ion-input [(ngModel)]="user.email" type="email" name="email"></ion-input>
         </ion-item>
 
         <ion-item no-lines="">
@@ -37,30 +37,25 @@
         <ion-input [(ngModel)]="user.name" type="text" name="name"></ion-input>
       </ion-item>
 
-      <ion-item no-lines="">
+      <ion-item no-lines>
         <ion-label floating>Cognome</ion-label>
         <ion-input [(ngModel)]="user.surname" type="text" name="surname"></ion-input>
       </ion-item>
 
-      <ion-item no-lines="">
-        <ion-label floating>Età</ion-label>
-        <ion-input [(ngModel)]="user.age" type="number" name="age"></ion-input>
+      <ion-item no-lines>
+        <ion-label floating>Anno di nascita</ion-label>
+        <ion-input [(ngModel)]="user.age" type="number" name="age" ></ion-input>
       </ion-item>
 
-      <ion-item no-lines="">
-        <ion-label floating>Indirizzo</ion-label>
-        <ion-input [(ngModel)]="user.address" type="text" name="address"></ion-input>
-      </ion-item>
-
-      <ion-item no-lines="">
+      <ion-item no-lines>
         <ion-label floating>Numero di telefono</ion-label>
-        <ion-input [(ngModel)]="user.telephoneNumber" type="number" name="telephoneNumber"></ion-input>
+        <ion-input [(ngModel)]="user.telephoneNumber" type="phone" name="telephoneNumber"></ion-input>
       </ion-item>
     </ion-card>
 
     <!--permettere di caricare una foto profilo-->
     <ion-item>
-      <button full ion-button="" color="accent_colors" (click)="register(registerForm)">{{'REGISTER' | translate}}</button>
+      <button full ion-button color="accent_colors" (click)="register(registerForm)">{{'REGISTER' | translate}}</button>
     </ion-item>
   </form>
 

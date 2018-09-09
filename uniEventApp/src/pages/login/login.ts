@@ -8,6 +8,7 @@ import { UserService } from '../../services/user.service';
 import { Login } from '../../models/login.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RegisterPage } from "../register/register";
+import { EVENTI_PAGE } from '../pages';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,14 +23,14 @@ import { RegisterPage } from "../register/register";
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user: User = {  id: 0,
+  user: User = { id: 0,
     name: "",
     surname: "",
-    email: "pippo",
+    email: "prova",
     age: 0,
     address: "",
     telephoneNumber: 0,
-    password: "pippo"};
+    password: "prova"};
 
 
 
@@ -65,15 +66,19 @@ export class LoginPage {
       console.log("form valida");
 
       this.userService.login(this.user).subscribe((data: Login) => {
-        
+
         //se username e login sono corretti
         if(data != null){
-          
+
           //setto l'oggetto login
           this.login = data;
 
           console.log("Login effettuato");
-        
+
+          this.events.publish('user:login');
+
+          this.navCtrl.setRoot(EVENTI_PAGE);
+
 
         //se username e password non corretti
         }else{

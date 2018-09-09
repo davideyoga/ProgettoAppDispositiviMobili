@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {DUMMY_PAGE, PROFILE_EDIT_PAGE} from '../pages';
+import {UTENTE_STORAGE} from "../../constants";
+import {User} from "../../models/user.model";
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the ProfilePage page.
@@ -16,13 +19,29 @@ import {DUMMY_PAGE, PROFILE_EDIT_PAGE} from '../pages';
 })
 export class ProfilePage {
 
+  utente: User;
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage:Storage) {}
 
 
 ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+
+    this.storage.get(UTENTE_STORAGE).then((user) => {
+
+      this.utente=user;
+      console.log(this.utente);
+      if (this.utente== null){
+        this.utente={  id: 0,
+          name: "",
+          surname: "",
+          email: "",
+          age: 0,
+          address: "",
+          telephoneNumber: 0,
+          password: ""};
+      }
+    })
   }
 
 modifyProfile(){

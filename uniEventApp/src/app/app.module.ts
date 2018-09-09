@@ -34,6 +34,7 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { ModalevdescriptionPage } from "../pages/modalevdescription/modalevdescription";
+import {RegisterPage} from "../pages/register/register";
 
 registerLocaleData(localeIt, 'it');
 
@@ -48,6 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
     PopoverComponent,
     SearchpopoverComponent,
     BookedeventPage,
+    RegisterPage
   ],
 
   imports: [
@@ -85,6 +87,7 @@ export function createTranslateLoader(http: HttpClient) {
     PopoverComponent,
     SearchpopoverComponent,
     BookedeventPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

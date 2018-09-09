@@ -13,9 +13,9 @@
 
 <ion-content padding>
 
-<ion-list>
+<ion-list *ngIf="utente">
   <ion-item>
-      <h1 item-start>Name Surname</h1>
+      <h1 item-start>{{utente.name}} {{utente.surname}}</h1>
     <ion-avatar>
       <img id="avatar" src="../../assets/imgs/logo.png">
     </ion-avatar>

@@ -1,49 +1,73 @@
-<!--
-  Generated template for the ProfileEditPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>profile-edit</ion-title>
+  <ion-navbar color="primary_color">
+    <ion-title>{{MODIFICA_PROFILO | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content >
 
-<ion-content padding>
+  <ion-list *ngIf="utente">
 
-  <ion-list>
-    <button ion-item (click)="changeImg()">
-      <ion-avatar item-end>
+    <ion-item (click)="changeImg()">
+
+      <ion-avatar item-start>
+        <!--<img src="{{pathForImage(lastImage)}}" style="width:100%" [hidden]="lastImage === null">-->
         <img src="../../assets/imgs/patato.jpg">
       </ion-avatar>
-      cambia immagine profilo
-    </button>
+      cambia immagine
 
-    <button ion-item (click)="doPrompt()">
-      <ion-icon id="at" item-end name="at"></ion-icon>
-      cambia email
-    </button>
+    </ion-item>
 
-    <button ion-item>
-      <ion-icon id="lock" item-end name="lock"></ion-icon>
+    <ion-item (click)="doPromptEmail()">
+      <ion-icon item-start name="at"></ion-icon>
+      {{utente.email}}
+      <button ion-button item-end="" clear >
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-item (click)="doPromptName()">
+      <ion-icon item-start name="book"></ion-icon>
+      {{utente.name}}
+      <button ion-button item-end="" clear >
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-item (click)="doPromptSurname()">
+      <ion-icon item-start name="book"></ion-icon>
+      {{utente.surname}}
+      <button ion-button item-end="" clear >
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-item (click)="doPromptPw()">
+      <ion-icon item-start name="lock"></ion-icon>
       cambia password
-    </button>
+      <button ion-button item-end="" clear >
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-item>
 
-    <button ion-item >
-      <ion-icon id="phone" item-end name="phone-portrait"></ion-icon>
-      cambia numero di telefono
-    </button>
+    <ion-item (click)="doPromptNumb()">
+      <ion-icon item-start name="phone-portrait"></ion-icon>
+      {{utente.telephoneNumber}}
+      <button ion-button item-end="" clear >
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-item>
 
-    <button ion-item >
-      <ion-icon id="addr" item-end name="locate"></ion-icon>
-      cambia indirizzo
-    </button>
+    <ion-item (click)="doPromptAddr()">
+      <ion-icon item-start name="locate"></ion-icon>
+      {{utente.address}}
+      <button ion-button item-end="" clear >
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-item>
 
   </ion-list>
-
 
 </ion-content>
