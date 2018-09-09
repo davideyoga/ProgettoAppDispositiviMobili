@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, Events, AlertController } from 'ionic-angular';
 
-import { User,Account } from '../../models/user.model';
+import { User} from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { Login } from '../../models/login.model';
 import { HttpErrorResponse } from '@angular/common/http';

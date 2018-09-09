@@ -6,6 +6,8 @@ import { Category } from '../../models/category.model';
 import { CREATEVENTS_PAGE } from '../pages';
 import { UTENTE_STORAGE } from '../../constants';
 import { User } from '../../models/user.model';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -53,7 +55,25 @@ export class MyeventsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyeventsPage');
 
-  this.eventService.getEventByUserCreator(this.utenteid).subscribe((data: Array<Event>) => {
+    this.storage.get(UTENTE_STORAGE).then((user) => {
+
+      this.utente=user;
+      if (this.utente == null){
+        this.utente={id:1,
+          name: "",
+          surname: "",
+          email: "",
+          age: 0,
+          address: "",
+          telephoneNumber: 0,
+          password: ""};
+      }
+    })
+
+
+    console.log(this.utente.id);
+
+  this.eventService.getEventByUserCreator(this.utente.id).subscribe((data: Array<Event>) => {
       this.eventi = data;
     });
   }
