@@ -47,20 +47,19 @@ export class ProfileEditPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileEditPage');
     this.storage.get(UTENTE_STORAGE).then((user) => {
-      console.log('ci arrivo');
+
       this.utente=user;
       console.log(this.utente);
       if (this.utente== null){
         this.utente={  id: 0,
           name: "",
           surname: "",
-          email: "pippo",
+          email: "",
           age: 0,
           address: "",
           telephoneNumber: 0,
-          password: "pippo"};
+          password: ""};
       }
-      console.log('ci arrivo 2');
     })
   }
 

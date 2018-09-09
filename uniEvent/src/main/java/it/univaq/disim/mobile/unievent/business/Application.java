@@ -44,8 +44,8 @@ public class Application {
             CREAZIONE UTENTI
              */
             User user = new User();
-            user.setEmail("d.micarelli7@gmail.com");
-            user.setPassword("d.micarelli");
+            user.setEmail("prova");
+            user.setPassword("prova");
             user.setName("davide");
 
             User user2 = new User();

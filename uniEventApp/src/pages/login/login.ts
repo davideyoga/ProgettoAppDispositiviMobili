@@ -23,14 +23,14 @@ import { EVENTI_PAGE } from '../pages';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user: User = {  id: 0,
+  user: User = { id: 0,
     name: "",
     surname: "",
-    email: "",
+    email: "prova",
     age: 0,
     address: "",
     telephoneNumber: 0,
-    password: ""};
+    password: "prova"};
 
 
 

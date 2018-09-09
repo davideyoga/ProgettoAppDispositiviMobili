@@ -12,7 +12,6 @@ import {timer} from 'rxjs/observable/timer';
 import { UserService } from '../services/user.service';
 import { Events } from 'ionic-angular';
 
-
 @Component({
   templateUrl: 'app.html'
 })
@@ -41,10 +40,10 @@ export class MyApp {
     this.menuL = [
 
       //temporanei sopra
-      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar' },
-      {title: 'PREFERITI_MENU', component: FAVORITE_PAGE, icon: 'heart' },
-      {title: 'EVENTI_CREATI_MENU', component: MYEVENTS_PAGE, icon: 'add' },
-      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline' }
+      {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar'},
+      {title: 'PREFERITI_MENU', component: FAVORITE_PAGE, icon: 'heart'},
+      {title: 'EVENTI_CREATI_MENU', component: MYEVENTS_PAGE, icon: 'add'},
+      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline'}
     ];
 
     this.menuNL = [
@@ -134,6 +133,7 @@ export class MyApp {
 
 
       listenToLoginEvents() {
+        if(this.UserService.checkLogin()==true){
         this.events.subscribe('user:login', () => {
           this.loggedIn = true;
         });
@@ -142,5 +142,6 @@ export class MyApp {
           this.loggedIn = false;
         });
       }
+    }
 
 }

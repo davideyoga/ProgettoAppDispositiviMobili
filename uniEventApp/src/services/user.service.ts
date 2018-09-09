@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs/Observable';
 
-import { AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH } from '../constants';
+import { AUTH_TOKEN, URL, UTENTE_STORAGE} from '../constants';
 import { Login } from '../models/login.model';
-import { User,Account } from '../models/user.model';
-
-import 'rxjs/Rx';
-import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { User } from '../models/user.model';
+import {Events} from 'ionic-angular';
 import { Register } from "../models/register.model";
-import {Events, Events} from 'ionic-angular';
+import 'rxjs/Rx';
+
+
 @Injectable()
 export class UserService {
 
