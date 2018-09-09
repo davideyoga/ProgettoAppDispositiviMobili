@@ -14,4 +14,6 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
 
     void deleteByToken(String token);
 
+    Session findByToken(String token);
+
 }

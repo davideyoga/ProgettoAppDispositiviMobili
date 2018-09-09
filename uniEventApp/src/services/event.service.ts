@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AlertController } from "ionic-angular";
@@ -103,15 +103,35 @@ export class EventService {
             });
     }
 
-    // updateProfilo(nuovoUtente: Utente): Observable<Utente> {
-    //     return this.http.post<Utente>(URL.UPDATE_PROFILO, nuovoUtente, { observe: 'response' })
-    //         .map((resp: HttpResponse<Utente>) => {
-    //             //Aggiornamento dell'utente nello storage.
-    //             //Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
-    //             //e se l'utente chiude la app e la riapre i dati sono gia' presenti
-    //             this.storage.set(UTENTE_STORAGE, resp.body);
-    //             return resp.body;
-    //         });
-    // }
+
+    getEventPrenotatedByToken(token: String): Observable<Array<Event>>{
+
+        return this.http.post<Array<Event>>(URL.EVENT_REGISTERED, event, {observe: 'response'})
+            .map((resp: HttpResponse<Array<Event>>) => {
+                //Aggiornamento dell'utente nello storage.
+                //Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
+                //e se l'utente chiude la app e la riapre i dati sono gia' presenti
+
+                console.log("resp.body.valueOf():" + resp.body.valueOf());
+
+                return resp.body;
+            });
+    }
+
+
+    bookedEvent(token: string, idEvent: number): Observable<boolean>{
+
+        const params = new HttpParams()
+            .set('token', token)
+            .set('idEvent', String(idEvent));
+
+        let apiURL = `${URL.BOOK_EVENT}`
+        return this.http.post<boolean>(apiURL, params);
+
+    }
+
+
+
+
 
 }

@@ -5,6 +5,8 @@ import it.univaq.disim.mobile.unievent.business.AdvanceSearch;
 import it.univaq.disim.mobile.unievent.business.CustomerDateAndTimeDeserialize;
 import it.univaq.disim.mobile.unievent.business.domain.Category;
 import it.univaq.disim.mobile.unievent.business.domain.Event;
+import it.univaq.disim.mobile.unievent.business.domain.Participate;
+import it.univaq.disim.mobile.unievent.business.domain.User;
 import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -265,5 +267,52 @@ public class EventController {
 
             return newList;
     }
+
+
+    @PostMapping("/eventRegisteredByUser")
+    public List<Event> getEventRegisteredByToken(String token){
+
+
+        List<Participate> participateList = this.service.findSessionByToken(token).getUser().getParticipation();
+
+        List<Event> eventList = new ArrayList<>();
+
+        for (Participate p : participateList){
+
+            eventList.add(p.getEvent());
+
+        }
+
+        return eventList;
+    }
+
+
+    @PostMapping("/bookEvent")
+    public boolean bookEvent(@RequestParam String token, @RequestParam Long idEvent){
+
+        System.out.println("Laniato metodo book Event");
+
+        Event event = service.findEventById(idEvent);
+
+        User user = this.service.findSessionByToken(token).getUser();
+
+        Participate participate = new Participate();
+        participate.setEvent(event);
+        participate.setUser(this.service.findSessionByToken(token).getUser());
+        participate.setDataPrenotation(new Date(Calendar.getInstance().getTimeInMillis()));
+
+        this.service.saveParticipate(participate);
+
+        user.getParticipation().add(participate);
+
+        this.service.save(user);
+
+        event.getParticipation().add(participate);
+
+        this.service.updateEvent(event);
+
+        return true;
+    }
+
 
 }

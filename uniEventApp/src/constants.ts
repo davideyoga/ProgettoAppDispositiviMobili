@@ -25,9 +25,16 @@ export const URL = {
     REGISTER: URL_BASE + '/user/register',
     CREATE_EVENT: URL_BASE + '/event/create',
     ADD_PREFERENCE: URL_BASE + '/event/addUserPreference',
-    REMOVE_PREFERENCE: URL_BASE + '/event/removeUserPreference'
-    
+    REMOVE_PREFERENCE: URL_BASE + '/event/removeUserPreference',
 
+    ADD_FAVORITE: URL_BASE + '/user/addUserFavorite',
+    REMOVE_FAVORITE: URL_BASE + '/user/removeUserFavorite',
+
+    UPDATE_USER : URL_BASE + '/user/updateUser',
+
+    EVENT_REGISTERED: URL_BASE + '/event/eventRegisteredByUser',
+
+    BOOK_EVENT: URL_BASE + '/event/bookEvent'
 
 }
 

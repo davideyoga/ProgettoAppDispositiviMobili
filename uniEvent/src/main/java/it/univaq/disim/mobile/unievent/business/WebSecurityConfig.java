@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 //Specificare le url che sono soggette ad autenticazione ed autorizzazione
                 .antMatchers("/api/event/*","/api/baseSearch","/api/baseSearch/**", "/api/event/hot", "/api/event/city", "/api/category/all", "/", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js", "/api/login/**").permitAll()
-                .antMatchers("/api/notizie/**").authenticated()
+                .antMatchers("/api/notizie/**", "/api/event/bookEvent").authenticated()
                 .antMatchers("/api/insegnamenti/**", "/api/appelli/**").hasAnyRole("docente")
                 .antMatchers("/api/utente/**").authenticated();
 

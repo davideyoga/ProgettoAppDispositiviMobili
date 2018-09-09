@@ -10,4 +10,9 @@ pagina che devo finire di fare perchè sono un pezzo di merda.
 ricerca avanzata 
 preferiti
 eventi prenotati riprendere dati e prenotare evento al tap
-creazione evento tramite json ricevuto (formato della fata da mandare: "yyyy-MM-dd HH:mm:ss")
+creazione evento tramite json ricevuto (formato della data da mandare: "yyyy-MM-dd HH:mm:ss")
+
+
+
+Controllare che tutte le volte che premi su un evento, quando si 
+    dovrebbe, aumenta le views(le views aumentano solo quando le richiamo con findUserById)

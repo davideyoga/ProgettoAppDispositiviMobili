@@ -68,6 +68,18 @@ public interface UniEventService {
 
     //End Category
 
-    
+
+    //session
+
+    Session findSessionByToken(String token);
+
+    //end session
+
+
+    //participate
+
+    void saveParticipate(Participate participate);
+
+    //end participate
 
 }

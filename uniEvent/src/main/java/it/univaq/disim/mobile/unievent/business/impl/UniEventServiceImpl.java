@@ -38,6 +38,10 @@ public class UniEventServiceImpl implements UniEventService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private ParticipateRepository participateRepository;
+
+
     /*
      * END REPOSITORY
      */
@@ -134,6 +138,19 @@ public class UniEventServiceImpl implements UniEventService {
     @Override
     public List<Category> getCategories() {
         return categoryRepository.findAll();
+    }
+
+    @Override
+    public Session findSessionByToken(String token) {
+        return this.sessionRepository.findByToken(token);
+    }
+
+
+    @Override
+    public void saveParticipate(Participate participate) {
+
+        this.participateRepository.save(participate);
+
     }
 
 

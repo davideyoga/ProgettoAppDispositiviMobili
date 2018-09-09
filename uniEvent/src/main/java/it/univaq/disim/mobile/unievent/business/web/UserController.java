@@ -8,6 +8,8 @@ import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
+
 /**
  * @author uniEvent
  */
@@ -30,8 +32,17 @@ public class UserController {
         return Response.DEFAULT_RESPONSE_OK;
     }
 
+    @PostMapping("/updateUser")
+    public User updateUser(@RequestBody User user){
+
+        this.service.save(user);
+
+        return user;
+    }
+
+
     @PostMapping("/addUserPreference")
-    public Response addUserPreference(@RequestParam String emailUser, @RequestParam String namePreference) {
+    public boolean addUserPreference(@RequestParam String emailUser, @RequestParam String namePreference) {
 
         User user = service.findUserByEmail(emailUser);
 
@@ -41,9 +52,11 @@ public class UserController {
 
         service.save(user);
 
-        return Response.DEFAULT_RESPONSE_OK;
+        return true;
 
     }
+
+
 
 
     /**
@@ -85,7 +98,7 @@ public class UserController {
     @PostMapping("/logout")
     public Boolean logout(@RequestParam  String token){
 
-        //creo la sessione
+        //elimino sessione
         service.logout(token);
 
         return true;
@@ -101,6 +114,45 @@ public class UserController {
         return event.getCreator();
 
     }
+
+
+    @GetMapping("/addUserFavorite/{token}/{idEvent}")
+    public boolean addUserFavorite(@PathVariable String token, @PathVariable Long idEvent) {
+
+        System.out.println("addUserFavorite lanciato");
+
+        Event event = this.service.findEventById(idEvent);
+
+        User user = this.service.findSessionByToken(token).getUser();
+
+        user.getPreferredEvents().add(event);
+
+        service.save(user);
+
+        return true;
+
+    }
+
+    //removeUserFavorite
+    @GetMapping("/removeUserFavorite/{token}/{idEvent}")
+    public boolean removeUserFavorite(@PathVariable String token, @PathVariable Long idEvent) {
+
+        System.out.println("removeUserFavorite lanciato");
+
+        Event event = this.service.findEventById(idEvent);
+
+        User user = this.service.findSessionByToken(token).getUser();
+
+        System.out.println("user.getPreferredEvents(): " + user.getPreferredEvents());
+
+        user.getPreferredEvents().remove(event);
+
+        service.save(user);
+
+        return true;
+
+    }
+
 
 
 }//FINE CLASSE

@@ -97,12 +97,45 @@ export class UserService {
         //Per gestirlo si dovrebbe fare lato server una blacklist.
     }
 
-    // addUserPreference(idUser: number, idEvent: number){
+    addUserFavorite(token: string, idEvent: number){
 
-    //     let apiUrl = `${URL.ADD_PREFERENCE}/${idUser}/${idEvent}`;
+        console.log("lanciato metodo addUserFavorite" );
 
-    //     return this.http.get
+        let apiUrl = `${URL.ADD_FAVORITE}/${token}/${idEvent}`;
 
-    // }
+        console.log("apiUrl: " + apiUrl );
+
+        return this.http.get<boolean>(apiUrl);
+
+    }
+
+    removeUserFavorite(token: string, idEvent: number){
+
+        let apiUrl = `${URL.REMOVE_FAVORITE}/${token}/${idEvent}`;
+
+        return this.http.get<boolean>(apiUrl);
+
+    }
+
+
+    updateUser(user: User): Observable<User>{
+
+        return this.http.post<User>(URL.UPDATE_USER, user, { observe: 'response' })
+            .map((resp: HttpResponse<User>) => {
+
+                console.log("Entrato nel metodo updateUser");
+
+                if(resp.body!=null){
+
+                    this.storage.set(UTENTE_STORAGE, resp.body);
+
+                    console.log("resp.body: " + resp.body);
+            
+                    return resp.body;
+                }else{
+                    return null;
+                }
+            });
+    }
 
 }
