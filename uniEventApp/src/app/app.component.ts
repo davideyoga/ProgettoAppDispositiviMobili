@@ -11,6 +11,9 @@ import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVOR
 import {timer} from 'rxjs/observable/timer';
 import { UserService } from '../services/user.service';
 import { Events } from 'ionic-angular';
+import { UTENTE_STORAGE } from '../constants';
+import { User } from '../models/user.model';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,11 +32,13 @@ export class MyApp {
 
   showSplash = true;
 
+  utente: User;
+
 
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events) {
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage) {
 
 
 
@@ -65,7 +70,7 @@ export class MyApp {
 
       statusBar.styleDefault();
       splashScreen.hide();
-      timer(4000).subscribe(()=> this.showSplash = false)
+      timer(1000).subscribe(()=> this.showSplash = false)
     });
 
   }
@@ -132,13 +137,28 @@ export class MyApp {
         if(this.UserService.checkLogin()==true){
         this.events.subscribe('user:login', () => {
           this.loggedIn = true;
+          this.storage.get(UTENTE_STORAGE).then((user) => {
 
+            this.utente=user;
+            console.log(this.utente);
+            if (this.utente== null){
+              this.utente={  id: 0,
+                name: "",
+                surname: "",
+                email: "",
+                age: 0,
+                address: "",
+                telephoneNumber: 0,
+                password: ""};
+            }
+          })
         });
 
         this.events.subscribe('user:logout', () => {
           this.loggedIn = false;
         });
-    }}
+    }
+  }
 
 
 }

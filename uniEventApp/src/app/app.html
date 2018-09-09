@@ -11,9 +11,9 @@
   <ion-header>
     <ion-toolbar class="menutitle" color="primary_color">
 
-      <ion-title *ngIf="loggedIn">{{ Welcome | translate }} {{utente.name}} {{utente.surname}}</ion-title>
+      <ion-title *ngIf="utente">{{ Welcome | translate }} {{utente.name}} {{utente.surname}}</ion-title>
 
-      <ion-title *ngIf="!loggedIn">Menu</ion-title>
+      <ion-title *ngIf="!utente">Menu</ion-title>
 
     </ion-toolbar>
   </ion-header>
