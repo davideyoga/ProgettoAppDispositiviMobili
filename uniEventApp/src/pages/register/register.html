@@ -44,12 +44,20 @@
 
       <ion-item no-lines>
         <ion-label floating>Anno di nascita</ion-label>
-        <ion-input [(ngModel)]="user.age" type="number" name="age" ></ion-input>
+        <!--<ion-input [(ngModel)]="user.age" type="number" name="age" ></ion-input>-->
+        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="user.age"
+                      name="age"
+                      monthShortNames="{{'GEN' | translate }}, {{'FEB' | translate }}, {{'MAR' | translate }},
+                                         {{'APR' | translate }}, {{'MAG' | translate }}, {{'GIU' | translate }},
+                                         {{'LUG' | translate }}, {{'AGO' | translate }}, {{'SET' | translate }},
+                                         {{'OTT' | translate }}, {{'NOV' | translate }}, {{'DIC' | translate }},">
+
+        </ion-datetime>
       </ion-item>
 
       <ion-item no-lines>
         <ion-label floating>Numero di telefono</ion-label>
-        <ion-input [(ngModel)]="user.telephoneNumber" type="phone" name="telephoneNumber"></ion-input>
+        <ion-input [(ngModel)]="phoneNUmber" type="phone" name="telephoneNumber"></ion-input>
       </ion-item>
     </ion-card>
 

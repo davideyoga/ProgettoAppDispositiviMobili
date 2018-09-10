@@ -107,6 +107,9 @@ export class UserService {
                     return null;
                 }
             });
+
+      // console.log('register function');
+      return ;
     }
 
 
