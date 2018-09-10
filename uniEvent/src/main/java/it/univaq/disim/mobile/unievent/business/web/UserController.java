@@ -87,10 +87,10 @@ public class UserController {
             login.setUser(session.getUser());
 
             System.out.println("login: " + login);
-
             return login;
 
         }else {
+            System.out.println("fail fail fail fail fail");
             return null;
         }
     }//FINE METODO LOGIN

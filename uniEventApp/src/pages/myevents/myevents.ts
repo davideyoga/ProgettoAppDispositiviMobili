@@ -49,7 +49,8 @@ export class MyeventsPage {
     {id: 2, utente: 'Cristiano1', title: 'titolo evento1',date: "16/12/2018", imm: 20}
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService,
+              public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -68,12 +69,12 @@ export class MyeventsPage {
           telephoneNumber: 0,
           password: ""};
       }
-    })
+    });
 
 
     console.log(this.utente.id);
 
-  this.eventService.getEventByUserCreator(this.utente.id).subscribe((data: Array<Event>) => {
+    this.eventService.getEventByUserCreator(this.utente.id).subscribe((data: Array<Event>) => {
       this.eventi = data;
     });
   }
@@ -82,8 +83,8 @@ export class MyeventsPage {
     this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
   }
 
-createevent(){
-  this.navCtrl.push(CREATEVENTS_PAGE);
+  createevent(){
+    this.navCtrl.push(CREATEVENTS_PAGE);
 
-}
+  }
 }

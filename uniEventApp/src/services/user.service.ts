@@ -104,7 +104,7 @@ export class UserService {
                 }
             });
 
-      console.log('register function');
+      // console.log('register function');
       return ;
     }
 
