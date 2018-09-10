@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs/Observable';
@@ -82,31 +82,40 @@ export class UserService {
             });
     }
 
-    register(user:User): Observable<Login>{
-        return this.http.post<Login>(URL.REGISTER, user, { observe: 'response' })
-            .map((resp: HttpResponse<Login>) => {
-                if(resp.body!=null){
+    register(email: string, password: string): Observable<Login>{
 
-                    const token = resp.body.token;
-
-
-                    this.storage.set(AUTH_TOKEN, token);
-                    this.storage.set(UTENTE_STORAGE, resp.body.user);
+        const params = new HttpParams()
+        .set('email', email)
+        .set('password', password);
 
 
-                    // this.storage.get(AUTH_TOKEN).then((token) => {
-                    //     console.log("token in memo: " + token);
-                    // });
+        let apiURL = `${URL.REGISTER}`
+        return this.http.post<Login>(apiURL, params);
 
-                    //console.log("resp.body.token: " + resp.body.token);
+        // return this.http.post<Login>(URL.REGISTER, user, { observe: 'response' })
+        //     .map((resp: HttpResponse<Login>) => {
+        //         if(resp.body!=null){
 
-                    this.tokenUtente = token;
+        //             const token = resp.body.token;
 
-                    return resp.body;
-                }else{
-                    return null;
-                }
-            });
+
+        //             this.storage.set(AUTH_TOKEN, token);
+        //             this.storage.set(UTENTE_STORAGE, resp.body.user);
+
+
+        //             // this.storage.get(AUTH_TOKEN).then((token) => {
+        //             //     console.log("token in memo: " + token);
+        //             // });
+
+        //             //console.log("resp.body.token: " + resp.body.token);
+
+        //             this.tokenUtente = token;
+
+        //             return resp.body;
+        //         }else{
+        //             return null;
+        //         }
+        //     });
 
       // console.log('register function');
       //return ;

@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Register } from "../../models/register.model";
 import { User } from "../../models/user.model";
 import {UserService} from "../../services/user.service";
+import { Login } from '../../models/login.model';
 
 /**
  * Generated class for the RegisterPage page.
@@ -73,7 +74,10 @@ export class RegisterPage {
     if (registerForm.valid) {
 
       console.log("form valida");
-      this.userService.register(this.user);
+      this.userService.register(this.user.email, this.user.password).subscribe((data: Login) => {
+        //data e' un oggetto di tipo login
+        console.log("data.user: " + data.user.email);
+      });;
     }
   }
 
