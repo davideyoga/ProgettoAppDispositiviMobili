@@ -11,7 +11,6 @@ import { URL } from '../../constants';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { PaymentPage } from "../payment/payment";
-import {ModalevdescriptionPage} from "../modalevdescription/modalevdescription";
 import { ToastController } from 'ionic-angular';
 
 @IonicPage()
@@ -66,7 +65,7 @@ export class DettaglioEventoPage {
 
     });
 
-    //prendo image dal server 
+    //prendo image dal server
     this.download(this.navParams.data.eventoId);
 
   }
@@ -95,7 +94,7 @@ export class DettaglioEventoPage {
     // fileTransfer.download(url, "" ).then((entry) => {
 
     //   console.log('download complete: ' + entry.toURL());
-    //   this.image = entry; 
+    //   this.image = entry;
     // }, (error) => {
     //   console.log("Errore download");
     // });
@@ -141,12 +140,7 @@ export class DettaglioEventoPage {
     this.navCtrl.push('PaymentPage', { eventoId: e.id});
   }
 
-  openModal(){
-    var data={detail: this.evento.description};
-    console.log(data);
-    let modal= this.modalCtrl.create(ModalevdescriptionPage, data);
-    modal.present();
-  }
+
 
   setFavorite(e: Event){
     let token= this.userService.getUtenteToken();
