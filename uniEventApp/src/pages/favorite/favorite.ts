@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../services/user.service';
 import { EventService } from '../../services/event.service';
-
+import { Event } from '../../models/event.model';
 
 /**
  * Generated class for the FavoritePage page.
@@ -18,28 +18,19 @@ import { EventService } from '../../services/event.service';
 })
 export class FavoritePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private userService: UserService, private eventService: EventService) {
+  eventi: Array<Event>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService, private eventService: EventService) {
   }
 
   ionViewDidLoad() {
-    
+
     let token = this.userService.getUtenteToken();
 
-    
+
     this.eventService.favoriteEvent(token).subscribe((data: Array<Event>) => {
-
-      console.log("data: " + data);
-      this.event = data;
-      
+      this.eventi = data;
     });
-
-
-    this.userService.register(this.user.email, this.user.password).subscribe((data: Login) => {
-      //data e' un oggetto di tipo login
-      console.log("data.user: " + data.user.email);
-    });
-
 
   }
 

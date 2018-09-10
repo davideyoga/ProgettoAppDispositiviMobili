@@ -135,21 +135,6 @@ export class MyApp {
         if(this.UserService.checkLogin()==true){
         this.events.subscribe('user:login', (user) => {
           this.loggedIn = true;
-
-          this.storage.get(UTENTE_STORAGE).then((user) => {
-
-            this.utente=user;
-            if (this.utente == null){
-              this.utente={id:0,
-                name: "",
-                surname: "",
-                email: "",
-                age: 0,
-                address: "",
-                telephoneNumber: 0,
-                password: ""};
-            }
-
           this.utente=user;
           console.log(this.utente);
         });

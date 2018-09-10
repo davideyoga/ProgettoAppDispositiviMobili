@@ -23,6 +23,17 @@ export class EventService {
         return this.http.get<Array<Event>>(URL.HOT_EVENT);
     }
 
+
+    favoriteEvent(token:string): Observable<Array<Event>>{
+
+        const params = new HttpParams()
+            .set('token', token);
+
+        let apiURL = `${URL.FAVORITE_EVENT}`
+        return this.http.post<Array<Event>>(apiURL, params);
+
+    }
+
     //getAllEvents
     events(): Observable<Array<Event>> {
         console.log("lanciato metodo events");
@@ -139,14 +150,6 @@ export class EventService {
 
     }
 
-    favoriteEvent(token: string): Observable<Array<Event>>{
 
-        const params = new HttpParams()
-            .set('token', token);
-
-        let apiURL = `${URL.FAVORITE_EVENT}`
-        return this.http.post<Array<Event>>(apiURL, params);
-
-    }
 
 }
