@@ -27,8 +27,6 @@
   "LOGIN_ERROR_TITLE": "Errore Login",
   "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
 
-  "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",
-
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "TELEFONO": "Telefono",
@@ -56,8 +54,6 @@
   "EVENTI_PRENOTATI_MENU":"Eventi Prenotati",
   "PROFILO_MENU": "Profilo",
   "IMPOSTAZIONI_MENU":"Impostazioni",
-
-
 
   "PROFILE_TITLE": "Profilo",
 
@@ -89,5 +85,5 @@
 
   "VISUAL":"Visualizzazioni",
 
-  "BOOKED_TITLE": "Booked Events"
+  "BOOKED_TITLE": "Eventi Prenotati"
 }

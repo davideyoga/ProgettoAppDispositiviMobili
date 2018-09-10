@@ -34,7 +34,7 @@ export class BookedEventsPage {
 
     this.storage.get(UTENTE_STORAGE).then((user) => {
 
-      console.log("passo 1");      
+      console.log("passo 1");
 
       this.utente=user;
       console.log(this.utente);
