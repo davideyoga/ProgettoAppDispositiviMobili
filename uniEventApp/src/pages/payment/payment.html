@@ -44,11 +44,11 @@
       </ion-item>
 
       <ion-buttons *ngIf="priceFlag" padding-top="">
-        <button ion-button="" block color="accent_colors">{{'PAGA' | translate}}</button>
+        <button ion-button block color="accent_colors" (click)="prenota()">{{'PAGA' | translate}}</button>
       </ion-buttons>
 
       <ion-buttons *ngIf="!priceFlag" padding-top="">
-        <button ion-button="" block color="accent_colors">{{'PRENOTA' | translate}}</button>
+        <button ion-button="" block color="accent_colors" (click)="prenota()">{{'PRENOTA' | translate}}</button>
       </ion-buttons>
 
 

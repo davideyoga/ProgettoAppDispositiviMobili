@@ -297,7 +297,7 @@ public class EventController {
     }
 
 
-    @PostMapping("/eventRegisteredByUser")
+    @PostMapping("/eventRegisteredByUser") //SERVER ERROR 
     public List<Event> getEventRegisteredByToken(String token){
 
 

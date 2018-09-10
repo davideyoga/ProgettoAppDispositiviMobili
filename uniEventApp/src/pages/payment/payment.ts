@@ -67,4 +67,14 @@ export class PaymentPage {
     console.log(this.total);
   }
 
+  prenota(){
+    this.eventService.bookedEvent(this.userService.getUtenteToken(),this.evento.id).subscribe((data:boolean) =>
+    {
+      console.log(data);
+
+});
+}
+
+
+
 }

@@ -25,13 +25,19 @@ export class FavoritePage {
 
   ionViewDidLoad() {
 
-    let token = this.userService.getUtenteToken();
-
-
-    this.eventService.favoriteEvent(token).subscribe((data: Array<Event>) => {
+    this.eventService.favoriteEvent(this.userService.getUtenteToken()).subscribe((data: Array<Event>) => {
       this.eventi = data;
     });
 
+  }
+
+
+  UnSetFavorite(e: Event){
+    let token= this.userService.getUtenteToken();
+    this.userService.removeUserFavorite(token, e.id).subscribe((data: boolean) => {
+      console.log('unsetfavorite event');
+      console.log(data);
+    });
   }
 
 }
