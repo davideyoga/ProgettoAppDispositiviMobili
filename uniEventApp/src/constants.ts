@@ -1,3 +1,5 @@
+import { FAVORITE_PAGE } from "./pages/pages";
+
 export const USE_PROXY = true;
 
 export const URL_BASE = USE_PROXY ? 'api' : 'localhost:8080/api'; //mettere indirizzo locale in caso di test su telefono
@@ -34,7 +36,9 @@ export const URL = {
 
     EVENT_REGISTERED: URL_BASE + '/event/eventRegisteredByUser',
 
-    BOOK_EVENT: URL_BASE + '/event/bookEvent'
+    BOOK_EVENT: URL_BASE + '/event/bookEvent',
+
+    FAVORITE_EVENT: URL_BASE + '/event/favoriteEvent'
 
 }
 

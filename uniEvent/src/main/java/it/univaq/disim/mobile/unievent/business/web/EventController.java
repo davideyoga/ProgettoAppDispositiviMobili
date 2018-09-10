@@ -343,4 +343,26 @@ public class EventController {
     }
 
 
+    @PostMapping("/favoriteEvent")
+    public List<Event> getFavoriteEvents(@RequestParam String token){
+
+        Session session = this.service.findSessionByToken(token);
+
+        System.out.println("session: "+session);
+
+        User user = session.getUser();
+
+        System.out.println("user: "+user);
+
+        List<Event> pe = user.getPreferredEvents();
+
+        System.out.println("pe: "+pe);
+
+        return pe;
+
+        //return this.service.findSessionByToken(token).getUser().getPreferredEvents();
+
+    }
+
+
 }
