@@ -109,7 +109,7 @@ export class UserService {
             });
 
       // console.log('register function');
-      return ;
+      //return ;
     }
 
 

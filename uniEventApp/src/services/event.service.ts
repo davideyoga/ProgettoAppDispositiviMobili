@@ -83,9 +83,21 @@ export class EventService {
 
     advanceSearch(advanceSearch : AdvanceSearchForm): Observable<Array<Event>>{
 
-       let apiURL = `${URL.ADVANCE_SEARCH}`;
+       //let apiURL = `${URL.ADVANCE_SEARCH}`;
 
-       return this.http.post<Array<Event>>(apiURL, advanceSearch);
+       //return this.http.post<Array<Event>>(apiURL, advanceSearch);
+
+
+       console.log("`${URL.ADVANCE_SEARCH}`: " + `${URL.ADVANCE_SEARCH}`);
+       return this.http.post<Array<Event>>(URL.ADVANCE_SEARCH, advanceSearch, {observe: 'response'})
+           .map((resp: HttpResponse<Array<Event>>) => {
+
+               console.log("resp.body.valueOf():" + resp.body.valueOf());
+
+               return resp.body;
+           });
+
+
 
     }
 
@@ -129,6 +141,5 @@ export class EventService {
         return this.http.post<boolean>(apiURL, params);
 
     }
-
 
 }

@@ -63,9 +63,7 @@ public class Category implements java.io.Serializable {
 
         Category category = (Category) o;
 
-        if (getId() != null ? !getId().equals(category.getId()) : category.getId() != null) return false;
-        if (getName() != null ? !getName().equals(category.getName()) : category.getName() != null) return false;
-        return getDescription() != null ? getDescription().equals(category.getDescription()) : category.getDescription() == null;
+        return getName() != null ? getName().equals(category.getName()) : category.getName() == null;
     }
 
     @Override

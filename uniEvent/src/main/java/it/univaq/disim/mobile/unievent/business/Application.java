@@ -87,12 +87,12 @@ public class Application {
             event3.setCity("Milano");
             event3.setPrice(17.69f);
             event3.setDate(new Date(Calendar.getInstance().getTimeInMillis() + 86400000));
-            event3.setPrice(1.5f);
+            //event3.setPrice(1.5f);
 
             Event event4 = new Event();
             event4.setTitle("Apecolmorto2");
             event4.setCity("Milano");
-            event4.setPrice(18.62f);
+            //event4.setPrice(18.62f);
             event4.setDate(new Date(Calendar.getInstance().getTimeInMillis() + 86400000));
             event4.setPrice(4f);
 

@@ -3,10 +3,7 @@ package it.univaq.disim.mobile.unievent.business.web;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import it.univaq.disim.mobile.unievent.business.AdvanceSearch;
 import it.univaq.disim.mobile.unievent.business.CustomerDateAndTimeDeserialize;
-import it.univaq.disim.mobile.unievent.business.domain.Category;
-import it.univaq.disim.mobile.unievent.business.domain.Event;
-import it.univaq.disim.mobile.unievent.business.domain.Participate;
-import it.univaq.disim.mobile.unievent.business.domain.User;
+import it.univaq.disim.mobile.unievent.business.domain.*;
 import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -239,21 +236,52 @@ public class EventController {
 
             System.out.println("advanceSearch: " + advanceSearch);
 
+
+            //estraggo tutti gli eventi
             List <Event> eventList = service.findAllEvents();
 
+            //creo una nuova lista da ritornare
             List <Event> newList = new ArrayList <>();
 
+            //ciclo su tutti gli eventi
             for (Event e : eventList) {
 
                 System.out.println("event e: " + e);
 
-                //controllo sul prezzo
-                if (( e.getPrice() >= advanceSearch.getMinPrice() && e.getPrice() <= advanceSearch.getMaxPrice())
-//                        &&
-//                        (e.getCategories().get(0).getName().equals(advanceSearch.getCategory()) || advanceSearch.getCategory() == null) &&
-//                        (e.getServices().containsAll(advanceSearch.getServiceList()) || advanceSearch.getServiceList() == null)
-//
 
+                boolean ceckServizi = false;
+
+                List<String> nomeServiziEventoE = new ArrayList <>();
+
+                //ciclo sulla lista dei servizi dell'evento pre estrarre i nomi dei servizi dell'evento
+                for (Service service : e.getServices()  ){
+
+                    nomeServiziEventoE.add(service.getName());
+                }
+
+                System.out.println("Servizi: " + advanceSearch.getServiceList());
+
+                //se non ho cercato servizi
+                if( advanceSearch.getServiceList() == null || advanceSearch.getServiceList().size()==0){
+                    ceckServizi = true;
+                }
+                else{
+                    //l'evento contiene tutti i servizi cercati nella ricerca
+                    ceckServizi = nomeServiziEventoE.containsAll(advanceSearch.getServiceList());
+                }
+
+                boolean ceckCategory = false;
+
+                if(e.getCategories()!=null || e.getCategories().size()>0) {
+                    for (Category c : e.getCategories()) {
+                        if (c.getName().equals(advanceSearch.getCategory())) ceckCategory = true;
+                    }
+                }
+                //controllo su prezzo, servizi e categoria
+                if (( e.getPrice() >= advanceSearch.getMinPrice() && e.getPrice() <= advanceSearch.getMaxPrice()) &&
+                        ceckServizi &&
+
+                        (advanceSearch.getCategory()==null || advanceSearch.getCategory().length()==0 || ceckCategory )
                         ) {
 
                     System.out.println("Aggiunto a new List l'evento: " + e);
