@@ -311,7 +311,17 @@ public class EventController {
 
         }
 
-        return eventList;
+        if( eventList!=null || eventList.size()<=0 ) {
+
+            System.out.println("torno valore non nullo");
+
+            return eventList;
+
+        }else{
+
+            System.out.println("torno valore nullo");
+            return null;
+        }
     }
 
 

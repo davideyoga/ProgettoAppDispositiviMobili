@@ -124,7 +124,9 @@ export class EventService {
                 //Utente memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
                 //e se l'utente chiude la app e la riapre i dati sono gia' presenti
 
-                console.log("resp.body.valueOf():" + resp.body.valueOf());
+                //console.log("resp.body.valueOf():" + resp.body.valueOf());
+
+                console.log("resp.body.:" + resp.body.length);
 
                 return resp.body;
             });
