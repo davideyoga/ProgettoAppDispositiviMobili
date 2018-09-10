@@ -18,5 +18,6 @@ export const PROFILE_EDIT_PAGE = 'ProfileEditPage';
 
 export const SETTING_PAGE = 'SettingPage';
 
+export const BOOKED_PAGE = 'BookedEventsPage';
 
 

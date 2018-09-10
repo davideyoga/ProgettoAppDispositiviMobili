@@ -75,7 +75,9 @@ export class LoginPage {
 
           console.log("Login effettuato");
 
-          this.events.publish('user:login');
+          this.events.publish('user:login', this.user);
+
+          console.log(this.user);
 
           this.navCtrl.setRoot(EVENTI_PAGE);
 

@@ -82,7 +82,9 @@
   "OLD_EVENT": "Old event",
   "EV_CREATOR": "Event manager",
 
-  "VISUAL":"Views"
+  "VISUAL":"Views",
+
+  "BOOKED_TITLE": "Booked Events"
 
 
 

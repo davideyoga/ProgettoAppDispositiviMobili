@@ -1,7 +1,7 @@
 {
 
   "Welcome":"Benvenuto",
-  
+
   "WHERE": "Dove",
   "WHEN": "Quando",
   "WHAT": "Cosa",
@@ -87,5 +87,7 @@
   "OLD_EVENT": "Eventi passati",
   "EV_CREATOR": "Organizzatore",
 
-  "VISUAL":"Visualizzazioni"
+  "VISUAL":"Visualizzazioni",
+
+  "BOOKED_TITLE": "Booked Events"
 }

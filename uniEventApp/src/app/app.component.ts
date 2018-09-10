@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MenuController, Nav, Platform } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
-import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, DUMMY_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SETTING_PAGE } from '../pages/pages';
+import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SETTING_PAGE, BOOKED_PAGE } from '../pages/pages';
 
 import {timer} from 'rxjs/observable/timer';
 import { UserService } from '../services/user.service';
@@ -48,7 +48,7 @@ export class MyApp {
       {title: 'LISTA_EVENTI_MENU', component: EVENTI_PAGE, icon: 'calendar'},
       {title: 'PREFERITI_MENU', component: FAVORITE_PAGE, icon: 'heart'},
       {title: 'EVENTI_CREATI_MENU', component: MYEVENTS_PAGE, icon: 'add'},
-      {title: 'EVENTI_PRENOTATI_MENU', component: DUMMY_PAGE, icon: 'checkmark-circle-outline'}
+      {title: 'EVENTI_PRENOTATI_MENU', component: BOOKED_PAGE, icon: 'checkmark-circle-outline'}
     ];
 
     this.menuNL = [
@@ -62,6 +62,8 @@ export class MyApp {
     platform.ready().then(() => {
       //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;
+
+      this.logout(); //al ricaricare della pagina pulisci la login
 
       this.listenToLoginEvents(); //guarda sotto
 
@@ -135,27 +137,17 @@ export class MyApp {
 
     listenToLoginEvents() {
         if(this.UserService.checkLogin()==true){
-        this.events.subscribe('user:login', () => {
+        this.events.subscribe('user:login', (user) => {
           this.loggedIn = true;
-          this.storage.get(UTENTE_STORAGE).then((user) => {
 
-            this.utente=user;
-            console.log(this.utente);
-            if (this.utente== null){
-              this.utente={  id: 0,
-                name: "",
-                surname: "",
-                email: "",
-                age: 0,
-                address: "",
-                telephoneNumber: 0,
-                password: ""};
-            }
-          })
+          this.utente=user;
+
+          console.log(this.utente.name);
         });
 
-        this.events.subscribe('user:logout', () => {
+        this.events.subscribe('user:logout', (user) => {
           this.loggedIn = false;
+
         });
     }
   }

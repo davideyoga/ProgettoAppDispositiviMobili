@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Slides, DateTime} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
 
 import { BaseSearchForm } from '../../models/base.sear.form.model';
 import { Category } from '../../models/category.model';
@@ -8,10 +8,8 @@ import { CategoryService } from '../../services/category.service';
 import { EventService } from '../../services/event.service';
 import { NgForm } from '@angular/forms';
 import { PopoverComponent} from "../../components/popover/popover";
-import { SearchpopoverComponent } from "../../components/searchpopover/searchpopover";
 import { PopoverController} from "ionic-angular";
-import { dateDataSortValue } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
-import { DUMMY_PAGE, EXTRAFILTER_PAGE } from '../pages';
+import { EXTRAFILTER_PAGE } from '../pages';
 import { Content } from 'ionic-angular';
 import {UserService} from "../../services/user.service";
 import {SocialSharing} from "@ionic-native/social-sharing";
@@ -140,7 +138,7 @@ export class HomePage {
   setFavorite(e: Event){
     let token= this.userService.getUtenteToken();
     this.userService.addUserFavorite(token, e.id).subscribe((data: boolean) => {
-      console.log('booked event');
+      console.log('favorite event');
       console.log(data);
     });
   }
@@ -148,7 +146,7 @@ export class HomePage {
   unsetFavorite(e: Event){
     let token= this.userService.getUtenteToken();
     this.userService.removeUserFavorite(token, e.id).subscribe((data: boolean) => {
-      console.log('remove booked event');
+      console.log('remove favorite event');
       console.log(data);
     });
   }
@@ -161,12 +159,5 @@ export class HomePage {
 
     });
   }
-  /*doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-    this.ionViewDidLoad();
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);}*/
-
+  
 }

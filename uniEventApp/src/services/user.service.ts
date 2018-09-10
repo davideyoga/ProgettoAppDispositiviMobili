@@ -9,6 +9,7 @@ import { User } from '../models/user.model';
 import {Events} from 'ionic-angular';
 import { Register } from "../models/register.model";
 import 'rxjs/Rx';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 
 
 @Injectable()
@@ -23,6 +24,10 @@ export class UserService {
         });
     }
 
+    getUtente(): Observable<User> {
+      return fromPromise(this.storage.get(UTENTE_STORAGE));
+  }
+
     getUtenteToken(): string{
         return this.tokenUtente;
     }
@@ -31,7 +36,6 @@ export class UserService {
       if(this.getUtenteToken()!="" || this.getUtenteToken()!=null)
       return true;
     }
-
 
     getUserCreatedEvent(idEvent: number): Observable<User>{
 
@@ -103,12 +107,9 @@ export class UserService {
                     return null;
                 }
             });
-
-      console.log('register function');
-      return ;
     }
 
-    
+
     logout(){
         this.tokenUtente = "";
         this.storage.remove(AUTH_TOKEN);

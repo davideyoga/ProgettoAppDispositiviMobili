@@ -9,8 +9,3 @@ export class User{
     telephoneNumber: number;
     password: string;
 }
-
-export class Account{
-  email:String;
-  password:String;
-}

@@ -46,7 +46,8 @@ public class Application {
             User user = new User();
             user.setEmail("prova");
             user.setPassword("prova");
-            user.setName("davide");
+            user.setName("Davide");
+            user.setSurname("Micarelli");
 
             User user2 = new User();
             user2.setEmail("d.micarelli27@gmail.com");
