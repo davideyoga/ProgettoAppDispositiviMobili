@@ -35,8 +35,6 @@ export class MyApp {
   utente: User;
 
 
-
-
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
   private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage) {
 
@@ -62,8 +60,6 @@ export class MyApp {
     platform.ready().then(() => {
       //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;
-
-      this.logout(); //al ricaricare della pagina pulisci la login
 
       this.listenToLoginEvents(); //guarda sotto
 
@@ -140,12 +136,25 @@ export class MyApp {
         this.events.subscribe('user:login', (user) => {
           this.loggedIn = true;
 
-          this.utente=user;
+          this.storage.get(UTENTE_STORAGE).then((user) => {
 
-          console.log(this.utente.name);
+            this.utente=user;
+            if (this.utente == null){
+              this.utente={id:0,
+                name: "",
+                surname: "",
+                email: "",
+                age: 0,
+                address: "",
+                telephoneNumber: 0,
+                password: ""};
+            }
+
+          this.utente=user;
+          console.log(this.utente);
         });
 
-        this.events.subscribe('user:logout', (user) => {
+        this.events.subscribe('user:logout', () => {
           this.loggedIn = false;
 
         });

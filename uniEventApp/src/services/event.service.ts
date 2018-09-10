@@ -39,9 +39,6 @@ export class EventService {
 
 
 
-
-
-
     baseSearch(b:BaseSearchForm): Observable<Array<Event>> {
       var baseSearchFormUrl;
       if(b.what=="" && b.where==""){

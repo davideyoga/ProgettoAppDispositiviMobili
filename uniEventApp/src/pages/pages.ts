@@ -20,4 +20,6 @@ export const SETTING_PAGE = 'SettingPage';
 
 export const BOOKED_PAGE = 'BookedEventsPage';
 
+export const REGISTER_PAGE = 'RegisterPage';
+
 

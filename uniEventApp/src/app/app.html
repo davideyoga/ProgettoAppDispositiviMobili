@@ -11,7 +11,7 @@
   <ion-header>
     <ion-toolbar class="menutitle" color="primary_color">
 
-      <ion-title *ngIf="utente">{{ 'Welcome' | translate }} {{utente.name}} {{utente.surname}}</ion-title>
+      <ion-title *ngIf="utente">{{'Welcome' | translate}} {{utente.name}}</ion-title>
 
       <ion-title *ngIf="!utente">Menu</ion-title>
 
