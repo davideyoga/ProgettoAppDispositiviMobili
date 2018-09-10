@@ -53,13 +53,13 @@ export class MyeventsPage {
           telephoneNumber: 0,
           password: ""};
       }
-    });
 
+      console.log("prima");
+      console.log("this.utente.id: "+this.utente.id); //non mi prende id puttana maiala
 
-    console.log(this.utente.id); //non mi prende id puttana maiala
-
-    this.eventService.getEventByUserCreator(this.utente.id).subscribe((data: Array<Event>) => {
+      this.eventService.getEventByUserCreator(this.utente.id).subscribe((data: Array<Event>) => {
       this.eventi = data;
+    });
     });
   }
 

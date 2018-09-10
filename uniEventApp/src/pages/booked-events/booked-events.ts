@@ -34,6 +34,8 @@ export class BookedEventsPage {
 
     this.storage.get(UTENTE_STORAGE).then((user) => {
 
+      console.log("passo 1");      
+
       this.utente=user;
       console.log(this.utente);
       if (this.utente == null){
@@ -46,17 +48,25 @@ export class BookedEventsPage {
           telephoneNumber: 0,
           password: ""};
       }
-    })
 
-    //si prende gli eventi prenotati
-    this.eventService.getEventPrenotatedByToken(this.userService.getUtenteToken()).subscribe((data: Array<Event>) => {
-      this.eventi = data;
+      console.log("passo 2");
+
+      //si prende gli eventi prenotati
+
+      let token = this.userService.getUtenteToken();
+
+      console.log("let: " + token);
+
+      this.eventService.getEventPrenotatedByToken(token).subscribe((data: Array<Event>) => {
+
+        console.log("data: " + data);
+
+        if(data == null){
+          console.log("non ha eventi prenotati");
+        }else{
+          this.eventi = data;
+        }
+      });
     });
-
-
   }
-
-
-
-
 }

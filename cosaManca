@@ -1,0 +1,48 @@
+HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
+    - ricerca base, se passiamo solo un termine da problemi (DAVIDE)
+    - ricerca avanzata non e' collegata, collegare al metodo advanceSearch
+    - ricerca avanzata sistemare metodo server, qualche volta nn prende gli eventi giusti
+    - RIEMPIRE CUORE QUANDO EVENTO E' TRA I PREFERITI 
+
+EVENT:
+    - immagine da sistemare
+    - se non loggato, quando si preme su prenota, mandare alla pagina di login 
+    - se evento finito togliere bottone prenota
+
+EVENT CREATOR: 
+    - aggiungere feedback
+    - aggiungere descrizione utente in DB (DAVIDE)
+
+REVIEW EVENT
+    - da fare tutta 
+
+
+LOGIN/SIGNIN
+    - registrazione ( TONY )
+
+
+EVENTI PREFERITI
+    - DA FARE (TONY)
+
+MY EVENT
+    - sezionare eventi per passato e futuro (MASSIMO E ANTONELLO)
+
+CREATE EVENT
+    - da aggiungere alcuni campi alla form 
+
+PRENOTATI
+    - da errore il server inteno (DA RISOLVERE)
+
+EVENT REVIEW 
+    - da fare 
+
+
+PRENOTAZIONE 
+    - collegare metodo per prenotare
+
+SETTING 
+    - flag cambio lingua 
+
+
+SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP
+

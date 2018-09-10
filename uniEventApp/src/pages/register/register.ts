@@ -77,7 +77,7 @@ export class RegisterPage {
       this.userService.register(this.user.email, this.user.password).subscribe((data: Login) => {
         //data e' un oggetto di tipo login
         console.log("data.user: " + data.user.email);
-      });;
+      });
     }
   }
 
