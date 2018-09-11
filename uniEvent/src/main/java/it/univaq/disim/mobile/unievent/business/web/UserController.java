@@ -130,11 +130,16 @@ public class UserController {
 
         User user = this.service.findSessionByToken(token).getUser();
 
-        user.getPreferredEvents().add(event);
+        if(user.getPreferredEvents()==null || !user.getPreferredEvents().contains(event)){
+            user.getPreferredEvents().add(event);
 
-        service.save(user);
+            service.save(user);
 
-        return true;
+            return true;
+        }else{
+            return false;
+        }
+
 
     }
 

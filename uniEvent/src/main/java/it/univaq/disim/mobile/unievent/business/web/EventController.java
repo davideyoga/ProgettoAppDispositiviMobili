@@ -344,17 +344,24 @@ public class EventController {
         participate.setUser(this.service.findSessionByToken(token).getUser());
         participate.setDataPrenotation(new Date(Calendar.getInstance().getTimeInMillis()));
 
-        this.service.saveParticipate(participate);
+        if( user.getParticipation()==null || !user.getParticipation().contains(participate)) {
 
-        user.getParticipation().add(participate);
+            this.service.saveParticipate(participate);
 
-        this.service.save(user);
+            user.getParticipation().add(participate);
 
-        event.getParticipation().add(participate);
+            this.service.save(user);
 
-        this.service.updateEvent(event);
+            event.getParticipation().add(participate);
 
-        return true;
+            this.service.updateEvent(event);
+
+            return true;
+        }else{
+
+            return false;
+        }
+
     }
 
 

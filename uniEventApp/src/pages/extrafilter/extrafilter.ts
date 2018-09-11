@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EXTRAFILTER_PAGE } from '../pages';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
+import { AdvanceSearchForm } from '../../models/advance.search.model';
+import { EventService } from '../../services/event.service';
+import {Event} from '../../models/event.model';
 
 
 /**
@@ -38,7 +41,11 @@ export class ExtrafilterPage {
 
   categorie: Array<Category>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private categoryService: CategoryService) {
+
+  
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private categoryService: CategoryService, private eventService: EventService) {
 
 
   }
@@ -82,6 +89,18 @@ export class ExtrafilterPage {
     this.sendArray.push(this.typeArray);
 
     console.log(this.sendArray);
+
+    //var advanceSearch: AdvanceSearchForm = new AdvanceSearchForm();
+    //advanceSearchForm: AdvanceSearchForm = { minPrice: 0, maxPrice: 0, category: "", serviceList:[]};
+
+    var advanceSearchForm: AdvanceSearchForm = { minPrice: min, maxPrice: max, category: "", serviceList:[] };
+
+    //SETTARE IN advanceSearchForm category e service 
+
+    //chiamata al server
+    this.eventService.advanceSearch(advanceSearchForm).subscribe( (data: Array<Event>) => {
+      //vedere cosa fare con gli eventi che tornano
+    });
 
   }
 
