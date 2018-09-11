@@ -22,7 +22,7 @@
     <ion-list no-lines="">
       <ion-list-header color="light">In corso</ion-list-header>
 
-      <ion-item *ngFor="let e of evento" >
+      <ion-item *ngFor="let e of evento" (click)="event(e)">
         <ion-avatar item-start>
           <img src="../../assets/imgs/patato.jpg">
         </ion-avatar>

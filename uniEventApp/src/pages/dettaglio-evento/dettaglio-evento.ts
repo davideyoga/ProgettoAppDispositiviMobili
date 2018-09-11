@@ -27,6 +27,7 @@ export class DettaglioEventoPage {
   storageDirectory: string = '/';
   priceFlag: boolean;
   favorite: boolean;
+  closed: boolean;
 
 
 
@@ -44,6 +45,17 @@ export class DettaglioEventoPage {
 
     console.log('ionViewDidLoad DettaglioNotiziaPage');
 
+
+    let today = new Date();
+    let todayString: string = '';
+    todayString=todayString + today.getFullYear() + '-' + '0' + (today.getMonth()+1) + '-' + today.getDate()
+                + ' ' + today.getHours()  + ':' + today.getMinutes()  + ':' +  today.getSeconds();
+
+    console.log('data');
+    console.log(today);
+    console.log(todayString);
+    console.log('\n');
+
     this.eventService.findById(this.navParams.data.eventoId).subscribe((data: Event) => {
 
       this.evento = data;
@@ -55,6 +67,14 @@ export class DettaglioEventoPage {
         console.log(this.evento.price + "no prezzo");
         this.priceFlag=false;
       }
+      if (this.evento.date!=null){
+        console.log(this.evento.date);
+        if (todayString >= this.evento.date)
+          this.closed=true;
+        console.log(this.closed);
+      }
+
+
 
       this.userService.getUserCreatedEvent(this.evento.id).subscribe((data: User) => {
         this.creatore = data;
@@ -174,5 +194,10 @@ export class DettaglioEventoPage {
     });
   }
 
+  getCurrentDate(){
+    let today = new Date().getDate();
 
+    console.log(today);
+  }
 }
+

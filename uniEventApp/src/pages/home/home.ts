@@ -25,14 +25,15 @@ export class HomePage {
 
   public isSearchBarOpened = false;
   public evento:any = [{id: 1, utente: 'cristiano', titolo: 'trattorissimo', date: "11/08/2016", imm: 10, ind: 'Via Roma, 50, 67019, Scoppito Avenue'},
-                       {id: 2, utente: 'Cristiano1', titolo: 'titolo evento1',date: "16/12/2018", imm: 20}
-                      ];
+    {id: 2, utente: 'Cristiano1', titolo: 'titolo evento1', date: "16/12/2018", imm: 20}
+  ];
 
 
   baseForm: BaseSearchForm = { what: "", when: "", where: ""};
 
   //lista di eventi visualizzabili nella home
   eventi: Array<Event>;
+  eventiFav: Array<Event>;
 
   //lista citta' salvate nel db
   citta: Array<String>;
@@ -43,72 +44,77 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private eventService: EventService,
               private categoryService: CategoryService, public popOverCtrl: PopoverController,
-              public userService: UserService, private socialSharing: SocialSharing) {}
+              public userService: UserService, private socialSharing: SocialSharing) {};
 
   //tutto cio' che succede all'avvio della pagina
   ionViewDidLoad() {
 
+    this.eventService.favoriteEvent(this.userService.getUtenteToken()).subscribe((data: Array<Event>) => {
+      this.eventiFav = data;
+      console.log(this.eventiFav);
+    });
+
     console.log('ionViewDidLoad HomePage', this.evento);
 
-      if(this.navParams.get('baseForm') != null){
+    if(this.navParams.get('baseForm') != null){
 
-        this.baseForm = this.navParams.get('baseForm')
-      }
+      this.baseForm = this.navParams.get('baseForm')
+    }
 
-      if( this.baseForm.what != "" || this.baseForm.when != "" || this.baseForm.where!="" ){
-        //attenzione gestire singoli campi nulli
+    if( this.baseForm.what != "" || this.baseForm.when != "" || this.baseForm.where!="" ){
+      //attenzione gestire singoli campi nulli
 
-        console.log('ho trovato parametro di ricerca base');
+      console.log('ho trovato parametro di ricerca base');
 
-        console.log('this.baseForm.what: '+this.baseForm.what);
-        console.log('this.baseForm.when: '+this.baseForm.when);
-        console.log('this.baseForm.where: '+this.baseForm.where);
+      console.log('this.baseForm.what: '+this.baseForm.what);
+      console.log('this.baseForm.when: '+this.baseForm.when);
+      console.log('this.baseForm.where: '+this.baseForm.where);
 
-        this.eventService.baseSearch(this.baseForm).subscribe((data: Array<Event>) => {
-          this.eventi = data;
-        });
-
-
-      }else{
-
-        console.log('non ho trovato nessun parametro di ricerca base');
-
-        this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
-          this.eventi = data;
-        });
-      }
-
-      this.eventService.listCities().subscribe((data: Array<String>) => {
-        this.citta = data;
+      this.eventService.baseSearch(this.baseForm).subscribe((data: Array<Event>) => {
+        this.eventi = data;
       });
 
-      this.categoryService.categories().subscribe((data: Array<Category>) => {
-        this.categorie = data;
+
+    }else{
+
+      console.log('non ho trovato nessun parametro di ricerca base');
+
+      this.eventService.listHotEvent().subscribe((data: Array<Event>) => {
+        this.eventi = data;
       });
-
     }
 
+    this.eventService.listCities().subscribe((data: Array<String>) => {
+      this.citta = data;
+    });
 
-    //metodo che risponde alla form di ricerca della home
-    onBaseSearch(baseSearchForm: NgForm){
+    this.categoryService.categories().subscribe((data: Array<Category>) => {
+      this.categorie = data;
+    });
 
-
-        console.log('onBaseSearch HomePage');
-        console.log(this.baseForm)
-
-
-        this.navCtrl.setRoot(HomePage, {"baseForm": this.baseForm });
-
-    }
+  }
 
 
-    event(e: Event) {
-      this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
-    }
+  //metodo che risponde alla form di ricerca della home
+  onBaseSearch(baseSearchForm: NgForm){
 
-    bottone(){
-      this.eventService.listHotEvent();
-    }
+
+    console.log('onBaseSearch HomePage');
+    console.log(this.baseForm)
+
+
+    this.navCtrl.setRoot(HomePage, {"baseForm": this.baseForm });
+
+  }
+
+
+  event(e: Event) {
+    this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
+  }
+
+  bottone(){
+    this.eventService.listHotEvent();
+  }
 
 
   //per debug
@@ -159,5 +165,5 @@ export class HomePage {
 
     });
   }
-  
+
 }
