@@ -69,4 +69,8 @@ export class BookedEventsPage {
       });
     });
   }
+
+  event(e: Event) {
+    this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
+  }
 }

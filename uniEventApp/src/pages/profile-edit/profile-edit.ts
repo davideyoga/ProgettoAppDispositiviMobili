@@ -15,6 +15,7 @@ import { Storage } from '@ionic/storage';
 import {UTENTE_STORAGE} from "../../constants";
 import {User} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
+import {constantCase} from "@ionic/app-scripts";
 
 
 declare var cordova: any;
@@ -223,10 +224,12 @@ export class ProfileEditPage {
             console.log(data);
             if (this.changeEmail(data.email)) {
               console.log('sono qui');
+              console.log(this.utente);
               this.userService.updateUser(this.utente).subscribe((data: User) => {
                 console.log('user dopo la modifica');
                 console.log(this.utente);
                 console.log(data);
+                console.log('ci so arrivato');
               });
               console.log('email changed');
             }
@@ -241,9 +244,13 @@ export class ProfileEditPage {
   }
 
   changeEmail(mail: string){
+    console.log('utente vecchio');
+    console.log(this.utente);
     let re = /\S+@\S+\.\S+/;
     if ( re.test(mail)){
       this.utente.email=mail;
+      console.log('utente nuovo');
+      console.log(this.utente);
       return true;
     }
     else return false;
