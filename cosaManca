@@ -1,6 +1,6 @@
 HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
     - ricerca base, se passiamo solo un termine da problemi (DAVIDE)
-    - ricerca avanzata non e' collegata, collegare al metodo advanceSearch
+    - ricerca avanzata non e' collegata, collegare al metodo advanceSearch (MASSIMO E ANTONELLO)
     - ricerca avanzata sistemare metodo server, qualche volta nn prende gli eventi giusti
     - RIEMPIRE CUORE QUANDO EVENTO E' TRA I PREFERITI 
 
@@ -8,29 +8,25 @@ HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
 
 
 EVENT:
-    - immagine da sistemare
+    - immagine da sistemare (opz)
     - se non loggato, quando si preme su prenota, mandare alla pagina di login (TONY) 
-
-    -togliere recensisci evento, solo se si ha partecipato si puo' recensire, sostituire con altro
+    - togliere recensisci evento, solo se si ha partecipato si puo' recensire, sostituire con altro (TONY)
 
 EVENT CREATOR: 
-    - aggiungere feedback
+    - aggiungere feedback (opz)
     - aggiungere descrizione utente in DB (DAVIDE)
 
-
-
-
 LOGIN/SIGNIN
-    - registrazione ( TONY )
-    - rivedere
+    - registrazione ( DAVIDE )
+    - rivedere (DAVIDE)
 
 MY EVENT
     - sezionare eventi per passato e futuro (MASSIMO E ANTONELLO)
-    - da rivedere
+    - da rivedere (MASSIMO E ANTONELLO)
 
 CREATE EVENT
     - da aggiungere alcuni campi alla form 
-    -  non funziona 
+    - non funziona 
 
 
 EVENT REVIEW 
@@ -47,7 +43,7 @@ PRENOTAZIONE
     - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO
 
 
-    
+
 SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP
 
 FINDHOTEVENT PRENDERE SOLO EVENTI APERTI
