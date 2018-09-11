@@ -98,6 +98,7 @@ export class MyApp {
         // si salva la lingua nello storage
         this.linguaService.updateLingua(linguaPreferita);
       }
+      console.log(lingua);
     });
 
     //Bisognerebbe settarlo anche quando si cambia la lingua

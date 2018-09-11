@@ -31,13 +31,23 @@ export class FavoritePage {
 
   }
 
+  ionViewWillEnter(){
+    this.eventService.favoriteEvent(this.userService.getUtenteToken()).subscribe((data: Array<Event>) => {
+      this.eventi = data;});
+
+    }
+
 
   UnSetFavorite(e: Event){
     let token= this.userService.getUtenteToken();
     this.userService.removeUserFavorite(token, e.id).subscribe((data: boolean) => {
       console.log('unsetfavorite event');
       console.log(data);
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+
     });
   }
+
+
 
 }
