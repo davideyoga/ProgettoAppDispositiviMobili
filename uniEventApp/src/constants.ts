@@ -38,6 +38,8 @@ export const URL = {
 
     FAVORITE_EVENT: URL_BASE + '/event/favoriteEvent',
 
+    BASE_SEARCH2: URL_BASE + "/event/baseSearch2",
+    
     SERVICES: URL_BASE + '/event/services'
 
 }

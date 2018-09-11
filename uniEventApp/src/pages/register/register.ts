@@ -21,6 +21,7 @@ import { EVENTI_PAGE } from '../pages';
 })
 export class RegisterPage {
 
+  valid: boolean = false;
   re: any = /\S+@\S+\.\S+/;
   phoneRe = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
@@ -37,8 +38,8 @@ export class RegisterPage {
   email: string;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService, 
-            public alertCtrl: AlertController, public events: Events ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService,
+              public alertCtrl: AlertController, public events: Events ) {
   }
 
   ionViewDidLoad() {
@@ -57,7 +58,6 @@ export class RegisterPage {
     else {
       this.user.email="";
       console.log('email non valida');
-
     }
 
     console.log("email: " + this.user.email);
@@ -87,10 +87,10 @@ export class RegisterPage {
           console.log("email gia presente");
 
           this.doAlert();
-        
+
         }else{
           console.log("utente creato, la sua mail e': " + data.email);
-          
+
           this.userService.login(data).subscribe((data: Login) => {
 
             console.log("login effettuata, login.token: " + data.token);
@@ -99,10 +99,10 @@ export class RegisterPage {
 
             console.log("login:");
             console.log(data);
-          
+
             //una volta effettuata la login rimanda alla pagina centrale
             this.navCtrl.setRoot(EVENTI_PAGE);
-          
+
           });
         }
       });
@@ -118,6 +118,19 @@ export class RegisterPage {
     });
 
     alert.present();
-}
+  }
+
+  checkMail(){
+    // email
+    if (this.re.test(this.user.email)) {
+      console.log('email valida');
+      this.valid=true;
+
+    }
+    else {
+      this.valid=false;
+      console.log('email non valida');
+    }
+  }
 
 }
