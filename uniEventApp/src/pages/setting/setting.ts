@@ -40,14 +40,13 @@ export class SettingPage {
 
   cambiaLingua(){
     let linguaScelta;
+
       if (this.english===true){ linguaScelta="en"}
       else if (this.english===false){ linguaScelta="it"}
-
 
       console.log("la lingua scelta è " + linguaScelta);
       this.translateService.use(linguaScelta);
       this.linguaService.updateLingua(linguaScelta);
-
 
     }
   }

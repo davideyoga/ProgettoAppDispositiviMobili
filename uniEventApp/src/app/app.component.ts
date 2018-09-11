@@ -3,7 +3,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 
-import { MenuController, Nav, Platform, ActionSheetController } from 'ionic-angular';
+import { MenuController, Nav, Platform, ActionSheetController, AlertController } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
 import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SETTING_PAGE, BOOKED_PAGE } from '../pages/pages';
@@ -37,7 +37,7 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage,public actionSheetCtrl: ActionSheetController) {
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage,public actionSheetCtrl: ActionSheetController, public alert:AlertController) {
 
 
 
@@ -191,7 +191,7 @@ export class MyApp {
       default:
         errorMessage = `Errore: ${err.status}`;
     }
-    let alert = this.alertCtrl.create({
+    let alert = this.alert.create({
       title: "Errore",
       subTitle: errorMessage,
       buttons: [

@@ -68,12 +68,10 @@ export class PaymentPage {
 
   prenota(){
     this.eventService.bookedEvent(this.userService.getUtenteToken(),this.evento.id).subscribe((data:boolean) =>
-    {
-      console.log("data in payment: " + data);
+    {console.log("data in payment: " + data);
+
 
 });
+
 }
-
-
-
 }

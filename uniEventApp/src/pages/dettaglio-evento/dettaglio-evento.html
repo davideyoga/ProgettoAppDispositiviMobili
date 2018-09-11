@@ -64,7 +64,7 @@
 
       <ion-item text-wrap>
         <ion-icon name='information-circle' item-start color="accent_colors"></ion-icon>
-        {{evento.description}} 
+        {{evento.description}}
       </ion-item>
 
       <ion-item>
@@ -85,7 +85,7 @@
       {{evento.price | number: '1.2-2'}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)">
+      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)" *ngIf="loggedIn">
         {{'PRENOTA' | translate}}
         <ion-icon class="my-icon" name="card"></ion-icon>
       </button>
