@@ -2,6 +2,7 @@ package it.univaq.disim.mobile.unievent.business.web;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import it.univaq.disim.mobile.unievent.business.AdvanceSearch;
+import it.univaq.disim.mobile.unievent.business.BaseSearch;
 import it.univaq.disim.mobile.unievent.business.CustomerDateAndTimeDeserialize;
 import it.univaq.disim.mobile.unievent.business.domain.*;
 import it.univaq.disim.mobile.unievent.business.impl.UniEventService;
@@ -383,6 +384,120 @@ public class EventController {
         return pe;
 
         //return this.service.findSessionByToken(token).getUser().getPreferredEvents();
+
+    }
+
+
+
+    @PostMapping("/baseSearch2")
+    public Set<Event> getEventsByWhenWhereWhat2(@RequestBody BaseSearch baseSearch){
+
+        System.out.println("\n");
+        System.out.println("date: " + baseSearch.getWhen());
+
+
+        List<Event> eventsByCategory = null;
+        List<Event> eventsByDate = null;
+        List<Event> eventsByCity = null;
+        Set<Event> eventsTotal = new TreeSet <>();
+
+
+        /*
+
+        RACCOLTA DATI
+
+        ATTENZIONE: AGGIUNGERE UN ELSE AD OGNI IF PER GESTIONE SINGOLI CAMPI NULLI, PENA ERRORE NELLA RICHIESTA
+
+        */
+        if (baseSearch.getWhat()!=null && baseSearch.getWhat().length() != 0) {
+
+            Category category = this.service.findCategoryByName(baseSearch.getWhat());
+
+            System.out.println("category: " + category);
+
+            eventsByCategory = this.service.findEventsByCategory( category );
+
+            System.out.println("eventsByCategory: " + eventsByCategory);
+
+            eventsTotal.addAll(eventsByCategory);
+
+            System.out.println("eventsTotal1: " + eventsTotal);
+        }
+        else if(baseSearch.getWhat()==null){
+
+            eventsByCategory = null;
+            eventsTotal.addAll(eventsByCategory);
+        }
+
+        if (baseSearch.getWhen()!=null){
+
+            //setto il giorno successivo meno un millisecondo
+            Date endDay = new Date(baseSearch.getWhen().getTime() + 86400000-1);
+
+            System.out.println("andDay: " + endDay);
+
+            eventsByDate = this.service.findEventsByDateBeforeBetween(baseSearch.getWhen(), endDay);
+
+            System.out.println("eventsByDate: " + eventsByDate);
+            System.out.println("\n");
+
+            eventsTotal.addAll(eventsByDate);
+
+            System.out.println("eventsTotal2: " + eventsTotal);
+        }
+        else{
+
+
+        }
+
+        if (baseSearch.getWhere() != null){
+
+            eventsByCity = this.service.findEventsByCity(baseSearch.getWhere());
+
+            eventsTotal.addAll(eventsByCity);
+
+            System.out.println("eventsTotal3: " + eventsTotal);
+        }
+        else{
+
+            eventsByCity = null;
+            eventsTotal.addAll(eventsByCity);
+
+        }
+
+        /*
+            FINE RACCOLTA DATI
+         */
+
+
+
+
+        if (eventsTotal.size()>0){
+
+            if (eventsByCategory != null) {
+                eventsTotal.retainAll(eventsByCategory);
+            }
+
+            if (eventsByDate != null) {
+                eventsTotal.retainAll(eventsByDate);
+            }
+
+            if (eventsByCity != null) {
+                eventsTotal.retainAll(eventsByCity);
+            }
+
+            return eventsTotal;
+
+        }else{
+            return null;
+        }
+
+    }
+
+    @GetMapping("/services")
+    public List<Service> getServices(){
+
+        return this.service.findServices();
 
     }
 

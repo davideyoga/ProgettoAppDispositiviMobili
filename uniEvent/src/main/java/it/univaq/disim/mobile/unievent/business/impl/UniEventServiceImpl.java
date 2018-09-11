@@ -41,7 +41,8 @@ public class UniEventServiceImpl implements UniEventService {
     @Autowired
     private ParticipateRepository participateRepository;
 
-
+    @Autowired
+    private ServiceRepository serviceRepository;
     /*
      * END REPOSITORY
      */
@@ -151,6 +152,11 @@ public class UniEventServiceImpl implements UniEventService {
 
         this.participateRepository.save(participate);
 
+    }
+
+    @Override
+    public List <it.univaq.disim.mobile.unievent.business.domain.Service> findServices() {
+        return this.serviceRepository.findAll();
     }
 
 

@@ -38,7 +38,9 @@ export const URL = {
 
     BOOK_EVENT: URL_BASE + '/event/bookEvent',
 
-    FAVORITE_EVENT: URL_BASE + '/event/favoriteEvent'
+    FAVORITE_EVENT: URL_BASE + '/event/favoriteEvent',
+    
+    SERVICES: URL_BASE + '/event/services'
 
 }
 

@@ -7,6 +7,7 @@ import { URL } from '../constants';
 import { BaseSearchForm } from '../models/base.sear.form.model';
 import { Event } from '../models/event.model';
 import { AdvanceSearchForm } from '../models/advance.search.model';
+import { Service } from '../models/service.model';
 
 
 @Injectable()
@@ -46,7 +47,11 @@ export class EventService {
         return this.http.get<Array<String>>(URL.CITIES);
     }
 
-    //get all favorite events method
+    listService(): Observable<Array<Service>> {
+
+        console.log("lanciato metodo listService");
+        return this.http.get<Array<Service>>(URL.SERVICES);
+    }
 
 
 

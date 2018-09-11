@@ -82,4 +82,8 @@ public interface UniEventService {
 
     //end participate
 
+
+    //service
+    List<Service> findServices();
+    //end service
 }
