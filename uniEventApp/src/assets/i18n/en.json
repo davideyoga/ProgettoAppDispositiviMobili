@@ -14,15 +14,24 @@
   "SEARCH": "search",
   "ADVSEARCH": "Advanced Search",
 
+  "DATABASIC": "Basic data",
+  "PERSONALDATA": "Personal data",
+
+  "CHANGELANG": "Change language",
+
   "LOGIN_BUTTON": "Enter",
   "DONE_BUTTON": "Done",
   "SAVE_BUTTON": "Save",
   "CANCEL_BUTTON": "Cancel",
   "DELETE_BUTTON": "Delete",
+  "PROGRESS": "In progress",
+  "PASSED": "Passed",
 
+  "REGISTER": "Not a user? Register now!",
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
   "LOGIN_ERROR_SUB_TITLE": "Username and/or password Wrong!",
+  "CHANGEPW": "Change password",
 
   "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
 
@@ -84,11 +93,11 @@
 
   "VISUAL":"Views",
 
-  "BOOKED_TITLE": "Booked Events"
-
-
+  "BOOKED_TITLE": "Booked Events",
+  "LANGUAGE": "Language"
 
 
 
 }
+
 

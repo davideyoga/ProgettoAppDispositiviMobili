@@ -15,6 +15,13 @@
 
 
   "BACK_BUTTON_TEXT":  "Indietro",
+  "PROGRESS": "In corso",
+  "PASSED": "Passati",
+
+  "DATABASIC": "Dati base",
+  "PERSONALDATA": "Dati personali ",
+
+  "CHANGELANG": "Cambia lingua",
 
   "LOGIN_BUTTON": "Accedi",
   "DONE_BUTTON": "Fatto",
@@ -23,6 +30,7 @@
   "DELETE_BUTTON": "Elimina",
   "UPDATE_BUTTON": "Modifica",
 
+  "REGISTER": "Non sei utente? Registrati!",
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",
   "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
@@ -32,6 +40,7 @@
   "TELEFONO": "Telefono",
   "USERNAME_REQUIRED": "Username obbligatorio",
   "PASSWORD_REQUIRED": "Password obbligatorio",
+  "CHANGEPW": "Cambia password",
 
   "CONDIVIDI": "Condividi",
 
@@ -85,5 +94,6 @@
 
   "VISUAL":"Visualizzazioni",
 
-  "BOOKED_TITLE": "Eventi Prenotati"
+  "BOOKED_TITLE": "Eventi Prenotati",
+  "LANGUAGE": "LInguaggio"
 }

@@ -21,11 +21,11 @@ public class UserController {
     private UniEventService service;
 
     @PostMapping("/create")
-    public Login createUser(@RequestParam String email, @RequestParam String password) {
+    public Login createUser(@RequestBody User user) {
 
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(password);
+        System.out.println("user: " + user);
+
+        //User newUser = user;
 
         service.createUser(user);
         Session session = service.login(user.getEmail(), user.getPassword());

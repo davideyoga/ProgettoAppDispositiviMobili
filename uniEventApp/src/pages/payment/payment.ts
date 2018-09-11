@@ -32,7 +32,6 @@ export class PaymentPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
-
     this.eventService.findById(this.navParams.data.eventoId).subscribe((data: Event) => {
 
       this.evento = data;

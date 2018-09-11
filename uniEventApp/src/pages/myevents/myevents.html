@@ -20,28 +20,28 @@
 
 
     <ion-list no-lines="">
-      <ion-list-header color="light">In corso</ion-list-header>
+      <ion-list-header color="light">{{PROGRESS | translate}}</ion-list-header>
 
-      <ion-item *ngFor="let e of evento" >
+      <ion-item *ngFor="let e of evento" (click)="event(e)">
         <ion-avatar item-start>
           <img src="../../assets/imgs/patato.jpg">
         </ion-avatar>
         <h2>{{e.title}}</h2>
-        <p>This town ain't big enough for the two of us!</p>
+        <p>{{e.description | slice:0:20}}</p>
         <ion-note item-end>{{e.date}}</ion-note>
       </ion-item>
     </ion-list>
 
   <ion-list padding-top="" no-lines>
 
-      <ion-list-header color="light">Passati</ion-list-header>
+      <ion-list-header color="light">{{PASSED | translate}}</ion-list-header>
 
-      <ion-item *ngFor="let e of evento">
+      <ion-item *ngFor="let e of evento" (click)="event(e)">
         <ion-avatar item-start>
           <img src="../../assets/imgs/patato.jpg">
         </ion-avatar>
         <h2>{{e.title}}</h2>
-        <p>This town ain't big enough for the two of us!</p>
+        <p>{{e.description | slice:0:20}}</p>
         <ion-note item-end>{{e.date}}</ion-note>
       </ion-item>
     </ion-list>
