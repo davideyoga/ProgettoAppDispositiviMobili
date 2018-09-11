@@ -82,45 +82,14 @@ export class UserService {
             });
     }
 
-    register(email: string, password: string): Observable<Login>{
+    register(email: string, password: string): Observable<User>{
 
         const params = new HttpParams()
         .set('email', email)
         .set('password', password);
         
-
-
-
         let apiURL = `${URL.REGISTER}`
-        return this.http.post<Login>(apiURL, params);
-
-        // return this.http.post<Login>(URL.REGISTER, user, { observe: 'response' })
-        //     .map((resp: HttpResponse<Login>) => {
-        //         if(resp.body!=null){
-
-        //             const token = resp.body.token;
-
-
-        //             this.storage.set(AUTH_TOKEN, token);
-        //             this.storage.set(UTENTE_STORAGE, resp.body.user);
-
-
-        //             // this.storage.get(AUTH_TOKEN).then((token) => {
-        //             //     console.log("token in memo: " + token);
-        //             // });
-
-        //             //console.log("resp.body.token: " + resp.body.token);
-
-        //             this.tokenUtente = token;
-
-        //             return resp.body;
-        //         }else{
-        //             return null;
-        //         }
-        //     });
-
-      // console.log('register function');
-      //return ;
+        return this.http.post<User>(apiURL, params);
     }
 
 

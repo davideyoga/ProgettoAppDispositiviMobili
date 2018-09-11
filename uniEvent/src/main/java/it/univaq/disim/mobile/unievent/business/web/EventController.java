@@ -334,7 +334,7 @@ public class EventController {
     @PostMapping("/bookEvent")
     public boolean bookEvent(@RequestParam String token, @RequestParam Long idEvent){
 
-        System.out.println("Laniato metodo book Event");
+        System.out.println("Lanciato metodo book Event");
 
         Event event = service.findEventById(idEvent);
 

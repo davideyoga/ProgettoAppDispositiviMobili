@@ -21,20 +21,37 @@ public class UserController {
     private UniEventService service;
 
     @PostMapping("/create")
-    public Login createUser(@RequestBody User user) {
+    public User createUser(@RequestParam String email, String password) {
 
-        System.out.println("user: " + user);
+        System.out.println("Chiamato metodo createUser");
 
-        //User newUser = user;
+        //estraggo utente per email per controllare che nn esista altro utente con stessa mail
+        if(this.service.findUserByEmail(email)==null){
 
-        service.createUser(user);
-        Session session = service.login(user.getEmail(), user.getPassword());
+            System.out.println("Utente non esistente nel sistema");
 
-        Login login = new Login();
-        login.setUser(session.getUser());
-        login.setToken(session.getToken());
+            //creo e salvo l'utente nel db
+            User user = new User();
+            user.setPassword(password);
+            user.setEmail(email);
+            service.createUser(user);
 
-        return login;
+            System.out.println("Utente salvato nel sistema: " + user);
+
+            return user;
+
+        }else{
+            //se la mail gia' esiste nel sistema
+
+            System.out.println("Email gia' presente");
+            return  new User();
+        }
+
+
+
+
+
+
     }
 
     @PostMapping("/updateUser")

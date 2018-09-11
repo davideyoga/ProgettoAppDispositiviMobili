@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { User } from "../../models/user.model";
-import {UserService} from "../../services/user.service";
+import { IonicPage, NavController, NavParams, AlertController, Events } from 'ionic-angular';
+
 import { Login } from '../../models/login.model';
+import { User } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
+import { EVENTI_PAGE } from '../pages';
 
 /**
  * Generated class for the RegisterPage page.
@@ -35,7 +37,8 @@ export class RegisterPage {
   email: string;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService, 
+            public alertCtrl: AlertController, public events: Events ) {
   }
 
   ionViewDidLoad() {
@@ -74,11 +77,47 @@ export class RegisterPage {
     if (registerForm.valid) {
 
       console.log("form valida");
-      this.userService.register(this.user.email, this.user.password).subscribe((data: Login) => {
+
+      this.userService.register(this.user.email, this.user.password).subscribe((data: User) => {
         //data e' un oggetto di tipo login
-        console.log("data.user: " + data.user.email);
+        console.log("data.email: " + data.email);
+        console.log("data.id: " + data.id);
+
+        if(data.email == null){
+          console.log("email gia presente");
+
+          this.doAlert();
+        
+        }else{
+          console.log("utente creato, la sua mail e': " + data.email);
+          
+          this.userService.login(data).subscribe((data: Login) => {
+
+            console.log("login effettuata, login.token: " + data.token);
+
+            this.events.publish('user:login', this.user);
+
+            console.log("login:");
+            console.log(data);
+          
+            //una volta effettuata la login rimanda alla pagina centrale
+            this.navCtrl.setRoot(EVENTI_PAGE);
+          
+          });
+        }
       });
+
     }
   }
+
+  doAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Existing Email',
+      subTitle: 'the email entered is already present in the system',
+      buttons: ['Ok']
+    });
+
+    alert.present();
+}
 
 }
