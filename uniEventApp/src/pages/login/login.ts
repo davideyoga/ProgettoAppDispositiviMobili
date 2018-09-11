@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams, Events, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, AlertController, ToastController } from 'ionic-angular';
 
 import { User} from '../../models/user.model';
 import { UserService } from '../../services/user.service';
@@ -39,7 +39,7 @@ export class LoginPage {
 
 
   constructor(public alertCtrl: AlertController, public events: Events, public navCtrl: NavController, public navParams: NavParams, public translateService: TranslateService,
-                  private userService: UserService) {
+                  private userService: UserService,private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -71,11 +71,9 @@ export class LoginPage {
 
           //setto l'oggetto login
           this.login = data;
-
-          console.log("Login effettuato");
-
           this.events.publish('user:login', this.user);
 
+          console.log("Login effettuato");
           console.log(this.user);
 
           this.navCtrl.setRoot(EVENTI_PAGE);
@@ -89,6 +87,15 @@ export class LoginPage {
       });
 
     }
+  }
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Login successful',
+      duration: 2000,
+      position: 'top'
+    });
+
+    toast.present();
   }
 
   goRegister(){

@@ -100,7 +100,9 @@
   "RECENSIONE": "Review event",
 
   "LOGIN_O": "Login",
-  "EV_CHIUSO": "Passed event"
+  "EV_CHIUSO": "Passed event",
+  "CONCLUSO":"Event close"
+
 }
 
 
