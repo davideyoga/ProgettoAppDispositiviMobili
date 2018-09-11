@@ -4,12 +4,8 @@
       <ion-icon name="menu" fixed></ion-icon>
     </button>
     <ion-title>{{'EVENTI_CREATI_MENU' | translate}}</ion-title>
-
   </ion-navbar>
 </ion-header>
-
-
-
 
 <ion-content class="list-avatar-page">
 
@@ -18,33 +14,15 @@
     <button ion-fab color="accent_colors" (click)="createevent()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
-
-    <ion-list no-lines="">
-      <ion-list-header color="light">{{PROGRESS | translate}}</ion-list-header>
-
-      <ion-item *ngFor="let e of evento" (click)="event(e)">
-        <ion-avatar item-start>
-          <img src="../../assets/imgs/patato.jpg">
-        </ion-avatar>
-        <h2>{{e.title}}</h2>
-        <p>{{e.description | slice:0:20}}</p>
-        <ion-note item-end>{{e.date}}</ion-note>
-      </ion-item>
-    </ion-list>
-
-  <ion-list padding-top="" no-lines>
-
-      <ion-list-header color="light">{{PASSED | translate}}</ion-list-header>
-
-      <ion-item *ngFor="let e of evento" (click)="event(e)">
-        <ion-avatar item-start>
-          <img src="../../assets/imgs/patato.jpg">
-        </ion-avatar>
-        <h2>{{e.title}}</h2>
-        <p>{{e.description | slice:0:20}}</p>
-        <ion-note item-end>{{e.date}}</ion-note>
-      </ion-item>
-    </ion-list>
-
+  <ion-list no-lines="">
+    <ion-item *ngFor="let e of eventi" (click)="event(e)">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/patato.jpg">
+      </ion-avatar>
+      <h2>{{e.title}}</h2>
+      <p>{{e.date | date:'MMM d' }}</p>
+      <ion-note *ngIf="e.date<todayString" item-end color="danger">evento chiuso</ion-note>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
