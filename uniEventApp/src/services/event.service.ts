@@ -122,17 +122,25 @@ export class EventService {
     }
 
 
-    getEventPrenotatedByToken(token: String): Observable<Array<Event>>{
+    getEventPrenotatedByToken(token: string): Observable<Array<Event>>{
 
-        return this.http.post<Array<Event>>(URL.EVENT_REGISTERED, event, {observe: 'response'})
-            .map((resp: HttpResponse<Array<Event>>) => {
+        const params = new HttpParams()
+            .set('token', token);
 
-                //console.log("resp.body.valueOf():" + resp.body.valueOf());
+        let apiURL = `${URL.EVENT_REGISTERED}`
+        return this.http.post<Array<Event>>(apiURL, params);
 
-                console.log("resp.body.:" + resp.body.length);
+        // console.log("URL.EVENT_REGISTERED: " + URL.EVENT_REGISTERED);
 
-                return resp.body;
-            });
+        // return this.http.post<Array<Event>>(URL.EVENT_REGISTERED, event, {observe: 'response'})
+        //     .map((resp: HttpResponse<Array<Event>>) => {
+
+        //         //console.log("resp.body.valueOf():" + resp.body.valueOf());
+
+        //         console.log("resp.body.length:" + resp.body.length);
+
+        //         return resp.body;
+        //     });
     }
 
 

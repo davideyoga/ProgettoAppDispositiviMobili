@@ -298,8 +298,9 @@ public class EventController {
 
 
     @PostMapping("/eventRegisteredByUser")
-    public List<Event> getEventRegisteredByToken(String token){
+    public List<Event> getEventRegisteredByToken(@RequestParam String token){
 
+        System.out.println("chiamato metodo eventRegisteredByUser");
 
         List<Participate> participateList = this.service.findSessionByToken(token).getUser().getParticipation();
 
@@ -313,14 +314,18 @@ public class EventController {
 
         if( eventList!=null || eventList.size()<=0 ) {
 
-            System.out.println("torno valore non nullo");
+            System.out.println("torno valore non nullo: " + eventList);
 
             return eventList;
 
         }else{
 
             System.out.println("torno valore nullo");
-            return null;
+
+            Event event = new Event();
+            event.setTitle("nessunEvento");
+            eventList.add(event);
+            return eventList;
         }
     }
 
