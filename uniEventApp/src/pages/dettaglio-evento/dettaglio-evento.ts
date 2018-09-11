@@ -52,7 +52,7 @@ export class DettaglioEventoPage {
 
 
     //controllo loggato
-    if(this.userService.checkLogin()==true){
+    if(this.userService.getUtenteToken()!=null){
     this.loggedIn=true;
     console.log("loggedin è "+this.loggedIn);
   } else this.loggedIn=false;
