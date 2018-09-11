@@ -24,22 +24,13 @@ export class ExtrafilterPage {
 
   structure: any = { lower: 33, upper: 60 };
 
-  public types:any = [{tp: 'concerto'},
-                      {tp: 'degustazione'},
-                      {tp: 'accensione trattori'}];
-
-  public services:any = [{sv:'servizio '},
-                         {sv:'servizio one'},
-                         {sv:'servizio trattori'},
-                         {sv:'servizio di ordine'},
-                         {sv:'servizietto '}];
-
   servicesArray :any = [];
   rangeArray :any = [];
   sendArray :any = [];
   typeArray :any = [] ;
 
   categorie: Array<Category>;
+  eventi: Array<Event>;
 
 
   

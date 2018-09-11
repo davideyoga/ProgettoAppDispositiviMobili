@@ -149,10 +149,10 @@ export class MyApp {
     this.nav.setRoot(EVENTI_PAGE);
     console.log("logout effettuato");}
 
-  changeLanguage(ciao : string){
-      console.log(ciao);
-      this.translate.use(ciao);
-      this.linguaService.updateLingua(ciao);
+  changeLanguage(lang : string){
+      console.log(lang);
+      this.translate.use(lang);
+      this.linguaService.updateLingua(lang);
 
   }
 
