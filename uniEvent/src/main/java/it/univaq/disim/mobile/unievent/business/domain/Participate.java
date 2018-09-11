@@ -89,12 +89,8 @@ public class Participate implements java.io.Serializable {
 
         Participate that = (Participate) o;
 
-        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
-        if (getDataPrenotation() != null ? !getDataPrenotation().equals(that.getDataPrenotation()) : that.getDataPrenotation() != null)
-            return false;
-        if (getVoteReview() != null ? !getVoteReview().equals(that.getVoteReview()) : that.getVoteReview() != null)
-            return false;
-        return getDescriptionReview() != null ? getDescriptionReview().equals(that.getDescriptionReview()) : that.getDescriptionReview() == null;
+        if (getUser() != null ? !getUser().equals(that.getUser()) : that.getUser() != null) return false;
+        return getEvent() != null ? getEvent().equals(that.getEvent()) : that.getEvent() == null;
     }
 
     @Override
