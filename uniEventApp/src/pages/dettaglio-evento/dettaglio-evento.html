@@ -48,7 +48,7 @@
     <ion-list padding-top="" no-lines="">
       <ion-item class="my-text">
         <ion-icon name='calendar' item-start color="accent_colors"></ion-icon>
-        {{evento.date | date:'d MMMM yyyy' }}
+        {{evento.date | date:'d MMMM yyyy hh:mm'  }}
       </ion-item>
 
       <!--indirizzo-->
@@ -112,7 +112,7 @@
     <ion-buttons end>
       <button ion-button large icon-end class="freeButton" (click)="openPayment(evento)">
         {{'PARTECIPA' | translate}}
-        <!--<ion-icon name="send"></ion-icon>-->
+
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -126,9 +126,8 @@
 
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end class="freeButton" (click)="openReview(evento)">
-        {{'RECENSIONE' | translate}}
-        <!--<ion-icon name="send"></ion-icon>-->
+      <button ion-button large icon-end class="freeButton">
+        {{'CONCLUSO' | translate}}
       </button>
     </ion-buttons>
   </ion-toolbar>
