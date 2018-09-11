@@ -17,7 +17,7 @@
           {{'DATABASIC' | translate}}</ion-card-title>
         <ion-item no-lines="">
           <ion-label floating>Email</ion-label>
-          <ion-input [(ngModel)]="user.email" type="email" name="email"></ion-input>
+          <ion-input [(ngModel)]="user.email" type="email" name="email" (ionChange)="checkMail()"></ion-input>
         </ion-item>
 
         <ion-item no-lines="">
@@ -64,7 +64,7 @@
 
     <!--permettere di caricare una foto profilo-->
     <ion-item>
-      <button full ion-button color="accent_colors" (click)="register(registerForm)">{{'GO_REGISTER' | translate}}</button>
+      <button full ion-button color="accent_colors" [disabled]="!valid" (click)="register(registerForm)">{{'GO_REGISTER' | translate}}</button>
     </ion-item>
   </form>
 
