@@ -17,9 +17,6 @@ CREATE EVENT (service funzionante)
     - da aggiungere alcuni campi alla form 
     - non funziona 
 
-LOGIN: 
-    - se e' tutto vuoto entra ugualmente
-
 EVENT CREATOR: 
     - aggiungere feedback (opz)
 
@@ -39,3 +36,5 @@ FUNZIONALITA:
     - FINDHOTEVENT PRENDERE SOLO EVENTI APERTI (opz)
 
     - RIEMPIRE CUORE QUANDO EVENTO E' TRA I PREFERITI (opz)
+
+    - SISTEMARE BASESEARCH (opz)
