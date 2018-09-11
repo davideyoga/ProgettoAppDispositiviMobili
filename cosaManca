@@ -6,24 +6,17 @@ HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
 
 EVENT:
     - immagine da sistemare
-    - se non loggato, quando si preme su prenota, mandare alla pagina di login 
-    - se evento finito togliere bottone prenota
+    - se non loggato, quando si preme su prenota, mandare alla pagina di login (TONY) 
 
 EVENT CREATOR: 
     - aggiungere feedback
     - aggiungere descrizione utente in DB (DAVIDE)
 
-REVIEW EVENT
-    - da fare tutta 
+
 
 
 LOGIN/SIGNIN
     - registrazione ( TONY )
-
-
-EVENTI PREFERITI
-    - DA FARE (TONY)
-    - QUANDO CREO UN PREFERITO, CONTROLLARE CHE NEL DB NON CI SIA GIA(DAVIDE)
 
 MY EVENT
     - sezionare eventi per passato e futuro (MASSIMO E ANTONELLO)
@@ -31,22 +24,17 @@ MY EVENT
 CREATE EVENT
     - da aggiungere alcuni campi alla form 
 
-PRENOTATI
-    - da errore il server inteno (DA RISOLVERE) XXXRISOLTO
-
 EVENT REVIEW 
     - da fare 
 
+REVIEW EVENT
+    - da fare tutta 
+
+PRENOTATI TOGLIERE CUORE
 
 PRENOTAZIONE 
-    - collegare metodo per prenotare XXXPRENOTA MA NN RIMANDA AD UN ALTRA pagina
-    - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO
-
-SETTING 
-    - flag cambio lingua 
-
+	-PASSARE BENE EVENTO
 
 SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP
-SISTEMARE PRENOTAZIONE DELLO STESSO UTENTE SULLO STESSO EVENTO (DA TESTARE)
-SISTEMARE AGGIUNTA PREFERITO STESSO UTENTE STESSO EVENTO (DA TESTARE)
 
+FINDHOTEVENT PRENDERE SOLO EVENTI APERTI

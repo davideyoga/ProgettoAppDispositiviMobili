@@ -62,12 +62,12 @@
       {{'SERVICE' | translate}}
     </ion-list-header>
 
-    <ion-item *ngFor="let s of services">
+    <ion-item *ngFor="let s of servizi">
       <ion-icon name='clipboard' item-start></ion-icon>
       <ion-label>
-        {{s.sv}}
+        {{s.name}}
       </ion-label>
-      <ion-toggle color="accent_colors" (click)="selectService(s)" [(ngModel)]="s.checked" item-right></ion-toggle>
+      <ion-toggle color="accent_colors" (click)="selectService(s)"  item-right></ion-toggle>
     </ion-item>
 
   </ion-list>

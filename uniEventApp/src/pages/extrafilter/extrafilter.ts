@@ -6,6 +6,7 @@ import { CategoryService } from '../../services/category.service';
 import { AdvanceSearchForm } from '../../models/advance.search.model';
 import { EventService } from '../../services/event.service';
 import {Event} from '../../models/event.model';
+import {Service} from "../../models/service.model";
 
 
 /**
@@ -47,6 +48,11 @@ export class ExtrafilterPage {
     //caricare le categorie all'apertura della pagina
     this.categoryService.categories().subscribe((data: Array<Category>) => {
       this.categorie = data;
+    });
+
+    this.eventService.listService().subscribe( (data: Array<Service>) => {
+      this.servizi = data;
+      console.log(this.servizi)
     });
 
   }
