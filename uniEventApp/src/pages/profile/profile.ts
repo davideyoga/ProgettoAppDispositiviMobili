@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {DUMMY_PAGE, PROFILE_EDIT_PAGE} from '../pages';
+import {DUMMY_PAGE, PROFILE_EDIT_PAGE, SETTING_PAGE} from '../pages';
 import {UTENTE_STORAGE} from "../../constants";
 import {User} from "../../models/user.model";
 import { Storage } from '@ionic/storage';
@@ -49,7 +49,7 @@ modifyProfile(){
 }
 
 openSettings(){
-  this.navCtrl.push(DUMMY_PAGE);
+  this.navCtrl.push(SETTING_PAGE);
 }
 
 openPastEvents(){
