@@ -86,14 +86,16 @@
       {{evento.price | number: '1.2-2'}}
     </ion-title>
     <ion-buttons end>
+
       <!-- bottone loggato -->
-      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)" *ngIf="loggedIn">
+
+      <button *ngIf="loggedIn" ion-button large icon-end round class="priceButton" (click)="openPayment(evento)" >
         {{'PRENOTA' | translate}}
         <ion-icon class="my-icon" name="card"></ion-icon>
       </button>
 
       <!-- bottone non loggato -->
-      <button ion-button large icon-end round class="priceButton" (click)="login()" *ngIf="!loggedIn">
+      <button *ngIf="!loggedIn" ion-button large icon-end round class="priceButton" (click)="login()" >
         {{'LOGIN_O' | translate}}
       </button>
 

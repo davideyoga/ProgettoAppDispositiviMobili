@@ -25,7 +25,7 @@ export class MyApp {
 
   rootPage:any;
 
-  loggedIn = false;
+  loggedIn;
 
   menuL: Array<{title: string, component: any, icon:any}>;
 
@@ -36,8 +36,8 @@ export class MyApp {
   utente: User;
 
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage,public actionSheetCtrl: ActionSheetController, public alert:AlertController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events,public actionSheetCtrl: ActionSheetController, public alert:AlertController) {
 
 
 
@@ -158,7 +158,7 @@ export class MyApp {
 
 
     listenToLoginEvents() {
-        if(this.UserService.checkLogin()==true){
+        if(this.UserService.checkLogin()===true){
         this.events.subscribe('user:login', (user:User) => {
           this.loggedIn = true;
           this.utente=user;
@@ -173,12 +173,12 @@ export class MyApp {
 
 
         this.events.subscribe('server-error', (err: HttpErrorResponse) => {
-          this.showMessageServerError(err);
+          //this.showMessageServerError(err);
         });
       }
 
 
-    showMessageServerError(err: HttpErrorResponse) {
+    /*showMessageServerError(err: HttpErrorResponse) {
     let errorMessage = "Errore nel server";
 
     switch (err.status) {
@@ -205,7 +205,7 @@ export class MyApp {
       ]
     });
     alert.present();
-  }
+  }*/
 
 
 }

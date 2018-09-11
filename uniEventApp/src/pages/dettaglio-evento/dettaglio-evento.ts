@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
-import {IonicPage, NavController, NavParams, ModalController, Platform, ViewController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
 
 import { Event } from '../../models/event.model';
+import { Events } from 'ionic-angular';
+
 import { User } from '../../models/user.model';
 import { EventService } from '../../services/event.service';
 import { UserService } from '../../services/user.service';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { ToastController } from 'ionic-angular';
-import { Events } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 import { PAYMENT_PAGE, LOGIN_PAGE } from '../pages';
 
 @IonicPage()
@@ -29,8 +29,9 @@ export class DettaglioEventoPage {
   priceFlag: boolean;
   favorite: boolean;
   closed: boolean;
-  loggedIn: boolean=false;
+
   utente: User;
+  loggedIn: boolean=false;
 
 
 
@@ -45,25 +46,15 @@ export class DettaglioEventoPage {
   }
 
 
+
   ionViewDidLoad() {
 
-    console.log('ionViewDidLoad DettaglioNotiziaPage');
+    console.log('ionViewDidLoad EventoPage');
 
-
-    if(this.userService.checkLogin()==true){
-      this.events.subscribe('user:login', (user:User) => {
-        this.loggedIn = true;
-        this.utente=user;
-        console.log("sono loggato");
-      });
-    }
-
-
-      this.events.subscribe('user:logout', () => {
-        this.loggedIn=false;
-      });
-
-
+    //controllo loggato
+    if(this.userService.getUtenteToken()!=null){
+    this.loggedIn=true;
+    console.log("utente c'è");}
 
 
     //gestione data
@@ -90,7 +81,7 @@ export class DettaglioEventoPage {
         this.priceFlag=false;
       }
       if (this.evento.date!=null){
-        console.log(this.evento.date);
+
         if (todayString >= this.evento.date)
           this.closed=true;
         console.log(this.closed);
@@ -112,11 +103,7 @@ export class DettaglioEventoPage {
 
   }
 
-  // ionViewDidLeave() {
-  //   console.log('ionViewDidLeave DettaglioEventoPage');
-  //   //Inserito perche' se l'utente va in un altro tab (es. esami), e ritorna nel tab esami rimane aperta questa vista
-  //   this.navCtrl.popToRoot();
-  // }
+
 
   infoUser(){
 
