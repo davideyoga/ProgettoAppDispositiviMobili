@@ -12,6 +12,7 @@ import { SocialSharing } from "@ionic-native/social-sharing";
 import { ToastController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { PAYMENT_PAGE, LOGIN_PAGE } from '../pages';
 
 @IonicPage()
 @Component({
@@ -53,7 +54,7 @@ export class DettaglioEventoPage {
       this.events.subscribe('user:login', (user:User) => {
         this.loggedIn = true;
         this.utente=user;
-        console.log(this.utente);
+        console.log("sono loggato");
       });
     }
 
@@ -62,6 +63,10 @@ export class DettaglioEventoPage {
         this.loggedIn=false;
       });
 
+
+
+
+    //gestione data
     let today = new Date();
     let todayString: string = '';
     todayString=todayString + today.getFullYear() + '-' + '0' + (today.getMonth()+1) + '-' + today.getDate()
@@ -75,6 +80,7 @@ export class DettaglioEventoPage {
     this.eventService.findById(this.navParams.data.eventoId).subscribe((data: Event) => {
 
       this.evento = data;
+
       if (this.evento.price!=null){
         console.log(this.evento.price);
         this.priceFlag=true;
@@ -96,7 +102,7 @@ export class DettaglioEventoPage {
         this.creatore = data;
       });
 
-      //controlla se l'evento è tra i  preferiti dell'utente
+      //controlla se l'evento è tra i preferiti dell'utente
       this.favorite=false;
 
     });
@@ -148,7 +154,6 @@ export class DettaglioEventoPage {
   }
 
   openMap(){
-
     let url= 'https://www.google.com/maps/search/?api=1&query=';
     if (this.evento.address != null)
       url = url+this.evento.address;
@@ -173,7 +178,7 @@ export class DettaglioEventoPage {
 
   openPayment(e: Event){
 
-    this.navCtrl.push('PaymentPage', { eventoId: e.id});
+    this.navCtrl.push(PAYMENT_PAGE, { eventoId: e.id});
   }
 
 
@@ -215,5 +220,16 @@ export class DettaglioEventoPage {
 
     console.log(today);
   }
+
+  login(){
+
+    this.navCtrl.setRoot(LOGIN_PAGE);
+
+
+  }
+
+
+
+
 }
 

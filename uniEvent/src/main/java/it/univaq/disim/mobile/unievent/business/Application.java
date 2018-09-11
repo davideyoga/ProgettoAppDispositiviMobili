@@ -79,7 +79,7 @@ public class Application {
             event2.setCity("Roma");
             event2.setDescription("la descrizone dell'evento2");
             event2.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
-            event2.setPrice(1.90f);
+            event2.setPrice(0f);
 
 
             Event event3 = new Event();
