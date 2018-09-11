@@ -25,14 +25,11 @@
     </ion-list-header>
     <ion-item>
 
-
-
       <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" class="spazio" color="accent_colors">
         <ion-badge range-left small color="primary_color">{{structure.lower}}</ion-badge>
         <ion-badge range-right small color="primary_color">{{structure.upper}}</ion-badge>
-
-
       </ion-range>
+
     </ion-item>
   </ion-list>
 
@@ -41,14 +38,14 @@
       {{'TYPE' | translate}}
     </ion-list-header>
 
-    <ion-item *ngFor="let ca of categorie; let i = index">
+    <ion-item *ngFor="let ca of categorie">
       <ion-icon name='globe' item-start></ion-icon>
       <ion-label>
         {{ca.name}}
       </ion-label>
       <ion-radio color="primary_color" item-right (click)="selectType(ca)"></ion-radio>
-
     </ion-item>
+
   </ion-list>
 
   <ion-list >
@@ -61,7 +58,8 @@
       <ion-label>
         {{s.name}}
       </ion-label>
-      <ion-toggle color="accent_colors" (click)="selectService(s)" [(ngModel)]="s.checked" item-right></ion-toggle>
+      <!--<ion-toggle color="accent_colors" (click)="selectService(s)" [(ngModel)]="s.checked" item-right></ion-toggle>-->
+      <ion-toggle color="accent_colors" (click)="selectService2(s)" item-right></ion-toggle>
     </ion-item>
 
   </ion-list>

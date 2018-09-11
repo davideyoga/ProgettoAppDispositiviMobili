@@ -100,7 +100,11 @@
   "RECENSIONE": "Review event",
 
   "LOGIN_O": "Login",
-  "EV_CHIUSO": "Passed event"
+  "EV_CHIUSO": "Passed event",
+  "TYPE": "Categories",
+  "PRICE": "Range of price",
+  "SERVICE": "Services"
+
 }
 
 

@@ -100,6 +100,9 @@
   "LANGUAGE": "LInguaggio",
   "RECENSIONE": "Recensisci evento",
   "LOGIN_O": "Accedi",
-  "EV_CHIUSO": "Evento passato"
+  "EV_CHIUSO": "Evento passato",
+  "TYPE": "Categorie",
+  "PRICE": "Fascia di prezzo",
+  "SERVICE": "Servizi"
 
 }
