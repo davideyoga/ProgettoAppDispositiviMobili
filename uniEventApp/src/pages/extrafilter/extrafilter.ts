@@ -34,9 +34,9 @@ export class ExtrafilterPage {
   eventi: Array<Event>;
 
 
-  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     private categoryService: CategoryService, private eventService: EventService) {
 
 
@@ -50,10 +50,10 @@ export class ExtrafilterPage {
       this.categorie = data;
     });
 
-    this.eventService.listService().subscribe( (data: Array<Service>) => {
+    /*this.eventService.listService().subscribe( (data: Array<Service>) => {
       this.servizi = data;
       console.log(this.servizi)
-    });
+    });*/
 
   }
 
@@ -92,10 +92,11 @@ export class ExtrafilterPage {
 
     var advanceSearchForm: AdvanceSearchForm = { minPrice: min, maxPrice: max, category: "", serviceList:[] };
 
-    //SETTARE IN advanceSearchForm category e service 
+    //SETTARE IN advanceSearchForm category e service
 
     //chiamata al server
     this.eventService.advanceSearch(advanceSearchForm).subscribe( (data: Array<Event>) => {
+      this.eventi=data;
       //vedere cosa fare con gli eventi che tornano
     });
 

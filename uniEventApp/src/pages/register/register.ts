@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-import { Register } from "../../models/register.model";
 import { User } from "../../models/user.model";
 import {UserService} from "../../services/user.service";
 import { Login } from '../../models/login.model';
@@ -62,6 +61,7 @@ export class RegisterPage {
     //email
 
     //numero
+    /*
     let digits = this.phoneNUmber.toString().replace(/\D/g, "");
     if (this.phoneRe.test(digits)){
       this.user.telephoneNumber=this.phoneNUmber;
@@ -69,7 +69,7 @@ export class RegisterPage {
     else{
       // erroe
     }
-    //numero
+    //numero*/
 
     if (registerForm.valid) {
 

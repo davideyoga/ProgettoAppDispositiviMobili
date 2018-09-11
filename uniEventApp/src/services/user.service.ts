@@ -87,6 +87,8 @@ export class UserService {
         const params = new HttpParams()
         .set('email', email)
         .set('password', password);
+        
+
 
 
         let apiURL = `${URL.REGISTER}`
