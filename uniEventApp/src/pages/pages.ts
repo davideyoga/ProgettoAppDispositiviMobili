@@ -22,4 +22,4 @@ export const BOOKED_PAGE = 'BookedEventsPage';
 
 export const REGISTER_PAGE = 'RegisterPage';
 
-
+export const PAYMENT_PAGE = 'PaymentPage';

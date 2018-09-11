@@ -95,7 +95,9 @@
 
   "BOOKED_TITLE": "Booked Events",
   "LANGUAGE": "Language",
-  "RECENSIONE": "Review event"
+  "RECENSIONE": "Review event",
+
+  "LOGIN_O": "Login"
 }
 
 
