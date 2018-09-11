@@ -59,6 +59,7 @@ export class MyApp {
     //chiama metodo initTranslate
     this.initTranslate();
     this.listenToLoginEvents();
+
     platform.ready().then(() => {
       //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;

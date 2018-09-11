@@ -41,7 +41,7 @@ ionViewDidLoad() {
           telephoneNumber: 0,
           password: ""};
       }
-    })
+    });
   }
 
 modifyProfile(){
