@@ -71,6 +71,7 @@ export class MyeventsPage {
     this.navCtrl.push(CREATEVENTS_PAGE);
 
   }
+  
 
 
 

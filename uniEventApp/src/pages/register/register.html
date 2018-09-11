@@ -14,7 +14,7 @@
       <ion-list>
         <ion-card-title class="my-title" padding-top="">
           <ion-icon name="contact" item-start></ion-icon>
-          Dati base</ion-card-title>
+          {{DATABASIC | translate}}</ion-card-title>
         <ion-item no-lines="">
           <ion-label floating>Email</ion-label>
           <ion-input [(ngModel)]="user.email" type="email" name="email"></ion-input>
@@ -31,7 +31,7 @@
   <ion-card>
       <ion-card-title padding-top="" class="my-title">
         <ion-icon name="man" item-start></ion-icon>
-        Dati personali</ion-card-title>
+        {{PERSONALDATA | translate}}</ion-card-title>
       <ion-item no-lines="">
         <ion-label floating>Nome</ion-label>
         <ion-input [(ngModel)]="user.name" type="text" name="name"></ion-input>

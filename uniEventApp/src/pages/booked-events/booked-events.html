@@ -35,14 +35,13 @@
     <!--Informazioni principali-->
     <ion-item>
       <ion-icon color="subtle" large item-start name='information-circle'></ion-icon>
-      <h2>Museum of Tractor</h2>
-      <p>info</p>
+      <h2>{{e.description | slice:0:30}}</h2>
     </ion-item>
 
     <!--posto e ora-->
     <ion-item>
       <ion-icon color="subtle" large item-start name='navigate'></ion-icon>
-      <h2>Institute of Fine Cocktails</h2>
+      <h2>{{e.address}}</h2>
       <p>{{e.city}}</p>
     </ion-item>
 

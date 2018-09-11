@@ -3,7 +3,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 
-import { MenuController, Nav, Platform, AlertController } from 'ionic-angular';
+import { MenuController, Nav, Platform, ActionSheetController } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
 import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SETTING_PAGE, BOOKED_PAGE } from '../pages/pages';
@@ -37,7 +37,7 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private alertCtrl: AlertController) {
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage,public actionSheetCtrl: ActionSheetController) {
 
 
 
@@ -70,6 +70,27 @@ export class MyApp {
 
   }
 
+  presentActionSheet() {
+    const actionSheet = this.actionSheetCtrl.create({
+      title: 'Lingua',
+      buttons: [
+        {
+          text: 'Italiano',
+          handler: () => {
+            console.log('Italiano');
+            this.changeLanguage('it');
+          }
+        },{
+          text: 'Inglese',
+          handler: () => {
+            console.log('English');
+            this.changeLanguage('en');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 
 
 
@@ -127,6 +148,13 @@ export class MyApp {
     this.UserService.logout();
     this.nav.setRoot(EVENTI_PAGE);
     console.log("logout effettuato");}
+
+  changeLanguage(ciao : string){
+      console.log(ciao);
+      this.translate.use(ciao);
+      this.linguaService.updateLingua(ciao);
+
+  }
 
 
     listenToLoginEvents() {
