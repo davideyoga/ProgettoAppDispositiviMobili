@@ -14,11 +14,9 @@ EVENT:
 
 EVENT CREATOR: 
     - aggiungere feedback (opz)
-    - aggiungere descrizione utente in DB (DAVIDE)
 
 LOGIN/SIGNIN
-    - registrazione ( DAVIDE )
-    - rivedere (DAVIDE)
+    - da visualizzare bottone registrati
 
 MY EVENT
     - sezionare eventi per passato e futuro (MASSIMO E ANTONELLO)
@@ -38,9 +36,7 @@ REVIEW EVENT
 PRENOTATI TOGLIERE CUORE
 
 PRENOTAZIONE 
-	-PASSARE BENE EVENTO
-
-    - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO
+    - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO (TONY)
 
 
 

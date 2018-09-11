@@ -39,8 +39,8 @@ public class User implements java.io.Serializable {
     @Column(name = "TELEPHONE_NUMBER", nullable = true)
     private Integer telephoneNumber;
 
-
-
+    @Column(name = "DESCRIPTION", nullable = true)
+    private String description;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<UserPreference> userPreferences = new ArrayList<>();
@@ -159,6 +159,14 @@ public class User implements java.io.Serializable {
 
     public void setParticipation(List <Participate> participation) {
         this.participation = participation;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

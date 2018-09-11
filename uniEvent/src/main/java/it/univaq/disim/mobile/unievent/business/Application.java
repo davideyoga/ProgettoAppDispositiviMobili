@@ -48,12 +48,13 @@ public class Application {
             user.setPassword("prova");
             user.setName("Davide");
             user.setSurname("Micarelli");
+            user.setDescription("descrizione di prova prova xxx");
 
             User user2 = new User();
             user2.setEmail("d.micarelli27@gmail.com");
             user2.setPassword("d.micarelli2");
             user2.setName("davide2");
-
+            user.setDescription("descrizione di prova prova xxx");
 
 
             userRepository.save(user);
@@ -71,6 +72,7 @@ public class Application {
             event.setPrice(19.68f);
             event.setDescription("la descrizone dell'evento");
             event.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
+            event.setCreator(user);
 
 
 
@@ -80,6 +82,7 @@ public class Application {
             event2.setDescription("la descrizone dell'evento2");
             event2.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
             event2.setPrice(0f);
+            event2.setCreator(user);
 
 
             Event event3 = new Event();
@@ -88,6 +91,7 @@ public class Application {
             event3.setPrice(17.69f);
             event3.setDate(new Date(Calendar.getInstance().getTimeInMillis() + 86400000*2));
             //event3.setPrice(1.5f);
+            event3.setCreator(user);
 
             Event event4 = new Event();
             event4.setTitle("Apecolmorto2");
@@ -95,6 +99,8 @@ public class Application {
             //event4.setPrice(18.62f);
             event4.setDate(new Date(Calendar.getInstance().getTimeInMillis() + 86400000));
             event4.setPrice(4f);
+
+            event4.setCreator(user);
 
 
             Category category = new Category();
