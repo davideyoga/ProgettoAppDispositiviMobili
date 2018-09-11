@@ -35,6 +35,7 @@ export class UserService {
     checkLogin():boolean{
       if(this.getUtenteToken()!="" || this.getUtenteToken()!=null)
       return true;
+      console.log("il token è "+this.getUtenteToken());
     }
 
     getUserCreatedEvent(idEvent: number): Observable<User>{
@@ -87,7 +88,7 @@ export class UserService {
         const params = new HttpParams()
         .set('email', email)
         .set('password', password);
-        
+
         let apiURL = `${URL.REGISTER}`
         return this.http.post<User>(apiURL, params);
     }

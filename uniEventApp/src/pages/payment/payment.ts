@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {Event} from "../../models/event.model";
 import { EventService } from '../../services/event.service';
 import {User} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
+import { EVENTI_PAGE } from '../pages';
 
 /**
  * Generated class for the PaymentPage page.
@@ -27,7 +28,7 @@ export class PaymentPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService,
-              public eventService: EventService) {
+              public eventService: EventService,private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -66,9 +67,22 @@ export class PaymentPage {
     console.log(this.total);
   }
 
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Event was added successfully',
+      duration: 2000,
+      position: 'top'
+    });
+
+    toast.present();
+  }
+
   prenota(){
     this.eventService.bookedEvent(this.userService.getUtenteToken(),this.evento.id).subscribe((data:boolean) =>
     {console.log("data in payment: " + data);
+
+    this.navCtrl.setRoot(EVENTI_PAGE);
+    this.presentToast();
 
 
 });

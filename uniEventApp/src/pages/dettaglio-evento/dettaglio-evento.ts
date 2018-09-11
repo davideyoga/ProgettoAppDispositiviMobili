@@ -9,7 +9,6 @@ import { Events } from 'ionic-angular';
 import { User } from '../../models/user.model';
 import { EventService } from '../../services/event.service';
 import { UserService } from '../../services/user.service';
-import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { ToastController } from 'ionic-angular';
 import { PAYMENT_PAGE, LOGIN_PAGE } from '../pages';
@@ -31,14 +30,14 @@ export class DettaglioEventoPage {
   closed: boolean;
 
   utente: User;
-  loggedIn: boolean=false;
+  loggedIn:boolean=false;
+
 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public eventService: EventService,
               public userService: UserService,
               private transfer: FileTransfer, private file: File,
-              private iab: InAppBrowser,
               private socialSharing: SocialSharing,
               public modalCtrl: ModalController,
               public toastCtrl: ToastController,
@@ -51,10 +50,13 @@ export class DettaglioEventoPage {
 
     console.log('ionViewDidLoad EventoPage');
 
+
     //controllo loggato
     if(this.userService.getUtenteToken()!=null){
     this.loggedIn=true;
-    console.log("utente c'è");}
+    console.log("loggedin è "+this.loggedIn);
+  } else this.loggedIn=false;
+
 
 
     //gestione data
