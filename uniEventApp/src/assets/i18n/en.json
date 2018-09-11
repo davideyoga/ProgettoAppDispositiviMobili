@@ -97,7 +97,8 @@
   "LANGUAGE": "Language",
   "RECENSIONE": "Review event",
 
-  "LOGIN_O": "Login"
+  "LOGIN_O": "Login",
+  "EV_CHIUSO": "Passed event"
 }
 
 

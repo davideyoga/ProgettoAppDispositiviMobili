@@ -21,7 +21,7 @@
       </ion-avatar>
       <h2>{{e.title}}</h2>
       <p>{{e.date | date:'MMM d' }}</p>
-      <ion-note *ngIf="e.date<todayString" item-end color="danger">evento chiuso</ion-note>
+      <ion-note *ngIf="e.date<todayString" item-end color="danger">{{'EV_CHIUSO' | translate}}</ion-note>
     </ion-item>
   </ion-list>
 
