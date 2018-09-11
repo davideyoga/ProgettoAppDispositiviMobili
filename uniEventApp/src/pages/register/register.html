@@ -1,7 +1,7 @@
 <!-- METTERE TUTTI I PORCA PUTTANNA DI CAMPI IN ITA - ENG -->
 <ion-header>
   <ion-navbar color="primary_color">
-    <ion-title>{{'REGISTER'| translate}}</ion-title>
+    <ion-title>{{'REGISTER_TITLE'| translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -14,7 +14,7 @@
       <ion-list>
         <ion-card-title class="my-title" padding-top="">
           <ion-icon name="contact" item-start></ion-icon>
-          {{DATABASIC | translate}}</ion-card-title>
+          {{'DATABASIC' | translate}}</ion-card-title>
         <ion-item no-lines="">
           <ion-label floating>Email</ion-label>
           <ion-input [(ngModel)]="user.email" type="email" name="email"></ion-input>
@@ -64,7 +64,7 @@
 
     <!--permettere di caricare una foto profilo-->
     <ion-item>
-      <button full ion-button color="accent_colors" (click)="register(registerForm)">{{'REGISTER' | translate}}</button>
+      <button full ion-button color="accent_colors" (click)="register(registerForm)">{{'GO_REGISTER' | translate}}</button>
     </ion-item>
   </form>
 

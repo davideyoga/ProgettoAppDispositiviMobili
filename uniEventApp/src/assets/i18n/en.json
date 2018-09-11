@@ -28,6 +28,8 @@
   "PASSED": "Passed",
 
   "REGISTER": "Not a user? Register now!",
+  "GO_REGISTER": "Registration",
+  "REGISTER_TITLE": "Register",
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
   "LOGIN_ERROR_SUB_TITLE": "Username and/or password Wrong!",

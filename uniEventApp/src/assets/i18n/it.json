@@ -31,6 +31,8 @@
   "UPDATE_BUTTON": "Modifica",
 
   "REGISTER": "Non sei utente? Registrati!",
+  "REGISTER_TITLE": "Registrazione",
+  "GO_REGISTER": "Registrati",
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",
   "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
