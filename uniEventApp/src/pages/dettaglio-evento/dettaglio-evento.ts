@@ -7,11 +7,11 @@ import { Event } from '../../models/event.model';
 import { User } from '../../models/user.model';
 import { EventService } from '../../services/event.service';
 import { UserService } from '../../services/user.service';
-import { URL } from '../../constants';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { SocialSharing } from "@ionic-native/social-sharing";
-import { PaymentPage } from "../payment/payment";
 import { ToastController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -28,6 +28,8 @@ export class DettaglioEventoPage {
   priceFlag: boolean;
   favorite: boolean;
   closed: boolean;
+  loggedIn: boolean=false;
+  utente: User;
 
 
 
@@ -37,7 +39,8 @@ export class DettaglioEventoPage {
               private iab: InAppBrowser,
               private socialSharing: SocialSharing,
               public modalCtrl: ModalController,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              public events:Events) {
   }
 
 
@@ -45,6 +48,19 @@ export class DettaglioEventoPage {
 
     console.log('ionViewDidLoad DettaglioNotiziaPage');
 
+
+    if(this.userService.checkLogin()==true){
+      this.events.subscribe('user:login', (user:User) => {
+        this.loggedIn = true;
+        this.utente=user;
+        console.log(this.utente);
+      });
+    }
+
+
+      this.events.subscribe('user:logout', () => {
+        this.loggedIn=false;
+      });
 
     let today = new Date();
     let todayString: string = '';
