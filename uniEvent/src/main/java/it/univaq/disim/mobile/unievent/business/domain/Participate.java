@@ -1,5 +1,7 @@
 package it.univaq.disim.mobile.unievent.business.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -27,9 +29,11 @@ public class Participate implements java.io.Serializable {
 
 
     @OneToOne
+    @JsonIgnore
     private User user;
 
     @OneToOne
+    @JsonIgnore
     private Event event;
 
 
