@@ -59,7 +59,7 @@ export class HomePage {
       console.log(this.eventiFav);
     });
 
-    console.log('ionViewDidLoad HomePage', this.evento);
+    console.log('ionViewDidLoad HomePage' + this.eventi);
 
     if(this.navParams.get('baseForm') != null){
 

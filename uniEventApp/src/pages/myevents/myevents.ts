@@ -37,13 +37,14 @@ export class MyeventsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyeventsPage');
+    console.log('data attuale');
 
     let dd=(this.today.getMonth()+1).toString();
     if(dd.length<2) {
       dd = '0'+ dd;
     }
 
-    let mm=(this.today.getDate()+1).toString();
+    let mm=(this.today.getDate()).toString();
     if(mm.length<2) {
       mm = '0'+ mm;
     }
@@ -51,8 +52,9 @@ export class MyeventsPage {
     this.todayString=this.todayString + this.today.getFullYear() + '-' + dd + '-'
       + mm + ' ' + this.today.getHours()  + ':' + this.today.getMinutes()  + ':' +  this.today.getSeconds();
 
-    console.log('data');
+    console.log('data attuale');
     console.log(this.today);
+    console.log('data string');
     console.log(this.todayString);
 
     this.storage.get(UTENTE_STORAGE).then((user) => {

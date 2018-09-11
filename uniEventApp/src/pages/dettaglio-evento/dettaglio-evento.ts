@@ -60,8 +60,19 @@ export class DettaglioEventoPage {
     //gestione data
     let today = new Date();
     let todayString: string = '';
-    todayString=todayString + today.getFullYear() + '-' + '0' + (today.getMonth()+1) + '-' + today.getDate()
-                + ' ' + today.getHours()  + ':' + today.getMinutes()  + ':' +  today.getSeconds();
+
+    let dd=(today.getMonth()+1).toString();
+    if(dd.length<2) {
+      dd = '0'+ dd;
+    }
+
+    let mm=(today.getDate()).toString();
+    if(mm.length<2) {
+      mm = '0'+ mm;
+    }
+
+    todayString= todayString + today.getFullYear() + '-' + dd + '-'
+      + mm + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 
     console.log('data');
     console.log(today);
