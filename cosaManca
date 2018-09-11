@@ -6,11 +6,8 @@ HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
 
 EVENT:
     - immagine da sistemare (opz)
-    - se non loggato, quando si preme su prenota, mandare alla pagina di login (TONY) 
     - togliere recensisci evento, solo se si ha partecipato si puo' recensire, sostituire con altro (TONY)
-
-PRENOTAZIONE 
-    - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO (TONY)
+    - inserire ora e minuti(TONY)
 
 
 CREATE EVENT (service funzionante)
