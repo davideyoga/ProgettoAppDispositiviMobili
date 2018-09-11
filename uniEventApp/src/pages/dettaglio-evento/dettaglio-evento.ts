@@ -50,12 +50,18 @@ export class DettaglioEventoPage {
 
     console.log('ionViewDidLoad EventoPage');
 
-
+    console.log('this.userService.getUtenteToken():  ' + this.userService.getUtenteToken());
     //controllo loggato
     if(this.userService.getUtenteToken()!=null){
-    this.loggedIn=true;
-    console.log("loggedin è "+this.loggedIn);
-  } else this.loggedIn=false;
+      this.loggedIn=true;
+      console.log("loggedin è "+this.loggedIn);
+    
+    }else{
+
+      this.loggedIn=false;
+      console.log("loggedin è "+this.loggedIn);
+
+    } 
 
 
 
