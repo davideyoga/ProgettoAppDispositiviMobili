@@ -74,6 +74,19 @@ export class EventService {
         return this.http.get<Array<Event>>(baseSearchFormUrl);}
   }
 
+  baseSearch2(baseSearch:BaseSearchForm): Observable<Array<Event>> {
+
+    console.log("`${URL.ADVANCE_SEARCH}`: " + `${URL.BASE_SEARCH2}`);
+       return this.http.post<Array<Event>>(URL.ADVANCE_SEARCH, baseSearch, {observe: 'response'})
+           .map((resp: HttpResponse<Array<Event>>) => {
+
+               console.log("resp.body.valueOf():" + resp.body.valueOf());
+
+               return resp.body;
+           });
+
+  }
+
 
 
 

@@ -1,9 +1,6 @@
 HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
-    - ricerca base, se passiamo solo un termine da problemi (DAVIDE)
     - ricerca avanzata non e' collegata, collegare al metodo advanceSearch (MASSIMO E ANTONELLO)
     - ricerca avanzata sistemare metodo server, qualche volta nn prende gli eventi giusti
-    - RIEMPIRE CUORE QUANDO EVENTO E' TRA I PREFERITI 
-
     - descrizione evento da tagliare a x caratteri e metteri e mettere tre puntini  
 
 
@@ -12,20 +9,19 @@ EVENT:
     - se non loggato, quando si preme su prenota, mandare alla pagina di login (TONY) 
     - togliere recensisci evento, solo se si ha partecipato si puo' recensire, sostituire con altro (TONY)
 
-EVENT CREATOR: 
-    - aggiungere feedback (opz)
+PRENOTAZIONE 
+    - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO (TONY)
 
-LOGIN/SIGNIN
-    - da visualizzare bottone registrati
 
-MY EVENT
-    - sezionare eventi per passato e futuro (MASSIMO E ANTONELLO)
-    - da rivedere (MASSIMO E ANTONELLO)
-
-CREATE EVENT
+CREATE EVENT (service funzionante)
     - da aggiungere alcuni campi alla form 
     - non funziona 
 
+LOGIN: 
+    - se e' tutto vuoto entra ugualmente
+
+EVENT CREATOR: 
+    - aggiungere feedback (opz)
 
 EVENT REVIEW 
     - da fare 
@@ -33,13 +29,13 @@ EVENT REVIEW
 REVIEW EVENT
     - da fare tutta 
 
-PRENOTATI TOGLIERE CUORE
 
-PRENOTAZIONE 
-    - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO (TONY)
+FUNZIONALITA:
 
+    - SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP
 
+    - PRENOTATI TOGLIERE CUORE (opz)
 
-SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP
+    - FINDHOTEVENT PRENDERE SOLO EVENTI APERTI (opz)
 
-FINDHOTEVENT PRENDERE SOLO EVENTI APERTI
+    - RIEMPIRE CUORE QUANDO EVENTO E' TRA I PREFERITI (opz)
