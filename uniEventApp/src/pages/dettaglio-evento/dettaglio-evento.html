@@ -78,14 +78,14 @@
 
 </ion-content>
 
-<ion-footer *ngIf="priceFlag">
+<ion-footer *ngIf="priceFlag && !closed">
   <ion-toolbar color="primary_color" class="toolbar-buttons-page">
     <ion-title class="footer-title">
       <ion-icon item-start name='logo-euro'></ion-icon>
       {{evento.price | number: '1.2-2'}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)" *ngIf="loggedIn">
+      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)">
         {{'PRENOTA' | translate}}
         <ion-icon class="my-icon" name="card"></ion-icon>
       </button>
@@ -93,7 +93,7 @@
   </ion-toolbar>
 </ion-footer>
 
-<ion-footer *ngIf="!priceFlag">
+<ion-footer *ngIf="!priceFlag && !closed">
   <ion-toolbar color="primary_color" class="toolbar-buttons-page">
     <ion-title class="footer-title">
       {{'GRATIS' | translate}}
@@ -107,16 +107,16 @@
   </ion-toolbar>
 </ion-footer>
 
-<!--<ion-footer *ngIf="closed">-->
-  <!--<ion-toolbar color="primary_color" class="toolbar-buttons-page">-->
-    <!--<ion-title class="footer-title">-->
+<ion-footer *ngIf="closed">
+  <ion-toolbar color="primary_color" class="toolbar-buttons-page">
+    <ion-title class="footer-title">
 
-    <!--</ion-title>-->
-    <!--<ion-buttons end>-->
-      <!--<button ion-button large icon-end class="freeButton" (click)="openReview(evento)">-->
-        <!--hai fatto basta-->
-        <!--&lt;!&ndash;<ion-icon name="send"></ion-icon>&ndash;&gt;-->
-      <!--</button>-->
-    <!--</ion-buttons>-->
-  <!--</ion-toolbar>-->
-<!--</ion-footer>-->
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button large icon-end class="freeButton" (click)="openReview(evento)">
+        {{'RECENSIONE' | translate}}
+        <!--<ion-icon name="send"></ion-icon>-->
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
