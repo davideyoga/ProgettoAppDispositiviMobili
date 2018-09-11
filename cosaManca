@@ -4,9 +4,14 @@ HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
     - ricerca avanzata sistemare metodo server, qualche volta nn prende gli eventi giusti
     - RIEMPIRE CUORE QUANDO EVENTO E' TRA I PREFERITI 
 
+    - descrizione evento da tagliare a x caratteri e metteri e mettere tre puntini  
+
+
 EVENT:
     - immagine da sistemare
     - se non loggato, quando si preme su prenota, mandare alla pagina di login (TONY) 
+
+    -togliere recensisci evento, solo se si ha partecipato si puo' recensire, sostituire con altro
 
 EVENT CREATOR: 
     - aggiungere feedback
@@ -17,12 +22,16 @@ EVENT CREATOR:
 
 LOGIN/SIGNIN
     - registrazione ( TONY )
+    - rivedere
 
 MY EVENT
     - sezionare eventi per passato e futuro (MASSIMO E ANTONELLO)
+    - da rivedere
 
 CREATE EVENT
     - da aggiungere alcuni campi alla form 
+    -  non funziona 
+
 
 EVENT REVIEW 
     - da fare 
@@ -35,6 +44,10 @@ PRENOTATI TOGLIERE CUORE
 PRENOTAZIONE 
 	-PASSARE BENE EVENTO
 
+    - RIMANDARE AD UN'ALTRA PAGINA UNA VOLTA PRENOTATO
+
+
+    
 SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP
 
 FINDHOTEVENT PRENDERE SOLO EVENTI APERTI
