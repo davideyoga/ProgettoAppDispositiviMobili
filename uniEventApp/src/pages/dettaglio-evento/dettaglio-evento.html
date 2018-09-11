@@ -78,6 +78,7 @@
 
 </ion-content>
 
+<!-- evento a pagamento e non chiuso -->
 <ion-footer *ngIf="priceFlag && !closed">
   <ion-toolbar color="primary_color" class="toolbar-buttons-page">
     <ion-title class="footer-title">
@@ -85,14 +86,22 @@
       {{evento.price | number: '1.2-2'}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)">
+      <!-- bottone loggato -->
+      <button ion-button large icon-end round class="priceButton" (click)="openPayment(evento)" *ngIf="loggedIn">
         {{'PRENOTA' | translate}}
         <ion-icon class="my-icon" name="card"></ion-icon>
       </button>
+
+      <!-- bottone non loggato -->
+      <button ion-button large icon-end round class="priceButton" (click)="login()" *ngIf="!loggedIn">
+        {{'LOGIN_O' | translate}}
+      </button>
+
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
 
+<!-- footer 2 gratis e non chiuso -->
 <ion-footer *ngIf="!priceFlag && !closed">
   <ion-toolbar color="primary_color" class="toolbar-buttons-page">
     <ion-title class="footer-title">
@@ -107,6 +116,8 @@
   </ion-toolbar>
 </ion-footer>
 
+
+<!-- evento chiuso -->
 <ion-footer *ngIf="closed">
   <ion-toolbar color="primary_color" class="toolbar-buttons-page">
     <ion-title class="footer-title">

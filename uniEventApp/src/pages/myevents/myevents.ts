@@ -19,9 +19,8 @@ export class MyeventsPage {
 
   //lista di eventi visualizzabili nella home
   eventi: Array<Event>;
-  eventiPAssati: Array<Event>;
-  eventiInCorso: Array<Event>;
-
+  today = new Date();
+  todayString: string = '';
   //lista citta' salvate nel db
   citta: Array<String>;
 
@@ -39,15 +38,22 @@ export class MyeventsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyeventsPage');
 
-    let today = new Date();
-    let todayString: string = '';
-    todayString=todayString + today.getFullYear() + '-' + '0' + (today.getMonth()+1) + '-' + today.getDate()
-      + ' ' + today.getHours()  + ':' + today.getMinutes()  + ':' +  today.getSeconds();
+    let dd=(this.today.getMonth()+1).toString();
+    if(dd.length<2) {
+      dd = '0'+ dd;
+    }
+
+    let mm=(this.today.getDate()+1).toString();
+    if(mm.length<2) {
+      mm = '0'+ mm;
+    }
+
+    this.todayString=this.todayString + this.today.getFullYear() + '-' + dd + '-'
+      + mm + ' ' + this.today.getHours()  + ':' + this.today.getMinutes()  + ':' +  this.today.getSeconds();
 
     console.log('data');
-    console.log(today);
-    console.log(todayString);
-    console.log('\n');
+    console.log(this.today);
+    console.log(this.todayString);
 
     this.storage.get(UTENTE_STORAGE).then((user) => {
 
@@ -64,18 +70,12 @@ export class MyeventsPage {
       }
 
       console.log("prima");
-      console.log("this.utente.id: "+this.utente.id); //non mi prende id puttana maiala
+      console.log("this.utente.id: "+this.utente.id);
 
       this.eventService.getEventByUserCreator(this.utente.id).subscribe((data: Array<Event>) => {
-      this.eventi = data;
+        this.eventi = data;
+      });
     });
-    });
-
-    for(let i = 0;i<this.eventi.length;i++) {
-      if(this.eventi[i].date>todayString)
-        this.eventiInCorso.push(this.eventi[i]);
-      console.log(this.eventiInCorso)
-    }
 
   }
 
