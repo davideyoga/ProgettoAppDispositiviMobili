@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Event } from '../../models/event.model';
 
 /**
  * Generated class for the DummyPage page.
@@ -15,11 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DummyPage {
 
+  list: Array<Event>;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DummyPage');
-  }
+    this.list = this.navParams.data.filteredevents;
+
+}
+
+event(e: Event) {
+  this.navCtrl.push('DettaglioEventoPage', { eventoId: e.id});
+}
 
 }
