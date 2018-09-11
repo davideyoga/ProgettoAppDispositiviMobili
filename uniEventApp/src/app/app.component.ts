@@ -37,7 +37,26 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events,public actionSheetCtrl: ActionSheetController, public alert:AlertController) {
+      private linguaService: LinguaService, private translate: TranslateService, 
+      private UserService: UserService, public events: Events,public actionSheetCtrl: ActionSheetController, 
+      public alert:AlertController) {
+
+    
+        platform.ready().then(() => {
+
+          console.log("sto per carcare utente in memo");
+          this.UserService.getUtente().subscribe((user: User) => {
+            if (user != null) {
+
+              console.log("ho un utente in memo");
+              this.utente = user;
+              this.events.publish('user:login', this.utente);
+              
+            }else{
+              console.log("non ho utente in memo");
+            }
+          });
+        });
 
 
 
