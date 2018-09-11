@@ -3,7 +3,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 
-import { MenuController, Nav, Platform } from 'ionic-angular';
+import { MenuController, Nav, Platform, AlertController } from 'ionic-angular';
 
 import { LinguaService } from '../services/lingua.service';
 import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SETTING_PAGE, BOOKED_PAGE } from '../pages/pages';
@@ -11,9 +11,10 @@ import { EVENTI_PAGE, LOGIN_PAGE, PROFILE_PAGE, MYEVENTS_PAGE, FAVORITE_PAGE, SE
 import {timer} from 'rxjs/observable/timer';
 import { UserService } from '../services/user.service';
 import { Events } from 'ionic-angular';
-import { UTENTE_STORAGE } from '../constants';
+
 import { User } from '../models/user.model';
 import { Storage } from '@ionic/storage';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,7 +37,7 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController,
-  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private storage:Storage) {
+  private linguaService: LinguaService, private translate: TranslateService, private UserService: UserService, public events: Events, private alertCtrl: AlertController) {
 
 
 
@@ -57,14 +58,10 @@ export class MyApp {
 
     //chiama metodo initTranslate
     this.initTranslate();
+    this.listenToLoginEvents();
     platform.ready().then(() => {
       //QUI CAMBIO LA ROOT PAGE
       this.rootPage = EVENTI_PAGE;
-
-      this.listenToLoginEvents(); //guarda sotto
-
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
 
       statusBar.styleDefault();
       splashScreen.hide();
@@ -133,17 +130,52 @@ export class MyApp {
 
     listenToLoginEvents() {
         if(this.UserService.checkLogin()==true){
-        this.events.subscribe('user:login', (user) => {
+        this.events.subscribe('user:login', (user:User) => {
           this.loggedIn = true;
           this.utente=user;
           console.log(this.utente);
         });
+      }
+
 
         this.events.subscribe('user:logout', () => {
-          this.loggedIn = false;
-
+          this.loggedIn=false;
         });
+
+
+        this.events.subscribe('server-error', (err: HttpErrorResponse) => {
+          this.showMessageServerError(err);
+        });
+      }
+
+
+    showMessageServerError(err: HttpErrorResponse) {
+    let errorMessage = "Errore nel server";
+
+    switch (err.status) {
+      case 403:
+        errorMessage = "Utente non autorizzato";
+        break;
+      case 401:
+        errorMessage = "Utente non autenticato";
+        break;
+      default:
+        errorMessage = `Errore: ${err.status}`;
     }
+    let alert = this.alertCtrl.create({
+      title: "Errore",
+      subTitle: errorMessage,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            this.UserService.logout();
+            this.nav.setRoot(LOGIN_PAGE);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 

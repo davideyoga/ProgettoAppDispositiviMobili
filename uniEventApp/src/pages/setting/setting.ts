@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LinguaService, Lingua } from '../../services/lingua.service';
+import { TranslateService } from '@ngx-translate/core';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 
-/**
- * Generated class for the SettingPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +12,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'setting.html',
 })
 export class SettingPage {
+  utente: User;
+  linguaPreferita: string;
+  lingue: Array<Lingua>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService,
+    public linguaService: LinguaService, public translateService: TranslateService) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingPage');
+    console.log("ionViewDidLoad SettingPage");
+    this.lingue = this.linguaService.getLingue();
+    this.linguaService.getLinguaAttuale().subscribe((lingua: string) => {
+      this.linguaPreferita = lingua;
+    });
+    this.userService.getUtente().subscribe((utente: User) => {
+      this.utente = utente;
+    });
   }
 
-}
+  cambiaLingua() {
+
+      this.translateService.use(this.linguaPreferita);
+      this.linguaService.updateLingua(this.linguaPreferita);
+
+    }
+  }
+
