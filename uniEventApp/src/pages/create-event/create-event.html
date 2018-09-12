@@ -71,7 +71,7 @@
 
           <ion-item>
             <ion-label> <ion-icon name="calendar"></ion-icon> {{'WHEN' | translate }}</ion-label>
-            <ion-datetime [(ngModel)]="data" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
+            <ion-datetime [(ngModel)]="data" min="2018" max="2020-10-31" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
                           name="data">
             </ion-datetime>
           </ion-item>
