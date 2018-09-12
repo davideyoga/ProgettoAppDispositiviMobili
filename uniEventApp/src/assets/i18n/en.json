@@ -101,7 +101,10 @@
 
   "LOGIN_O": "Login",
   "EV_CHIUSO": "Passed event",
-  "CONCLUSO":"Event close"
+  "CONCLUSO":"Event close",
+
+  "DATA_FINE":"Ending date"
+
 
 }
 

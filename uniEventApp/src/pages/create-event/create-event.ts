@@ -7,6 +7,8 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
+import { EventService } from '../../services/event.service';
+import { Event } from '../../models/event.model';
 
 
 declare var cordova: any;
@@ -21,6 +23,7 @@ export class CreateEventPage {
 
   lastImage: string = null;
   loading: Loading;
+  event:Event;
 
   categorie: Array<Category>;
 
@@ -28,7 +31,7 @@ export class CreateEventPage {
 
 
 
-  constructor(private categoryService: CategoryService, public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
+  constructor(private eventService:EventService,private categoryService: CategoryService, public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private transfer: Transfer, private file: File, private filePath: FilePath, public actionSheetCtrl: ActionSheetController, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -42,7 +45,6 @@ export class CreateEventPage {
 
     });
 
-    //this.slider.lockSwipes(true);
   }
 
 
@@ -74,7 +76,7 @@ export class CreateEventPage {
 
 
 public takePicture(sourceType) {
-  // Create options for the Camera Dialog
+  // opzioni per la camera
   var options = {
     quality: 80,
     sourceType: sourceType,
@@ -82,9 +84,9 @@ public takePicture(sourceType) {
     correctOrientation: true
   };
 
-  // Get the data of an image
+  // prendi i dati dell'immagine
   this.camera.getPicture(options).then((imagePath) => {
-    // Special handling for Android library
+
     if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
       this.filePath.resolveNativePath(imagePath)
         .then(filePath => {
@@ -97,9 +99,9 @@ public takePicture(sourceType) {
       var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
       this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
     }
-  }, (err) => {
-    this.presentToast('Error while selecting image.');
-  });
+  }, () => {
+      this.presentToast('Error while selecting image.');
+    });
 }
 
 private createFileName() {
@@ -110,11 +112,11 @@ private createFileName() {
 }
 
 private copyFileToLocalDir(namePath, currentName, newFileName) {
-  this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
+  this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(() => {
     this.lastImage = newFileName;
-  }, error => {
-    this.presentToast('Error while storing file.');
-  });
+  }, () => {
+      this.presentToast('Error while storing file.');
+    });
 }
 
 private presentToast(text) {
@@ -136,7 +138,7 @@ public pathForImage(img) {
 
 public uploadImage() {
   // Destination URL
-  var url = "../assets/imgs";
+  var url = "/";
 
   // File for Upload
   var targetPath = this.pathForImage(this.lastImage);
@@ -161,13 +163,13 @@ public uploadImage() {
   this.loading.present();
 
   // Use the FileTransfer to upload the image
-  fileTransfer.upload(targetPath, url, options).then(data => {
-    this.loading.dismissAll()
+  fileTransfer.upload(targetPath, url, options).then(() => {
+    this.loading.dismissAll();
     this.presentToast('Image succesful uploaded.');
-  }, err => {
-    this.loading.dismissAll()
-    this.presentToast('Error while uploading file.');
-  });
+  }, () => {
+      this.loading.dismissAll();
+      this.presentToast('Error while uploading file.');
+    });
 }
 
 
@@ -186,11 +188,19 @@ back(){
 }
 
 save(){
+  var event=new Event();
 
-  //convalida e salvataggio tutta la form
+  event.price=this.navParams.get("prezzo");
+  event.title=this.navParams.get("titolo");
+  event.date=this.navParams.get("when");
+  event.date=this.navParams.get("when");
 
 
+  this.eventService.createEvent(this.event).subscribe((data:boolean)=>{
 
+console.log("creazione evento " +data)
+
+  });
 }
 
 

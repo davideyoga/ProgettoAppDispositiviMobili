@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Slides, DateTime} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
 
 import { BaseSearchForm } from '../../models/base.sear.form.model';
 import { Category } from '../../models/category.model';
@@ -8,12 +8,9 @@ import { CategoryService } from '../../services/category.service';
 import { EventService } from '../../services/event.service';
 import { NgForm } from '@angular/forms';
 import { PopoverComponent} from "../../components/popover/popover";
-import { SearchpopoverComponent } from "../../components/searchpopover/searchpopover";
 import { PopoverController} from "ionic-angular";
-import { dateDataSortValue } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
-import { DUMMY_PAGE, EXTRAFILTER_PAGE } from '../pages';
+import { EXTRAFILTER_PAGE } from '../pages';
 import { Content } from 'ionic-angular';
-import { User } from '../../models/user.model';
 
 @IonicPage()
 @Component({
@@ -25,9 +22,7 @@ export class HomePage {
   @ViewChild(Content) content: Content;
 
   public isSearchBarOpened = false;
-  public evento:any = [{id: 1, utente: 'cristiano', titolo: 'trattorissimo', date: "11/08/2016", imm: 10, ind: 'Via Roma, 50, 67019, Scoppito Avenue'},
-                       {id: 2, utente: 'Cristiano1', titolo: 'titolo evento1',date: "16/12/2018", imm: 20}
-                      ];
+
 
 
   baseForm: BaseSearchForm = { what: "", when: "", where: ""};
@@ -48,7 +43,7 @@ export class HomePage {
   //tutto cio' che succede all'avvio della pagina
   ionViewDidLoad() {
 
-    console.log('ionViewDidLoad HomePage', this.evento);
+    console.log('ionViewDidLoad HomePage');
 
       if(this.navParams.get('baseForm') != null){
 
@@ -85,13 +80,13 @@ export class HomePage {
       this.categoryService.categories().subscribe((data: Array<Category>) => {
         this.categorie = data;
       });
-      
+
 
     }
 
 
     //metodo che risponde alla form di ricerca della home
-    onBaseSearch(baseSearchForm: NgForm){
+    onBaseSearch(){
 
 
         console.log('onBaseSearch HomePage');
