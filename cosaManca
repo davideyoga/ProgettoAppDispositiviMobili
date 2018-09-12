@@ -1,18 +1,19 @@
 HOME: (EXPLORE/SEARCH) (EXTRA FILTER)
     - ricerca avanzata non e' collegata, collegare al metodo advanceSearch (MASSIMO E ANTONELLO)
     - ricerca avanzata sistemare metodo server, qualche volta nn prende gli eventi giusti
-    - descrizione evento da tagliare a x caratteri e metteri e mettere tre puntini  
+    - descrizione evento da tagliare a x caratteri e metteri e mettere tre puntini (opz)
 
 
 EVENT:
     - immagine da sistemare (opz)
-    - togliere recensisci evento, solo se si ha partecipato si puo' recensire, sostituire con altro (TONY)
-    - inserire ora e minuti(TONY)
 
 
 CREATE EVENT (service funzionante)
     - da aggiungere alcuni campi alla form 
     - non funziona 
+
+UPDATE PROFILE: (MATTINA)
+    - cambio email funziona, ma nn il resto 
 
 EVENT CREATOR: 
     - aggiungere feedback (opz)
@@ -26,9 +27,7 @@ REVIEW EVENT
 
 FUNZIONALITA:
 
-    - SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP
-
-    - PRENOTATI TOGLIERE CUORE (opz)
+    - SISTEMARE CANCELLAZZIONE UTENTE TUTTE LE VOLTE CHE SI CHIUDE L'APP (Pare che funziona)
 
     - FINDHOTEVENT PRENDERE SOLO EVENTI APERTI (opz)
 

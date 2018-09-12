@@ -117,7 +117,15 @@ public class Application {
             Service service1 = new Service();
             service1.setName("service1");
 
+            Service service2 = new Service();
+            service2.setName("service2");
+
+            Service service3 = new Service();
+            service3.setName("service3");
+
             serviceRepository.save(service1);
+            serviceRepository.save(service2);
+            serviceRepository.save(service3);
 
             List<Service> services = new ArrayList <>();
             services.add(service1);

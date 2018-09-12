@@ -32,6 +32,7 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import {ResultPage} from "../pages/result/result";
 
 registerLocaleData(localeIt, 'it');
 
@@ -45,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     MyApp,
     PopoverComponent,
     SearchpopoverComponent,
+    ResultPage
   ],
 
   imports: [
@@ -80,7 +82,8 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     MyApp,
     PopoverComponent,
-    SearchpopoverComponent
+    SearchpopoverComponent,
+    ResultPage
   ],
   providers: [
     StatusBar,

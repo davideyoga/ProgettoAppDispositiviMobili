@@ -101,7 +101,9 @@
 
   "LOGIN_O": "Login",
   "EV_CHIUSO": "Passed event",
-  "CONCLUSO":"Event close",
+  "TYPE": "Categories",
+  "PRICE": "Range of price",
+  "SERVICE": "Services"
 
   "DATA_FINE":"Ending date"
 

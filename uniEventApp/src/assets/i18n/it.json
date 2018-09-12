@@ -101,7 +101,8 @@
   "RECENSIONE": "Recensisci evento",
   "LOGIN_O": "Accedi",
   "EV_CHIUSO": "Evento passato",
-  "CONCLUSO":"Evento concluso",
-  "DATA_FINE":"Data fine evento"
+  "TYPE": "Categorie",
+  "PRICE": "Fascia di prezzo",
+  "SERVICE": "Servizi"
 
 }
