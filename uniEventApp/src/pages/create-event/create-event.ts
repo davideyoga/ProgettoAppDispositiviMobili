@@ -10,6 +10,7 @@ import { CategoryService } from '../../services/category.service';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event.model';
 import {NgForm} from "@angular/forms";
+import {EVENTI_PAGE} from "../pages";
 
 
 declare var cordova: any;
@@ -31,6 +32,12 @@ export class CreateEventPage {
   evento: Event = new Event();
 
   categoria: Category;
+
+  data: string;
+  ora: string;
+
+  today = new Date();
+  todayString: string = '';
 
   @ViewChild('Slider') slider: any;
 
@@ -197,13 +204,36 @@ export class CreateEventPage {
     // console.log(event.title);
     // console.log(event.address);
 
+    console.log('orario creazione');
+    console.log(this.data);
+    console.log(this.ora);
+    // let dd=(this.today.getMonth()+1).toString();
+    // if(dd.length<2) {
+    //   dd = '0'+ dd;
+    // }
+    //
+    // let mm=(this.today.getDate()).toString();
+    // if(mm.length<2) {
+    //   mm = '0'+ mm;
+    // }
+    //
+    // this.todayString=this.todayString + this.today.getFullYear() + '-' + dd + '-'
+    //   + mm + ' ' + this.today.getHours()  + ':' + this.today.getMinutes()  + ':' +  this.today.getSeconds();
+
+    this.evento.date=this.data+ ' ' + this.ora + ':'+'00';
+
+    console.log('stampa evento');
     console.log(this.evento);
+    console.log('stampa data');
+    console.log(this.evento.date);
+    console.log('stampa categoria');
     console.log(this.categoria);
 
     this.eventService.createEvent(this.evento).subscribe((data:boolean)=>{
 
       console.log("creazione evento ");
       console.log(data)
+      this.navCtrl.push(EVENTI_PAGE);
 
     });
   }

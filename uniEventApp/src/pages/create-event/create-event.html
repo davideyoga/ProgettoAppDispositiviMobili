@@ -71,8 +71,15 @@
 
           <ion-item>
             <ion-label> <ion-icon name="calendar"></ion-icon> {{'WHEN' | translate }}</ion-label>
-            <ion-datetime [(ngModel)]="evento.date" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
-                          name="date">
+            <ion-datetime [(ngModel)]="data" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
+                          name="data">
+            </ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label> <ion-icon name="calendar"></ion-icon> Ora</ion-label>
+            <ion-datetime [(ngModel)]="ora" displayFormat="HH mm" pickerFormat="HH mm"
+                          name="ora">
             </ion-datetime>
           </ion-item>
 
