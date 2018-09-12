@@ -105,9 +105,8 @@
   "PRICE": "Range of price",
   "SERVICE": "Services"
 
-  "DATA_FINE":"Ending date"
-
-
+  "DATA_FINE":"Ending date",
+  "MODIFICA_PROFILO": "Edit data"
 }
 
 

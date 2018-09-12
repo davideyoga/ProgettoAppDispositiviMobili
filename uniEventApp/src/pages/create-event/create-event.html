@@ -11,104 +11,96 @@
 <!-- inizio body -->
 <ion-content padding>
 
-<ion-slides #Slider>
 
 
-<ion-slide>
-<!-- button -->
-    <ion-fab right bottom>
-        <button ion-fab color="accent_colors" (click)="next()"><ion-icon name="arrow-forward"></ion-icon></button>
-      </ion-fab>
+  <form #createForm="ngForm">
 
-<!-- image upload -->
-<ion-list>
+    <ion-slides #Slider>
 
 
-  <ion-card [hidden]="lastImage !== null">
-  <img src="{{pathForImage(lastImage)}}" style="width:100%" [hidden]="lastImage === null">
-  </ion-card>
-
-
-
-
-  <ion-toolbar color="primary_color">
-      <ion-buttons>
-        <button [hidden]="lastImage !== null" ion-button icon-left (click)="presentActionSheet()">
-          <ion-icon name="camera"></ion-icon>{{'SCEGLI_FOTO' | translate}}
-        </button>
-      </ion-buttons>
-    </ion-toolbar>
-
-
-
-
-
-
-<!-- titolo evento -->
-<ion-item>
-    <ion-label floating>{{"TITOLO" | translate}}</ion-label>
-    <ion-input type="text" name="titolo" required></ion-input>
-  </ion-item>
-
-<div class="divider"></div>
-
-<!-- categoria -->
-<ion-item>
-          <ion-label floating>{{'WHAT' | translate }}</ion-label>
-          <ion-icon end-item name="wine"></ion-icon>
-          <ion-select interface="action-sheet">
-          <div *ngFor="let ca of categorie; let i = index">
-            <ion-option value="{{ca.name}}" required>{{ca.name}}</ion-option>
-          </div>
-        </ion-select>
-</ion-item>
-</ion-list>
-</ion-slide>
-
-
-
-
-<!-- SECONDA PAGINA -->
-<ion-slide>
-<!-- lista roba -->
-<ion-list>
-
-      <ion-item>
-          <ion-label floating>{{"PREZZO" | translate}}</ion-label>
-          <ion-input type="number" name="prezzo" min="0"  step="any"></ion-input>
-        </ion-item>
-
-        <div class="divider"></div>
-
-        <ion-item>
-          <ion-label> <ion-icon name="calendar"></ion-icon> {{'WHEN' | translate }}</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
-                        name="when">
-          </ion-datetime>
-        </ion-item>
-
-        <div class="divider"></div>
-
-        <ion-item>
-          <ion-label floating>{{"WHERE" | translate}}<ion-icon name="pin"></ion-icon></ion-label>
-          <ion-input type="text" name="prezzo"></ion-input>
-        </ion-item>
-
-
-<!-- bottoni -->
-<ion-fab left bottom>
-        <button ion-fab color="accent_colors" (click)="back()"><ion-icon name="arrow-back"></ion-icon></button>
-      </ion-fab>
-
-      <ion-fab right bottom>
-          <button ion-fab color="accent_colors" (click)="save()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
+      <ion-slide>
+        <!-- button -->
+        <ion-fab right bottom>
+          <button ion-fab color="accent_colors" (click)="next()"><ion-icon name="arrow-forward"></ion-icon></button>
         </ion-fab>
-</ion-list>
-</ion-slide>
 
+        <!-- image upload -->
+        <ion-list>
 
+          <ion-card [hidden]="lastImage !== null">
+            <img src="{{pathForImage(lastImage)}}" style="width:100%" [hidden]="lastImage === null">
+          </ion-card>
 
-</ion-slides>
+          <ion-toolbar color="primary_color">
+            <ion-buttons>
+              <button [hidden]="lastImage !== null" ion-button icon-left (click)="presentActionSheet()">
+                <ion-icon name="camera"></ion-icon>{{'SCEGLI_FOTO' | translate}}
+              </button>
+            </ion-buttons>
+          </ion-toolbar>
+
+          <!-- titolo evento -->
+          <ion-item>
+            <ion-label floating>{{"TITOLO" | translate}}</ion-label>
+            <ion-input type="text" [(ngModel)]="evento.title" name="title" required></ion-input>
+          </ion-item>
+
+          <div class="divider"></div>
+
+          <!-- categoria -->
+          <ion-item *ngFor="let ca of categorie">
+            <ion-label>
+              {{ca.name}}
+            </ion-label>
+            <ion-radio color="primary_color" item-right (click)="selectType(ca)"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+
+      <!-- SECONDA PAGINA -->
+      <ion-slide>
+        <!-- lista roba -->
+        <ion-list>
+
+          <ion-item>
+            <ion-label floating>{{"PREZZO" | translate}}</ion-label>
+            <ion-input type="number" [(ngModel)]="evento.price" name="price" min="0"  step="any"></ion-input>
+          </ion-item>
+
+          <div class="divider"></div>
+
+          <ion-item>
+            <ion-label> <ion-icon name="calendar"></ion-icon> {{'WHEN' | translate }}</ion-label>
+            <ion-datetime [(ngModel)]="evento.date" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
+                          name="date">
+            </ion-datetime>
+          </ion-item>
+
+          <div class="divider"></div>
+
+          <ion-item>
+            <ion-label floating>Indirizzo<ion-icon name="pin"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="evento.address" type="text" name="address"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>{{"WHERE" | translate}}<ion-icon name="pin"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="evento.city" type="text" name="address"></ion-input>
+          </ion-item>
+
+          <!-- bottoni -->
+          <ion-fab left bottom>
+            <button ion-fab color="accent_colors" (click)="back()"><ion-icon name="arrow-back"></ion-icon></button>
+          </ion-fab>
+
+          <ion-fab right bottom>
+            <button ion-fab color="accent_colors" (click)="save(createForm)"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
+          </ion-fab>
+        </ion-list>
+      </ion-slide>
+
+    </ion-slides>
+
+  </form>
 </ion-content>
 
 

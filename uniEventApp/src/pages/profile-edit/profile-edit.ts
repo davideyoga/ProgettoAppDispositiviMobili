@@ -72,28 +72,28 @@ export class ProfileEditPage {
   //----------------------------------------------------------------------------------
   //----------------------------------------------------------------------------------
   changeImg(){
-      let actionSheet = this.actionSheetCtrl.create({
-        title: 'Seleziona la fonte',
-        buttons: [
-          {
-            text: 'Carica dalla libreria',
-            handler: () => {
-              this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-            }
-          },
-          {
-            text: 'Usa Fotocamera',
-            handler: () => {
-              this.takePicture(this.camera.PictureSourceType.CAMERA);
-            }
-          },
-          {
-            text: 'Annulla',
-            role: 'cancel'
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Seleziona la fonte',
+      buttons: [
+        {
+          text: 'Carica dalla libreria',
+          handler: () => {
+            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
-        ]
-      });
-      actionSheet.present();
+        },
+        {
+          text: 'Usa Fotocamera',
+          handler: () => {
+            this.takePicture(this.camera.PictureSourceType.CAMERA);
+          }
+        },
+        {
+          text: 'Annulla',
+          role: 'cancel'
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
   takePicture(sourceType) {
@@ -279,6 +279,12 @@ export class ProfileEditPage {
             console.log('Saved clicked');
             console.log(data);
             this.utente.name=data.name;
+            this.userService.updateUser(this.utente).subscribe((data: User) => {
+              console.log('user dopo la modifica del nome');
+              console.log(this.utente);
+              console.log(data);
+              console.log('ci so arrivato');
+            });
           }
         }
       ]
@@ -309,6 +315,12 @@ export class ProfileEditPage {
             console.log('Saved clicked');
             console.log(data);
             this.utente.surname=data.surname;
+            this.userService.updateUser(this.utente).subscribe((data: User) => {
+              console.log('user dopo la modifica del cognome');
+              console.log(this.utente);
+              console.log(data);
+              console.log('ci so arrivato');
+            });
           }
         }
       ]
@@ -344,8 +356,18 @@ export class ProfileEditPage {
           handler: data => {
             console.log('Saved clicked');
             console.log(data);
-            if (data.pass==data.pass2)
-              this.utente.password=data.password;
+            if (data.pass==data.pass2){
+              console.log(data.pass);
+              console.log(data.pass2);
+              this.utente.password=data.pass;
+              console.log(this.utente.password);
+              this.userService.updateUser(this.utente).subscribe((data: User) => {
+                console.log('user dopo la modifica password');
+                console.log(this.utente);
+                console.log(data);
+                console.log('ci so arrivato');
+              });
+            }
           }
         }
       ]
@@ -355,7 +377,7 @@ export class ProfileEditPage {
 
   doPromptNumb() {
     let prompt = this.alertCtrl.create({
-      title: 'Cambia numeroo',
+      title: 'Cambia numero',
       message: "Inserisci il nuovo numero di telefono",
       inputs: [
         {
@@ -379,6 +401,12 @@ export class ProfileEditPage {
             let digits = data.number.replace(/\D/g, "");
             if (phoneRe.test(digits)){
               this.utente.telephoneNumber=data.number;
+              this.userService.updateUser(this.utente).subscribe((data: User) => {
+                console.log('user dopo la modifica del numero');
+                console.log(this.utente);
+                console.log(data);
+                console.log('ci so arrivato');
+              });
             }
             else{
               // erroe
@@ -413,6 +441,12 @@ export class ProfileEditPage {
             console.log('Saved clicked');
             console.log(data);
             this.utente.address=data.address;
+            this.userService.updateUser(this.utente).subscribe((data: User) => {
+              console.log('user dopo la modifica dell indirizzo');
+              console.log(this.utente);
+              console.log(data);
+              console.log('ci so arrivato');
+            });
           }
         }
       ]
